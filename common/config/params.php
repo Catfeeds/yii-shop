@@ -1,0 +1,25 @@
+<?php
+return [
+    'adminEmail' => 'admin@example.com',
+    'supportEmail' => 'support@example.com',
+    'user.passwordResetTokenExpire' => 3600,
+    'image' => 'http://p0ioi1ntv.bkt.clouddn.com/',//图片域名七牛 
+    'site' => [
+    	'url' => '',
+    	'sign' => '',//数据库中保存的本站地址，展示时替换成正确url
+    ],
+    'upload' => [
+    	'url'  => '',// 服务器解析到/web/目录时，uploads目录
+    	'path' => Yii::getAlias('@image/'), // 上传目录
+    ],
+    'logistics' => [//物流
+    	'appid' => '1280787',
+    	'appkey'=>'17b64807-ceb2-457e-b797-02d15156ae84',
+    	'search' => 'http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx',
+    ],
+    'qiniu' => [
+    	'access_key' =>'whHH-dp5GS__1hpxpLQZjung3xWrY6leW63Yg3sX',
+    	'secret_key' => 'hkWGb5aPlMf0gKt7Ay_nrRyrhsnOqc3G4hfg2sx1',
+    	'bucket' => 'shop'
+    ]
+];

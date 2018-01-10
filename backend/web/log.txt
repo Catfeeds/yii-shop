@@ -1,0 +1,54 @@
+yii\web\Request::__set_state(array(
+   'enableCsrfValidation' => true,
+   'csrfParam' => '_csrf-backend',
+   'csrfCookie' => 
+  array (
+    'httpOnly' => true,
+  ),
+   'enableCsrfCookie' => true,
+   'enableCookieValidation' => true,
+   'cookieValidationKey' => 'ZQwmdZgB3dzzt7BHUsejZzM7p58ldRLL',
+   'methodParam' => '_method',
+   'parsers' => 
+  array (
+  ),
+   '_cookies' => 
+  yii\web\CookieCollection::__set_state(array(
+     'readOnly' => true,
+     '_cookies' => 
+    array (
+      '_csrf-backend' => 
+      yii\web\Cookie::__set_state(array(
+         'name' => '_csrf-backend',
+         'value' => '	SdÏKð`ÝëèÌÖûõŸ–îÃÆ.¶£ïoÂÂ”^g–',
+         'domain' => '',
+         'expire' => NULL,
+         'path' => '/',
+         'secure' => false,
+         'httpOnly' => true,
+      )),
+    ),
+  )),
+   '_headers' => NULL,
+   '_rawBody' => NULL,
+   '_bodyParams' => NULL,
+   '_queryParams' => NULL,
+   '_hostInfo' => NULL,
+   '_hostName' => NULL,
+   '_baseUrl' => '',
+   '_scriptUrl' => '/index.php',
+   '_scriptFile' => NULL,
+   '_pathInfo' => NULL,
+   '_url' => NULL,
+   '_port' => NULL,
+   '_securePort' => NULL,
+   '_contentTypes' => NULL,
+   '_languages' => NULL,
+   '_csrfToken' => NULL,
+   '_isConsoleRequest' => NULL,
+   '_events' => 
+  array (
+  ),
+   '_behaviors' => NULL,
+   '_scriptFile' => NULL,
+))

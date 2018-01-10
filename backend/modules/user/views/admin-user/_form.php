@@ -1,0 +1,56 @@
+<?php
+/**
+ * Author: lf
+ * Blog: https://blog.feehi.com
+ * Email: job@feehi.com
+ * Created at: 2016-03-25 11:15
+ */
+
+/**
+ * @var $this yii\web\View
+ * @var $model backend\models\User
+ * @var $rolesModel backend\models\AdminRoles
+ */
+
+use backend\widgets\ActiveForm;
+use backend\models\AdminRoles;
+use backend\models\User;
+
+$this->title = "Admin";
+?>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox">
+            <?= $this->render('/widgets/_ibox-title') ?>
+            <div class="ibox-content">
+                <?php $form = ActiveForm::begin([
+                    'options' => [
+                        'enctype' => 'multipart/form-data',
+                        'class' => 'form-horizontal'
+                    ]
+                ]); ?>
+                <?= $form->field($model, 'username')->textInput(['maxlength' => 64]) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->field($model, 'avatar')->imgInput([
+                    'width' => '200px',
+                    'baseUrl' => yii::$app->params['admin']['url']
+                ]) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->field($model, 'email')->textInput(['maxlength' => 64]) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->field($model, 'password')->passwordInput(['maxlength' => 512]) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->field($model, 'status')->radioList( User::getStatuses() ) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->field($rolesModel, 'role_id', [
+                    'labelOptions' => [
+                        'label' => yii::t('app', 'Roles'),
+                    ]
+                ])->radioList(AdminRoles::getRolesNames()) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->defaultButtons() ?>
+                <?php ActiveForm::end(); ?>
+            </div>
+        </div>
+    </div>
+</div>
