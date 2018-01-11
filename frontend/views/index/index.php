@@ -1,3 +1,19 @@
+		<div class="ad">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper swiper-list">
+			    	<?php if ($banner) : ?>
+                    <?php foreach ($banner as $k1 => $v1) : ?>
+			        <div class="swiper-slide">
+			        	<a href="#" style="background: url(<?= Yii::$app->params['image'].($v1['image']) ?>) no-repeat center;"></a>
+			        </div>
+			        <?php endforeach;?>
+                	<?php endif; ?>
+			    </div>
+			    <div class="swiper-pagination"></div>
+			    <div class="swiper-button-prev"></div>
+	            <div class="swiper-button-next"></div>
+			</div>
+		</div>
 		<div class="container">
 			<!-- 走进文榜 start  -->
 			<section class="laber_wenbang">
