@@ -48,11 +48,8 @@
 			        <div class="swiper-slide">
 			        	<a href="#" style="background: url(<?= Yii::$app->params['image'].($v1['image']) ?>) no-repeat center;"></a>
 			        </div>
-			          <?php endforeach;?>
-                <?php endif; ?>
-			        <div class="swiper-slide">
-			        	<a href="#" style="background: url(/img/banner1.jpg) no-repeat center;"></a>
-			        </div>
+			        <?php endforeach;?>
+                	<?php endif; ?>
 			    </div>
 			    <div class="swiper-pagination"></div>
 			    <div class="swiper-button-prev"></div>
