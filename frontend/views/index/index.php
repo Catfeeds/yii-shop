@@ -1,248 +1,52 @@
-<div class="banner">
-    <div class="slidebanner">
-        <div class="hd">
-            <ul></ul>
-        </div>
-        <div class="bd">
-            <ul>
-                <?php if ($banner) : ?>
-                    <?php foreach ($banner as $k1 => $v1) : ?>
-                <li><a href="{$p['url']}" style="background:url(<?= Yii::$app->params['image'].($v1['image']) ?>) no-repeat top center"></a></li>
-                        <?php endforeach;?>
-                <?php endif; ?>
-            </ul>
-        </div>
-    </div>
-    <div class="nb">
-        <div class="lognew">
-            <div class="login-quick">
-                {if $ym_uname!=''}
-                <a href="user.html" class="head"><img src="{if $user[img]}{$user[img]}{else}{$images}/avatar.jpg{/if}"
-                                                      alt="70*70"/></a>
-                <p>Hi~您好！</p>
-                <!--{if $user[grade_name]}-->
-                <a href="user.html" class="btn-login">{$user[grade_name]}</a>
-                <!--{/if}-->
-                <a href="user.html" class="btn-regist">{$ym_uname}</a>
-                {else}
-                <a href="login.html" class="head"><img src="images/avatar.jpg" alt="70*70"/></a>
-                <p>Hi~您好！</p>
-                <a href="login.html" class="btn-login">请登录</a>
-                <a href="reg.html" class="btn-regist">免费注册</a>
-                {/if}
-            </div>
-            <div class="new-quick">
-                <div class="quicknew-bar">
-                    <span>资讯</span><a href="n-news.html" target="_blank" class="rside">更多</a>
-                </div>
-                <ul>
-                    <!--{loop $diy_mobiletuisong $p}-->
-                    <li><a href="{$p['url']}">{$p[name]}</a></li>
-                    <!--{/loop}-->
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="content">
-    <div class="nb">
-        {$diy_indexad}
-        <!--{if $diy_timespike}-->
-        <div class="time-limit">
-            <div class="timeslimit-bar">
-                <span>限时秒杀</span>
-                <p data-time="{$nowtime}" class="time" id="time1">还剩：<span id="v_day1">0</span>天<span
-                            id="v_hour1">0</span>小时<span id="v_minute1">0</span>分<span id="v_second1">0</span>秒</p>
-
-                <a href="timespike.html" target="_blank" class="rside">查看全部 &gt;</a>
-            </div>
-            <div class="slide-timeslimit" style="height: 268px;">
-                <div class="prev-next">
-                    <a href="javascript:void(0);" class="prev"></a>
-                    <a href="javascript:void(0);" class="next"></a>
-                </div>
-                <div class="bd">
-                    <ul>
-                        <!--{loop $spike['goods'] $p}-->
-                        <li>
-                            <div class="nr">
-                                <a class="picbox" href="{$p[url]}" target="_blank"><img src="{$p[thumb]}" alt=""/></a>
-                                <p class="word"><a href="{$p[url]}">{$p[name]}</a></p>
-                                <div class="pricebox">
-                                    <div class="price">￥<span>{$p[price]}</span></div>
-                                    <del>￥{$p[marketprice]}</del>
-                                </div>
-                            </div>
-                        </li>
-                        <!--{/loop}-->
-                    </ul>
-                </div>
-                <div class="hd" style="display: none;">
-                    <ul></ul>
-                </div>
-            </div>
-        </div>
-        <!--{/if}-->
-        <div class="floor-fontainer">
-            <!--{if $diy_indexfloor}-->
-            <div class="leftgood-bar">
-                <!--{loop $diy_indexfloor $k $c}-->
-                <div class="lgb {if !$k}onlgb{/if} lgb{$k}">
-                    <a href="javascript:void(0)" name="#floor{$k}">
-                        <span>{$c[name]}</span>
-                    </a>
-                </div>
-                <!--{/loop}-->
-            </div>
-            <div class="rightgood-body">
-                <!--{loop $diy_indexfloor $k $c}-->
-                <div class="floor floor{$k}" id="floor{$k}">
-                    <div class="floor-title">
-                        <h3><a href="{$c[url]}">{$c[name]}</a></h3>
-                        <a href="{$c[url]}" class="more">查看全部 &gt;</a>
-                        <ul class="navson">
-                            <!--{loop $c[child] $p}-->
-                            <li><a href="{$p[url]}">{$p[name]}</a></li>
-                            <!--{/loop}-->
-                        </ul>
-                    </div>
-                    <div class="floornr">
-                        <div class="itemsale">
-                            <a href="{$c[url]}" class="picbox">
-                                <img src="{$c[img]}" alt="" style="background-image:url(images/icon-duo.png)"/>
-                            </a>
-                            <a href="{$c[url]}" class="itemtitle">
-                                <h4 class="ellipsis">{$c[name]}</h4>
-                                <p class="ellipsis">{$c[remark]}</p>
-                            </a>
-                        </div>
-                        <div class="style-sale">
-                            <ul>
-                                <!--{loop $c[goods] $v}-->
-                                <li>
-                                    <a href="{$v['url']}" target="_blank">
-                                        <h4 class="ellipsis">{$v['name']}</h4>
-                                        <p class="ellipsis">{$v['subname']}</p>
-                                        <span class="picbox">
-													<img src="{$v['thumb']}" alt="238*130"/>
-												</span>
-                                    </a>
-                                </li>
-                                <!--{/loop}-->
-                            </ul>
-                        </div>
-                        <div class="brand-sale">
-                            <ul>
-                                <!--{loop $c['brands'] $b}-->
-                                <li><a href="{if $b[url]}{$b[url]}{else}../brand.html?id={$b[id]}{/if}" target="_blank"><img
-                                                src="{$b[logo]}" alt="80*60" width="60" height="60"/></a></li>
-                                <!--{/loop}-->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--{/loop}-->
-            </div>
-            <!--{/if}-->
-        </div>
-        <!--猜你喜欢-->
-        <!--{if $remmend_goods}-->
-        <div class="guesslike">
-            <div class="title-ab">
-                <h4>猜你喜欢</h4>
-            </div>
-            <ul class="yourlike indyourlike">
-                <!--{loop $remmend_goods $p}-->
-                <li>
-                    <a href="{$p[url]}" class="picbox" target="_blank">
-                        <img src="{$p[thumb]}" alt=""/>
-                    </a>
-                    <div class="elli">
-                        <a href="{$p[url]}" target="_blank">{$p[name]}</a>
-                    </div>
-                    <a href="{$p[url]}" class="price" target="_blank">￥<span>{$p[price]}</span></a>
-                </li>
-                <!--{/loop}-->
-            </ul>
-        </div>
-        <!--{/if}-->
-    </div>
-</div>
-
-<script>
-
-    $(".nav .nav-classify").addClass("nav-classifyopaity");
-    $(function () {
-        loadLayer();
-    });
-    jQuery(".slidebanner").slide({mainCell: ".bd ul", titCell: ".hd ul", autoPlay: true, autoPage: true});
-    jQuery(".slide-timeslimit").slide({
-        titCell: ".hd ul",
-        mainCell: ".bd ul",
-        autoPage: true,
-        effect: "left",
-        autoPlay: false,
-        scroll: 6,
-        vis: 6
-    });
-    //秒杀计时
-    InterValObj1 = window.setInterval(function () {
-        SetRemainTime(1);
-    }, 1000);
-    //侧栏浮动定位显示隐藏
-    $(window).scroll(function () {
-        var topH = $(".header").height() + $(".banner").height();
-        var footH = $(document).height() - $(".footer").height() - 500;
-
-        if ($(this).scrollTop() > topH - 250 && $(this).scrollTop() <= footH) {
-            $(".leftgood-bar").fadeIn(200);
-        } else {
-            $(".leftgood-bar").fadeOut(200);
-        }
-    });
-    setLeftBar();
-
-    function setLeftBar() {
-        if ($(window).width() > 1800) {
-            $(".leftgood-bar").css("left", '250px');
-        }
-        if ($(window).width() <= 1800) {
-            $(".leftgood-bar").css("left", '120px');
-        }
-        if ($(window).width() < 1600) {
-            $(".leftgood-bar").css("left", '0px');
-        }
-    }
-
-    $(window).resize(function () {
-        setLeftBar();
-    });
-    $(".leftgood-bar .lgb").each(function () {
-        $(this).click(function () {
-            $("body ,html").animate({scrollTop: $($(this).find("a").attr("name")).offset().top}, 500);
-
-        });
-    });
-    $(window).scroll(function () {
-        var scrollTop = $(window).scrollTop();
-        var len = $(".leftgood-bar").children().length;
-        for (var i = 0; i < len; i++) {
-            if (scrollTop + 250 >= $("#floor" + i).offset().top) {
-                $(".lgb").eq(i).addClass("onlgb").siblings().removeClass("onlgb");
-            }
-        }
-    });
-    //ie hask
-    var DEFAULT_VERSION = "8.0";
-    var ua = navigator.userAgent.toLowerCase();
-    var isIE = ua.indexOf("msie") > -1;
-    var safariVersion;
-    if (isIE) {
-        safariVersion = ua.match(/msie ([\d.]+)/)[1];
-    }
-    if (safariVersion <= DEFAULT_VERSION) {
-        $(".indyourlike li:nth-child(5n)").css("margin-right", "0px");
-        $(".cont-item a:last-child").css("margin-right", "0px");
-        $(".time-limit .slide-timeslimit .bd li:nth-child(6n)").children(" .nr").css("border-right", "none");
-    }
-</script>
+		<div class="container">
+			<!-- 走进文榜 start  -->
+			<section class="laber_wenbang">
+				<div class="wenbang auto">
+					<div class="wenbang_main">
+						<div class="wenbang_fl">
+							<img src="img/zjwb.png" />
+							<p class="p1">一<br>笔<br>留<br>给<br>子<br>孙<br>后<br>代<br>的<br>宝<br>贵<br>财<br>富<br>。</p>
+							<p>良<br>种<br>子<br>基<br>因<br>库<br>；<br>每<br>一<br>棵<br>古<br>茶<br>树<br>，<br>就<br>是</p>
+							<p>发<br>展<br>史<br>；<br>每<br>一<br>棵<br>古<br>茶<br>树<br>，<br>就<br>是<br>一<br>座<br>优</p>
+							<p>每<br>一<br>棵<br>古<br>茶<br>树<br>，<br>就<br>是<br>一<br>部<br>自<br>然<br>与<br>社<br>会</p>							
+						</div>
+						<div class="wenbang_fr">
+						    <video id="my-video" class="video-js vjs-big-play-centered" controls width="898" height="505" poster="img/pic1.jpg" data-setup="{}">
+						    	<source src="img/video.mp4" type="video/mp4">
+						    </video>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- 走进文榜 end  -->
+			<!-- 文榜服务 start  -->
+			<section class="laber_service">
+				<div class="service auto">
+					<div class="service_main">
+						<a href="#"><img src="img/pic2.jpg"></a>
+						<a href="#"><img src="img/pic3.jpg"></a>
+						<a href="#"><img src="img/pic4.jpg"></a>
+					</div>
+				</div>
+			</section>
+			<!-- 文榜服务 end  -->
+			<!-- 底部 start  -->
+			<footer>
+			    <div class="laber_footer auto">
+			    	<div class="footer">
+			    		<div class="foot_main">
+				    		<ul>
+				    			<li><a href="#">关于我们</a></li>
+				    			<li><a href="#">文榜茶师</a></li>
+				    			<li><a href="#">招商</a></li>
+				    		</ul>
+				    		<p><i></i>官方微信</p>
+				    		<b>亲临品鉴：</b><span>深圳市南山区蛇口街道岸湾六街鸿威海怡湾畔花<br/>园138号商铺</span>
+				    		<div class="tel"><p>品茗预约电话：</p>0755 - 8827 8006</div>
+			    		</div>
+			    		<em>Copyright © 2016 reallytalent.cn        粤ICP备17036121号-1</em>
+			    	</div>
+			    </div>
+			</footer>
+			<!-- 底部 end  -->
+		</div>

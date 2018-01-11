@@ -1,0 +1,176 @@
+/**********
+ * 页面样式
+ */
+
+/* ==========
+ * 基本默认样式
+ */
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,img,form,applet,fieldset,legend,button,input,textarea,th,table,tr,td{margin:0;padding:0;border:none;}
+
+/* bady */
+body,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,p{-webkit-text-size-adjust:none}
+input::-ms-clear{display:none;}/*清楚文本框X*/
+input,select,textarea{outline:none;cursor:pointer;-webkit-appearance:none;}
+html{-webkit-user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);background:#f6f9fc;width:100%;height:100%;}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {color:#000;}
+
+/* img */
+img{padding:0;margin:0;vertical-align:top;border:none;}
+i,em{font-style:normal;}
+
+/* div */
+li,ul{list-style:none;outside:none;}
+.clear{clear:both;height:0;width:100%;}
+body,h1,h2,h3,h4,h5,h6,hr,blockquote,dl,dt,dd,ul,ol,li,pre,img,form,applet,fieldset,legend,button,input,textarea,th,table,tr,td,a,b,i,span,input,select,p{font-family:"微软雅黑"; color: #333;}
+button{
+	outline：none;
+}
+button:hover{
+	background: #eaa02a;
+}
+button:focus,
+button:active:focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button.active.focus {
+    outline: none;
+}
+a{text-decoration: none;}
+img{outline-width:0px; vertical-align:top;} 
+/* ==========
+ * 工具样式
+ */
+.center-block{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.pull-right{
+	float: right !important;
+}
+.pull-left{
+	float: left !important;
+}
+.text-right{
+	text-align: right !important;
+}
+.text-left{
+	text-align: left !important;
+}
+.text-center{
+	text-align: center !important;
+}
+.invisible{
+	visibility: hidden;
+}
+.hide{
+	display: none !important;
+}
+.show{
+	display: block !important;
+}
+.text-hide{
+	font:0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+}
+.clearfix:before, .clearfix:after{
+	content: '';
+	display: table;
+}
+.clearfix:after{
+	clear: both;
+}
+
+
+
+/********
+ * 头部
+ */
+.auto{margin: 0 auto; width: 1200px;}
+header{width: 100%;}
+header .laber_top{width: 100%; height: 24px; background: #2c2625; min-width: 1200px;}
+header .laber_top .top_main{height: 24px;}
+header .laber_top .top_main .login{float: right;}
+header .laber_top .top_main .login > a{color: #d3b799; font-size: 14px; line-height: 24px; padding: 0 6px; position: relative;}
+header .laber_top .top_main .login > a:first-child:after{position: absolute; content: '/'; right: -3px;}
+header .laber_top .top_main .login > a:last-child{padding-right: 0;}
+header .laber_header{width: 100%; height: 128px; background: #fff; min-width: 1200px;}
+header .laber_header .header_main{ height: 128px; position: relative; }
+.header_main > nav{position: absolute; bottom: 32px;}
+.header_main .nav_fl{float: left;left: 0;}
+.header_main > nav li{margin:0 50px;}
+.header_main > nav li{float: left;}
+.header_main .nav_fl li:first-child{margin-left: 0;}
+.header_main > nav li a{font-size: 14px; color: #3e3a39;}
+.header_main > nav .on a{color: #d3b799;}
+.header_main > nav li a:hover{ color: #d3b799; transform: all 1s;}
+.header_main .nav_fr{float: right; right: 0;}
+.header_main .nav_fr li:last-child{margin-right: 0;}
+.header_main .logo{position: absolute; bottom: 32px; left: 50%; margin-left: -119px; width: 238px; height: 70px;}
+
+
+/*******
+ * banner
+ */
+.ad{
+	width: 100%;
+	height: 680px;
+	position: relative;
+	display: inline-block;
+	min-width: 1200px;
+}
+.swiper-list{
+	width: 100%;
+    height: 680px;
+}
+.swiper-list .swiper-slide a{
+	float: left;
+    width: 100%;
+    height: 680px;
+}
+
+/*******
+ * 主体 --视频
+ */
+
+.container{background: url(../img/bg.jpg) no-repeat center top; width: 100%;}
+.laber_wenbang{width: 100%; min-width: 1200px;}
+.wenbang_main{width: 100%; padding-top: 104px; height: 505px;}
+.wenbang_main .wenbang_fl{width: 300px; float: left;}
+.wenbang_main .wenbang_fl img{width: 64px; height: 308px; float: left;}
+.wenbang_main .wenbang_fl p{float: left; color: #6a5b54; font-size: 17px; margin-left: 14px; line-height: 28px;}
+.wenbang_main .wenbang_fl .p1{margin-left: 36px;}
+.wenbang_main .wenbang_fr{width: 898px; height: 505px; float: right;}
+
+/******
+ * 服务
+ */
+
+.laber_service{width: 100%; min-width: 1200px;}
+.service_main{padding: 112px 0; overflow: hidden;}
+.service_main a{float: left; width: 390px; height: 260px;}
+.service_main a + a{margin-left: 15px;}
+.service_main a img{width: 390px; height: 260px;}
+
+/********
+ * 底部
+ */
+
+footer{width: 100%; min-width: 1200px;}
+.footer{width: 100%; border-top: 1px solid #d3d3d3; overflow: hidden;}
+.foot_main{margin-top: 25px; width: 100%; float: left;}
+.foot_main > ul{float: left;}
+.foot_main > ul li{padding: 0 30px; float: left; position: relative;}
+.foot_main > ul li{border-right: 1px solid #d3d3d3;}
+.foot_main > ul li a{color: #2c2625;font-size: 14px;}
+.foot_main > p{margin-left: 28px; float: left; font-size: 14px; color: #2c2625;}
+.foot_main > p i{background: url(../img/wx-6.png) no-repeat; width: 20px; height: 16px; float: left; margin-right: 6px;}
+.foot_main > span{font-size: 14px; float: left;color: #2c2625;}
+.foot_main > b{font-size: 14px; float: left; margin-left: 68px;color: #2c2625; font-weight: normal;}
+.foot_main .tel{float: right; font-size: 24px; color: #d3b799;line-height: 10px;}
+.foot_main .tel > p{float: left;font-size: 14px;color: #2c2625; line-height: 20px;}
+.footer > em{width: 100%; float: left; text-align: center; font-size: 12px; color: #6a5b54; margin: 38px 0 14px;}

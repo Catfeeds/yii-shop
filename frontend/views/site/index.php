@@ -1,53 +1,52 @@
-<?php
-
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
-?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
-    </div>
-</div>
+		<div class="container">
+			<!-- 走进文榜 start  -->
+			<section class="laber_wenbang">
+				<div class="wenbang auto">
+					<div class="wenbang_main">
+						<div class="wenbang_fl">
+							<img src="img/zjwb.png" />
+							<p class="p1">一<br>笔<br>留<br>给<br>子<br>孙<br>后<br>代<br>的<br>宝<br>贵<br>财<br>富<br>。</p>
+							<p>良<br>种<br>子<br>基<br>因<br>库<br>；<br>每<br>一<br>棵<br>古<br>茶<br>树<br>，<br>就<br>是</p>
+							<p>发<br>展<br>史<br>；<br>每<br>一<br>棵<br>古<br>茶<br>树<br>，<br>就<br>是<br>一<br>座<br>优</p>
+							<p>每<br>一<br>棵<br>古<br>茶<br>树<br>，<br>就<br>是<br>一<br>部<br>自<br>然<br>与<br>社<br>会</p>							
+						</div>
+						<div class="wenbang_fr">
+						    <video id="my-video" class="video-js vjs-big-play-centered" controls width="898" height="505" poster="img/pic1.jpg" data-setup="{}">
+						    	<source src="img/video.mp4" type="video/mp4">
+						    </video>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- 走进文榜 end  -->
+			<!-- 文榜服务 start  -->
+			<section class="laber_service">
+				<div class="service auto">
+					<div class="service_main">
+						<a href="#"><img src="img/pic2.jpg"></a>
+						<a href="#"><img src="img/pic3.jpg"></a>
+						<a href="#"><img src="img/pic4.jpg"></a>
+					</div>
+				</div>
+			</section>
+			<!-- 文榜服务 end  -->
+			<!-- 底部 start  -->
+			<footer>
+			    <div class="laber_footer auto">
+			    	<div class="footer">
+			    		<div class="foot_main">
+				    		<ul>
+				    			<li><a href="#">关于我们</a></li>
+				    			<li><a href="#">文榜茶师</a></li>
+				    			<li><a href="#">招商</a></li>
+				    		</ul>
+				    		<p><i></i>官方微信</p>
+				    		<b>亲临品鉴：</b><span>深圳市南山区蛇口街道岸湾六街鸿威海怡湾畔花<br/>园138号商铺</span>
+				    		<div class="tel"><p>品茗预约电话：</p>0755 - 8827 8006</div>
+			    		</div>
+			    		<em>Copyright © 2016 reallytalent.cn        粤ICP备17036121号-1</em>
+			    	</div>
+			    </div>
+			</footer>
+			<!-- 底部 end  -->
+		</div>
