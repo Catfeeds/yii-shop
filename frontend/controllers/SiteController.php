@@ -23,7 +23,7 @@ class SiteController extends Controller
      */
     public function behaviors()
     {
-        return [
+       /* return [
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup'],
@@ -46,7 +46,7 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
-        ];
+        ];*/
     }
 
     /**
@@ -71,7 +71,7 @@ class SiteController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {	
+    {	    	
         return $this->render('index');
     }
 
@@ -137,8 +137,27 @@ class SiteController extends Controller
      * @return mixed
      */
     public function actionAbout()
-    {
+    {	
         return $this->render('about');
+    }
+    
+    public function actionNews()
+    {
+    	return $this->render('news');
+    }
+    
+    public function actionDetail()
+    {
+    	return $this->render('detail');
+    }
+    
+    public function actionHealthy()
+    {
+    	return $this->render('healthy');
+    }
+    public function actionMake()
+    {
+    	return $this->render('make');
     }
 
     /**

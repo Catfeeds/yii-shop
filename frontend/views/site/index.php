@@ -48,5 +48,18 @@
 			    	</div>
 			    </div>
 			</footer>
+			<?php include __DIR__.'/layouts/footer.php'?> 
 			<!-- 底部 end  -->
 		</div>
+		<script>        
+		  var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'horizontal',
+		    loop: true,
+		    autoplay:3000,
+		    pagination: '.swiper-pagination',
+		    nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+	        effect : 'flip',
+		  })
+		</script>
+		<script type="text/javascript" src="js/video.min.js" ></script>
