@@ -25,7 +25,7 @@ class IndexController extends BaseController
      */
     public function behaviors()
     {
-        /*return [
+        return [
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup'],
@@ -48,7 +48,7 @@ class IndexController extends BaseController
                     'logout' => ['post'],
                 ],
             ],
-        ];*/
+        ];
     }
 
     /**
