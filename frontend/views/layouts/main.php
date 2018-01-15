@@ -38,13 +38,13 @@ $this->beginPage() ?>
 					<nav class="nav_fl">
 						<li class="on"><a href="/">首页</a></li>
 						<li><a href="">文榜茶叶</a></li>
-						<li><a href="<?Url::to('/site/make')?>">制茶大师</a></li>
+						<li><a href="<?=Url::to('/site/make')?>">制茶大师</a></li>
 					</nav>
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
 					<nav class="nav_fr">
 						<li><a href="#">文榜茶具</a></li>
-						<li><a href="<?Url::to('/site/heathly')?>">健康喝茶</a></li>
-						<li><a href="<?Url::to('/site/news')?>">新闻中心</a></li>
+						<li><a href="<?=Url::to('/site/heathly')?>">健康喝茶</a></li>
+						<li><a href="<?=Url::to('/site/news')?>">新闻中心</a></li>
 					</nav>
 				</div>				
 			</div>
