@@ -43,7 +43,7 @@ $this->beginPage() ?>
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
 					<nav class="nav_fr">
 						<li><a href="#">文榜茶具</a></li>
-						<li><a href="<?=Url::to('/site/heathly')?>">健康喝茶</a></li>
+						<li><a href="<?=Url::to('/site/healthy')?>">健康喝茶</a></li>
 						<li><a href="<?=Url::to('/site/news')?>">新闻中心</a></li>
 					</nav>
 				</div>				

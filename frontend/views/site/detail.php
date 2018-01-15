@@ -15,8 +15,8 @@
 				</div>
 			</section>
 			<div class="contmain4">
-							<?php include __DIR__.'/layouts/footer.php'?> 
-			</div>			
+						<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+						</div>			
 		</div>
 		<!-- 主体内容 end  -->
 		<script language="javascript"> 
