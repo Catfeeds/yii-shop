@@ -45,5 +45,5 @@
 					</div>
 				</div>
 			</section>
-						<?php include __DIR__.'/layouts/footer.php'?> 
+						<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 		</div>
