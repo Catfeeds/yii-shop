@@ -2,7 +2,7 @@
 			<section class="laber_newDetails">
 				<div class="newDetails auto">
 					<div class="newDetails_main">
-						<a class="back" href="#"><返回</a>
+						<a class="back" href="javascript:history.go(-1);"><返回</a>
 						<div class="new_cont">
 							<time><?=date('Y-m-d',$article->created_at)?></time>
 							<span><?=$article->title?></span>
