@@ -151,6 +151,7 @@ class SiteController extends Controller
     {	
     	$id =(int) Yii::$app->request->get('id');
     	$data['article'] = Article::getArticleById($id);
+    	var_dump($data['article']->content);exit;
     	return $this->render('detail',$data);
     }
     
