@@ -236,7 +236,7 @@ class Article extends \yii\db\ActiveRecord
         }
     }
     
-    public function getList($offset,$limit)
+    public static function getList($offset,$limit)
     {
     	return self::find()->select('[*]')->offset($offset)->limit($limit)->asArray()->all();
     }
