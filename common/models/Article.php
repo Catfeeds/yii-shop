@@ -238,7 +238,7 @@ class Article extends \yii\db\ActiveRecord
     
     public static function getList($offset,$limit)
     {
-    	return self::find()->select('*')->orderBy('updated desc')->offset($offset)->limit($limit)->asArray()->all();
+    	return self::find()->select('*')->orderBy('updated_at desc')->offset($offset)->limit($limit)->asArray()->all();
     }
     
 }
