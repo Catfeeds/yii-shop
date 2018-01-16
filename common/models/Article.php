@@ -233,6 +233,7 @@ class Article extends \yii\db\ActiveRecord
         if ($this->thumb) {
             $this->thumb = str_replace(yii::$app->params['site']['sign'], yii::$app->params['site']['url'], $this->thumb);
         }
+    	$this->content = ArticleContent::findOne(['aid' => $this->id])['content'];
     }
     
     public static function getList($offset,$limit)

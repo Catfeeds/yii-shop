@@ -86,13 +86,6 @@ class Article extends \common\models\Article
         return true;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function afterFind()
-    {
-        parent::afterFind();
-        $this->content = ArticleContent::findOne(['aid' => $this->id])['content'];
-    }
+   
 
 }
