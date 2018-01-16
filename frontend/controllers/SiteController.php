@@ -148,8 +148,11 @@ class SiteController extends Controller
     }
     
     public function actionDetail()
-    {
-    	return $this->render('detail');
+    {	
+    	$id =(int) Yii::$app->request->get('id');
+    	$data['article'] = Article::getArticleById($id);
+    	print_r($data);exit;
+    	return $this->render('detail',$data);
     }
     
     public function actionHealthy()
