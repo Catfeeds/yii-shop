@@ -20,26 +20,6 @@ class Article extends \common\models\Article
      */
     public function beforeSave($insert)
     {
-        $upload = UploadedFile::getInstance($this, 'thumb');
-        if ($upload !== null) {
-            $uploadPath = yii::getAlias('@thumb/');
-            if (! FileHelper::createDirectory($uploadPath)) {
-                $this->addError('thumb', "Create directory failed " . $uploadPath);
-                return false;
-            }
-            $fullName = $uploadPath . uniqid() . '_' . $upload->baseName . '.' . $upload->extension;
-            if (! $upload->saveAs($fullName)) {
-                $this->addError('thumb', yii::t('app', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('app', 'Thumb')]) . ': ' . $fullName);
-                return false;
-            }
-            $this->thumb = str_replace(yii::getAlias('@frontend/web'), '', $fullName);
-            if( !$insert ){
-                $file = yii::getAlias('@frontend/web') . $this->getOldAttribute('thumb');
-                if( file_exists($file) ) unlink($file);
-            }
-        } else {
-            $this->thumb = $this->getOldAttribute('thumb');
-        }
         if ($this->flag_headline == null) {
             $this->flag_headline = 0;
         }
