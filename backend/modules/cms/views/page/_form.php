@@ -13,7 +13,7 @@
 
 use backend\widgets\ActiveForm;
 use common\libs\Constants;
-use backend\widgets\Ueditor;
+use common\widgets\ueditor\Ueditor;
 
 $this->title = "Pages";
 ?>

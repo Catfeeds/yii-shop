@@ -12,7 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use common\models\Article;
 /**
  * Site controller
  */
@@ -142,8 +142,9 @@ class SiteController extends Controller
     }
     
     public function actionNews()
-    {
-    	return $this->render('news');
+    {	
+    	$data['articles'] = Article::getList(0,10);
+    	return $this->render('news',$data);
     }
     
     public function actionDetail()
