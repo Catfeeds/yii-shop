@@ -15,7 +15,7 @@ $(function(){
 function getData(offset,size){
 	$.ajax({
 		type: "GET",
-		url: "/site/newslist?offset='+offset+'&size='+size'",
+		url: "/site/newslist?offset=0&size=2",
 		dataType: 'json',
 		success: function(reponse){
 			var data = reponse.articles;
@@ -29,7 +29,7 @@ function getData(offset,size){
 			}
 			
 			for(var i=offset;i<(offset + size);i++){
-				result += '<div class="item"><a class="link_pic" href=""><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].text+'</a></div>'
+				result += '<div class="item"><a class="link_pic" href=""><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].summary+'</a></div>'
 			}
 			$('#news_main').append(result);
 			if ( (offset + size) >= sum){
