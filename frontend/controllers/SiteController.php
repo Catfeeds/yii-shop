@@ -169,6 +169,11 @@ class SiteController extends BaseController
     		$size = 10;
     	}
     	$articles = Article::getList($offset,$size);
+    	foreach($articles as $k=>$value){
+    		$value['created_at'] = date('Y-m-d',$value['created_at']);
+    		$value['thumb'] = Yii::$app->params['image'].$value['thumb'];
+    		$articles[$k]= $value;
+    	}
 		return json_encode(['status' =>0,'articles' =>$articles ]);  	
     }
     
