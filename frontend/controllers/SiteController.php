@@ -162,7 +162,26 @@ class SiteController extends Controller
     {
     	return $this->render('make');
     }
-
+	
+    public function actionPack ()
+    {
+    	return $this->render('pack');
+    }
+    
+    public function actionMaterial ()
+    {
+    	return $this->render('material');
+    }
+    
+    public function actionTechnology()
+    {
+    	return $this->render('technology');
+    } 
+    
+    public function actionExperience()
+    {
+    	return $this->render('experience');
+    }
     /**
      * Signs user up.
      *

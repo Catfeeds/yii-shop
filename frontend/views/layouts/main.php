@@ -14,6 +14,7 @@ $this->beginPage() ?>
 		<script type="text/javascript" src="/js/html5shiv.js" ></script>
 		<script type="text/javascript" src="/js/jquery-1.8.1.min.js" ></script>
 		<script type="text/javascript" src="/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="/js/main.js" ></script>
 	</head>
 	<body>
 	<?php $this->beginBody() ?>
@@ -37,7 +38,7 @@ $this->beginPage() ?>
 				<div class="header_main auto">
 					<nav class="nav_fl">
 						<li class="on"><a href="/">首页</a></li>
-						<li><a href="">文榜茶叶</a></li>
+						<li><a href="<?=Url::to('/site/material')?>">文榜茶叶</a></li>
 						<li><a href="<?=Url::to('/site/make')?>">制茶大师</a></li>
 					</nav>
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
