@@ -165,7 +165,7 @@ class SiteController extends BaseController
     	$offset = (int)Yii::$app->request->get('offset')+0;
     	$size = (int)Yii::$app->request->get('size')+0;
     	$articles = Article::getList($offset,$size);
-		return json_encode(['status' =>0,'articles' =>$articles ])    	
+		return json_encode(['status' =>0,'articles' =>$articles ]);  	
     }
     
     public function actionDetail()
