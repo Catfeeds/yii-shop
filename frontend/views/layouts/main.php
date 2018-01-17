@@ -37,15 +37,15 @@ $this->beginPage() ?>
 			<div class="laber_header">
 				<div class="header_main auto">
 					<nav class="nav_fl">
-						<li <?php if($controller=='index'):?>class="on" <?php endif;?>><a href="/">首页</a></li>
-						<li <?php if(in_array($action,['material','technology','experience','pack'])):?> class="on"<?php endif;?>><a href="<?=Url::to('/site/material')?>">文榜茶叶</a></li>
-						<li <?php if($action=='make'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/make')?>">制茶大师</a></li>
+						<li <?php if($this->params['controller']=='index'):?>class="on" <?php endif;?>><a href="/">首页</a></li>
+						<li <?php if(in_array($this->params['action'],['material','technology','experience','pack'])):?> class="on"<?php endif;?>><a href="<?=Url::to('/site/material')?>">文榜茶叶</a></li>
+						<li <?php if($this->params['action']=='make'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/make')?>">制茶大师</a></li>
 					</nav>
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
 					<nav class="nav_fr">
 						<li><a href="#">文榜茶具</a></li>
-						<li<?php if($action=='healthy'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/healthy')?>">健康喝茶</a></li>
-						<li<?php if($action=='news'||$action=='detail'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/news')?>">新闻中心</a></li>
+						<li <?php if($this->params['action']=='healthy'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/healthy')?>">健康喝茶</a></li>
+						<li <?php if($this->params['action']=='news'||$this->params['action']=='detail'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/news')?>">新闻中心</a></li>
 					</nav>
 				</div>				
 			</div>
