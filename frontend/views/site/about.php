@@ -1,18 +1,4 @@
 		<div class="container2">
-			<section class="laber_tea">
-				<div class="tea auto">
-					<div class="tea_main">
-						<div class="tea_item"><img src="/img/bz.jpg"></div>
-						<div class="tea_title"></div>
-						<ul>
-							<li class="on"><a class="b1" href="javascript:;"></a></li>
-							<li><a class="b2" href="javascript:;"></a></li>
-							<li><a class="b3" href="javascript:;"></a></li>
-							<li><a class="b4" href="javascript:;"></a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
 			<section class="laber_about">
 				<div class="about auto">
 					<div class="about_main">
@@ -71,8 +57,6 @@
 						</div>
 					</div>
 				</section>
-								
-						<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+			<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>
-			
 		</div>

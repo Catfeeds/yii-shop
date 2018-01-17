@@ -143,6 +143,11 @@ class SiteController extends BaseController
         return $this->render('about');
     }
     
+    public function actionMerchants()
+    {
+    	return $this->render('merchants');
+    }
+    
     public function actionNews()
     {	
     	$data['articles'] = Article::getList(0,10);
