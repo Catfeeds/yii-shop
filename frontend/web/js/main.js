@@ -15,7 +15,7 @@ $(function(){
 function getData(offset,size){
 	$.ajax({
 		type: "GET",
-		url: "/site/newslist",
+		url: "/site/newslist?offset='+offset+'&size='+size'",
 		dataType: 'json',
 		success: function(reponse){
 			var data = reponse.articles;
