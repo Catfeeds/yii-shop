@@ -109,6 +109,12 @@ class SiteController extends BaseController
 
         return $this->goHome();
     }
+    
+    
+    public function actionTeaset()
+    {
+    	return $this->render('teaset');
+    }
 
     /**
      * Displays contact page.

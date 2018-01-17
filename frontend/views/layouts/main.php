@@ -43,7 +43,7 @@ $this->beginPage() ?>
 					</nav>
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
 					<nav class="nav_fr">
-						<li><a href="#">文榜茶具</a></li>
+						<li <?php if($this->params['action']=='teaset'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/teaset')?>">文榜茶具</a></li>
 						<li <?php if($this->params['action']=='healthy'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/healthy')?>">健康喝茶</a></li>
 						<li <?php if($this->params['action']=='news'||$this->params['action']=='detail'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/news')?>">新闻中心</a></li>
 					</nav>

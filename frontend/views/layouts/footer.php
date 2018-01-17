@@ -5,7 +5,7 @@
 				    		<div class="foot_main">
 					    		<ul>
 					    			<li><a href="<?=Url::to('/site/about')?>">关于我们</a></li>
-					    			<li><a href="#">文榜茶师</a></li>
+					    			<li><a href="<?=Url::to('/site/make')?>">文榜茶师</a></li>
 					    			<li><a href="<?=Url::to('/site/merchants')?>">招商</a></li>
 					    		</ul>
 					    		<div class="footer_wx">

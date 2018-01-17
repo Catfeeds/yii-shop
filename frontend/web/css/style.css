@@ -438,3 +438,11 @@ input:-ms-input-placeholder { /* Internet Explorer 10+ */
 .source_main{width: 100%; text-align: center; display: inline-block;}
 .source_main span{width: 100%; text-align: center; display: inline-block; margin-top: 100px; font-size: 24px; color: #2c2625;font-family: '宋体'; font-weight: bold; letter-spacing: 16px;}
 .source_main p{width: 898px;  margin: 0 auto; text-align: center; font-size: 17px; color: #6a5b54; font-family: '宋体';letter-spacing: 10px; margin-top: 34px; line-height: 30px;}
+
+/********
+ * 茶具
+ * 
+ */
+.laber_teaset{width: 100%; background: #f7f8f8; min-width: 1200px;}
+.teaset{overflow: hidden;}
+.teaset_main{width: 100%; display: inline-block; margin-bottom: 60px;}
