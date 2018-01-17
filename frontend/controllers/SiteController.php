@@ -16,7 +16,7 @@ use common\models\Article;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
      * @inheritdoc
@@ -48,6 +48,8 @@ class SiteController extends Controller
             ],
         ];
     }
+    
+    
 
     /**
      * @inheritdoc
