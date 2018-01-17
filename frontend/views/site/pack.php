@@ -1,4 +1,5 @@
-		<div class="container2">
+<?php use yii\helpers\Url;?>
+<div class="container2">
 			<section class="laber_tea">
 				<div class="tea auto">
 					<div class="tea_main">
