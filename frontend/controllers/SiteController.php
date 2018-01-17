@@ -160,6 +160,14 @@ class SiteController extends BaseController
     	return $this->render('news',$data);
     }
     
+    public function actionNewslist()
+    {	
+    	$offset = (int)Yii::$app->request->get('offset')+0;
+    	$size = (int)Yii::$app->request->get('size')+0;
+    	$articles = Article::getList($offset,$size);
+		return json_encode(['status' =>0,'articles' =>$articles ])    	
+    }
+    
     public function actionDetail()
     {	
     	$id =(int) Yii::$app->request->get('id');
