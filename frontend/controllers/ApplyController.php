@@ -23,7 +23,7 @@ class ApplyController extends BaseController
     	$model->updated_at = time();
     	$model->setAttributes(yii::$app->getRequest()->post(),false);
     	if ($model->validate() && $model->save()) {
-    		return json_decode(['status' =>0,'msg' =>'提交成功']);
+    		return json_encode(['status' =>0,'msg' =>'提交成功']);
     	} else {
     		$errors = $model->getErrors();
     		$msg = '';
