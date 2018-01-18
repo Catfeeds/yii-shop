@@ -39,7 +39,7 @@ class ApplyController extends \yii\web\Controller
             ],
             'delete' => [
                 'class' => DeleteAction::className(),
-                'modelClass' => Ad::className(),
+                'modelClass' => Apply::className(),
             ],
         ];
     }
