@@ -17,7 +17,6 @@ function getData(offset,size){
 		type: "GET",
 		url: '/site/newslist?offset='+offset+'&size='+size,
 		dataType: 'json',
-		data: "",
 		success: function(reponse){
 			var data = reponse.articles;
 			console.log(data)
