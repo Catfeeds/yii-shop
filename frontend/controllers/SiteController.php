@@ -173,7 +173,7 @@ class SiteController extends BaseController
     		$value['created_at'] = date('Y-m-d',$value['created_at']);
     		$value['thumb'] = Yii::$app->params['image'].$value['thumb'];
     		$value['url'] = Url::to('/site/detail?id='.$value['id']);
-    		$value['summary'] = substr($value['summary'], 0,75);
+    		$value['summary'] = mb_substr($value['summary'], 0,75);
     		$articles[$k]= $value;
     	}
 		return json_encode(['status' =>0,'articles' =>$articles ]);  	
