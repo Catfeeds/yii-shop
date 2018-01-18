@@ -11,7 +11,7 @@
 			        <?php endforeach;?>
                 	<?php endif; ?>
 			    </div>
-	            <div class="swiper-button-next"></div>
+			    <div class="swiper-button-next"></div>	            
 			</div>
 		</div>
 		<div class="container">
