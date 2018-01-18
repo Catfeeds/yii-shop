@@ -17,6 +17,9 @@ class BaseController extends Controller
         $view = Yii::$app->view;
         $view->params['controller'] = strtolower($controller);
 		$view->params['action'] = strtolower($act);
+		$view->params['title'] = '文榜茶业';
+		$view->params['keywords'] = '文榜茶业';
+		$view->params['description'] = '文榜茶业';
         return true;
     }
 

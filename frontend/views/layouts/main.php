@@ -1,12 +1,14 @@
 <?php 
 use yii\helpers\Url;
-
+use yii\helpers\Html;
 $this->beginPage() ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>首页</title>
+		<title><?= Html::encode($this->params['title']) ?></title>
+		<meta name="description" content="<?= Html::encode($this->params['description'])?>" />
+		<meta name="keywords" content="<?= Html::encode($this->params['keywords'])?>" />
 		<link rel="stylesheet" href="/css/normalize.css">
 		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="/css/swiper.min.css" />

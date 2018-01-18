@@ -113,7 +113,7 @@ class SiteController extends BaseController
     
     
     public function actionTeaset()
-    {
+    {	
     	return $this->render('teaset');
     }
 

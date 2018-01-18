@@ -74,7 +74,6 @@ class IndexController extends BaseController
      */
     public function actionIndex()
     {
-        $data['category'] = CategoryService::index();
         $data['banner'] = BannerService::index();
         return $this->render('index',$data);
     }

@@ -1,4 +1,4 @@
-		<div class="ad">
+<div class="ad">
 			<div class="swiper-container">
 			    <div class="swiper-wrapper swiper-list">
 			    	<?php if ($banner) : ?>
