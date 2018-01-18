@@ -27,7 +27,6 @@ class ApplyController extends \yii\web\Controller
                         'query' => $query,
                         'sort' => [
                             'defaultOrder' => [
-                                'sort' => SORT_ASC,
                                 'id' => SORT_ASC,
                             ],
                         ]
