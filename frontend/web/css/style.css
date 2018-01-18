@@ -355,9 +355,7 @@ width: 60px; height: 150px; z-index: 999;}
 .news_main .item span{font-size: 24px; font-family: '宋体'; color: #2c2625; width: 100%; float: left; overflow: hidden; text-overflow: ellipsis;  white-space: nowrap; margin: 30px 0; font-weight: bold;letter-spacing: 4px;}
 .news_main .item .link_p{font-size: 17px; color: #6a5b54; line-height: 30px; margin-top: -10px; float: left; width: 100%;letter-spacing: 5px;}
 .contmain4{background: url(../img/pic17.jpg) no-repeat center top; width: 100%; padding-top: 366px; margin-top: -280px; min-width: 1200px;}
-.news .look_more{width: 100%; display: inline-block; text-align: center;margin-top: 30px;}
-.news .look_more .more {display: inline-block;width: 154px;height: 40px;text-align: center;line-height: 40px;border: 1px solid #d3b799;border-radius: 4px;}
-.news .look_more .more:hover{background: #d3b799; transition: all 1s; cursor: pointer;}
+
 
 .laber_newDetails{width: 100%; min-width: 1200px; background: #f7f8f8;}
 .newDetails{overflow: hidden;}
@@ -368,7 +366,9 @@ width: 60px; height: 150px; z-index: 999;}
 .newDetails_main .new_cont img{width: 100%; height: auto; float: left; margin: 30px 0 40px;}
 .newDetails_main .new_cont > p{width: 100%; float: left;font-size: 17px; color: #6a5b54; line-height: 28px; margin-bottom: 30px;}
 .newDetails_main .back{font-size: 14px; color: #666666; position: absolute; top: 0; left: 0;}
-
+.news .look_more{width: 100%; display: inline-block; text-align: center; margin-top: 30px;}
+.news .look_more .more {display: inline-block;width: 154px;height: 40px;text-align: center;line-height: 40px;border: 1px solid #d3b799;border-radius: 4px;}
+.news .look_more .more:hover{background: #d3b799; transition: all 1s; cursor: pointer;}
 
 /********
  * 招商
@@ -400,6 +400,13 @@ width: 60px; height: 150px; z-index: 999;}
 .enrol_main > form .item{width: 100%; float: left; margin-bottom: 34px;}
 .enrol_main > form .item >span{width: 80px; float: left; line-height: 48px; font-size: 18px; color: #6a5b54; font-family: '宋体'; font-weight: bold;}
 .enrol_main > form .item > input{width: 330px; height: 48px; border: 1px solid #d3d3d3; border-radius: 5px; padding: 0 9px; float: left;}
+.enrol_main > form .item label{float: left;}
+.enrol_main > form .item label + label{margin-left: 46px;}
+.enrol_main > form .item .tg-icheck-radio > input{display: none;}
+.tg-icheck-radio .tg-icheck-media{width: 150px; height: 48px; border: 1px solid #d3d3d3; border-radius: 5px; background: none; text-align: center;font-size: 18px; color: #6a5b54; line-height: 48px;}
+.tg-icheck-radio .tg-icheck-media + .tg-icheck-media{margin-left: 30px;}
+.tg-icheck-radio > input:checked + .tg-icheck-media{background: #d3b799;border: 1px solid #d3b799;}
+
 .enrol_main > form .item .gender{width: 348px; float: left;}
 .enrol_main > form .item .gender > input{width: 150px; height: 48px;border: 1px solid #d3d3d3; border-radius: 5px; background: none;}
 .enrol_main > form .item .gender > input:last-child{float: right;font-size: 18px; color: #6a5b54; }
