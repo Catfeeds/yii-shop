@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use yii\web\Controller;
+use common\models\Options;
 use Yii;
 
 /**
@@ -17,9 +18,10 @@ class BaseController extends Controller
         $view = Yii::$app->view;
         $view->params['controller'] = strtolower($controller);
 		$view->params['action'] = strtolower($act);
-		$view->params['title'] = '文榜茶业';
-		$view->params['keywords'] = '文榜茶业';
-		$view->params['description'] = '文榜茶业';
+		$options = Options::find()->where(['<','id',4])->select('*')->asArray()->all();
+		$view->params['title'] = $options[2]['value'];
+		$view->params['keywords'] = $options[0]['value'];
+		$view->params['description'] = $options[1]['value'];
         return true;
     }
 
