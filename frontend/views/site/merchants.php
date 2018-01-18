@@ -79,17 +79,30 @@
 					<a href="javascript:;" id="tj_btn"><img src="/img/tjbtn.png"></a>
 				</form>
 			</div>
+			<div class="laber_hbg2" style="display: none;"></div>
+			<div class="wind" style="display: none;">
+				<p>请填写完整的信息</p>
+				<a class="btnOk" href="javascript:;">确定</a>
+			</div>
 		</div>
 		<!-- 主体内容 end  -->
 		<script>			
 			$('#tj_btn').click(function(){
+				if($('#name').val() == '' || $('#wei').val() == '' || $('#provinces').val() == '' || $('#city').val() == '' || $('#tel').val() == ''){
+					$('.laber_hbg2, .wind').show();
+					$('.btnOk').click(function(){
+						$('.laber_hbg2, .wind').hide();
+					})
+					return false;					
+				}
 				$.ajax({
 					type:"POST",
 					url:"/apply/create",
 					dataType: 'json',
 					data: $('#formid').serialize(),
 					success: function(request){
-						
+						$('.laber_hbg2, .wind').show();
+						$('.wind p').html('提交成功');
 						if(reqeust.status!=1){
 							window.location.reload();
 						}

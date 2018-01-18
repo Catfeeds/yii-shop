@@ -289,7 +289,7 @@ footer{width: 100%; min-width: 1200px;}
 .teaname .teaname_main{width: 100%; position: relative; height: 680px; float: left;}
 .teaname .teaname_main img{width: 100%; height: 680px; float: left;}
 .teaname .teaname_main h1{background: url(../img/name.png) no-repeat -100px -154px; width: 145px; height: 226px; position: absolute; right: 52px; top: 66px;}
-.teaname .teaname_main span{position: absolute; top: 66px; right: 270px; font-size: 24px; width: 24px; color: #2c2625; font-family: '宋体'; font-weight: bold;}
+.teaname .teaname_main span{position: absolute; top: 66px; right: 270px; font-size: 24px; width: 24px; color: #2c2625; font-family: '宋体'; font-weight: bold; line-height: 36px; margin-top: -3px;}
 .teaname .teaname_main .name_text{position: absolute; top: 66px; right: 320px;}
 .teaname .teaname_main .name_text p{width: 18px; font-size: 17px; float: left;display: inline; word-wrap: break-word; word-break:nomal; line-height: 28px;font-family: "宋体"; margin-left: 12px; color: #6a5b54;}
 .laber_core{width: 100%; height: 495px; background: url(../img/pic10.jpg) no-repeat center top; min-width: 1200px;}
@@ -323,7 +323,7 @@ width: 60px; height: 150px; z-index: 999;}
 .introduce_main > span{position: absolute; top: 272px; left: 56px; font-size: 24px; color: #2c2625; font-family: '宋体';letter-spacing: 16px;}
 .introduce_main > p{position: absolute; width: 600px; left: 56px; top: 336px; font-family: '宋体'; font-size: 17px; color: #6a5b54;letter-spacing: 10px;line-height: 28px;}
 
-.laber_drinktea{width: 100%; min-width: 1200px; background: #f7f8f8;}
+.laber_drinktea{width: 100%; min-width: 1200px; background: url(../img/pic31.jpg) no-repeat center top; height: 469px;}
 .drinktea{overflow: hidden;}
 .drinktea_main{width: 100%; float: left;}
 .drinktea_main span{width: 100%; float: left; margin-top: 104px; text-align: center; font-size: 30px; color: #2c2625; font-family: '宋体';letter-spacing: 16px; font-weight: bold;}
@@ -333,6 +333,7 @@ width: 60px; height: 150px; z-index: 999;}
 .drinktea_main .drinktea_ul li .drink1{background-position: 0 -88px;}
 .drinktea_main .drinktea_ul li .drink2{background-position: 0 0;}
 .drinktea_main .drinktea_ul li .drink3{background-position: 0 -176px;}
+.drinktea_main .drinktea_ul li p{ margin-top: 30px; line-height: 28px; font-family: '宋体'; font-size: 18px; color: #2c2625;}
 
 .contmain3{width: 100%; background: url(../img/pic16.jpg) no-repeat center top; min-width: 1200px;}
 .drink_teatime{width: 100%; height: 846px; min-width: 1200px;}
@@ -352,8 +353,8 @@ width: 60px; height: 150px; z-index: 999;}
 .news_main .item:nth-child(2n){margin-left: 40px;}
 .news_main .item .link_pic{width: 580px; height: 360px; float: left; overflow: hidden;}
 .news_main .item .link_pic img{height: 360px; width: auto;}
-.news_main .item span{font-size: 24px; font-family: '宋体'; color: #2c2625; width: 100%; float: left; overflow: hidden; text-overflow: ellipsis;  white-space: nowrap; margin: 30px 0; font-weight: bold;letter-spacing: 4px;}
-.news_main .item .link_p{font-size: 17px; color: #6a5b54; line-height: 30px; margin-top: -10px; float: left; width: 100%;letter-spacing: 5px;}
+.news_main .item span{font-size: 20px; font-family: '宋体'; color: #2c2625; width: 100%; float: left; overflow: hidden; text-overflow: ellipsis;  white-space: nowrap; margin: 30px 0; font-weight: bold;letter-spacing: 4px;}
+.news_main .item .link_p{font-size: 17px; color: #6a5b54; line-height: 30px; margin-top: -10px; float: left; width: 100%;letter-spacing: 5px; overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
 .contmain4{background: url(../img/pic17.jpg) no-repeat center top; width: 100%; padding-top: 366px; margin-top: -280px; min-width: 1200px;}
 
 
@@ -390,6 +391,7 @@ width: 60px; height: 150px; z-index: 999;}
 .merchants_main .btm_bm > p:last-child{margin-top: 5px;}
 
 .laber_hbg{width: 100%; background: rgba(0,0,0,0.5); bottom:0; left: 0; top: 0; position: fixed;z-index: 888;}
+.laber_hbg2{width: 100%; background: rgba(0,0,0,0.5); bottom:0; left: 0; top: 0; position: fixed;z-index: 9999;}
 .laber_enrol{background: url(../img/enrol.png) no-repeat; position: absolute; top: 50%; left: 50%; z-index: 999; width: 850px; height: 974px; margin-left: -375px; margin-top: -400px;}
 .laber_enrol .enrol_main{padding:0 100px;}
 .enrol_main .enrol_title{ margin-top: 58px; width: 100%; float: left;}
@@ -400,6 +402,7 @@ width: 60px; height: 150px; z-index: 999;}
 .enrol_main > form .item{width: 100%; float: left; margin-bottom: 34px;}
 .enrol_main > form .item >span{width: 80px; float: left; line-height: 48px; font-size: 18px; color: #6a5b54; font-family: '宋体'; font-weight: bold;}
 .enrol_main > form .item > input{width: 330px; height: 48px; border: 1px solid #d3d3d3; border-radius: 5px; padding: 0 9px; float: left;}
+.enrol_main > form .item > p{float: left; line-height: 48px; margin-left: 14px; color: red; display: none;}
 .enrol_main > form .item label{float: left;}
 .enrol_main > form .item label + label{margin-left: 46px;}
 .enrol_main > form .item .tg-icheck-radio > input{display: none;}
@@ -413,6 +416,9 @@ width: 60px; height: 150px; z-index: 999;}
 .enrol_main > form .item .gender > input.on{color: #2c2625; background: #d3b799;border: 1px solid #d3b799;}
 .enrol_main > form .item  textarea{width: 556px; height: 118px; border:1px solid #d3d3d3; padding: 6px;}
 .enrol_main > form > a{width: 100%; float: left; margin-top: 26px; margin-left: 80px;}
+.laber_enrol .wind{position: absolute; padding: 15px 25px; width: 350px; height: 270px; background: #fff; box-shadow: 0px 0px 3px #101010; top: 50%; left: 50%; margin-top: -150px; margin-left: -200px; z-index: 999999; border-radius: 5px; text-align: center;}
+.laber_enrol .wind p{ font-size: 20px; line-height: 28px; color: #6a5b54; font-family: '宋体'; width: 100%; text-align: center; margin-top: 60px; letter-spacing: 8px;}
+.laber_enrol .wind .btnOk{ width: 182px; height: 48px; text-align: center; line-height: 48px; color: #3e3a39; background: #d3b799; border-radius: 5px; display: inline-block; margin-top: 90px;}
 input::-webkit-input-placeholder { /* WebKit browsers */  
     color:    #999;  
 }  
