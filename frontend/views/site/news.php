@@ -12,6 +12,9 @@
 						</div>-->
 
 					</div>
+					<div class="look_more">
+						<a class="more" href="javascript:;">浏览更多</a>
+					</div>
 				</div>
 			</section>
 			<div class="contmain4">
@@ -39,27 +42,17 @@
 			    var counter = 0; /*计数器*/
 			    var pageStart = 0; /*offset*/
 			    var pageSize = 6; /*size*/
-			    var isEnd = false;/*结束标志*/
 			    
 			    /*首次加载*/
 			    getData(pageStart, pageSize);
 			    
-			     
-				/*监听加载更多*/
-				$(window).scroll(function(){
-				  if(isEnd == true){
-				    return;
-				  }
-				 
-				  // 当滚动到最底部以上100像素时， 加载新内容
-				  // 核心代码
-				  if ($(document).height() - $(this).scrollTop() - $(this).height()<100){
-				    counter ++;
-				    pageStart = counter * pageSize;
-				       
-				    getData(pageStart, pageSize);
-				  }
-				});
+			    /*监听加载更多*/
+			    $(document).on('click', '.more', function(){
+			        counter ++;
+			        pageStart = counter * pageSize;
+			        
+			        getData(pageStart, pageSize);
+			    });
 			});
 		</script>
 	</body>
