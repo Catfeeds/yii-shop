@@ -355,7 +355,9 @@ width: 60px; height: 150px; z-index: 999;}
 .news_main .item span{font-size: 24px; font-family: '宋体'; color: #2c2625; width: 100%; float: left; overflow: hidden; text-overflow: ellipsis;  white-space: nowrap; margin: 30px 0; font-weight: bold;letter-spacing: 4px;}
 .news_main .item .link_p{font-size: 17px; color: #6a5b54; line-height: 30px; margin-top: -10px; float: left; width: 100%;letter-spacing: 5px;}
 .contmain4{background: url(../img/pic17.jpg) no-repeat center top; width: 100%; padding-top: 366px; margin-top: -280px; min-width: 1200px;}
-
+.news .look_more{width: 100%; display: inline-block; text-align: center;}
+.news .look_more .more {display: inline-block;width: 154px;height: 40px;text-align: center;line-height: 40px;border: 1px solid #d3b799;border-radius: 4px;}
+.news .look_more .more:hover{background: #d3b799; transition: all 1s; cursor: pointer;}
 
 .laber_newDetails{width: 100%; min-width: 1200px; background: #f7f8f8;}
 .newDetails{overflow: hidden;}
