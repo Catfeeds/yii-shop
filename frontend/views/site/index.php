@@ -56,10 +56,18 @@
 		    direction: 'horizontal',
 		    loop: true,
 		    autoplay:3000,
-		    pagination: '.swiper-pagination',
-		    nextButton: '.swiper-button-next',
-	        prevButton: '.swiper-button-prev',
+		    pagination : '.pagination',
+		    grabCursor: true,
+		    paginationClickable :true,
 	        effect : 'flip',
+		  })
+		  $('.arrow-left').on('click', function(e){
+		    e.preventDefault()
+		    mySwiper.swipePrev()
+		  })
+		  $('.arrow-right').on('click', function(e){
+		    e.preventDefault()
+		    mySwiper.swipeNext()
 		  })
 		</script>
 		<script type="text/javascript" src="js/video.min.js" ></script>
