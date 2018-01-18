@@ -157,8 +157,7 @@ class SiteController extends BaseController
     
     public function actionNews()
     {	
-    	$data['articles'] = Article::getList(0,10);
-    	return $this->render('news',$data);
+    	return $this->render('news');
     }
     
     public function actionNewslist()
