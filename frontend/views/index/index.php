@@ -1,3 +1,4 @@
+<?php use yii\helpers\Url;?>
 <div class="ad">
 	        <a class="arrow-left" href="#"></a> 
     		<a class="arrow-right" href="#"></a>
@@ -39,9 +40,9 @@
 			<section class="laber_service">
 				<div class="service auto">
 					<div class="service_main">
-						<a href="#"><img src="img/pic2.jpg"></a>
-						<a href="#"><img src="img/pic3.jpg"></a>
-						<a href="#"><img src="img/pic4.jpg"></a>
+						<a href="<?=Url::to('/site/make')?>"><img src="img/pic2.jpg"></a>
+						<a href="<?=Url::to('/site/pack')?>"><img src="img/pic3.jpg"></a>
+						<a href="<?=Url::to('/site/experience')?>"><img src="img/pic4.jpg"></a>
 					</div>
 				</div>
 			</section>
