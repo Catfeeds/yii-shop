@@ -182,6 +182,10 @@ class SiteController extends BaseController
     {	
     	$id =(int) Yii::$app->request->get('id');
     	$data['article'] = Article::getArticleById($id);
+    	$view = Yii::$app->view;
+    	$view->params['title'] = $data['article']['seo_title'];
+    	$view->params['keywords'] = $data['article']['seo_keywords'];
+    	$view->params['description'] = $data['article']['seo_description'];
     	return $this->render('detail',$data);
     }
     
