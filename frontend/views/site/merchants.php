@@ -89,7 +89,7 @@
 					dataType: 'json',
 					data: $('#formid').serialize(),
 					success: function(request){
-						alert(request.msg);
+						
 						if(reqeust.status!=1){
 							window.location.reload();
 						}
