@@ -25,7 +25,7 @@ function getData(offset,size){
 
 			
 			for(var i=0; i< sum; i++){
-				result += '<div class="item"><a class="link_pic" href=""><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].summary+'</a></div>'
+				result += '<div class="item"><a class="link_pic" href="/site/detail?id='+data[i].id+'"><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].summary+'</a></div>'
 			}
 			$('#news_main').append(result);
 			 /*隐藏more按钮*/
