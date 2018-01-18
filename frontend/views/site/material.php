@@ -3,7 +3,7 @@
 			<section class="laber_tea">
 				<div class="tea auto">
 					<div class="tea_main">
-						<div class="tea_item"><img src="/img/pic22.jpg"></div>
+						<div class="tea_item"><img src="/img/yl.jpg"></div>
 						<div class="tea_title"></div>
 						<ul>
 							<li class="on"><a class="b1" href="javascript:;"></a></li>
