@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Article;
+use yii\helpers\Url;
 /**
  * Site controller
  */
@@ -172,6 +173,7 @@ class SiteController extends BaseController
     	foreach($articles as $k=>$value){
     		$value['created_at'] = date('Y-m-d',$value['created_at']);
     		$value['thumb'] = Yii::$app->params['image'].$value['thumb'];
+    		$value['url'] = Url::to('/site/detail?id='.$value['id']);
     		$articles[$k]= $value;
     	}
 		return json_encode(['status' =>0,'articles' =>$articles ]);  	
