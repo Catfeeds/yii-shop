@@ -24,7 +24,7 @@ function getData(offset,size){
 			var result = '';
 
 			
-			for(var i=0; i< sum; i++){){
+			for(var i=0; i< sum; i++){
 				result += '<div class="item"><a class="link_pic" href=""><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].summary+'</a></div>'
 			}
 			$('#news_main').append(result);
