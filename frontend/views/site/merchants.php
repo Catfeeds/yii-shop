@@ -103,6 +103,9 @@
 					success: function(request){
 						$('.laber_hbg2, .wind').show();
 						$('.wind p').html('提交成功');
+						$('.btnOk').click(function(){
+							$('.laber_hbg, .laber_enrol').hide();
+						})						
 						if(reqeust.status!=1){
 							window.location.reload();
 						}
