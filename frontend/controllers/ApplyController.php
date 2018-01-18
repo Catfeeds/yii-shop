@@ -3,11 +3,11 @@
 namespace frontend\controllers;
 
 use common\models\Apply;
-
+use yii;
 /**
  * Site controller
  */
-class IndexController extends BaseController
+class ApplyController extends BaseController
 {
 
 
@@ -19,12 +19,18 @@ class IndexController extends BaseController
     public function actionCreate()
     {
     	$model = new Apply();
-    	if ($model->load(yii::$app->getRequest()->post()) && $model->validate() && $model->save()) {
-    		return ['status' =>0,'msg' =>'提交成功'];
+    	$model->created_at = time();
+    	$model->updated_at = time();
+    	$model->setAttributes(yii::$app->getRequest()->post(),false);
+    	if ($model->validate() && $model->save()) {
+    		return json_decode(['status' =>0,'msg' =>'提交成功']);
     	} else {
     		$errors = $model->getErrors();
-    		Yii::$app->getSession()->setFlash('error', $err);
-    		return ['status' =>1,'msg' =>$errors[0]];
+    		$msg = '';
+    		foreach ($errors as $v) {
+    			$msg =  $v[0];break;
+    		}
+    		return json_encode(['status' =>1,'msg' =>$msg]);
     	}
     }
 }

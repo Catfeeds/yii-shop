@@ -47,11 +47,11 @@
 					</div>
 					<div class="item">
 						<span>微信：</span>
-						<input name="wei" id="wei" type="text" />
+						<input name="weixin" id="wei" type="text" />
 					</div>
 					<div class="item">
 						<span>省份：</span>
-						<input name="provinces" id="provinces" type="text" placeholder="请填写代理或加盟的省份" />
+						<input name="province" id="provinces" type="text" placeholder="请填写代理或加盟的省份" />
 					</div>
 					<div class="item">
 						<span>城市：</span>
@@ -59,34 +59,40 @@
 					</div>
 					<div class="item">
 						<span>性别：</span>
-						<div class="gender">
-							<input class="on" name="Mr" id="Mr" type="button" value="先生" />
-						    <input name="Ms" id="Ms" type="button" value="女士" />
-						</div>						
+						<label for="radio1" class="tg-icheck-radio tg-icheck-flat-radio">
+							<input type="radio" id="radio1" name="gender" checked value="0">
+							<div class="tg-icheck-media">男士</div>
+						</label>
+						<label for="radio2" class="tg-icheck-radio tg-icheck-flat-radio">
+							<input type="radio" id="radio2" name="gender"  value="1">
+							<div class="tg-icheck-media">女士</div>
+						</label>					
 					</div>
 					<div class="item">
 						<span>手机：</span>
-						<input name="tel" id="tel" type="text" />
+						<input name="mobile" id="tel" type="text" />
 					</div>
 					<div class="item">
 						<span>留言：</span>
-						<textarea></textarea>
+						<textarea name="content"></textarea>
 					</div>
-					<a href="javascript:;"><img src="/img/tjbtn.png"></a>
+					<a href="javascript:;" id="tj_btn"><img src="/img/tjbtn.png"></a>
 				</form>
 			</div>
 		</div>
 		<!-- 主体内容 end  -->
 		<script>			
-			$('.tj_btn').click(function(){
+			$('#tj_btn').click(function(){
 				$.ajax({
 					type:"POST",
-					url:"",
-					dataType: 'text',
+					url:"/apply/create",
+					dataType: 'json',
 					data: $('#formid').serialize(),
-					contentType: 'application/x-www-form-urlencoded',
 					success: function(request){
-						alert('提交成功');
+						alert(request.msg);
+						if(reqeust.status!=1){
+							window.location.reload();
+						}
 					},
 					error:function(request){      
 					  alert("提交失败");

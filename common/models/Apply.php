@@ -33,8 +33,8 @@ class Apply extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['gender', 'created', 'updated'], 'integer'],
-            [['created'], 'required'],
+            [['gender', 'created_at', 'updated_at'], 'integer'],
+            [['created_at','name','mobile','content'], 'required'],
             [['name'], 'string', 'max' => 25],
             [['weixin', 'province'], 'string', 'max' => 50],
             [['mobile'], 'string', 'max' => 11],
@@ -55,8 +55,8 @@ class Apply extends \yii\db\ActiveRecord
             'gender' => '性别 ',
             'mobile' => '手机号',
             'content' => '留言内容',
-            'created' => '更新时间',
-            'updated' => '添加时间',
+            'created_at' => '更新时间',
+            'updated_at' => '添加时间',
         ];
     }
 }
