@@ -11,11 +11,11 @@ $this->beginPage() ?>
 		<meta name="keywords" content="<?= Html::encode($this->params['keywords'])?>" />
 		<link rel="stylesheet" href="/css/normalize.css">
 		<link rel="stylesheet" href="/css/style.css" />
-		<link rel="stylesheet" href="/css/swiper.min.css" />
+		<link rel="stylesheet" href="/css/idangerous.swiper.css" />
 		<link rel="stylesheet" href="/css/video-js.css" />
 		<script type="text/javascript" src="/js/html5shiv.js" ></script>
 		<script type="text/javascript" src="/js/jquery-1.8.1.min.js" ></script>
-		<script type="text/javascript" src="/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="/js/idangerous.swiper2.7.6.min.js" ></script>
 		<script type="text/javascript" src="/js/main.js" ></script>
 	</head>
 	<body>

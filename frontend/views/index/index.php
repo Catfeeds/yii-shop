@@ -1,4 +1,6 @@
 <div class="ad">
+	        <a class="arrow-left" href="#"></a> 
+    		<a class="arrow-right" href="#"></a>
 			<div class="swiper-container">
 			    <div class="swiper-wrapper swiper-list">
 			    	<?php if ($banner) : ?>
@@ -9,9 +11,7 @@
 			        <?php endforeach;?>
                 	<?php endif; ?>
 			    </div>
-			    <div class="swiper-pagination"></div>
-			    <div class="swiper-button-prev"></div>
-	            <div class="swiper-button-next"></div>
+			    <div class="pagination"></div>
 			</div>
 		</div>
 		<div class="container">
