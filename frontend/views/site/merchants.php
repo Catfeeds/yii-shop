@@ -40,7 +40,7 @@
 					<p>我们会在5个工作日内与您联络</p>
 				</div>
 				<div class="btn_qx"></div>
-				<form>
+				<form id="formid">
 					<div class="item">
 						<span>姓 名：</span>
 						<input name="name" id="name" type="text" />
@@ -77,17 +77,20 @@
 			</div>
 		</div>
 		<!-- 主体内容 end  -->
-		<script language="javascript"> 
-			var mySwiper = new Swiper('.swiper-container',{
-			slidesPerView : 3,
-			spaceBetween : 15,
-			})
-			$('.arrow-left01').on('click', function(e){
-			    e.preventDefault()
-			    mySwiper.swipePrev()
-			})
-			$('.arrow-right01').on('click', function(e){
-			    e.preventDefault()
-			    mySwiper.swipeNext()
-			})
+		<script>			
+			$('.tj_btn').click(function(){
+				$.ajax({
+					type:"POST",
+					url:"",
+					dataType: 'text',
+					data: $('#formid').serialize(),
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(request){
+						alert('提交成功');
+					},
+					error:function(request){      
+					  alert("提交失败");
+					}
+				});
+			})			
 		</script>
