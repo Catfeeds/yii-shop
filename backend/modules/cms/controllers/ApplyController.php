@@ -13,7 +13,7 @@ use backend\actions\DeleteAction;
 /**
  * FriendLink controller
  */
-class AdController extends \yii\web\Controller
+class ApplyController extends \yii\web\Controller
 {
 
     public function actions()
