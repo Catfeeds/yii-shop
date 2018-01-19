@@ -19,8 +19,8 @@
 					<div class="technology_main main_h">
 						<span>单锅小灶、形态自定</span>
 						<p>单株原料都是由经验丰富的专业技师单采单制，按照“单锅小灶”的方式独立加工，认养人可根据自己的需求选择散茶、饼茶、龙珠其中的任意一种。</p>
-						<img src="img/pic18.jpg" />
-						<img src="img/pic19.jpg" />
+						<img src="/img/pic18.jpg" />
+						<img src="/img/pic19.jpg" />
 					</div>
 				</div>
 			</section>
