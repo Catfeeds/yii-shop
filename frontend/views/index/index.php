@@ -67,3 +67,4 @@
 		    mySwiper.swipeNext()
 		  })
 		</script>
+		<script type="text/javascript" src="js/video.min.js" ></script>
