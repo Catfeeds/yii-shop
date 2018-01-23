@@ -29,7 +29,7 @@
 						</div>
 						<div class="wenbang_fr">
 						    <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="898" height="505" poster="img/pic1.jpg" data-setup="{}">
-						    	<source src="http://p301ah80l.bkt.clouddn.com/tea.mp4" type="video/mp4">
+						    	<source src="http://p301ah80l.bkt.clouddn.com/wenbang.mp4" type="video/mp4">
 						    </video>
 						</div>
 					</div>
