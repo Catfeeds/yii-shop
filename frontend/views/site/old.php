@@ -80,7 +80,7 @@
 		</div>
 		<!-- 主体内容 end  -->
 		<script>
-			AOS.refresh({
+			AOS.init({
 			  offset: 200,
 			  duration: 600,
 			  easing: 'ease-in-out-sine',
