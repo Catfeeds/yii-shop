@@ -2050,10 +2050,11 @@ footer {
 }
 
 .newDetails_main .new_cont img {
-	width: 100%;
 	height: auto;
-	float: left;
-	margin: 30px 0 40px;
+	margin: 20px 0 20px;
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .newDetails_main .new_cont>p {
