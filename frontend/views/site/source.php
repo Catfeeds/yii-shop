@@ -1,5 +1,5 @@
 		<div class="container2">
-			<div class="laber_heart" data-aos="fade-down>
+			<div class="laber_heart" data-aos="fade-down">
 				<img src="/img/pic36.jpg" />
 			</div>
 			<section class="laber_origin" data-aos="fade-down">
