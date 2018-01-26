@@ -2,7 +2,7 @@
 			<div class="laber_plant">
 				<img src="/img/pic43.jpg" />
 			</div>
-			<section class="laber_singlePlant">
+			<section class="laber_singlePlant" data-aos="fade-down">
 				<div class="singlePlant auto">
 					<div class="singlePlant_main">
 						<span>如何认养文榜古树单株？</span>
@@ -13,7 +13,7 @@
 					</div>
 				</div>
 			</section>
-			<div class="laber_codeNumber">
+			<div class="laber_codeNumber" data-aos="fade-down">
 				<div class="codeNumber auto">
 					<div class="codeNumber_main">
 						<div class="codeNumber_text">
@@ -61,35 +61,35 @@
             				<p>在认养人权益方面文榜公司承诺供认养的古茶树【树权清晰】，对古茶树资源具有可控性，能够为认养人权益提供真实性和安全性保障。</p>
             			</div>
             			<h1 class="lc"></h1>
-            			<div class="lc_main">
+            			<div class="lc_main" data-aos="fade-left">
             				<img src="/img/pic45.jpg" />
             				<div class="lc_bg">
             					<span>1、挑选古树，签订协议</span>
             					<p>认养人可莅临深圳文榜会所，从古树图册档案中，根据树龄、产量等信息挑选古树，签订协议。专人为您讲解信息、冲泡样品，保证信息清晰、透明。</p>
             				</div>
             			</div>
-            			<div class="lc_main">
+            			<div class="lc_main" data-aos="fade-right">
             				<img src="/img/pic46.jpg" />
             				<div class="lc_bg">
             					<span>2、分季采摘、分批交付</span>
             					<p>认养人享有被认养古茶树的单株原料所有权。每棵单株古茶树一年进行春、夏、秋3次采摘（分别在4月、7月、10月左右），分批送至认养人手中。</p>
             				</div>
             			</div>
-            			<div class="lc_main">
+            			<div class="lc_main" data-aos="fade-left">
             				<img src="/img/pic47.jpg" />
             				<div class="lc_bg" style="height: 150px;">
             					<span style="margin-top: 20px;">3、单锅小灶、形态自定</span>
             					<p>认养人可提出个性化的生产选择，产品形态可以是散茶、饼茶、龙珠其中的任意一种。单株原料都是由经验丰富的专业技师单采单制，按照“单锅小灶”的方式独立加工。</p>
             				</div>
             			</div>
-            			<div class="lc_main">
+            			<div class="lc_main" data-aos="fade-right">
             				<img src="/img/pic48.jpg" />
             				<div class="lc_bg">
             					<span>4、产品交付</span>
             					<p>单株产品的交付：每次产品采制加工完成后，15个工作日内，向认养人交付当次单株产品（如有其他交付需求，需提前联系）。</p>
             				</div>
             			</div>
-            			<div class="lc_main">
+            			<div class="lc_main" data-aos="fade-left">
             				<img src="/img/pic49.jpg" />
             				<div class="lc_bg">
             					<span>5、全程可溯</span>
