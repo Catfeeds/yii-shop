@@ -18,20 +18,20 @@
 			<section class="laber_packing">
 				<div class="packing auto">
 					<div class="packing_main">
-						<div class="pack_item">
+						<div class="pack_item" data-aos="fade-right">
 							<img src="/img/pic54.jpg"/>
 							<span>纯料生茶饼</span>
 						</div>
-						<div class="pack_item">
+						<div class="pack_item" data-aos="fade-left" >
 							<img src="/img/pic55.jpg"/>
 							<span>纯料熟茶饼</span>
 						</div>
-						<div class="pack_item imgT">
+						<div class="pack_item imgT" data-aos="fade-right">
 							<img src="/img/pic56.jpg"/>
 							<img src="/img/pic57.jpg"/>
 							<span>古树纯料生饼</span>
 						</div>
-						<div class="pack_item">
+						<div class="pack_item" data-aos="fade-left">
 							<img src="/img/pic58.jpg"/>
 							<span>古树砣茶</span>
 						</div>
