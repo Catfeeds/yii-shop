@@ -28,8 +28,13 @@
 							<p>每<br>一<br>棵<br>古<br>茶<br>树<br>，<br>就<br>是<br>一<br>部<br>自<br>然<br>与<br>社<br>会</p>							
 						</div>
 						<div class="wenbang_fr">
+<<<<<<< HEAD
 						    <video id="my-video" class="video-js vjs-big-play-centered" controls width="898" height="505" poster="/img/pic1.jpg" data-setup="{}">
 						    	<source src="img/video.mp4" type="video/mp4">
+=======
+						    <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="898" height="505" poster="img/pic1.jpg" data-setup="{}">
+						    	<source src="http://p301ah80l.bkt.clouddn.com/wenbang.mp4" type="video/mp4">
+>>>>>>> 842bb0864442a735748301101041aacb2a2fe630
 						    </video>
 						</div>
 					</div>
@@ -68,4 +73,15 @@
 		    mySwiper.swipeNext()
 		  })
 		</script>
+<<<<<<< HEAD
 		<script type="text/javascript" src="/js/video.min.js" ></script>
+=======
+		<script type="text/javascript" src="js/video.min.js" ></script>
+		<script type="text/javascript">
+			var myPlayer = videojs('my-video');
+		    videojs("my-video").ready(function(){
+			  var myPlayer = this;
+			  myPlayer.play();
+		    });
+		</script>
+>>>>>>> 842bb0864442a735748301101041aacb2a2fe630
