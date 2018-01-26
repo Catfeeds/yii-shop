@@ -69,9 +69,7 @@
 		    mySwiper.swipeNext()
 		  })
 		</script>
-<<<<<<< HEAD
 		<script type="text/javascript" src="/js/video.min.js" ></script>
-=======
 		<script type="text/javascript" src="js/video.min.js" ></script>
 		<script type="text/javascript">
 			var myPlayer = videojs('my-video');
@@ -80,4 +78,3 @@
 			  myPlayer.play();
 		    });
 		</script>
->>>>>>> 842bb0864442a735748301101041aacb2a2fe630
