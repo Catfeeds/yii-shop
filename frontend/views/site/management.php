@@ -129,3 +129,11 @@
 			<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>			
 		</div>
+		<script>
+			AOS.init({
+			  offset: 200,
+			  duration: 600,
+			  easing: 'ease-in-out-sine',
+			  delay: 100,
+			});
+		</script>
