@@ -40,20 +40,18 @@ $this->beginPage() ?>
 				<div class="header_main auto">
 					<nav class="nav_fl">
 						<li <?php if($this->params['controller']=='index'):?>class="on" <?php endif;?>><a href="/">首页</a></li>
-						<li <?php if(in_array($this->params['action'],['material','technology','experience','pack'])):?> class="on"<?php endif;?>><a href="<?=Url::to('/site/material')?>">文榜茶叶</a></li>
+						<li <?php if($this->params['action']=='source'):?>class="on" <?php endif;?>><a href="<?=Url::to('/site/source')?>">文榜茶源地</a></li>
 						<li <?php if($this->params['action']=='make'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/make')?>">制茶大师</a></li>
 					</nav>
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
 					<nav class="nav_fr">
-						<li <?php if($this->params['action']=='teaset'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/teaset')?>">文榜茶具</a></li>
-						<li <?php if($this->params['action']=='healthy'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/healthy')?>">健康喝茶</a></li>
-						<li <?php if($this->params['action']=='news'||$this->params['action']=='detail'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/news')?>">新闻中心</a></li>
+						<li <?php if($this->params['action']=='old'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/old')?>">文榜古树单株</a></li>
+						<li <?php if($this->params['action']=='management'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/management')?>">经营模式</a></li>
+						<li <?php if($this->params['action']=='about'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/about')?>">关于文榜</a></li>
 					</nav>
 				</div>				
 			</div>
 		</header>
-		<!-- 导航 end -->
-		<!-- banner start  -->
 		
 		<?= $content;?>
 		<?php $this->endBody() ?>

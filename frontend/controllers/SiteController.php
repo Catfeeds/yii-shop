@@ -116,6 +116,26 @@ class SiteController extends BaseController
     {	
     	return $this->render('teaset');
     }
+    
+    public function actionOld()
+    {
+    	return $this->render('old');
+    }
+    
+    public function actionMember()
+    {
+    	return $this->render('member');
+    }
+    
+    public function actionSource()
+    {
+    	return $this->render('source');
+    }
+    
+    public function actionManagement()
+    {
+    	return $this->render('management');
+    }
 
     /**
      * Displays contact page.

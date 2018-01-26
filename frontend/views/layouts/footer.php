@@ -4,9 +4,9 @@
 				    	<div class="footer">
 				    		<div class="foot_main">
 					    		<ul>
-					    			<li><a href="<?=Url::to('/site/about')?>">关于我们</a></li>
+					    			<li><a href="<?=Url::to('/site/news')?>">新闻中心</a></li>
 					    			<li><a href="<?=Url::to('/site/make')?>">文榜茶师</a></li>
-					    			<li><a href="<?=Url::to('/site/merchants')?>">招商</a></li>
+					    			<li><a href="<?=Url::to('/site/member')?>">会员服务</a></li>
 					    		</ul>
 					    		<div class="footer_wx">
 					    			<p id="gfwx"><i></i>官方微信</p>
