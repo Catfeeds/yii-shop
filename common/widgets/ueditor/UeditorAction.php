@@ -103,7 +103,6 @@ class UeditorAction extends yii\base\Action
 
         $default = [
             'imagePathFormat' => '/{yyyy}{mm}{dd}/{time}{rand:8}',
-            'catchRemoteImageEnable' => false,
             'scrawlPathFormat' => '/{yyyy}{mm}{dd}/{time}{rand:8}',
             'snapscreenPathFormat' => '/{yyyy}{mm}{dd}/{time}{rand:8}',
             'catcherPathFormat' => '/{yyyy}{mm}{dd}/{time}{rand:8}',
