@@ -3,12 +3,13 @@
     		<a class="arrow-right" href="#"></a>
 			<div class="swiper-container">
 			    <div class="swiper-wrapper swiper-list">
+			    	<?php if ($banner) : ?>
+                    <?php foreach ($banner as $k1 => $v1) : ?>
 			        <div class="swiper-slide">
-			        	<a href="#" style="background: url(/img/banner1.jpg) no-repeat center;"></a>
+			        	<a href="javascript:;" style="background: url(<?= Yii::$app->params['image'].($v1['image']) ?>) no-repeat center;"></a>
 			        </div>
-			        <div class="swiper-slide">
-			        	<a href="#" style="background: url(/img/banner1.jpg) no-repeat center;"></a>
-			        </div>
+			        <?php endforeach;?>
+                	<?php endif; ?>
 			    </div>
 			    <div class="pagination"></div>
 			</div>
@@ -28,13 +29,8 @@
 							<p>每<br>一<br>棵<br>古<br>茶<br>树<br>，<br>就<br>是<br>一<br>部<br>自<br>然<br>与<br>社<br>会</p>							
 						</div>
 						<div class="wenbang_fr">
-<<<<<<< HEAD
-						    <video id="my-video" class="video-js vjs-big-play-centered" controls width="898" height="505" poster="/img/pic1.jpg" data-setup="{}">
-						    	<source src="img/video.mp4" type="video/mp4">
-=======
-						    <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="898" height="505" poster="img/pic1.jpg" data-setup="{}">
+						    <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="898" height="505" poster="/img/pic1.jpg" data-setup="{}">
 						    	<source src="http://p301ah80l.bkt.clouddn.com/wenbang.mp4" type="video/mp4">
->>>>>>> 842bb0864442a735748301101041aacb2a2fe630
 						    </video>
 						</div>
 					</div>
