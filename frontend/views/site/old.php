@@ -44,8 +44,8 @@
 					<div class="teatime auto">
 						<div class="teatime_main">
 							<h1></h1>
-							<div class="teatime_text" data-aos="fade-left">								
-								<div class="benefit">
+							<div class="teatime_text">								
+								<div class="benefit"  data-aos="fade-left">
 									<p>助的。</p>
 									<p>定，无论对减脂还是预防肥胖都是很有帮</p>
 									<p>化，维持血液中脂肪和固醇类物质含量稳</p>
@@ -57,8 +57,8 @@
 								</div>
 								<span>饭后喝普洱生茶</span>
 							</div>
-							<div class="teatime_text" data-aos="fade-left">								
-								<div class="benefit">
+							<div class="teatime_text">								
+								<div class="benefit" data-aos="fade-left">
 									<p>茶是最好的也是最快速的减肥法。</p>
 									<p>秘和排毒不畅的女生来说，空腹喝普洱熟</p>
 									<p>腹喝熟茶不会引起身体不适，对于长期便</p>
