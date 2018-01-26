@@ -57,7 +57,7 @@
 								</div>
 								<span>饭后喝普洱生茶</span>
 							</div>
-							<div class="teatime_text" data-aos="fade-left" aos-delay="1000">								
+							<div class="teatime_text" data-aos="fade-left">								
 								<div class="benefit">
 									<p>茶是最好的也是最快速的减肥法。</p>
 									<p>秘和排毒不畅的女生来说，空腹喝普洱熟</p>
