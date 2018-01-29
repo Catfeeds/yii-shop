@@ -819,7 +819,7 @@ footer {
 	float: left;
 	font-size: 24px;
 	font-family: "宋体";
-	width: 24px;
+	width: 22px;
 	display: inline;
 	word-wrap: break-word;
 	word-break: nomal;
@@ -962,6 +962,7 @@ footer {
 	font-family: '宋体';
 	float: left;
 	margin-top: 88px;
+	letter-spacing: 18px;
 }
 .soul_main .item1 .soul_text {
 	width:600px;
