@@ -84,6 +84,7 @@ html {
 
 body {
 	background: #f7f8f8;
+	font-family: '宋体';
 }
 
 input::-webkit-input-placeholder,
@@ -1912,10 +1913,10 @@ footer {
 
 .teatime_main .teatime_text>span {
 	width: 24px;
-	font-size: 24px;
+	font-size: 20px;
 	color: #2c2625;
 	float: left;
-	line-height: 42px;
+	line-height: 36px;
 	margin-top: -4px;
 	margin-left: 24px;
 	font-family: "宋体";
