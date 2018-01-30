@@ -40,16 +40,15 @@ $this->beginPage() ?>
 			</div>
 			<div class="laber_header">
 				<div class="header_main auto">
-					<nav class="nav_fl">
-						<li <?php if($this->params['controller']=='index'):?>class="on" <?php endif;?>><a href="/">首页</a></li>
-						<li <?php if($this->params['action']=='source'):?>class="on" <?php endif;?>><a href="<?=Url::to('/site/source')?>">文榜茶源地</a></li>
-						<li <?php if($this->params['action']=='make'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/make')?>">制茶大师</a></li>
-					</nav>
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
 					<nav class="nav_fr">
-						<li <?php if($this->params['action']=='old'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/old')?>">文榜古树单株</a></li>
-						<li <?php if($this->params['action']=='management'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/management')?>">经营模式</a></li>
+						<li <?php if($this->params['controller']=='index'):?>class="on" <?php endif;?>><a href="/">首页</a></li>
 						<li <?php if($this->params['action']=='about'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/about')?>">关于文榜</a></li>
+						<li <?php if($this->params['action']=='source'):?>class="on" <?php endif;?>><a href="<?=Url::to('/site/source')?>">文榜茶源地</a></li>
+						<li <?php if($this->params['action']=='management'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/management')?>">经营模式</a></li>
+					    <li <?php if($this->params['action']=='old'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/old')?>">古茶树认养</a></li>
+						<li <?php if($this->params['action']=='member'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/member')?>">会员服务</a></li>
+						<li <?php if($this->params['action']=='news'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/news')?>">新闻中心</a></li>						
 					</nav>
 				</div>				
 			</div>
