@@ -50,11 +50,11 @@
 		    					<p>为了保护并发扬老乌山文榜古茶树，陶老师与四个爱茶的企业家联合开创“文榜”古茶树品牌，并于2015年在老乌山文榜成立文榜茶业有限公司、2017年在深圳成立文榜茶业销售公司，推广老乌山文榜古茶树。</p>
 		    				</div>
 		    				<img src="/img/pic64.jpg" />
-		    				<img style="margin-top: 30px;" src="img/pic34.jpg" />
+		    				<img style="margin-top: 30px;" src="/img/pic34.jpg" />
 		    			</div>
 		    			<div class="soul_item item2">
 		    				<span>制茶大师-毛卫京</span>
-		    				<img src="img/pic35.jpg" />
+		    				<img src="/img/pic35.jpg" />
 		    				<div class="soul_text">			    					
 		    					<p>毛卫京，女，普洱市茶叶讲师、茶叶拼配师、茶艺技师。毕业于西北农林科技大学，毕业后于普洱市职业教育中心任教。主要教授茶叶加工理论、茶艺理论及茶艺表演。并多次在茶艺大赛中获奖：<br />
 第七届茶叶节的茶艺大赛中，指导的孟连组《傣族竹筒香茶》荣获优秀奖；<em>2005年10月</em>，指导的《彝族罐罐茶》获全省中华茶艺大赛优秀奖；<br />
