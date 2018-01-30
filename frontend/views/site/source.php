@@ -1,87 +1,59 @@
 		<div class="container2">
-			<div class="laber_heart" data-aos="fade-down">
-				<img src="/img/pic36.jpg" />
-			</div>
-			<section class="laber_origin" data-aos="fade-down">
-				<div class="origin auto">
-					<div class="origin_main">
-						<div class="origin_text">
-							<em>“我寻找好茶30年，八年前来到老乌山，看到这里的气候环境，就坚信，老乌山的古茶树一定能走出大山。”</em>
-							<p class="p1">—普洱茶叶世家陶氏家族后裔、茶叶专家陶林</p>
-							<p class="p2">老乌山为无量山的一条支脉，横跨镇沅县振太镇、按板镇、勐大镇等。老乌山平均海拔约2000米，年平均气候约14度，年降雨量<br>1390mm-1502mm，森林植被优良，土壤优沃、含多种矿物质，</p>
-							<p class="p3">是生长优质茶叶的绝佳之地。</p>
+			<section class="laber_address_wushan">
+				<div class="address_wushan auto">
+					<div class="address_wushan_main">
+						<h1></h1>
+						<div class="address_cont_txt1">
+							<p>文榜老乌山没有景迈山那样壮观、让人震撼，也一直不被外界关注。但老乌山拥独一无二的地理环境。走进老乌山深处，一片片规模不大，几十亩、几百亩古茶园，散落在老乌山的箐沟、凹地、山梁之间。在2006年普洱市编写《走进茶树王国》时，普查写入书中仅是按板镇罗家、文立、那布三个村，古茶园面积仅统计了2870亩。</p>
+							<p>老乌山地横跨镇沅县振太镇、按板镇、勐大镇，景谷县小景谷乡、凤山乡等，方圆数十公里。当地居民以彝族、哈尼族、拉祜族为主。海拔1500米--2200米，年平均气温14℃左右，年降雨量1390 mm—1502mm。这里有近似气候、海拔、植被、土壤及茶树栽培历史，森林植被好，气候温凉，土壤肥沃富多种矿物质，通透性好，是生长优质茶叶的好地方。</p>
 						</div>
-					</div>
-				</div>
-			</section>
-			<div class="laber_wushan" data-aos="fade-down">
-				<div class="wushan auto">
-					<div class="wushan_main">
-						<div class="wushan_text">
-							<p>持续生长和平台运营。</p>
-							<p>
-								叶的同时，把所得到的资金用于茶园的可
-							</p>
-							<p>
-								这种互利的经营模式，在为消费者提供茶
-							</p>
+						<div class="address_cont_txt2 dress1" data-aos="fade-down">
+							<span>老乌山古茶园—面积近4万亩</span>
+							<p><em>老乌山逶迤绵亘，终年云雾缭绕、雨水充足，为典型“一山有四季，十里不同天”的气候特征，而茶叶作为一种依地理与气候的变化而变化的灵性之物</em>。老乌山是茶叶生长的理想之地，也成就了它成为是普洱市26座著名古茶山之一。目前镇沅县将对其进行详细普查，预计在老乌山保存的古茶园面积超过万亩，古茶园面积仅次于景迈山，茶叶总面积近4万亩。</p>
 						</div>
-						<div class="wushan_text">
-							<p>式。</p>
-							<p>
-								管理，并开创性采用“<em>古树单株认养</em>”模
-							</p>
-							<p>
-								与当地政府及茶农合作，将茶园收归文榜
-							</p>
-							<p>
-								“<em>保护性开发</em>”的大旗，成立文榜茶业；
-							</p>
-							<p>
-								减少，四位爱茶的企业家联手担起对古树
-							</p>
-							<p>
-								南古茶树数量，每年正以6%的速度不断
-							</p>
-							<p>
-								然而，目前尚不足云南茶园面积3%的云
-							</p>
+						<div class="address_img" data-aos="fade-down">
+							<img src="img/pic66.jpg" />
+							<span><i></i>老乌山自然风景</span>
 						</div>
-						<div class="wushan_text">
-							<p>县的交界处，座落着神奇灵秀的老乌山。</p>
-							<p>
-								茶城，普洱茶都”的普洱市镇沅与景谷两
-							</p>
-							<p>
-								在祖国西南边陲，号称“世界茶源，中国
-							</p>
+						<div class="address_cont_txt2 dress2" data-aos="fade-down">
+							<span>一山容两派  两道共长生</span>
+							<p>老乌山自古产茶，众人的到来进一步丰富了茶的品种，促进了茶业的发展，整个山“寨与茶为邻、人与茶为伴，山山有寨、林中遍茶”；有一茶种深得和尚所爱，并开园种植，因其不同，被传为“老和尚”茶。</p>
+							<p>老乌山更因为“一山容两派，两道共长生”而被传扬。老乌山野茶遍山、茶花满谷、茶绕山寨。这里的茶有的叶大如掌，有的叶细及指；有的树直高壮，有的枝繁叶茂、篷及庭院；有的色深似蓝、有的色浅如翠。</p>
 						</div>
-						<span>老乌山实景拍摄</span>
-					</div>
-				</div>
-			</div>
-			<section class="laber_wushanJJ">
-				<div class="wushanJJ auto">
-					<div class="wushanJJ_main">
-						<div class="wushanJJ_text">
-							<p>文榜以古茶树作为载体，连接一群热爱古茶树的消费者，通过良性的商业认养手段，共同参与完成“<em>云南普洱保护古茶树认养计划</em>”，让每一个爱茶人成为这个行业里践行<em>文化传承、保护自然遗产的“执行人”</em>。</p>
+						<div class="address_img" data-aos="fade-down">
+							<img src="img/pic68.jpg" />
+							<span><i></i>老乌山日出风景</span>
 						</div>
-						<img data-aos="fade-left" src="/img/pic39.jpg" />
-						<img data-aos="fade-right" class="tp" src="/img/pic40.jpg" />
-						<div class="wushanJJ_text">
-							<p>近几年，镇沅县委、政府提出将唱响“世界野生茶树王之乡”的茶树资源牌，挖掘镇沅茶文化，期望将老乌山古茶山打造成景迈山之后又一区域性品牌名茶山——正是这一举措让文榜茶业对“老乌山古茶树的保护性开发”提供了坚实的政策</p>
-							<p>
-								怀着对古茶树的保护、古树茶文化的传承的心愿，文榜将古茶树单株认养平台带入深圳，成为深圳首家采用这种保护性商业模式的茶企，旨在实现对古茶树纯粹滋味以及公益价值的双重探索，力保古茶树认养常态化，保护常态化！
-							</p>
+						<div class="address_cont_txt2 dress2" data-aos="fade-down">
+							<span>种茶历史逾千年，山中有棵“茶神树”</span>
+							<p>老乌山从唐朝便开始人工栽培茶叶，迄今已有一千年多的历史。在老乌山上生长着三株很古老的茶树，为目前在镇沅县境内发现的最高、最大、最古老的栽培型古茶树。</p>
+							<p><em>其中在和尚寺村地边有一株古茶树，有根部围径达2.68米，茶树高达10.6米多，树冠幅度7.3米×8.7米，在离地1米多的地方有一级分枝6枝，分枝的枝干径超过30厘米，是当地现存古茶树中最大的一棵，人称“茶神树”</em>；每年茶山上人们还定期举行祭典，对其顶礼膜拜，以示尊崇。</p>
+						    <p>现如今“茶神树”的茶树干茶从过去每年能采20多斤，现在只有10斤左右，2014年卖得近2万元。如今每年开摘茶叶前，村里人都要去祭拜一番。现“茶神树”已归属文榜茶业公司。</p>	
 						</div>
-						<img data-aos="fade-right" src="/img/pic41.jpg" />
+						<div class="address_img" data-aos="fade-down">
+							<img src="img/pic27.jpg" />
+							<span><i></i>文榜老乌山茶神树</span>
+						</div>
+						<div class="address_cont_txt2 dress2" data-aos="fade-down">
+							<span>老乌山藤条茶—古树茶极品</span>
+							<p><em>老老乌山遍地长茶，色乌润、毫满身，劲足、汤厚、底够。这里多为丹岩地形，地表‘猪肝石’虽被采用，但深层烂石密布，茶树根深体壮，能吸能藏</em>。并在长期的生长中融为一体，顺势而发。所制茶骨风岩韵，且香沉凝重，味香甘爽，淡冲更佳、冷汤尤优等特点。</p>
+							<p>在现代茶园高投入高产出模式的影响下，老乌山古茶树被大量台刈矮化，很多古茶园被毁了种成台地茶。千百年来这里的先民的总结了一套管理茶叶的经验：茶不采不发，但要培根树形、采养结合、侧修枝顶留叶，适时分枝留养，使枝条分布均匀。</p>
+						    <p>这些形如辫、柔如藤、韵如柳的茶树被冠以“辫子茶”、“藤子茶”、“柳条茶”，时下流行被称为“藤条茶”，干茶中含梗带蒂有片，为放养型古茶树，传统采养模式，而非茶叶品种，“藤条茶”在老乌山比较多，成为了古树茶中的极品。</p>
+						    <p>在新一轮茶叶复兴过程中，镇沅县委、政府提出将唱响“世界野生茶树王之乡”的茶树资源牌，挖掘镇沅茶文化，打造老乌山茶品牌。<em>通过招商引资,构建老乌山茶庄园，把老乌山古茶山打造成景迈山之后又一区域性品牌的名茶山。</em></p>
+						</div>
+						<div class="address_img" data-aos="fade-down">
+							<img src="img/pic67.jpg" />
+							<span><i></i>老乌山藤条茶</span>
+						</div>
 					</div>
 				</div>
 			</section>
 			<div class="contmain6" >								
-			<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+				<!-- 底部 start  -->
+				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+				<!-- 底部 end  -->
 			</div>			
-		</div>
+		</div>	
 		<script>
 			AOS.init({
 			  offset: 200,

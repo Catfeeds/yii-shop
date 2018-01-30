@@ -329,15 +329,12 @@ header .laber_header .header_main {
 .header_main>nav {
 	position: absolute;
 	bottom: 32px;
+	right: 0;
 }
 
-.header_main .nav_fl {
-	float: left;
-	left: 0;
-}
 
 .header_main>nav li {
-	margin: 0 50px;
+	margin: 0 33px;
 }
 
 .header_main>nav li {
@@ -362,22 +359,15 @@ header .laber_header .header_main {
 	transform: all 1s;
 }
 
-.header_main .nav_fr {
-	float: right;
-	right: 0;
-}
-
 .header_main .nav_fr li:last-child {
 	margin-right: 0;
 }
 
 .header_main .logo {
-	position: absolute;
-	bottom: 32px;
-	left: 50%;
-	margin-left: -119px;
+    float: left;
 	width: 238px;
 	height: 70px;
+	margin-top: 30px;
 }
 
 
@@ -577,6 +567,7 @@ footer {
 	float: left;
 	position: relative;
 	padding: 12px 12px 0;
+	margin-left: -30px;
 }
 
 .foot_main .footer_wx>p {
@@ -624,6 +615,7 @@ footer {
 	float: left;
 	color: #2c2625;
 	font-weight: normal;
+	margin-left: 282px;
 }
 
 .foot_main .tel {
@@ -928,6 +920,8 @@ footer {
 .contmain5 {
 	background: url(../img/pic33.jpg) no-repeat center top;
 	width: 100%;
+	margin-top: -1476px;
+	padding-top: 1476px;
 }
 
 .laber_soul {
@@ -946,8 +940,8 @@ footer {
 
 .soul_main h1 {
 	width: 498px;
-	height: 64px;
-	background: url(../img/name.png) no-repeat 0 -384px;
+	height: 146px;
+	background: url(../img/renyang.png) no-repeat 0 -308px;
 }
 .soul_main .soul_item {
 	width: 100%;
@@ -961,13 +955,13 @@ footer {
 	text-align: left;
 	font-family: '宋体';
 	float: left;
-	margin-top: 88px;
 	letter-spacing: 18px;
+	font-weight: bold;
 }
 .soul_main .item1 .soul_text {
 	width:600px;
 	float: left;
-	margin-top: 40px;
+	margin-top: 50px;
 }
 .soul_main .soul_item .soul_text p {
 	font-family: '宋体';
@@ -976,6 +970,9 @@ footer {
 	margin-bottom: 18px;
 	letter-spacing: 10px;
 }
+.soul_main .item1 span {
+	margin-bottom: 30px;
+}
 .soul_main .item1 img{
 	width: 570px;
 	height: 389px;
@@ -983,7 +980,7 @@ footer {
 	margin-top: 40px;
 }
 .soul_main .item2 span{
-	margin-top: 62px;
+	margin-top: 114px;
 }
 .soul_main .item2 img {
 	width: 280px;
@@ -1003,6 +1000,104 @@ footer {
 /****
  * 文榜茶源地
  */
+.laber_address_wushan {
+	width: 100%;
+	background: url(../img/pic65.jpg) no-repeat center top;
+	min-width: 1200px;
+	display: inline-block;
+}
+.address_wushan {
+	
+}
+.address_wushan_main {
+	width: 100%;
+	float: left;
+}
+.address_wushan_main h1 {
+	width: 226px;
+	height: 146px;
+	background: url(../img/renyang.png) no-repeat -164px -151px;
+	float: left;
+	margin-top: 45px;
+}
+.address_wushan_main .address_cont_txt1 {
+	width: 778px;
+	height: 553px;
+	background: rgba(247,248,248,0.6);
+	float: right;
+}
+.address_wushan_main .address_cont_txt1 p {
+	padding: 0 90px;
+	display: flex;
+	justify-content: center;
+	font-size: 17px;
+	color: #3e3a39;
+	letter-spacing: 10px;
+	line-height: 30px;
+	margin-top: 30px;
+}
+.address_cont_txt2 {
+	width: 100%;
+	float: left;	
+	margin-bottom: 56px;
+}
+.dress1 {
+	margin-top: 160px;
+}
+.dress2 {
+	margin-top: 80px;
+}
+.address_cont_txt2 span {
+	width: 910px;
+	font-size: 20px;
+	color: #745e5e;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	font-weight: bold;
+}
+.address_cont_txt2 p {
+	width: 910px;
+	font-size: 17px;
+	color: #745e5e;
+	letter-spacing: 10px;
+	line-height: 30px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 24px;
+}
+.address_cont_txt2 p em {
+	font-weight: bold;
+	letter-spacing: 8px;
+}
+.address_wushan_main .address_img {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.address_wushan_main .address_img span {
+	float: right;
+	font-size: 15px;
+	color: #745e5e;
+	margin-top: 14px;
+	letter-spacing: 8px;
+	margin-right: -8px;
+	height: 15px;
+}
+.address_wushan_main .address_img i {
+	width: 7px;
+	height: 7px;
+	border-radius: 7px;
+	border: 4px solid #d3b799;
+	float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+
+
 .laber_heart {
 	width: 1200px;
 	margin: 0 auto;
@@ -1012,9 +1107,9 @@ footer {
 	height: 680px;
 }
 .laber_origin {
-	background: url(../img/pic37.jpg) no-repeat center top;
+	background: url(../img/pic69.jpg) no-repeat center top;
 	width: 100%;
-	height: 415px;
+	height: 680px;
 	min-width: 1200px;
 }
 .origin {
@@ -1040,10 +1135,13 @@ footer {
 }
 .origin_main .origin_text p {
 	font-size: 17px;
-	color: #6a5b54;
+	color: #745e5e;
 	font-family: '宋体';
 	letter-spacing: 10px;
 	float: left;
+}
+.origin_main .origin_text p b {
+	color: #745e5e;
 }
 .origin_main .origin_text p.p1 {
 	width: 100%;
@@ -1108,10 +1206,11 @@ footer {
 .laber_wushanJJ {
 	width: 100%;
 	background: #f7f8f8;
-	min-width: 1200px;
+	min-width: 1200px;	
 }
 .wushanJJ {
-	overflow: hidden;
+	display: flex;
+	display: -webkit-flex;
 }
 .wushanJJ_main {
 	width: 100%;
@@ -1189,7 +1288,7 @@ footer {
 	line-height: 28px;
 	font-size: 17px;
 	color: #745e5e;
-	letter-spacing: 10px;
+	letter-spacing: 9px;
 	font-family: '宋体';
 	margin-bottom: 32px;
 }
@@ -1277,6 +1376,10 @@ footer {
 	font-size: 17px;
     font-family: '宋体';
     letter-spacing: 10px;
+    color: #2c2625;
+}
+.adoption_main .adoption_text p b{
+	color: #2c2625;
 }
 .adoption_main .lc_main {
 	width: 100%;
@@ -1331,31 +1434,29 @@ footer {
 .cost_main {
 	width: 100%;
 	float: left;
-	margin-top: 166px;
+	margin-top: 80px;
+	text-align: center;
 }
 .cost_main .cost_text {
-	float: left;
-	margin-right: 32px;
+	width: 910px;
+	margin: 0 auto;
 }
 .cost_main .cost_text p {
 	float: left;
     font-size: 17px;
-    font-family: '宋体';
-    width: 18px;
-    display: inline;
-    word-wrap: break-word;
     line-height: 28px;
-    margin-right: 12px;
     color: #745e5e;
+    letter-spacing: 10px;
+    margin-top: 28px;
+    text-align: left;
 }
 .cost_main .jg {
 	float: left;
-	width: 456px;
-	margin-left: 52px;
-	margin-right: 50px;
+	width: 100%;
+	margin: 36px 0;
 }
 .cost_main .jg span {
-	width: 456px;
+	width: 435px;
 	height: 126px;
 	float: left;
 	font-size: 20px;
@@ -1370,13 +1471,13 @@ footer {
 }
 .cost_main .jg span.co2 {
 	background: #ced9d5;
-	margin-top: 20px;
+	float: right;
 }
 .cost_main h1 {
-	width: 146px;
-	height: 146px;
-	float: right;
-	background: url(../img/renyang.png) no-repeat 0 -151px;
+	width: 308px;
+	height: 64px;
+	display: inline-block;
+	background: url(../img/renyang.png) no-repeat -164px -308px;
 }
 
 /*****
@@ -2052,11 +2153,10 @@ footer {
 }
 
 .newDetails_main .new_cont img {
+	width: 100%;
 	height: auto;
-	margin: 20px auto 20px;
-	max-width: 100%;
-	display: flex;
-	justify-content: center;
+	float: left;
+	margin: 30px 0 40px;
 }
 
 .newDetails_main .new_cont>p {
