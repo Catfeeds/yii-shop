@@ -12,7 +12,7 @@
 							<p><em>老乌山逶迤绵亘，终年云雾缭绕、雨水充足，为典型“一山有四季，十里不同天”的气候特征，而茶叶作为一种依地理与气候的变化而变化的灵性之物</em>。老乌山是茶叶生长的理想之地，也成就了它成为是普洱市26座著名古茶山之一。目前镇沅县将对其进行详细普查，预计在老乌山保存的古茶园面积超过万亩，古茶园面积仅次于景迈山，茶叶总面积近4万亩。</p>
 						</div>
 						<div class="address_img" data-aos="fade-down">
-							<img src="img/pic66.jpg" />
+							<img src="/img/pic66.jpg" />
 							<span><i></i>老乌山自然风景</span>
 						</div>
 						<div class="address_cont_txt2 dress2" data-aos="fade-down">
@@ -21,7 +21,7 @@
 							<p>老乌山更因为“一山容两派，两道共长生”而被传扬。老乌山野茶遍山、茶花满谷、茶绕山寨。这里的茶有的叶大如掌，有的叶细及指；有的树直高壮，有的枝繁叶茂、篷及庭院；有的色深似蓝、有的色浅如翠。</p>
 						</div>
 						<div class="address_img" data-aos="fade-down">
-							<img src="img/pic68.jpg" />
+							<img src="/img/pic68.jpg" />
 							<span><i></i>老乌山日出风景</span>
 						</div>
 						<div class="address_cont_txt2 dress2" data-aos="fade-down">
@@ -31,7 +31,7 @@
 						    <p>现如今“茶神树”的茶树干茶从过去每年能采20多斤，现在只有10斤左右，2014年卖得近2万元。如今每年开摘茶叶前，村里人都要去祭拜一番。现“茶神树”已归属文榜茶业公司。</p>	
 						</div>
 						<div class="address_img" data-aos="fade-down">
-							<img src="img/pic27.jpg" />
+							<img src="/img/pic27.jpg" />
 							<span><i></i>文榜老乌山茶神树</span>
 						</div>
 						<div class="address_cont_txt2 dress2" data-aos="fade-down">
@@ -42,7 +42,7 @@
 						    <p>在新一轮茶叶复兴过程中，镇沅县委、政府提出将唱响“世界野生茶树王之乡”的茶树资源牌，挖掘镇沅茶文化，打造老乌山茶品牌。<em>通过招商引资,构建老乌山茶庄园，把老乌山古茶山打造成景迈山之后又一区域性品牌的名茶山。</em></p>
 						</div>
 						<div class="address_img" data-aos="fade-down">
-							<img src="img/pic67.jpg" />
+							<img src="/img/pic67.jpg" />
 							<span><i></i>老乌山藤条茶</span>
 						</div>
 					</div>
