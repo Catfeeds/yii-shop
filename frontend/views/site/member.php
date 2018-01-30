@@ -49,7 +49,7 @@
 				width: 320,
 				height: 70,
 				icon: {
-					url: "img/dd.png",
+					url: "/img/dd.png",
 					width: 24,
 					height: 34
 				}

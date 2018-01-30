@@ -349,6 +349,7 @@ header .laber_header .header_main {
 .header_main>nav li a {
 	font-size: 14px;
 	color: #3e3a39;
+	font-family: "微软雅黑";
 }
 
 .header_main>nav .on a {
