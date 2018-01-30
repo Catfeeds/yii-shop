@@ -1,134 +1,42 @@
 		<div class="container2">
-			<div class="laber_plant">
-				<img src="/img/pic43.jpg" />
+			<div class="laber_heart" data-aos="fade-down">
+				<img src="img/pic36.jpg" />
 			</div>
-			<section class="laber_singlePlant" data-aos="fade-down">
-				<div class="singlePlant auto">
-					<div class="singlePlant_main">
-						<span>如何认养文榜古树单株？</span>
-						<div class="singlePlant_text">
-							<p>文榜公司精心挑选了<em>三百棵300-700年树龄</em>的古茶树，所选古茶树树势强壮，条索肥大。每棵古茶树都来自文榜老乌山各个村落，混生于森林中。</p>
-							<p>让追逐古树单株顶级滋味的普洱茶爱好者们，可以通过“<em>古茶树单株认养</em>”，获得单株原料的极致产品的同时，实现对云南古茶树资源的保护心</p>
-						</div>						
+			<section class="laber_origin" data-aos="fade-down">
+				<div class="origin auto">
+					<div class="origin_main">
+						<div class="origin_text">
+							<em>“我寻找好茶30年，八年前来到老乌山，看到这里的气候环境，就坚信，老乌山的古茶树一定能走出大山。”</em>
+							<p class="p1">—普洱茶叶世家陶氏家族后裔、茶叶专家陶林</p>
+							<p class="p2">老乌山为无量山的一条支脉，横跨镇沅县振太镇、按板镇、勐大镇等。老乌山平均海拔约2000米，年平均气候约14度，年降雨量<br>1390mm-1502mm，森林植被优良，土壤优沃、含多种矿物质，</p>
+							<p class="p3">是生长优质茶叶的绝佳之地。</p>
+							<p class="p2">文榜以古茶树作为载体，连接一群热爱古茶树的消费者，通过良性的商业认养手段，共同参与完成“<b>云南普洱保护古茶树认养计划</b>”，让每一个爱茶人成为这个行业里践行<b>文化传承、保护自然遗产的“执行人”</b>。</p>
+						</div>
 					</div>
 				</div>
 			</section>
-			<div class="laber_codeNumber" data-aos="fade-down">
-				<div class="codeNumber auto">
-					<div class="codeNumber_main">
-						<div class="codeNumber_text">
-							<p>树茶叶直送到您手中。</p>
+			<section class="laber_wushanJJ">
+				<div class="wushanJJ auto">
+					<div class="wushanJJ_main">
+						<img style="margin-top: -60px;" data-aos="fade-left" src="img/pic39.jpg" />
+						<img data-aos="fade-right" class="tp" src="img/pic40.jpg" />
+						<div class="wushanJJ_text">
+							<p>近几年，镇沅县委、政府提出将唱响“世界野生茶树王之乡”的茶树资源牌，挖掘镇沅茶文化，期望将老乌山古茶山打造成景迈山之后又一区域性品牌名茶山——正是这一举措让文榜茶业对“老乌山古茶树的保护性开发”提供了坚实的政策</p>
 							<p>
-								护。生茶熟茶礼品茶按要求订制，单株古
-							</p>
-							<p>
-								每棵古树都有独立档案，由老茶农定向养
-							</p>
-						</div>
-						<span>一档案</span>
-						<div class="codeNumber_text">
-							<p>做到流程可监测、茶品可追溯。</p>
-							<p>
-								在千里之外随时查看茶园、采摘、制作，
+								怀着对古茶树的保护、古树茶文化的传承的心愿，文榜将古茶树单株认养平台带入深圳，成为深圳首家采用这种保护性商业模式的茶企，旨在实现对古茶树纯粹滋味以及公益价值的双重探索，力保古茶树认养常态化，保护常态化！
 							</p>
 						</div>
-						<span>一码</span>
-						<div class="codeNumber_text">
-							<p>三百年古茶树1-3年。</p>
-							<p>
-								只需支付一笔固定费用，即可拥有一棵约
-							</p>
-						</div>
-						<span style="margin-right: 76px;">一树</span>
-						<div class="codeNumber_text" style="margin-right: 30px;">
-							<p>现生产全流程可监测、茶品可追溯。</p>
-							<p>
-								独立单位，借助“一树一码一档案”，实
-							</p>
-							<p>
-								文榜公司把旗下每一棵老乌山古茶树作为
-							</p>
-						</div>
-						<span>一树一码一档案</span>
+						<img data-aos="fade-right" src="img/pic41.jpg" />
 					</div>
 				</div>
-			</div>
-            <section class="laber_adoption">
-            	<div class="adoption auto">
-            		<div class="adoption_main">
-            			<h1 class="bz"></h1>
-            			<div class="adoption_text">
-            				<p>在认养人权益方面文榜公司承诺供认养的古茶树【树权清晰】，对古茶树资源具有可控性，能够为认养人权益提供真实性和安全性保障。</p>
-            			</div>
-            			<h1 class="lc"></h1>
-            			<div class="lc_main" data-aos="fade-left">
-            				<img src="/img/pic45.jpg" />
-            				<div class="lc_bg">
-            					<span>1、挑选古树，签订协议</span>
-            					<p>认养人可莅临深圳文榜会所，从古树图册档案中，根据树龄、产量等信息挑选古树，签订协议。专人为您讲解信息、冲泡样品，保证信息清晰、透明。</p>
-            				</div>
-            			</div>
-            			<div class="lc_main" data-aos="fade-right">
-            				<img src="/img/pic46.jpg" />
-            				<div class="lc_bg">
-            					<span>2、分季采摘、分批交付</span>
-            					<p>认养人享有被认养古茶树的单株原料所有权。每棵单株古茶树一年进行春、夏、秋3次采摘（分别在4月、7月、10月左右），分批送至认养人手中。</p>
-            				</div>
-            			</div>
-            			<div class="lc_main" data-aos="fade-left">
-            				<img src="/img/pic47.jpg" />
-            				<div class="lc_bg" style="height: 150px;">
-            					<span style="margin-top: 20px;">3、单锅小灶、形态自定</span>
-            					<p>认养人可提出个性化的生产选择，产品形态可以是散茶、饼茶、龙珠其中的任意一种。单株原料都是由经验丰富的专业技师单采单制，按照“单锅小灶”的方式独立加工。</p>
-            				</div>
-            			</div>
-            			<div class="lc_main" data-aos="fade-right">
-            				<img src="/img/pic48.jpg" />
-            				<div class="lc_bg">
-            					<span>4、产品交付</span>
-            					<p>单株产品的交付：每次产品采制加工完成后，15个工作日内，向认养人交付当次单株产品（如有其他交付需求，需提前联系）。</p>
-            				</div>
-            			</div>
-            			<div class="lc_main" data-aos="fade-left">
-            				<img src="/img/pic49.jpg" />
-            				<div class="lc_bg">
-            					<span>5、全程可溯</span>
-            					<p>在采制过程中，平台会为认养人提供直播/视频等全面还原采制全过程，确保认养人的单株纯料古树茶从采摘到制作的可见可控，保障纯正品质。</p>
-            				</div>
-            			</div>
-            		</div>
-            	</div>
-            </section>
-            <section class="laber_cost">
-            	<div class="cost auto">
-            		<div class="cost_main">
-            			<div class="cost_text">
-            				<p>联系文榜工作人员获取。</p>
-            				<p>注：具体价格参考古茶树认养价格表，可</p>
-            			</div>
-            			<div class="jg">
-            				<span class="co1">16000元／一年期</span>
-            				<span class="co2">38000元／三年期</span>
-            			</div>
-            			<div class="cost_text">
-            				<p>分别为：</p>
-            				<p>龄约300年年产单株3公斤左右的价格</p>
-            				<p>树龄、产量、期限所决定。文榜古茶树树</p>
-            				<p>认养一棵古茶树的费用，是根据古茶树的</p>
-            			</div>
-            			<div class="cost_text">
-            				<p>的可持续生长和平台运营。</p>
-            				<p>叶的同时，把所得到的部分资金用于茶园</p>
-            				<p>公司通过良性认养模式，为消费者提供茶</p>
-            			</div>
-            			<h1></h1>
-            		</div>
-            	</div>
-            </section>
+			</section>
 			<div class="contmain6" >								
-			<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+				<!-- 底部 start  -->
+				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+				<!-- 底部 end  -->
 			</div>			
 		</div>
+		<!-- 主体内容 end  -->
 		<script>
 			AOS.init({
 			  offset: 200,
