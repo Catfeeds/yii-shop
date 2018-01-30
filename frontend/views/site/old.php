@@ -3,6 +3,40 @@
 			<div class="laber_plant">
 				<img src="/img/pic43.jpg" />
 			</div>
+			<!-- 优势 -->
+			<section class="laber_advantage">
+				<div class="advantage auto">
+					<div class="advantage_main">
+						<h1>文榜优势</h1>
+						<ul>
+							<li>
+								<i class="adv1"></i>
+								<p>三百年以上的古茶树</p>
+							</li>
+							<li>
+								<i class="adv2"></i>
+								<p>匠人制作</p>
+							</li>
+							<li>
+								<i class="adv3"></i>
+								<p>茶园探索</p>
+							</li>
+							<li>
+								<i class="adv4"></i>
+								<p>会所经营</p>
+							</li>
+							<li>
+								<i class="adv5"></i>
+								<p>茶树监控</p>
+							</li>
+							<li>
+								<i class="adv6"></i>
+								<p>专人管理</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
 			<section class="laber_singlePlant" data-aos="fade-down">
 				<div class="singlePlant auto">
 					<div class="singlePlant_main">
