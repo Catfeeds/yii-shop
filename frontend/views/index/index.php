@@ -42,8 +42,8 @@
 				<div class="service auto">
 					<div class="service_main">
 						<a href="/site/make"><img src="/img/pic2.jpg"></a>
-						<a href="/site/old"><img src="/img/pic3.jpg"></a>
-						<a href="/site/member"><img src="/img/pic4.jpg"></a>
+						<a href="/site/pack"><img src="/img/pic3.jpg"></a>
+						<a href="/site/old"><img src="/img/pic4.jpg"></a>
 					</div>
 				</div>
 			</section>
