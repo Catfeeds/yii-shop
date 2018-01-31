@@ -633,7 +633,7 @@ footer {
 	float: left;
 	font-size: 14px;
 	color: #2c2625;
-	line-height: 18px;
+	line-height: 20px;
 }
 
 .footer>em {
@@ -1061,6 +1061,7 @@ footer {
 	display: block;
 	text-align: center;
 	font-weight: bold;
+	letter-spacing: 9px;
 }
 .address_cont_txt2 p {
 	width: 910px;
@@ -1836,25 +1837,25 @@ footer {
 
 .tea_introduce {
 	width: 100%;
-	height: 680px;
+	height: 800px;
 	min-width: 1200px;
 	background: #f7f8f8;
 }
 
 .introduce {
-	height: 680px;
+	height: 800px;
 }
 
 .introduce_main {
 	width: 100%;
-	height: 680px;
+	height: 800px;
 	float: left;
 	position: relative;
 }
 
 .introduce_main img {
 	width: 100%;
-	height: 680px;
+	height: 800px;
 }
 
 .introduce_main>h1 {
