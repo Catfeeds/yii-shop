@@ -37,7 +37,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="laber_singlePlant" data-aos="fade-down">
+			<section class="laber_singlePlant">
 				<div class="singlePlant auto">
 					<div class="singlePlant_main">
 						<span>如何认养文榜古树单株？</span>
