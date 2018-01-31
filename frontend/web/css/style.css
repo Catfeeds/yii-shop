@@ -1036,11 +1036,12 @@ footer {
 	padding: 0 90px;
 	display: flex;
 	justify-content: center;
-	font-size: 17px;
+	font-size: 15px;
 	color: #3e3a39;
 	letter-spacing: 10px;
 	line-height: 30px;
 	margin-top: 30px;
+	font-family: "微软雅黑";
 }
 .address_cont_txt2 {
 	width: 100%;
@@ -1055,23 +1056,24 @@ footer {
 }
 .address_cont_txt2 span {
 	width: 910px;
-	font-size: 20px;
+	font-size: 18px;
 	color: #745e5e;
 	margin: 0 auto;
 	display: block;
 	text-align: center;
-	font-weight: bold;
 	letter-spacing: 9px;
+	font-family: "微软雅黑";
 }
 .address_cont_txt2 p {
 	width: 910px;
-	font-size: 17px;
+	font-size: 15px;
 	color: #745e5e;
 	letter-spacing: 10px;
 	line-height: 30px;
 	display: block;
 	margin: 0 auto;
 	margin-top: 24px;
+	font-family: "微软雅黑";
 }
 .address_cont_txt2 p em {
 	font-weight: bold;
