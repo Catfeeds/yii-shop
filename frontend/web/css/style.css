@@ -1837,25 +1837,25 @@ footer {
 
 .tea_introduce {
 	width: 100%;
-	height: 800px;
+	height: 680px;
 	min-width: 1200px;
 	background: #f7f8f8;
 }
 
 .introduce {
-	height: 800px;
+	height: 680px;
 }
 
 .introduce_main {
 	width: 100%;
-	height: 800px;
+	height: 680px;
 	float: left;
 	position: relative;
 }
 
 .introduce_main img {
 	width: 100%;
-	height: 800px;
+	height: 680px;
 }
 
 .introduce_main>h1 {
