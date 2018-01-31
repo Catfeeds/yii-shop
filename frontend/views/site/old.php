@@ -111,7 +111,7 @@
             			</div>
             			<div class="lc_main" data-aos="fade-left">
             				<img src="/img/pic47.jpg" />
-            				<div class="lc_bg" style="height: 150px;">
+            				<div class="lc_bg">
             					<span style="margin-top: 20px;">3、单锅小灶、形态自定</span>
             					<p>认养人可提出个性化的生产选择，产品形态可以是散茶、饼茶、龙珠其中的任意一种。单株原料都是由经验丰富的专业技师单采单制，按照“单锅小灶”的方式独立加工。</p>
             				</div>
