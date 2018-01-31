@@ -32,7 +32,7 @@
 			new BaiduMap({
 				id: "map_dt",
 				title: {
-					text: "文榜茶叶",
+					text: "文榜茶业",
 					className: "title"
 				},
 				content: {

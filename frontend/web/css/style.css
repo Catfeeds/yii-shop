@@ -1025,7 +1025,7 @@ footer {
 }
 .address_wushan_main .address_cont_txt1 {
 	width: 778px;
-	height: 553px;
+	height: 410px;
 	background: rgba(247,248,248,0.6);
 	float: right;
 }
@@ -1044,7 +1044,7 @@ footer {
 	margin-bottom: 56px;
 }
 .dress1 {
-	margin-top: 160px;
+	margin-top: 300px;
 }
 .dress2 {
 	margin-top: 80px;
@@ -1146,7 +1146,7 @@ footer {
 	margin-top: 22px;	
 }
 .origin_main .origin_text p.p2 {
-	margin-top: 88px;
+	margin-top: 36px;
 	line-height: 30px;
 }
 .origin_main .origin_text p.p3 {
@@ -1355,7 +1355,7 @@ footer {
 }
 .adoption_main > h1.lc {
 	background-position: 0 -75px;
-	margin-top: 98px;
+	margin-top: 50px;
 	margin-bottom: 70px;
 }
 .adoption_main .adoption_text {
