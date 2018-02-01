@@ -50,7 +50,6 @@
 		    					<p>为了保护并发扬老乌山文榜古茶树，陶老师与四个爱茶的企业家联合开创“文榜”古茶树品牌，并于2015年在老乌山文榜成立文榜茶业有限公司、2017年在深圳成立文榜茶业销售公司，推广老乌山文榜古茶树。</p>
 		    				</div>
 		    				<img src="/img/pic64.jpg" />
-		    				<img style="margin-top: 30px;" src="/img/pic34.jpg" />
 		    			</div>
 		    			<div class="soul_item item2">
 		    				<span>制茶大师-毛卫京</span>
