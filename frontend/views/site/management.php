@@ -15,7 +15,7 @@
 			<section class="laber_wushanJJ">
 				<div class="wushanJJ auto">
 					<div class="wushanJJ_main">
-						<img style="margin-top: -206px;" data-aos="fade-left" src="/img/pic39.jpg" />
+						<img style="margin-top: -230px;" data-aos="fade-left" src="/img/pic39.jpg" />
 						<img data-aos="fade-right" class="tp" src="/img/pic40.jpg" />
 						<div class="wushanJJ_text">
 							<p>近几年，镇沅县委、政府提出将唱响“世界野生茶树王之乡”的茶树资源牌，挖掘镇沅茶文化，期望将老乌山古茶山打造成景迈山之后又一区域性品牌名茶山——正是这一举措让文榜茶业对“老乌山古茶树的保护性开发”提供了坚实的政策</p>
