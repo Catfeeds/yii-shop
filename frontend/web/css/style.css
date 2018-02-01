@@ -801,10 +801,10 @@ footer {
 	display: inline;
 	word-wrap: break-word;
 	word-break: nomal;
-	line-height: 28px;
 	margin-right: 12px;
 	color: #6a5b54;
 	font-weight: 200;
+	text-align: center;
 }
 
 .about_main .about_fl .text p em {
@@ -815,15 +815,16 @@ footer {
 	float: left;
 	font-size: 24px;
 	font-family: "宋体";
-	width: 22px;
+	width: 34px;
 	display: inline;
 	word-wrap: break-word;
 	word-break: nomal;
-	line-height: 40px;
 	margin-left: 24px;
 	color: #6a5b54;
 	text-align: center;
-	margin-top: -7px;
+	margin-top: 2px;
+	padding: 17px 0 20px;
+	background: #d3b799;
 }
 
 .about_main .about_fl span {
