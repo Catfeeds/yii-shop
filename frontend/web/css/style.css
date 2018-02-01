@@ -1128,7 +1128,7 @@ footer {
 	color: #2c2625;
 	font-family: '宋体';
 	font-weight: bold;
-	margin-top: 44px;
+	margin-top: 38px;
 	line-height: 30px;
 	float: left;
 }
@@ -1147,11 +1147,12 @@ footer {
 	margin-top: 22px;	
 }
 .origin_main .origin_text p.p2 {
-	margin-top: 50px;
+	margin-top: 48px;
 	line-height: 30px;
 }
 .origin_main .origin_text p.p3 {
 	margin-top: 15px;
+	line-height: 30px;
 }
 
 
