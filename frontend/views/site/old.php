@@ -51,36 +51,35 @@
 				<div class="codeNumber auto">
 					<div class="codeNumber_main">
 						<div class="codeNumber_text">
-							<p>树茶叶直送到您手中。</p>
 							<p>
-								护。生茶熟茶礼品茶按要求订制，单株古
+								茶礼品茶按要求订制，单株古树茶叶直送到您手中。
 							</p>
 							<p>
-								每棵古树都有独立档案，由老茶农定向养
+								每棵古树都有独立档案,由老茶农定向养护。生茶熟
 							</p>
 						</div>
 						<span>一档案</span>
 						<div class="codeNumber_text">
-							<p>做到流程可监测、茶品可追溯。</p>
+							<p>监测、茶品可追溯。</p>
 							<p>
-								在千里之外随时查看茶园、采摘、制作，
+								在千里之外随时查看茶园、采摘、制作，做到流程可
 							</p>
 						</div>
 						<span>一码</span>
 						<div class="codeNumber_text">
-							<p>三百年古茶树1-3年。</p>
+							<p>树3年。</p>
 							<p>
-								只需支付一笔固定费用，即可拥有一棵约
+								只需支付一笔固定费用，即可拥有一棵约三百年古茶
 							</p>
 						</div>
-						<span style="margin-right: 76px;">一树</span>
+						<span>一树</span>
 						<div class="codeNumber_text" style="margin-right: 30px;">
-							<p>现生产全流程可监测、茶品可追溯。</p>
+							<p>茶品可追溯。</p>
 							<p>
-								独立单位，借助“一树一码一档案”，实
+								借助“一树一码一档案”，实现生产全流程可监测、
 							</p>
 							<p>
-								文榜公司把旗下每一棵老乌山古茶树作为
+								文榜公司把旗下每一棵老乌山古茶树作为独立单位，
 							</p>
 						</div>
 						<span>一树一码一档案</span>
