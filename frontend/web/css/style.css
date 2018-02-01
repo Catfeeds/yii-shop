@@ -1109,7 +1109,7 @@ footer {
 .laber_origin {
 	background: url(../img/pic69.jpg) no-repeat center top;
 	width: 100%;
-	height: 680px;
+	height: 1254px;
 	min-width: 1200px;
 }
 .origin {
@@ -1143,7 +1143,7 @@ footer {
 }
 .origin_main .origin_text p.p1 {
 	width: 100%;
-	text-align: center;
+	text-align: right;
 	margin-top: 22px;	
 }
 .origin_main .origin_text p.p2 {
@@ -1151,10 +1151,7 @@ footer {
 	line-height: 30px;
 }
 .origin_main .origin_text p.p3 {
-	width: 100%;
-	text-align: center;
-	margin-top: 22px;
-	font-weight: bold;
+	margin-top: 15px;
 }
 
 
