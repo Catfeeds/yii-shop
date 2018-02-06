@@ -14,6 +14,8 @@ $this->beginPage() ?>
 		<link rel="stylesheet" href="/css/idangerous.swiper.css" />
 		<link rel="stylesheet" href="/css/video-js.css" />
 		<link rel="stylesheet" href="/css/aos.css" />
+		<link rel="icon" href="/img/ico.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="/img/ico.ico" mce_href="/img/ico.ico" type="image/x-icon" />
 		<script type="text/javascript" src="/js/html5shiv.js" ></script>
 		<script type="text/javascript" src="/js/jquery-1.8.1.min.js" ></script>
 		<script type="text/javascript" src="/js/idangerous.swiper2.7.6.min.js" ></script>
