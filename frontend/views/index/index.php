@@ -41,9 +41,9 @@
 			<section class="laber_service">
 				<div class="service auto">
 					<div class="service_main">
-						<a href="#"><img src="/img/pic2.jpg"></a>
-						<a href="#"><img src="/img/pic3.jpg"></a>
-						<a href="#"><img src="/img/pic4.jpg"></a>
+						<a href="/site/about#soul"><img src="/img/pic2.jpg"></a>
+						<a href="/site/pack"><img src="/img/pic3.jpg"></a>
+						<a href="/site/old"><img src="/img/pic4.jpg"></a>
 					</div>
 				</div>
 			</section>
@@ -54,7 +54,7 @@
 		  var mySwiper = new Swiper ('.swiper-container', {
 		    direction: 'horizontal',
 		    loop: true,
-		    autoplay:3000,
+		    autoplayDisableOnInteraction : false,
 		    pagination : '.pagination',
 		    grabCursor: true,
 		    paginationClickable :true,
