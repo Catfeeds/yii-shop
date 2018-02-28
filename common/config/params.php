@@ -3,7 +3,7 @@ return [
     'adminEmail' => 'admin@example.com',
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,
-    'image' => 'http://p0ioi1ntv.bkt.clouddn.com/',//图片域名七牛 
+    'image' => ' http://p301ah80l.bkt.clouddn.com/',//图片域名七牛 http://p301ah80l.bkt.clouddn.com
     'site' => [
     	'url' => '',
     	'sign' => '',//数据库中保存的本站地址，展示时替换成正确url
