@@ -18,8 +18,8 @@ return [
     	'search' => 'http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx',
     ],
     'qiniu' => [
-    	'access_key' =>'whHH-dp5GS__1hpxpLQZjung3xWrY6leW63Yg3sX',
-    	'secret_key' => 'hkWGb5aPlMf0gKt7Ay_nrRyrhsnOqc3G4hfg2sx1',
-    	'bucket' => 'shop'
+    	'access_key' =>'TbfM4OnIUAwAy5jS1WqIvBMf-3r6OCVxO5NDM69k',
+    	'secret_key' => 'Sct5H7M3_G_ujjwYoOl5MCrFVBkrsWC5CGVUOHrn',
+    	'bucket' => 'teavideo'
     ]
 ];
