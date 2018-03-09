@@ -11,8 +11,9 @@ namespace frontend\models;
 use yii;
 use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
-
-class User extends \common\models\User
+use common\models\User as CommonUser;
+use common\models\user\UserThird;
+class User extends CommonUser
 {
 
     public $password;
@@ -27,8 +28,7 @@ class User extends \common\models\User
     public function rules()
     {
         return [
-            [['username', 'password', 'repassword', 'password_hash'], 'string'],
-            [['avatar'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg, gif, webp'],
+            [['username', 'password', 'repassword', 'password_hash','nickname','avatar'], 'string'],
             [['username', 'email'], 'unique'],
             ['email', 'email'],
             [['repassword'], 'compare', 'compareAttribute' => 'password'],
@@ -45,6 +45,7 @@ class User extends \common\models\User
     {
         return [
             'create' => ['username', 'email', 'password', 'avatar', 'repassword', 'status'],
+            'union' =>['nickname','avatar'],
             'update' => ['username', 'email', 'password', 'repassword', 'avatar', 'status'],
             'self-update' => ['username', 'email', 'password', 'repassword', 'old_password', 'avatar'],
         ];
@@ -109,28 +110,32 @@ class User extends \common\models\User
                 $this->setPassword($this->password);
             }
         }
-        $upload = UploadedFile::getInstance($this, 'avatar');
-        if ($upload !== null) {
-            $uploadPath = yii::getAlias('@frontend/web/uploads/avatar/');
-            if (! FileHelper::createDirectory($uploadPath)) {
-                $this->addError('avatar', "Create directory failed " . $uploadPath);
-                return false;
-            }
-            $fullName = $uploadPath . uniqid() . '.' . $upload->extension;
-            if (! $upload->saveAs($fullName)) {
-                $this->addError('avatar', yii::t('app', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('app', 'avatar')]) . ': ' . $fullName);
-                return false;
-            }
-            $avatar = $this->getOldAttribute('avatar');
-            if(!empty($avatar)) {
-                $file = yii::getAlias('@frontend/web') . $this->getOldAttribute('avatar');
-                if(file_exists($file)) unlink($file);
-            }
-            $this->avatar = str_replace(yii::getAlias('@frontend/web'), '', $fullName);
-        } else {
-            $this->avatar = $this->getOldAttribute('avatar');
-        }
         return true;
+    }
+    
+    
+    /**
+     * 第三方注册
+     * */
+    public  function add($userinfo)
+    {
+    	$transaction =$this->getDb()->beginTransaction();
+    	$this->setScenario('union');
+    	$user = ['nickname' =>$userinfo['nickname'],'avatar' =>$userinfo['avatar']];
+    	$this->setAttributes($user,false);
+    	if($this->save()){
+    		$third = new UserThird();
+    		$third->openid = $userinfo['openid'];
+    		$third->type = $userinfo['type'];
+    		$third->user_id = $this->id;
+    		if($third->save())
+    		{
+    			$transaction->commit();
+    			return true;
+    		}
+    	}
+    	$transaction->rollBack();
+    	return false;
     }
 
 }

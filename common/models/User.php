@@ -1,4 +1,11 @@
 <?php
+/**
+ * Author: lf
+ * Blog: https://blog.feehi.com
+ * Email: job@feehi.com
+ * Created at: 2017-03-15 21:16
+ */
+
 namespace common\models;
 
 use Yii;
@@ -6,7 +13,10 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-
+use \yii\web\ForbiddenHttpException;
+use yii\web\UploadedFile;
+use yii\helpers\FileHelper;
+use common\models\user\UserThird;
 /**
  * User model
  *
@@ -26,13 +36,67 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public $password;
+
+    public $repassword;
+
+    public $old_password;
 
     /**
-     * @inheritdoc
+     * 返回数据表名
+     *
+     * @return string
      */
     public static function tableName()
     {
         return '{{%user}}';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['mobile', 'password', 'repassword', 'password_hash'], 'string'],
+            [['repassword'], 'compare', 'compareAttribute' => 'password'],
+            [['avatar'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg, gif, webp'],
+            [['status'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['mobile','password', 'repassword'], 'required', 'on' => ['create']],
+            [['mobile'], 'required', 'on' => ['update', 'self-update']],
+            [['mobile'], 'unique', 'on' => 'create'],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function scenarios()
+    {
+        return [
+            'default' => ['username', 'email'],
+            'create' => ['mobile','password', 'status'],
+            'update' => ['username', 'email', 'password', 'avatar', 'status'],
+            'self-update' => ['password', 'old_password', 'repassword'],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'username' => yii::t('app', 'Username'),
+            'email' => yii::t('app', 'Email'),
+            'old_password' => yii::t('app', 'Old Password'),
+            'password' => yii::t('app', 'Password'),
+            'repassword' => yii::t('app', 'Repeat Password'),
+            'avatar' => yii::t('app', 'Avatar'),
+            'status' => yii::t('app', 'Status'),
+            'created_at' => yii::t('app', 'Created At'),
+            'updated_at' => yii::t('app', 'Updated At')
+        ];
     }
 
     /**
@@ -45,14 +109,11 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function rules()
+    public static function getStatuses()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            self::STATUS_ACTIVE => yii::t('app', 'Normal'),
+            self::STATUS_DELETED => yii::t('app', 'Disabled'),
         ];
     }
 
@@ -82,6 +143,17 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
     }
+    
+    /**
+     * Finds user by username
+     *
+     * @param string $username
+     * @return static|null
+     */
+    public static function findByMobile($mobile)
+    {
+    	return static::findOne(['mobile' => $mobile, 'status' => self::STATUS_ACTIVE]);
+    }
 
     /**
      * Finds user by password reset token
@@ -91,7 +163,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByPasswordResetToken($token)
     {
-        if (!static::isPasswordResetTokenValid($token)) {
+        if (! static::isPasswordResetTokenValid($token)) {
             return null;
         }
 
@@ -105,7 +177,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Finds out if password reset token is valid
      *
      * @param string $token password reset token
-     * @return bool
+     * @return boolean
      */
     public static function isPasswordResetTokenValid($token)
     {
@@ -113,7 +185,7 @@ class User extends ActiveRecord implements IdentityInterface
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $timestamp = (int)substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
     }
@@ -146,7 +218,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Validates password
      *
      * @param string $password password to validate
-     * @return bool if password provided is valid for current user
+     * @return boolean if password provided is valid for current user
      */
     public function validatePassword($password)
     {
@@ -186,4 +258,58 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeSave($insert)
+    {
+        if ($insert) {
+            $this->generateAuthKey();
+            $this->setPassword($this->password);
+            $this->status = self::STATUS_ACTIVE;
+        } else {
+            if (isset($this->password) && $this->password != '') {
+                $this->setPassword($this->password);
+            }
+        }
+        return parent::beforeSave($insert);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function selfUpdate()
+    {
+        if ($this->password != '') {
+            if ($this->old_password == '') {
+                $this->addError('old_password', yii::t('yii', '{attribute} cannot be blank.', ['attribute' => yii::t('app', 'Old Password')]));
+                return false;
+            }
+            if (! $this->validatePassword($this->old_password)) {
+                $this->addError('old_password', yii::t('app', '{attribute} is incorrect.', ['attribute' => yii::t('app', 'Old Password')]));
+                return false;
+            }
+            if ($this->repassword != $this->password) {
+                $this->addError('repassword', yii::t('app', '{attribute} is incorrect.', ['attribute' => yii::t('app', 'Repeat Password')]));
+                return false;
+            }
+        }
+        return $this->save();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeDelete()
+    {
+        if ($this->id == 1) {
+            throw new ForbiddenHttpException(yii::t('app', "Not allowed to delete {attribute}", ['attribute' => yii::t('app', 'default super administrator admin')]));
+        }
+        return true;
+    }
+	
+    
+   
 }
+

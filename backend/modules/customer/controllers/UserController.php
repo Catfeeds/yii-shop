@@ -9,8 +9,8 @@
 namespace backend\modules\customer\controllers;
 
 use yii;
-use frontend\models\User;
-use frontend\models\UserSearch;
+use common\models\User;
+use common\models\UserSearch;
 use backend\models\PasswordResetRequestForm;
 use backend\models\ResetPasswordForm;
 use yii\base\InvalidParamException;

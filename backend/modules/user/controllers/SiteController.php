@@ -57,7 +57,7 @@ class SiteController extends \yii\web\Controller
      * @inheritdoc
      */
     public function actionIndex()
-    {
+    {	
         return $this->renderPartial('index');
     }
 

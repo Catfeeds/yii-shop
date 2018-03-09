@@ -19,7 +19,7 @@ class BannerService extends BaseService
     }
 
     public static function index($request=[])
-    {	
+    {
         return Ad::find()->select('*')->where(['>','id',0])->asArray()->all();
     }
 

@@ -3,7 +3,9 @@
 namespace frontend\controllers;
 
 use common\models\goods\mongodb\Goods;
+use common\models\goods\mongodb\Attr;
 use common\service\CategoryService;
+use Qiniu\json_decode;
 
 
 /**
@@ -25,8 +27,19 @@ class GoodsController extends BaseController
     {
         $request = $this->myRequest();
 
-        $data['goods'] = Goods::findOne((string)$request['id']);
+        $data['goods'] = Goods::findOne((string)$request['id'])->toArray();
+        $data['attr'] = Attr::getAttrByCid($data['goods']['cid']);
         //$data['goods'] = Goods::find()->select(['_id','name','shop_price','image'])->where(['id'=>(string)$request['id']])->asArray()->one();dd($data);
         return $this->render('detail',$data);
+    }
+    
+    
+    public function actionGetdetail()
+    {	
+    	$this->layout = false;
+    	$request = $this->myRequest();
+    	$data = Goods::findOne((string)$request['id'])->toArray();
+    	$attr = Attr::getAttrByCid($data['goods']['cid']);
+    	return json_encode(['data' =>$data,'attr' =>$attr,'status' =>0]);
     }
 }

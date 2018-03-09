@@ -79,8 +79,8 @@ class Goods extends ActiveRecord
     {
         return [
             [['name', 'short_name', 'brief','weight','content','bid'], 'string'],
-            [['shop_price','cost_price'],'number'],
-            [['cid',  'shop_id','shipping_id','status','is_audit','sort','created_at','updated_at','comment_sum','collect_sum','sales_sum'], 'integer'],
+            [['shop_price','cost_price'],'double'],
+            [['cid',  'shop_id','shipping_id','status','is_audit','sort','created_at','updated_at','comment_sum','collect_sum','sales_sum','is_product'], 'integer'],
             [['name','image','short_name','shop_price','content','bid','sort'], 'required'],
         ];
     }
@@ -158,6 +158,18 @@ class Goods extends ActiveRecord
     	if(!isset($this->sales_sum))
     	{
     		$this->sales_sum = 0;
+    	}
+    	if(isset($this->cid))
+    	{
+    		$this->cid = (int)$this->cid;	
+    	}
+    	if(isset($this->status))
+    	{
+    		$this->status = (int)$this->status;
+    	}
+    	if(isset($this->sort))
+    	{
+    		$this->sort = (int)$this->sort;
     	}
     	return parent::beforeSave($insert);
     }

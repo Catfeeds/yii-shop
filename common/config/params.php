@@ -21,5 +21,16 @@ return [
     	'access_key' =>'TbfM4OnIUAwAy5jS1WqIvBMf-3r6OCVxO5NDM69k',
     	'secret_key' => 'Sct5H7M3_G_ujjwYoOl5MCrFVBkrsWC5CGVUOHrn',
     	'bucket' => 'teavideo'
+    ],
+    'qq'=>[
+    	'appid' =>'101140351',
+    	'appkey' =>'3f8f54666cc0cc549ac98f28c33cf005',
+    	'callback' =>'http://yii-shop.xiwenkeji.com/user/auth',
+    	'scope' =>''
+     ],
+    'weixin'=>[
+        'appid' =>'wx4a027a66879fd224',
+        'appsecret' =>'6a3facc08da612495421efb22f153735',
+        'callback' =>'http://yii-shop.xiwenkeji.com/user/weixin',
     ]
 ];

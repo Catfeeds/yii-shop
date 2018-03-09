@@ -78,38 +78,8 @@ class SiteController extends BaseController
         return $this->render('index');
     }
 
-    /**
-     * Logs in a user.
-     *
-     * @return mixed
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
 
-    /**
-     * Logs out the current user.
-     *
-     * @return mixed
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
     
     
     public function actionTeaset()
@@ -137,28 +107,6 @@ class SiteController extends BaseController
     	return $this->render('management');
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return mixed
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
-            }
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
-    }
 
     /**
      * Displays about page.
@@ -178,6 +126,35 @@ class SiteController extends BaseController
     public function actionNews()
     {	
     	return $this->render('news');
+    }
+    
+    public function actionHealthy()
+    {
+    	return $this->render('healthy');
+    }
+    public function actionMake()
+    {
+    	return $this->render('make');
+    }
+    
+    public function actionPack ()
+    {
+    	return $this->render('pack');
+    }
+    
+    public function actionMaterial ()
+    {
+    	return $this->render('material');
+    }
+    
+    public function actionTechnology()
+    {
+    	return $this->render('technology');
+    }
+    
+    public function actionExperience()
+    {
+    	return $this->render('experience');
     }
     
     public function actionNewslist()
@@ -210,34 +187,70 @@ class SiteController extends BaseController
     	return $this->render('detail',$data);
     }
     
-    public function actionHealthy()
+    /**
+     * Logs in a user.
+     *
+     * @return mixed
+     */
+    public function actionLogin()
     {
-    	return $this->render('healthy');
-    }
-    public function actionMake()
-    {
-    	return $this->render('make');
-    }
-	
-    public function actionPack ()
-    {
-    	return $this->render('pack');
+    	if(Yii::$app->request->isAjax)
+    	{
+    		$model = new LoginForm();
+    		if ($model->load(['data' =>Yii::$app->request->post()],'data') && $model->login()) {
+    			return ['status' =>0,'err' =>''];
+    		} else {
+    			return ['status' =>1,'err' =>'用户名或者密码错误'];
+    		}
+    	}else
+    	{
+    		$this->layout = false;
+    		if (!Yii::$app->user->isGuest) {
+    			return $this->goHome();
+    		}
+    		$returnUrl = '/';
+    		$qq = new Qq();
+    		$weixin = new Weixin();
+    		return $this->render('login', ['returnUrl' => $returnUrl,'qqUrl' =>$qq->url(),'weixinUrl' =>$weixin->url()]);
+    	}
     }
     
-    public function actionMaterial ()
+    /**
+     * Logs out the current user.
+     *
+     * @return mixed
+     */
+    public function actionLogout()
     {
-    	return $this->render('material');
+    	Yii::$app->user->logout();
+    
+    	return $this->goHome();
     }
     
-    public function actionTechnology()
+    /**
+     * Displays contact page.
+     *
+     * @return mixed
+     */
+    public function actionContact()
     {
-    	return $this->render('technology');
-    } 
+    	$model = new ContactForm();
+    	if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+    		if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+    			Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+    		} else {
+    			Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+    		}
     
-    public function actionExperience()
-    {
-    	return $this->render('experience');
+    		return $this->refresh();
+    	} else {
+    		return $this->render('contact', [
+    				'model' => $model,
+    				]);
+    	}
     }
+    
+    
     /**
      * Signs user up.
      *
@@ -245,20 +258,23 @@ class SiteController extends BaseController
      */
     public function actionSignup()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
-            }
-        }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+    	$model = new User();
+    	$model->setScenario('create');
+    	if (yii::$app->getRequest()->getIsPost() && $model->load(['data' =>Yii::$app->request->post()],'data')) {
+    		if ($model->validate()&& $model->save()) {
+    			if (Yii::$app->getUser()->login($model)) {
+    				return ['status' =>0,'err' =>''];
+    			}
+    		}else{
+    			return ['status' =>1,'msg' =>''];
+    		}
+    	}
+    	$this->layout = false;
+    	return $this->render('signup', [
+    			'model' => $model,
+    			]);
     }
-
+    
     /**
      * Requests password reset.
      *
@@ -266,22 +282,22 @@ class SiteController extends BaseController
      */
     public function actionRequestPasswordReset()
     {
-        $model = new PasswordResetRequestForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
-
-                return $this->goHome();
-            } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
-            }
-        }
-
-        return $this->render('requestPasswordResetToken', [
-            'model' => $model,
-        ]);
+    	$model = new PasswordResetRequestForm();
+    	if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+    		if ($model->sendEmail()) {
+    			Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+    
+    			return $this->goHome();
+    		} else {
+    			Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
+    		}
+    	}
+    
+    	return $this->render('requestPasswordResetToken', [
+    			'model' => $model,
+    			]);
     }
-
+    
     /**
      * Resets password.
      *
@@ -291,20 +307,38 @@ class SiteController extends BaseController
      */
     public function actionResetPassword($token)
     {
-        try {
-            $model = new ResetPasswordForm($token);
-        } catch (InvalidParamException $e) {
-            throw new BadRequestHttpException($e->getMessage());
-        }
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password saved.');
-
-            return $this->goHome();
-        }
-
-        return $this->render('resetPassword', [
-            'model' => $model,
-        ]);
+    	try {
+    		$model = new ResetPasswordForm($token);
+    	} catch (InvalidParamException $e) {
+    		throw new BadRequestHttpException($e->getMessage());
+    	}
+    
+    	if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+    		Yii::$app->session->setFlash('success', 'New password saved.');
+    
+    		return $this->goHome();
+    	}
+    
+    	return $this->render('resetPassword', [
+    			'model' => $model,
+    			]);
     }
+    
+    
+    public function actionCheckMobile()
+    {
+    	if(Yii::$app->request->isAjax)
+    	{
+    		$mobile = Yii::$app->request->get('mobile');
+    		if(User::findByMobile($mobile))
+    		{
+    			return ['status' =>1,'msg' =>'手机号被使用'];
+    		}else
+    		{
+    			return ['status' =>0,'msg' =>''];
+    		}
+    	}
+    }
+
+
 }

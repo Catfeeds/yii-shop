@@ -11,10 +11,12 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+   
     'defaultRoute' => 'index',//默认控制器
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+           //'csrfParam' => '_csrf-frontend',
+            'enableCsrfValidation' => false,
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -24,6 +26,12 @@ return [
         'session' => [
             // this is the name of the session cookie used for login on the frontend
             'name' => 'advanced-frontend',
+            'timeout' =>1800,
+            'class' => 'yii\redis\Session',
+            'redis' => [
+            	'database' => 1,
+            	'port' => 6379
+            ]
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -42,7 +50,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => false,
-            //'suffix' => '',
+            'suffix' => '',
             'rules' => [
             ],
         ],

@@ -216,4 +216,54 @@ class FuncHelper
 		return $returnData;
 	}    
 	
+	
+	public static function post($url, $keysArr, $flag = 0){
+	
+		$ch = curl_init();
+		if(! $flag) curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_POST, TRUE);
+		curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $keysArr);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		$ret = curl_exec($ch);
+	
+		curl_close($ch);
+		return $ret;
+	}
+	
+	
+	public static function get($url)
+	{
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true) ; // 获取数据返回
+		curl_setopt($ch, CURLOPT_BINARYTRANSFER, true) ; // 在启用 CURLOPT_RETURNTRANSFER 时候将获取数据返回
+		$output = curl_exec($ch);
+		curl_close($ch);
+		return $output;
+	}
+	
+	
+	
+	/**
+	 * combineURL
+	 * 拼接url
+	 * @param string $baseURL   基于的url
+	 * @param array  $keysArr   参数列表数组
+	 * @return string           返回拼接的url
+	 */
+	public static function combineURL($baseURL,$keysArr){
+		$combined = $baseURL."?";
+		$valueArr = array();
+	
+		foreach($keysArr as $key => $val){
+			$valueArr[] = "$key=$val";
+		}
+	
+		$keyStr = implode("&",$valueArr);
+		$combined .= ($keyStr);
+	
+		return $combined;
+	}
 }
