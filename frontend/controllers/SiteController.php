@@ -117,9 +117,9 @@ class SiteController extends BaseController
     	{
     		$model = new LoginForm();
     		if ($model->load(['data' =>Yii::$app->request->post()],'data') && $model->login()) {
-    			return ['status' =>0,'err' =>''];
+    			return json_encode(['status' =>0,'msg' =>'']);
     		} else {
-    			return ['status' =>1,'err' =>'用户名或者密码错误'];
+    			return json_encode(['status' =>1,'msg' =>'用户名或者密码错误']);
     		}
     	}else
     	{
@@ -181,10 +181,10 @@ class SiteController extends BaseController
     	if (yii::$app->getRequest()->getIsPost() && $model->load(['data' =>Yii::$app->request->post()],'data')) {
     		if ($model->validate()&& $model->save()) {
     			if (Yii::$app->getUser()->login($model)) {
-    				return ['status' =>0,'err' =>''];
+    				return json_encode(['status' =>0,'err' =>'']);
     			}
     		}else{
-    			return ['status' =>1,'msg' =>''];
+    			return json_encode(['status' =>1,'msg' =>'']);
     		}
     	}
     	$qq = new Qq();
