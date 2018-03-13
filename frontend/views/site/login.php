@@ -1,4 +1,4 @@
-		<div class="container2">
+		<div class="container2" id="logins">
 			<section class="laber_login">
 				<div class="login auto clearfix">
 					<div class="login_main">
@@ -6,12 +6,12 @@
 							<h1>文榜用户登录</h1>
 							<form id="form">
 								<div class="list">
-									<input type="text" name="user_name" id="user_name" placeholder="请输入您的手机号码" />
-									<strong class="stro1">您输入的手机号码有误</strong>
+									<input @blur="phone" v-model='logindata.phone' type="text" name="user_name" id="user_name" placeholder="请输入您的手机号码" />
+									<strong class="stro1">{{ logPhoneMsg }}</strong>
 								</div>
 								<div class="list">
-									<input type="text" name="password" id="password" placeholder="请输入您的密码" />
-									<strong class="stro1">您输入的密码有误</strong>
+									<input @blur="password" v-model='logindata.password'  type="text" name="password" id="password" placeholder="请输入您的密码" />
+									<strong class="stro1">{{ logPassMsg }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
 								<a href="javascript:;" class="immediately">立即登录</a>
@@ -40,3 +40,32 @@
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>			
 		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	    <script type="text/javascript" src="js/axios.min.js" ></script>
+	    <script type="text/javascript">
+	    	var logins = new Vue({
+	    		el: '#logins',
+	    		data: {
+	    			logPhoneMsg:'',
+	    			logPassMsg:'',
+	    			logindata: {
+	    				phone: '',
+	    				password:''
+	    			}
+	    		},
+	    		methods: {
+	    			phone: function(){
+	    				var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+						if(this.logindata.mobile == ''){
+							this.logPhoneMsg = "手机号不能为空";
+							return false;
+						}else if(!telreg.test($('#user_name').val())){
+							this.logPhoneMsg = "请输入有效号码";
+							return false;
+						}else {
+							this.logPhoneMsg = '';
+						}
+	    			}
+	    		}
+	    	})
+	    </script>
