@@ -67,13 +67,16 @@
 						}
 	    		   },
 	    		   login: function(){
-	    		   	    axios.post('/site/login', this.logindata)
-		                  .then(function (response) {
-		                  console.log(response);
-		                })
-		                .catch(function (error) {
-		                  console.log(error);
-		                });
+	    		   	    var _This = this;
+	    		   	    $.ajax({
+			                url: '/site/login',
+			                type: 'POST',
+			                dataType: 'json',
+			                data: _This.logindata,
+			                success: function(data) {
+			                    console.log(data)
+			                }
+			            })
 	    		   }
 	    		}
 	    	})
