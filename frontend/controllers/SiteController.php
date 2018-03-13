@@ -113,7 +113,7 @@ class SiteController extends BaseController
      */
     public function actionLogin()
     {
-    	if(Yii::$app->request->isAjax)
+    	if(Yii::$app->request->isPost)
     	{
     		$model = new LoginForm();
     		if ($model->load(['data' =>Yii::$app->request->post()],'data') && $model->login()) {
