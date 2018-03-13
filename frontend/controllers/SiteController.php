@@ -113,13 +113,13 @@ class SiteController extends BaseController
      */
     public function actionLogin()
     {
-    	if(Yii::$app->request->isPost)
+    	if(Yii::$app->request->isAjax)
     	{
     		$model = new LoginForm();
     		if ($model->load(['data' =>Yii::$app->request->post()],'data') && $model->login()) {
-    			return json_encode(['status' =>0,'msg' =>'']);
+    			return ['status' =>0,'msg' =>''];
     		} else {
-    			return json_encode(['status' =>1,'msg' =>'用户名或者密码错误']);
+    			return ['status' =>1,'msg' =>'用户名或者密码错误'];
     		}
     	}else
     	{
@@ -178,13 +178,13 @@ class SiteController extends BaseController
     {
     	$model = new User();
     	$model->setScenario('create');
-    	if (yii::$app->getRequest()->getIsPost() && $model->load(['data' =>Yii::$app->request->post()],'data')) {
+    	if (yii::$app->request->isAjax && $model->load(['data' =>Yii::$app->request->post()],'data')) {
     		if ($model->validate()&& $model->save()) {
     			if (Yii::$app->getUser()->login($model)) {
-    				return json_encode(['status' =>0,'err' =>'']);
+    				return ['status' =>0,'msg' =>''];
     			}
     		}else{
-    			return json_encode(['status' =>1,'msg' =>'']);
+    			return ['status' =>1,'msg' =>''];
     		}
     	}
     	$qq = new Qq();
