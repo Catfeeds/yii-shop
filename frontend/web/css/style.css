@@ -626,8 +626,7 @@ footer {
 	float: right;
 	font-size: 24px;
 	color: #d3b799;
-	line-height: 14px;
-	font-family: "微软雅黑";
+	line-height: 17px;
 }
 
 .foot_main .tel>p {
@@ -2083,6 +2082,12 @@ footer {
 	width: 100%;
 	padding-top: 394px;
 	margin-top: -280px;
+	min-width: 1200px;
+}
+.contmain7 {
+	background: url(../img/pic70.jpg) no-repeat center top;
+	width: 100%;
+	margin-top: -412px;
 	min-width: 1200px;
 }
 

@@ -14,59 +14,17 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Article;
 use yii\helpers\Url;
+use common\widgets\captcha\ValidateCode;
+use common\models\User;
+use common\service\auth\Qq;
+use common\service\auth\Weixin;
 /**
  * Site controller
  */
 class SiteController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
     
     
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
 
     /**
      * Displays homepage.
@@ -78,14 +36,6 @@ class SiteController extends BaseController
         return $this->render('index');
     }
 
-
-
-    
-    
-    public function actionTeaset()
-    {	
-    	return $this->render('teaset');
-    }
     
     public function actionOld()
     {
@@ -118,44 +68,13 @@ class SiteController extends BaseController
         return $this->render('about');
     }
     
-    public function actionMerchants()
-    {
-    	return $this->render('merchants');
-    }
     
     public function actionNews()
     {	
     	return $this->render('news');
     }
     
-    public function actionHealthy()
-    {
-    	return $this->render('healthy');
-    }
-    public function actionMake()
-    {
-    	return $this->render('make');
-    }
     
-    public function actionPack ()
-    {
-    	return $this->render('pack');
-    }
-    
-    public function actionMaterial ()
-    {
-    	return $this->render('material');
-    }
-    
-    public function actionTechnology()
-    {
-    	return $this->render('technology');
-    }
-    
-    public function actionExperience()
-    {
-    	return $this->render('experience');
-    }
     
     public function actionNewslist()
     {	
@@ -204,7 +123,6 @@ class SiteController extends BaseController
     		}
     	}else
     	{
-    		$this->layout = false;
     		if (!Yii::$app->user->isGuest) {
     			return $this->goHome();
     		}
@@ -269,10 +187,9 @@ class SiteController extends BaseController
     			return ['status' =>1,'msg' =>''];
     		}
     	}
-    	$this->layout = false;
-    	return $this->render('signup', [
-    			'model' => $model,
-    			]);
+    	$qq = new Qq();
+    	$weixin = new Weixin();
+    	return $this->render('signup', ['qqUrl' =>$qq->url(),'weixinUrl' =>$weixin->url()]);
     }
     
     /**
@@ -339,6 +256,16 @@ class SiteController extends BaseController
     		}
     	}
     }
-
+	
+    
+    
+    public function actionCaptcha()
+    {	
+    	ob_clean();
+    	$captcha = new ValidateCode();
+    	$captcha->doimg();
+    	Yii::$app->session->set('captcha',$captcha->getCode());
+    }
+    
 
 }

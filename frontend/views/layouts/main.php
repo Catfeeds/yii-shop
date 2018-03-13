@@ -14,6 +14,8 @@ $this->beginPage() ?>
 		<link rel="stylesheet" href="/css/idangerous.swiper.css" />
 		<link rel="stylesheet" href="/css/video-js.css" />
 		<link rel="stylesheet" href="/css/aos.css" />
+		<link rel="stylesheet" href="/css/main.css" />
+		
 		<link rel="icon" href="/img/ico.ico" type="image/x-icon">
 		<link rel="shortcut icon" href="/img/ico.ico" mce_href="/img/ico.ico" type="image/x-icon" />
 		<script type="text/javascript" src="/js/html5shiv.js" ></script>
@@ -33,10 +35,10 @@ $this->beginPage() ?>
 		    </script>
 		<![endif]-->
 		<header>
-			<div class="laber_top" style="display: none;">
+			<div class="laber_top">
 				<div class="top_main auto">
 					<div class="login">
-						<a href="#">登录</a><a href="#">注册</a>
+						<a href="<?=Url::to('/site/login')?>">登录</a><a href="<?=Url::to('/site/signup')?>">注册</a>
 					</div>
 				</div>
 			</div>
