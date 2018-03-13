@@ -6,7 +6,7 @@
 							<h1>文榜用户登录</h1>
 							<form id="form">
 								<div class="list">
-									<input @blur="phone" v-model='logindata.phone' type="text" name="user_name" id="user_name" placeholder="请输入您的手机号码" />
+									<input @blur="phone" v-model='logindata.mobile' type="text" name="user_name" id="user_name" placeholder="请输入您的手机号码" />
 									<strong class="stro1">{{ logPhoneMsg }}</strong>
 								</div>
 								<div class="list">
@@ -49,7 +49,7 @@
 	    			logPhoneMsg:'',
 	    			logPassMsg:'',
 	    			logindata: {
-	    				phone: '',
+	    				mobile: '',
 	    				password:''
 	    			}
 	    		},
