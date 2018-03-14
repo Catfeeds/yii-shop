@@ -54,7 +54,7 @@
 	    	var logins = new Vue({
 	    		el: '#logins',
 	    		data: {
-	    			carShow：false,
+	    			carShow: false,
 	    			popupShow: false,
 	    			logPhoneMsg:'',
 	    			logPassMsg:'',
