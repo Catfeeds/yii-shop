@@ -64,9 +64,6 @@
 	    			},
 	    			mobile:''
 	    		},
-	    		ready: function(){
-	    			this.mobile = sessionStorage.getItem('mobile');
-	    		},
 	    		methods: {
 	    			carQx: function(){
 	    				this.carShow = false;
