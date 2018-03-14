@@ -93,15 +93,7 @@
 			                dataType: 'json',
 			                data: _This.logindata,
 			                success: function(data) {
-			                	if(data.data.status = 0){
-			                		console.log(data);
-				                    _This.carShow = true;
-				                    _This.popupShow = true;
-				                    _This.mobile = data.mobile;
-				                    sessionStorage.setItem('mobile', _This.mobile)
-			                	}else{
-			                		_This.logPassMsg = '账号或密码错误！';
-			                	}			                    
+		                       console.log(data);
 			                }
 			            })
 	    		   }
