@@ -1,13 +1,13 @@
 <?php 
 use yii\helpers\Url;
 ?>
-<div class="container2">
+<div class="container2" id="regist">
 			<section class="laber_login">
 				<div class="login auto clearfix">
 					<div class="login_main">
 						<div class="login_center">
 							<h1>文榜用户注册</h1>
-							<form id="regist">
+							<form>
 								<div class="list">
 									<input @blur="checkphone" type="text" v-model="datainfo.mobile" id="mobile" placeholder="请输入您的手机号码" />
 									<strong class="stro1">{{ msgTel }}</strong>
@@ -62,8 +62,7 @@ use yii\helpers\Url;
 		</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
-	<script type="text/javascript">
-		
+	<script type="text/javascript">		
 		var regi = new Vue({
 			el: "#regist",
 			data: {
