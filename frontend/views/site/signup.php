@@ -18,7 +18,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
-									<input  class="dxm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
+									<input  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
 									<button id="btnText" @click="oBtn" type="button">
 										<span v-if="sendMsgDisabled">{{ '重新发送' + time }}</span>
 										<span v-if="!sendMsgDisabled">发送验证码</span>
