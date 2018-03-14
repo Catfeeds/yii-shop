@@ -81,6 +81,13 @@
 							this.logPhoneMsg = '';
 						}
 	    		   },
+	    		   password：function(){
+	    		   	   if(this.logindata.password == ''){
+	    		   	   	    this.logPassMsg = '手机号不能为空';
+	    		   	   }else {
+	    		   	   	    this.logPassMsg = '';
+	    		   	   }
+	    		   },
 	    		   login: function(){
 	    		   	    var _This = this;
 	    		   	    _This.phone();

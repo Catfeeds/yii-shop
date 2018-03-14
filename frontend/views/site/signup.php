@@ -4,7 +4,7 @@
 				<div class="login auto clearfix">
 					<div class="login_main">
 						<div class="login_center">
-							<h1>文榜用户登录</h1>
+							<h1>文榜用户注册</h1>
 							<form id="regist">
 								<div class="list">
 									<input @blur="checkphone" type="text" v-model="datainfo.mobile" id="mobile" placeholder="请输入您的手机号码" />
