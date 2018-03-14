@@ -81,7 +81,7 @@
 							this.logPhoneMsg = '';
 						}
 	    		   },
-	    		   password：function(){
+	    		   password: function(){
 	    		   	   if(this.logindata.password == ''){
 	    		   	   	    this.logPassMsg = '手机号不能为空';
 	    		   	   }else {
