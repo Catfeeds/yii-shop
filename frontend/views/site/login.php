@@ -92,6 +92,8 @@
 			                success: function(data) {
 			                	if(data.status == 0){
 			                		console.log(data);
+			                		_This.carShow = true;
+	    			    			_This.popupShow = true;
 			                	}else{
 			                		_This.logPassMsg = '账号或密码错误！';
 			                	}			                    
