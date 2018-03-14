@@ -34,7 +34,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
-								<a @click="register" href="javascript:;" class="immediately">立即登录</a>
+								<a href="javascript:;" class="immediately">立即登录</a>
 								<p>若您没有账号，可点击这里<a href="#">注册</a></p>
 								<div class="qt">
 									<b class="b1"></b>
