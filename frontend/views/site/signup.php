@@ -94,7 +94,7 @@ use yii\helpers\Url;
 				     var index = Math.floor(Math.random()*36);//取得随机数的索引（0~35） 
 				     code += random[index];//根据索引取得随机数加到code上 
 				    } 
-				    this.txmImg = '/site/captcha' + code;//把code值赋给验证码 
+				    this.txmImg = '/site/captcha'+ '?' + code;//把code值赋给验证码 
 				},
 				btnTxm: function(){    //点击刷新图片
 					this.createdCode();
