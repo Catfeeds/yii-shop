@@ -44,7 +44,7 @@
 				<i @click="carQx"></i>
 				<span>登录成功！</span>
 				<div class="linkShop">
-					<a href="#">确定</a>
+					<a @click="btnOk" href="javascript:;">确定</a>
 				</div>
 			</div>			
 		</div>
@@ -74,7 +74,7 @@
 						if(this.logindata.mobile == ''){
 							this.logPhoneMsg = "手机号不能为空";
 							return false;
-						}else if(!telreg.test($('#user_name').val())){
+						}else if(!telreg.test(this.logindata.mobile)){
 							this.logPhoneMsg = "请输入有效号码";
 							return false;
 						}else {
@@ -101,6 +101,9 @@
 			                		console.log(data);
 			                		_This.carShow = true;
 	    			    			_This.popupShow = true;
+	    			    			btnOk: function(){
+	    			    				window.location = ''
+	    			    			}
 			                	}else{
 			                		_This.logPassMsg = '账号或密码错误！';
 			                	}			                    
