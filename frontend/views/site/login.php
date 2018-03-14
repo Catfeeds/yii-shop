@@ -69,21 +69,8 @@
 	    				this.carShow = false;
 	    			    this.popupShow = false;
 	    			},
-	    			phone: function(){
-	    				var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
-						if(this.logindata.mobile == ''){
-							this.logPhoneMsg = "手机号不能为空";
-							return false;
-						}else if(!telreg.test($('#user_name').val())){
-							this.logPhoneMsg = "请输入有效号码";
-							return false;
-						}else {
-							this.logPhoneMsg = '';
-						}
-	    		   },
 	    		   login: function(){
 	    		   	    var _This = this;
-	    		   	    _This.phone();
 	    		   	    $.ajax({
 			                url: '/site/login',
 			                type: 'POST',
