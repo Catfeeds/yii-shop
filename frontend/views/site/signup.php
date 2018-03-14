@@ -6,7 +6,7 @@ use yii\helpers\Url;
 				<div class="login auto clearfix">
 					<div class="login_main">
 						<div class="login_center">
-							<h1>文榜用户登录</h1>
+							<h1>文榜用户注册</h1>
 							<form id="regist">
 								<div class="list">
 									<input @blur="checkphone" type="text" v-model="datainfo.mobile" id="mobile" placeholder="请输入您的手机号码" />
@@ -15,6 +15,7 @@ use yii\helpers\Url;
 								<div class="list">
 									<input class="txm" type="text" name="tx_password" id="tx_password" placeholder="请输入图形验证码" />
 									<img class="img_txm" src="<?=Url::to('/site/captcha')?>" alt="图形码" />
+									<img class="img_txm" src="/img/txm.jpg" alt="图形码" />
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
@@ -61,7 +62,7 @@ use yii\helpers\Url;
 			</div>			
 		</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<script type="text/javascript" src="js/axios.min.js" ></script>
+	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
 		var regi = new Vue({
 			el: "#regist",
