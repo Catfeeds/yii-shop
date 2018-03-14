@@ -71,7 +71,7 @@
 	    			carQx: function(){
 	    				carShow: false,
 	    			    popupShow: false
-	    			}
+	    			},
 	    			phone: function(){
 	    				var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
 						if(this.logindata.mobile == ''){
