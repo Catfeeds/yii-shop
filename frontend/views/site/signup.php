@@ -13,12 +13,12 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgTel }}</strong>
 								</div>
 								<div class="list">
-									<input v-model="txm" class="txm" type="text" name="tx_password" id="tx_password" placeholder="请输入图形验证码" />
+									<input class="txm" type="text" name="tx_password" id="tx_password" placeholder="请输入图形验证码" />
 									<img @click="btnTxm" class="img_txm" :src="txmImg" alt="图形码" />
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
-									<input  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
+									<input  class="dxm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
 									<button id="btnText" @click="oBtn" type="button">
 										<span v-if="sendMsgDisabled">{{ '重新发送' + time }}</span>
 										<span v-if="!sendMsgDisabled">发送验证码</span>
@@ -34,7 +34,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
-								<a href="javascript:;" class="immediately">立即登录</a>
+								<a @click="register" href="javascript:;" class="immediately">立即登录</a>
 								<p>若您没有账号，可点击这里<a href="#">注册</a></p>
 								<div class="qt">
 									<b class="b1"></b>
@@ -131,7 +131,20 @@ use yii\helpers\Url;
 						this.msgpas = '';
 					}
 				},				
-
+				register: function(){
+					this.checkphone();
+					this.checkpass();
+					this.checkpas();
+					$.ajax({
+		                url: '/site/signup',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: this.datainfo,
+		                success: function(data) {
+		                    console.log('注册成功')
+		                }
+		            })
+				},
 				//验证码倒计时
 				
 				oBtn: function(){
