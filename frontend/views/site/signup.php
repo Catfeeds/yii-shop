@@ -12,7 +12,7 @@
 								</div>
 								<div class="list">
 									<input class="txm" type="text" name="tx_password" id="tx_password" placeholder="请输入图形验证码" />
-									<img class="img_txm" src="img/txm.jpg" alt="图形码" />
+									<img class="img_txm" src="/img/txm.jpg" alt="图形码" />
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
