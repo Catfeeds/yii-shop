@@ -102,7 +102,7 @@
 			                		_This.carShow = true;
 	    			    			_This.popupShow = true;
 	    			    			btnOk: function(){
-	    			    				window.location = ''
+	    			    				window.location = '/index/index'
 	    			    			}
 			                	}else{
 			                		_This.logPassMsg = '账号或密码错误！';
