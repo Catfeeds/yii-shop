@@ -79,7 +79,10 @@ use yii\helpers\Url;
 					password: ''
 				},
 				txmImg: ''
-			},	
+			},
+			created: {
+				this.btnTxm();
+			},
 			methods: {
 				btnTxm: function(){    //点击刷新图片
 					code = ""; 
