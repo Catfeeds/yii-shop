@@ -100,7 +100,7 @@
 				                    _This.mobile = data.mobile;
 				                    sessionStorage.setItem('mobile', _This.mobile)
 			                	}else{
-			                		_This.logPassMsg = '账号或密码错误！'；
+			                		_This.logPassMsg = '账号或密码错误！';
 			                	}			                    
 			                }
 			            })
