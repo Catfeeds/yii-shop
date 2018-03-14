@@ -39,7 +39,7 @@
 			<div class="contmain7">
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>
-			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
+			<div v-show="carShow" id="carBg" class="carBg"></div>
 			<div v-show="popupShow" id="carPopup" class="carPopup">
 				<i @click="carQx"></i>
 				<span>登录成功！</span>
@@ -68,6 +68,10 @@
 	    			this.mobile = sessionStorage.getItem('mobile');
 	    		},
 	    		methods: {
+	    			carQx: function(){
+	    				carShow: false,
+	    			    popupShow: false
+	    			}
 	    			phone: function(){
 	    				var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
 						if(this.logindata.mobile == ''){
