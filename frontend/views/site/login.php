@@ -38,6 +38,14 @@
 			</section>
 			<div class="contmain7">
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+			</div>
+			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
+			<div v-show="popupShow" id="carPopup" class="carPopup">
+				<i @click="carQx"></i>
+				<span>登录成功！</span>
+				<div class="linkShop">
+					<a href="#">确定</a>
+				</div>
 			</div>			
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -46,12 +54,18 @@
 	    	var logins = new Vue({
 	    		el: '#logins',
 	    		data: {
+	    			carShow：false,
+	    			popupShow: false,
 	    			logPhoneMsg:'',
 	    			logPassMsg:'',
 	    			logindata: {
 	    				mobile: '',
 	    				password:''
-	    			}
+	    			},
+	    			mobile:''
+	    		},
+	    		ready: function(){
+	    			this.mobile = sessionStorage.getItem('mobile');
 	    		},
 	    		methods: {
 	    			phone: function(){
@@ -68,13 +82,18 @@
 	    		   },
 	    		   login: function(){
 	    		   	    var _This = this;
+	    		   	    _This.phone();
 	    		   	    $.ajax({
 			                url: '/site/login',
 			                type: 'POST',
 			                dataType: 'json',
 			                data: _This.logindata,
 			                success: function(data) {
-			                    console.log(data)
+			                    console.log(data);
+			                    _This.carShow = true;
+			                    _This.popupShow = true;
+			                    _This.mobile = data.mobile;
+			                    sessionStorage.setItem('mobile', _This.mobile)
 			                }
 			            })
 	    		   }
