@@ -83,7 +83,7 @@
 	    		   },
 	    		   password: function(){
 	    		   	   if(this.logindata.password == ''){
-	    		   	   	    this.logPassMsg = '手机号不能为空';
+	    		   	   	    this.logPassMsg = '密码不能为空';
 	    		   	   }else {
 	    		   	   	    this.logPassMsg = '';
 	    		   	   }
