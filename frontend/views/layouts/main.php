@@ -38,7 +38,16 @@ $this->beginPage() ?>
 			<div class="laber_top">
 				<div class="top_main auto">
 					<div class="login">
-						<a href="<?=Url::to('/site/login')?>">登录</a><a href="<?=Url::to('/site/signup')?>">注册</a>
+						  <?php if(!Yii::$app->user->isGuest):?>
+						  	<?php if(Yii::$app->user->identity->mobile):?>
+						  		<?=Yii::$app->user->identity->mobile?>
+						  	<?php else:?>
+						  		<?=Yii::$app->user->identity->nickname?>
+						  	<?php endif;?>
+						  	<a href="<?=Url::to('/site/logout')?>">退出</a>
+						  <?php else:?>
+							<a href="<?=Url::to('/site/login')?>">登录</a><a href="<?=Url::to('/site/signup')?>">注册</a>
+						  <?php endif;?>
 					</div>
 				</div>
 			</div>
