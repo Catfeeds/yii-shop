@@ -101,9 +101,6 @@
 			                		console.log(data);
 			                		_This.carShow = true;
 	    			    			_This.popupShow = true;
-	    			    			btnOk: function(){
-	    			    				window.location = '/index/index'
-	    			    			}
 			                	}else{
 			                		_This.logPassMsg = '账号或密码错误！';
 			                	}			                    
