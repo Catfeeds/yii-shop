@@ -90,7 +90,7 @@
 			                dataType: 'json',
 			                data: _This.logindata,
 			                success: function(data) {
-			                	if(data.status = 0){
+			                	if(data.status == 0){
 			                		console.log(data);
 			                	}else{
 			                		_This.logPassMsg = '账号或密码错误！';
