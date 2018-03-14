@@ -93,7 +93,7 @@
 			                dataType: 'json',
 			                data: _This.logindata,
 			                success: function(data) {
-			                	if(data.status = 0){
+			                	if(data.data.status = 0){
 			                		console.log(data);
 				                    _This.carShow = true;
 				                    _This.popupShow = true;
