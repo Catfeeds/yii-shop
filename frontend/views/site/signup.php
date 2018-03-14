@@ -34,7 +34,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
-								<a @click="register" href="javascript:;" class="immediately">立即登录</a>
+								<a href="javascript:;" class="immediately">立即登录</a>
 								<p>若您没有账号，可点击这里<a href="#">注册</a></p>
 								<div class="qt">
 									<b class="b1"></b>
@@ -131,20 +131,7 @@ use yii\helpers\Url;
 						this.msgpas = '';
 					}
 				},				
-				register: function(){
-					this.checkphone();
-					this.checkpass();
-					this.checkpas();
-					$.ajax({
-		                url: '/site/signup',
-		                type: 'POST',
-		                dataType: 'json',
-		                data: this.datainfo,
-		                success: function(data) {
-		                    console.log('注册成功')
-		                }
-		            })
-				},
+
 				//验证码倒计时
 				
 				oBtn: function(){
