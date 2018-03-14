@@ -74,7 +74,7 @@
 						if(this.logindata.mobile == ''){
 							this.logPhoneMsg = "手机号不能为空";
 							return false;
-						}else if(!telreg.test(this.logindata.mobile)){
+						}else if(!telreg.test($('#user_name').val())){
 							this.logPhoneMsg = "请输入有效号码";
 							return false;
 						}else {
