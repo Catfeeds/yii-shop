@@ -145,28 +145,6 @@ class SiteController extends BaseController
     	return $this->goHome();
     }
     
-    /**
-     * Displays contact page.
-     *
-     * @return mixed
-     */
-    public function actionContact()
-    {
-    	$model = new ContactForm();
-    	if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-    		if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-    			Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-    		} else {
-    			Yii::$app->session->setFlash('error', 'There was an error sending your message.');
-    		}
-    
-    		return $this->refresh();
-    	} else {
-    		return $this->render('contact', [
-    				'model' => $model,
-    				]);
-    	}
-    }
     
     
     /**
@@ -267,5 +245,28 @@ class SiteController extends BaseController
     	Yii::$app->session->set('captcha',$captcha->getCode());
     }
     
+    
+    /**
+     * 发送短信
+     * */
+    public function actionSendmsg()
+    {
+    	if(Yii::$app->request->isAjax)
+    	{
+    		$mobile = Yii::$app->request->post('mobile');
+    		$captcha = Yii::$app->request->post('captcha');
+    		if(!$captcha || Yii::$app->session->get('captcha') != $captcha)
+    		{
+    			return ['status' =>1,'msg' =>'图形验证码不正确'];
+    		}
+    		if(User::findByMobile($mobile))
+    		{
+    			return ['status' =>1,'msg' =>'手机号被使用'];
+    		}else
+    		{	
+    			return ['status' =>0,'msg' =>'发送成功'];
+    		}
+    	}
+    }
 
 }
