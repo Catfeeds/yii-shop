@@ -66,7 +66,6 @@ use yii\helpers\Url;
 		var regi = new Vue({
 			el: "#regist",
 			data: {
-				msgUrl: '/site/signup',
 				time: 60,
 				sendMsgDisabled: false,
 				msgTel: '',				
@@ -138,7 +137,7 @@ use yii\helpers\Url;
 					this.checkpass();
 					this.checkpas();
 					$.ajax({
-		                url: this.msgUrl,
+		                url: '/site/signup',
 		                type: 'POST',
 		                dataType: 'json',
 		                data: this.datainfo,
