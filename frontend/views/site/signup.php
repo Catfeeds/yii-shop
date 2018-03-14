@@ -59,7 +59,7 @@
 			</div>			
 		</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<script type="text/javascript" src="js/axios.min.js" ></script>
+	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
 		var regi = new Vue({
 			el: "#regist",
