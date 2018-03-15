@@ -147,13 +147,24 @@ use yii\helpers\Url;
 					  return false;
 					}else {
 					  _this.msgtx = '';
-					  _this.disabled = false;
 					}
 				},
 				oBtn: function(){
 				    var _this = this;
 				    _this.checkphone();
 				    _this.captchaTxt();
+				    if(!_this.sendMsgDisabled){
+	                  	var setTime = setInterval(function(){
+	                  		_this.time--;
+	                  		if(_this.time <= 0){
+	                  			_this.time = 60;
+	                  			_this.sendMsgDisabled = false;
+	                  			clearInterval(setTime);
+	                  		}
+	                  		console.log(_this.time)
+	                  	},1000)
+	                }                  
+	                _this.sendMsgDisabled = true;
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
@@ -162,19 +173,7 @@ use yii\helpers\Url;
 		                success: function(data) {
 		                 	if(data.status == 0){
 		                        console.log('发送成功');
-		                        console.log(data);
-		                        if(!_this.sendMsgDisabled){
-				                  	var setTime = setInterval(function(){
-				                  		_this.time--;
-				                  		if(_this.time <= 0){
-				                  			_this.time = 60;
-				                  			_this.sendMsgDisabled = false;
-				                  			clearInterval(setTime);
-				                  		}
-				                  		console.log(_this.time)
-				                  	},1000)
-				                }                  
-				                _this.sendMsgDisabled = true;
+		                        console.log(data);		                        
 		                    }
 		                }
 		           })                  
