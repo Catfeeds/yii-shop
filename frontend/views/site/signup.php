@@ -26,11 +26,11 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgdx }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="checkpass" type="text" v-model="datainfo.password" name="password" id="password" placeholder="请输入您的6至12位登录密码" />
+									<input @blur="checkpass" type="password" v-model="datainfo.password" name="password" id="password" placeholder="请输入您的6至12位登录密码" />
 									<strong class="stro1">{{ msgpass }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="checkpas" type="text" v-model="pas" name="password" id="pass" placeholder="请再次输入您的登录密码" />
+									<input @blur="checkpas" type="password" v-model="pas" name="password" id="pass" placeholder="请再次输入您的登录密码" />
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
