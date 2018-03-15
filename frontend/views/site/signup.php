@@ -206,8 +206,8 @@ use yii\helpers\Url;
 		                	if(data.status == 0){
 		                		console.log('注册成功');
 		                		console.log(data);
-		                		_This.carShow = true;
-	    			    	    _This.popupShow = true;	
+		                		this.carShow = true;
+	    			    	    this.popupShow = true;	
 		                	}else {
 		                		console.log('发送失败');
 		                        console.log(data);	
@@ -216,6 +216,7 @@ use yii\helpers\Url;
 		            })
 				},
 				okBtn: function() {
+					var _this = this;
 					_This.carShow = false;
 	    			_This.popupShow = false;
 	    			window.location.href = '/index';
