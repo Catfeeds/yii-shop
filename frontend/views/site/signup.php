@@ -153,32 +153,31 @@ use yii\helpers\Url;
 				    var _this = this;
 				    _this.checkphone();
 				    _this.captchaTxt();
-				    if(!_this.sendMsgDisabled){
-	                  	var setTime = setInterval(function(){
-	                  		_this.time--;
-	                  		if(_this.time <= 0){
-	                  			_this.time = 60;
-	                  			_this.sendMsgDisabled = false;
-	                  			clearInterval(setTime);
-	                  		}
-	                  		console.log(_this.time)
-	                  	},1000)
-	                  	$.ajax({
-			                url: '/site/sendmsg',
-			                type: 'POST',
-			                dataType: 'json',
-			                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
-			                success: function(data) {
-			                 	if(data.status == 0){
-			                        console.log('发送成功');
-			                        console.log(data);
-			                        
-			                    }
-			                }
-			           }) 
-	                }                  
-	                _this.sendMsgDisabled = true;
-					                 
+				    alert(2);
+					$.ajax({
+		                url: '/site/sendmsg',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
+		                success: function(data) {
+		                 	if(data.status == 0){
+		                        console.log('发送成功');
+		                        console.log(data);
+		                        if(!_this.sendMsgDisabled){
+				                  	var setTime = setInterval(function(){
+				                  		_this.time--;
+				                  		if(_this.time <= 0){
+				                  			_this.time = 60;
+				                  			_this.sendMsgDisabled = false;
+				                  			clearInterval(setTime);
+				                  		}
+				                  		console.log(_this.time)
+				                  	},1000)
+				                }                  
+				                _this.sendMsgDisabled = true;
+		                    }
+		                }
+		           })                  
 				},
 				register: function(){
 					this.checkphone();
