@@ -108,17 +108,17 @@
 			                }
 			            })
 	    		   },
-	    		   okBtn: function() {
+	    		   winBOX: function() {
 	    		   	    var _This = this;
 						_This.carShow = false;
 		    			_This.popupShow = false;
 		    			window.location.href = '/index';
 					},
+	    		   okBtn: function() {
+	    		   	    this.winBOX();
+					},
 					carQx: function() {
-	    		   	    var _This = this;
-						_This.carShow = false;
-		    			_This.popupShow = false;
-		    			window.location.href = '/index';
+                        this.winBOX();
 					}
 	    		}
 	    	})
