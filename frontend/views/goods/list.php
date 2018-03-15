@@ -34,12 +34,16 @@
 			},
 			created: function(){
 				var _this = this;
-				axios.get('js/demo.json').then(function (response) {
-				    _this.aLis = response.data.data;
-				    console.log(_this.aLis)
-				}).catch(function (error) {
-				    console.log(error);
-				});
+				$.ajax({
+	                url: '/goods/getlist',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: '',
+	                success: function(data) {
+	                 	_this.aLis = data.data.data;
+	                 	console.log(_this.aLis)
+	                }
+	            })
 			}
 		})
 	</script>
