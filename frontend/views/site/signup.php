@@ -142,7 +142,7 @@ use yii\helpers\Url;
 				captchaTxt: function(){
 					var _this = this;
 					if(_this.captcha.length != 4){
-					  _this.disabled = !_this.disabled;
+					  _this.disabled = true;
 					  _this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
@@ -163,20 +163,22 @@ use yii\helpers\Url;
 	                  		}
 	                  		console.log(_this.time)
 	                  	},1000)
+	                  	$.ajax({
+			                url: '/site/sendmsg',
+			                type: 'POST',
+			                dataType: 'json',
+			                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
+			                success: function(data) {
+			                 	if(data.status == 0){
+			                        console.log('发送成功');
+			                        console.log(data);
+			                        
+			                    }
+			                }
+			           }) 
 	                }                  
 	                _this.sendMsgDisabled = true;
-					$.ajax({
-		                url: '/site/sendmsg',
-		                type: 'POST',
-		                dataType: 'json',
-		                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
-		                success: function(data) {
-		                 	if(data.status == 0){
-		                        console.log('发送成功');
-		                        console.log(data);		                        
-		                    }
-		                }
-		           })                  
+					                 
 				},
 				register: function(){
 					this.checkphone();
