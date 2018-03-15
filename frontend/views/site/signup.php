@@ -148,7 +148,6 @@ use yii\helpers\Url;
 					}else {
 					  _this.msgtx = '';
 					  _this.disabled = false;
-					  alert(2);
 					  if(!_this.sendMsgDisabled){
 		                  	var setTime = setInterval(function(){
 		                  		_this.time--;
@@ -166,8 +165,7 @@ use yii\helpers\Url;
 				oBtn: function(){
 				    var _this = this;
 				    _this.checkphone();
-				    _this.captchaTxt();
-				    
+				    _this.captchaTxt();				    
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
@@ -177,6 +175,9 @@ use yii\helpers\Url;
 		                 	if(data.status == 0){
 		                        console.log('发送成功');
 		                        console.log(data);		                        
+		                    }else{
+		                    	console.log('发送失败');
+		                        console.log(data);	
 		                    }
 		                }
 		           })                  
@@ -193,7 +194,11 @@ use yii\helpers\Url;
 		                data: {mobile: this.datainfo.mobile, password: this.datainfo.password, code: this.code},
 		                success: function(data) {
 		                	if(data.status == 0){
+		                		console.log('注册成功');
 		                		console.log(data);
+		                	}else {
+		                		console.log('发送失败');
+		                        console.log(data);	
 		                	}	                    
 		                }
 		            })
