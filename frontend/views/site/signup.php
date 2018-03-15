@@ -140,19 +140,17 @@ use yii\helpers\Url;
 				},							
 				//验证码倒计时
 				captchaTxt: function(){
-					if(this.captcha == '' || this.captcha.length != 4){
-					  this.disabled = true;
-					  this.msgtx = '请填写正确的图形验证码';
+					if(_this.captcha == '' || _this.captcha.length != 4){
+					  _this.disabled = true;
+					  _this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
-					  this.msgtx = '';
-					  this.disabled = false;
+					  _this.msgtx = '';
+					  _this.disabled = false;
 					}
 				},
 				oBtn: function(){
 				    var _this = this;
-				    _this.checkphone();
-				    this.captchaTxt();
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
