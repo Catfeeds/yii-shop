@@ -18,7 +18,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="code" v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
+									<input @blur="codes" v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
 									<button :disabled="disabled" id="btnText" @click="oBtn" type="button">
 										<span v-if="sendMsgDisabled">{{ '重新发送' + time }}</span>
 										<span v-if="!sendMsgDisabled">发送验证码</span>
@@ -130,7 +130,7 @@ use yii\helpers\Url;
 						this.msgpas = '';
 					}
 				},
-				code: function() {
+				codes: function() {
 					if(this.code == ''){
 						this.msgpas = '请填写验证码！';	
 					    return false;
@@ -142,7 +142,7 @@ use yii\helpers\Url;
 					this.checkphone();
 					this.checkpass();
 					this.checkpas();
-					this.code();
+					this.codes();
 					$.ajax({
 		                url: '/site/signup',
 		                type: 'POST',
