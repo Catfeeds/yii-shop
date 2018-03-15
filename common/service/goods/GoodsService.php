@@ -43,7 +43,7 @@ class GoodsService extends BaseService
     
     public static function getList($size,$offset)
     {
-    	$goods = Goods::find()->select(['name','short_name','cid','image','_id','shop_price'])->limit()->offset()->asArray()->all();
+    	$goods = Goods::find()->select(['name','short_name','cid','image','_id','shop_price'])->limit($size)->offset($offset)->asArray()->all();
     	return $goods ?: [];
     }
     /**
