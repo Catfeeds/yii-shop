@@ -163,8 +163,8 @@ use yii\helpers\Url;
 		                data: {mobile:_this.datainfo.mobile, captcha: _this.captcha},
 		                success: function(data) {
 		                 	if(data.status == 0){
-		                        console.log('注册成功');
-		                        console.log('data');
+		                        console.log('发送成功');
+		                        console.log(data);
 		                        if(!_this.sendMsgDisabled){
 				                  	var setTime = setInterval(function(){
 				                  		_this.time--;
