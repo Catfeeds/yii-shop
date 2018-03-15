@@ -142,7 +142,7 @@ use yii\helpers\Url;
 				captchaTxt: function(){
 					var _this = this;
 					if(_this.captcha.length != 4){
-					  _this.disabled = true;
+					  _this.disabled = false;
 					  _this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
