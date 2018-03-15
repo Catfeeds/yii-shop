@@ -61,7 +61,7 @@ use yii\helpers\Url;
 			</div>
 			<div v-show="carShow" id="carBg" class="carBg"></div>
 			<div v-show="popupShow" id="carPopup" class="carPopup">
-				<i @click="carQx"></i>
+				<i></i>
 				<span>注册成功！</span>
 				<div class="linkShop">
 					<a @click="okBtn" href="javascript:;">确定</a>
@@ -77,6 +77,8 @@ use yii\helpers\Url;
 				time: 60,
 				sendMsgDisabled: false,
 				disabled: false,
+				carShow: false,
+	    		popupShow: false,
 				msgTel: '',				
 				msgtx: '',
 				msgdx: '',				
