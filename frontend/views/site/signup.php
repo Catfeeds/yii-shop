@@ -153,32 +153,32 @@ use yii\helpers\Url;
 					}
 				},
 				oBtn: function(){
-				  var _this = this;
-				  _this.captchaTxt();
-				  $.ajax({
-	                 url: '/site/sendmsg',
-	                 type: 'POST',
-	                 dataType: 'json',
-	                 data: {mobile:this.datainfo.mobile, captcha: this.captcha},
-	                 success: function(data) {
-	                 	if(data.status == 0){
-	                      console.log('注册成功');
-	                      console.log('data');
-	                   }
-	                 }
-	             })
-                  if(!_this.sendMsgDisabled){
-                  	var setTime = setInterval(function(){
-                  		_this.time--;
-                  		if(_this.time <= 0){
-                  			_this.time = 60;
-                  			_this.sendMsgDisabled = false;
-                  			clearInterval(setTime);
-                  		}
-                  		console.log(_this.time)
-                  	},1000)
-                  }                  
-                  _this.sendMsgDisabled = true;
+				    var _this = this;
+				    _this.captchaTxt();
+					$.ajax({
+		                url: '/site/sendmsg',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: {mobile:this.datainfo.mobile, captcha: this.captcha},
+		                success: function(data) {
+		                 	if(data.status == 0){
+		                        console.log('注册成功');
+		                        console.log('data');
+		                        if(!_this.sendMsgDisabled){
+				                  	var setTime = setInterval(function(){
+				                  		_this.time--;
+				                  		if(_this.time <= 0){
+				                  			_this.time = 60;
+				                  			_this.sendMsgDisabled = false;
+				                  			clearInterval(setTime);
+				                  		}
+				                  		console.log(_this.time)
+				                  	},1000)
+				                }                  
+				                _this.sendMsgDisabled = true;
+		                    }
+		                }
+		           })                  
 				}
 			}
 		})
