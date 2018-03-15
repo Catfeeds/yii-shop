@@ -143,9 +143,16 @@ use yii\helpers\Url;
 		            })
 				},
 				//验证码倒计时
-				
+				captchaTxt: function(){
+					var _this = this;
+					if(_this.captcha == '' || this.captcha.length = !4){
+					  _this.sendMsgDisabled = true;
+					  _this.msgtx = '请填写验证码';
+					}
+				},
 				oBtn: function(){
 				  var _this = this;
+				  _this.captchaTxt();
                   if(!_this.sendMsgDisabled){
                   	var setTime = setInterval(function(){
                   		_this.time--;
