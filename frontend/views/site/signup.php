@@ -184,21 +184,14 @@ use yii\helpers\Url;
 		                success: function(data) {
 		                 	if(data.status == 0){
 		                        console.log('发送成功');
-		                        console.log(data);
-		                        _This.carShow = true;
-	    			    	    _This.popupShow = true;	                        
+		                        console.log(data);		                                                
 		                    }else{
 		                    	console.log('发送失败');
 		                        console.log(data);	
 		                    }
 		                }
 		           })                  
-				},
-				okBtn: function() {
-					_This.carShow = false;
-	    			_This.popupShow = false;
-	    			window.location.href = '/index';
-				},
+				},				
 				register: function(){
 					this.checkphone();
 					this.checkpass();
@@ -213,12 +206,19 @@ use yii\helpers\Url;
 		                	if(data.status == 0){
 		                		console.log('注册成功');
 		                		console.log(data);
+		                		_This.carShow = true;
+	    			    	    _This.popupShow = true;	
 		                	}else {
 		                		console.log('发送失败');
 		                        console.log(data);	
 		                	}	                    
 		                }
 		            })
+				}
+				okBtn: function() {
+					_This.carShow = false;
+	    			_This.popupShow = false;
+	    			window.location.href = '/index';
 				}
 			}
 		})
