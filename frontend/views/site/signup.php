@@ -18,7 +18,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
-									<input v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
+									<input @blur="code" v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
 									<button :disabled="disabled" id="btnText" @click="oBtn" type="button">
 										<span v-if="sendMsgDisabled">{{ '重新发送' + time }}</span>
 										<span v-if="!sendMsgDisabled">发送验证码</span>
@@ -34,8 +34,8 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
-								<a @click="register" href="javascript:;" class="immediately">立即登录</a>
-								<p>若您没有账号，可点击这里<a href="#">注册</a></p>
+								<a @click="register" href="javascript:;" class="immediately">立即注册</a>
+								<p>若您已有账号，可点击这里<a href="#">登录</a></p>
 								<div class="qt">
 									<b class="b1"></b>
 									<p>其它方式登录</p>
@@ -129,12 +129,20 @@ use yii\helpers\Url;
 					}else{
 						this.msgpas = '';
 					}
-				},				
+				},
+				code: function() {
+					if(this.code == ''){
+						this.msgpas = '请填写验证码！';	
+					    return false;
+					}else {
+						this.msgpas = '';	
+					}
+				},			
 				register: function(){
 					this.checkphone();
 					this.checkpass();
 					this.checkpas();
-					this.oBtn();
+					this.code();
 					$.ajax({
 		                url: '/site/signup',
 		                type: 'POST',
