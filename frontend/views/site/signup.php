@@ -197,6 +197,7 @@ use yii\helpers\Url;
 					this.checkpass();
 					this.checkpas();
 					this.codes();
+					var _this = this;
 					$.ajax({
 		                url: '/site/signup',
 		                type: 'POST',
