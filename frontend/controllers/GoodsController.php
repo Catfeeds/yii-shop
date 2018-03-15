@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use common\models\goods\mongodb\Goods;
 use common\models\goods\mongodb\Attr;
-use common\service\CategoryService;
+use common\service\goods\GoodsService;
 use Qiniu\json_decode;
 
 
@@ -41,5 +41,22 @@ class GoodsController extends BaseController
     	$data = Goods::findOne((string)$request['id'])->toArray();
     	$attr = Attr::getAttrByCid($data['goods']['cid']);
     	return json_encode(['data' =>$data,'attr' =>$attr,'status' =>0]);
+    }
+    
+    
+    public function actionList()
+    {
+    	return $this->render('list');
+    }
+    
+    
+    public function actionGetlist()
+    {	
+    	if(Yii::$app->request->isAjax)
+    	{
+    		$size = Yii::$app->request->post('size');
+    		$offset = Yii::$app->request->post('offset');
+    		return GoodsService::getList($size, $offset);
+    	}
     }
 }

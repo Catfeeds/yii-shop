@@ -255,7 +255,7 @@ class SiteController extends BaseController
     	{
     		$mobile = Yii::$app->request->post('mobile');
     		$captcha = Yii::$app->request->post('captcha');
-    		if(!$captcha || Yii::$app->session->get('captcha') != $captcha)
+    		if(!$captcha || strtolower(Yii::$app->session->get('captcha')) != strtolower($captcha))
     		{
     			return ['status' =>1,'msg' =>'图形验证码不正确'];
     		}
