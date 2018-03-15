@@ -6,9 +6,9 @@
             			<ul>
             				<li v-for="lis in aLis">
             					<a v-bind:href="lis.url">
-            						<img v-bind:src="lis.img" alt="茶叶"/>
+            						<img v-bind:src="imgurl + lis.image[0]" alt="茶叶"/>
             						<span>{{lis.name}}</span>
-            						<p class="price">{{'￥' + lis.sprice}}</p>
+            						<p class="price">{{'￥' + lis.shop_price}}</p>
             					</a>
             				</li>
             			</ul>
@@ -34,6 +34,7 @@
 			},
 			created: function(){
 				var _this = this;
+				var thisUrl = 
 				$.ajax({
 	                url: '/goods/getlist',
 	                type: 'POST',
