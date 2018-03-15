@@ -214,7 +214,7 @@ use yii\helpers\Url;
 		                	}	                    
 		                }
 		            })
-				}
+				},
 				okBtn: function() {
 					_This.carShow = false;
 	    			_This.popupShow = false;
