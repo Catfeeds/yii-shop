@@ -245,7 +245,6 @@ class SiteController extends BaseController
     	Yii::$app->session->set('captcha',$captcha->getCode());
     }
     
-    
     /**
      * 发送短信
      * */
@@ -257,11 +256,11 @@ class SiteController extends BaseController
     		$captcha = Yii::$app->request->post('captcha');
     		if(!$captcha)
     		{
-    			return ['status' =>1,'msg' =>'图形验证码不正确'];
+    			return ['status' =>1,'msg' =>'验证码不能为空'];
     		}
     		if(strtolower(Yii::$app->session->get('captcha')) != strtolower($captcha))
     		{
-    			return ['status' =>1,'msg' =>'图形验证码不正确'];
+    			return ['status' =>1,'msg' =>'验证码不正确'];
     		}
     		if(User::findByMobile($mobile))
     		{
