@@ -1,5 +1,4 @@
 <?php 
-use Yii;
 use yii\helpers\Url;
 use yii\helpers\Html;
 $this->beginPage() ?>
