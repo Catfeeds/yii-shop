@@ -10,7 +10,7 @@
 									<strong class="stro1">{{ logPhoneMsg }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="password" v-model='logindata.password'  type="text" name="password" id="password" placeholder="请输入您的密码" />
+									<input @blur="password" v-model='logindata.password'  type="password" name="password" id="password" placeholder="请输入您的密码" />
 									<strong class="stro1">{{ logPassMsg }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
