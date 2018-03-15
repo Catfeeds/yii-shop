@@ -43,9 +43,9 @@ $this->beginPage() ?>
 					<div class="login">
 						  <?php if(!Yii::$app->user->isGuest):?>
 						  	<?php if(Yii::$app->user->identity->mobile):?>
-						  		<?=Yii::$app->user->identity->mobile?>
+						  		<a href="#"><?=Yii::$app->user->identity->mobile?></a>
 						  	<?php else:?>
-						  		<?=Yii::$app->user->identity->nickname?>
+						  		<a href="#"><?=Yii::$app->user->identity->nickname?></a>
 						  	<?php endif;?>
 						  	<a href="<?=Url::to('/site/logout')?>">退出</a>
 						  <?php else:?>
