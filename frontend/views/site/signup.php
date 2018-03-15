@@ -140,7 +140,7 @@ use yii\helpers\Url;
 				},							
 				//验证码倒计时
 				captchaTxt: function(){
-					if(this.captcha == '' || _this.captcha.length != 4){
+					if(this.captcha == '' || this.captcha.length != 4){
 					  this.disabled = true;
 					  this.msgtx = '请填写正确的图形验证码';
 					  return false;
