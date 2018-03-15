@@ -145,15 +145,7 @@ use yii\helpers\Url;
 					}else{
 						this.msgpas = '';
 					}
-				},
-				codes: function() {
-					if(this.code == ''){
-						this.msgdx = '请填写正确的短信验证码！';	
-					    return false;
-					}else {
-						this.msgdx = '';	
-					}
-				},							
+				},						
 				//验证码倒计时
 				captchaTxt: function(){
 					var _this = this;
@@ -202,7 +194,6 @@ use yii\helpers\Url;
 					this.checkphone();
 					this.checkpass();
 					this.checkpas();
-					this.codes();
 					var _this = this;
 					$.ajax({
 		                url: '/site/signup',
