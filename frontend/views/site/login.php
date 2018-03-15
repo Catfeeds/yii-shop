@@ -44,7 +44,7 @@
 				<i @click="carQx"></i>
 				<span>登录成功！</span>
 				<div class="linkShop">
-					<a href="javascript:;">确定</a>
+					<a @click="okBtn" href="javascript:;">确定</a>
 				</div>
 			</div>			
 		</div>
@@ -109,6 +109,13 @@
 			            })
 	    		   },
 	    		   okBtn: function() {
+	    		   	    var _This = this;
+						_This.carShow = false;
+		    			_This.popupShow = false;
+		    			window.location.href = '/index';
+					},
+					carQx: function() {
+	    		   	    var _This = this;
 						_This.carShow = false;
 		    			_This.popupShow = false;
 		    			window.location.href = '/index';
