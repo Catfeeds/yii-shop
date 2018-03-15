@@ -17,7 +17,8 @@ class BaseController extends CommonController
         $view = YII::$app->view;
         $view->params['category'] = CategoryService::index();
         if(Yii::$app->request->isAjax)
-        {
+        {	
+        	$this->layout = false;
         	Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         }
     }

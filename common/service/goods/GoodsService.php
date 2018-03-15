@@ -40,6 +40,12 @@ class GoodsService extends BaseService
     	return $categoryList;
     }
 	
+    
+    public static function getList($size,$offset)
+    {
+    	$goods = Goods::find()->select(['name','short_name','cid','image','_id','shop_price'])->limit()->offset()->asArray()->all();
+    	return $goods ?: [];
+    }
     /**
      * 获取库存
      * */
