@@ -207,8 +207,8 @@ use yii\helpers\Url;
 		                	if(data.status == 0){
 		                		console.log('注册成功');
 		                		console.log(data);
-		                		this.carShow = true;
-	    			    	    this.popupShow = true;	
+		                		_this.carShow = true;
+	    			    	    _this.popupShow = true;	
 		                	}else {
 		                		console.log('发送失败');
 		                        console.log(data);	
