@@ -79,7 +79,7 @@ use yii\helpers\Url;
 					password: ''
 				},
 				txmImg: '',
-				captcha: '',
+				captcha: ''
 			},
 			created: function(){
 				this.createdCode();
