@@ -18,7 +18,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="codes" v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
+									<input v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
 									<button :disabled="disabled" id="btnText" @click="oBtn" type="button">
 										<span v-if="sendMsgDisabled">{{ '重新发送' + time }}</span>
 										<span v-if="!sendMsgDisabled">发送验证码</span>
@@ -34,7 +34,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
-								<a @click="register" href="javascript:;" class="immediately">立即注册</a>
+								<button @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">立即注册</button>
 								<p>若您已有账号，可点击这里<a href="#">登录</a></p>
 								<div class="qt">
 									<b class="b1"></b>
@@ -77,8 +77,11 @@ use yii\helpers\Url;
 				time: 60,
 				sendMsgDisabled: false,
 				disabled: false,
+				disabled2: true,
 				carShow: false,
 	    		popupShow: false,
+	    		isactive1: false,
+				isactive2: true,
 				msgTel: '',				
 				msgtx: '',
 				msgdx: '',				
@@ -114,6 +117,9 @@ use yii\helpers\Url;
 						return false;
 					}else {
 						this.msgTel = '';
+						this.disabled2 = false;
+						this.isactive1 = true;
+						this.isactive2 = false;
 					}
 				},
 				//验证密码
@@ -184,26 +190,20 @@ use yii\helpers\Url;
 		                success: function(data) {
 		                 	if(data.status == 0){
 		                        console.log('发送成功');
-		                        console.log(data);
-		                        _This.carShow = true;
-	    			    	    _This.popupShow = true;	                        
+		                        console.log(data);		                                                
 		                    }else{
 		                    	console.log('发送失败');
 		                        console.log(data);	
 		                    }
 		                }
 		           })                  
-				},
-				okBtn: function() {
-					_This.carShow = false;
-	    			_This.popupShow = false;
-	    			window.location.href = '/index';
-				},
+				},				
 				register: function(){
 					this.checkphone();
 					this.checkpass();
 					this.checkpas();
 					this.codes();
+					var _this = this;
 					$.ajax({
 		                url: '/site/signup',
 		                type: 'POST',
@@ -213,12 +213,20 @@ use yii\helpers\Url;
 		                	if(data.status == 0){
 		                		console.log('注册成功');
 		                		console.log(data);
+		                		_this.carShow = true;
+	    			    	    _this.popupShow = true;	
 		                	}else {
 		                		console.log('发送失败');
 		                        console.log(data);	
 		                	}	                    
 		                }
 		            })
+				},
+				okBtn: function() {
+					var _This = this;
+					_This.carShow = false;
+	    			_This.popupShow = false;
+	    			window.location.href = '/index';
 				}
 			}
 		})
