@@ -40,7 +40,7 @@
 	                dataType: 'json',
 	                data: '',
 	                success: function(data) {
-	                 	_this.aLis = data.data.data;
+	                 	_this.aLis = data.data;
 	                 	console.log(_this.aLis)
 	                }
 	            })
