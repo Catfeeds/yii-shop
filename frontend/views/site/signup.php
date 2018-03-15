@@ -164,7 +164,7 @@ use yii\helpers\Url;
 					  return false;
 					}else {
 					  _this.msgtx = '';
-					  _this.disabled = _this.disabled;
+					  _this.disabled = false;
 					}
 				},
 				oBtn: function(){
