@@ -140,14 +140,13 @@ use yii\helpers\Url;
 				},							
 				//验证码倒计时
 				captchaTxt: function(){
-					var _this = this;
-					if(_this.captcha == '' || _this.captcha.length != 4){
-					  _this.disabled = true;
-					  _this.msgtx = '请填写正确的图形验证码';
+					if(this.captcha == '' || _this.captcha.length != 4){
+					  this.disabled = true;
+					  this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
-					  _this.msgtx = '';
-					  _this.disabled = false;
+					  this.msgtx = '';
+					  this.disabled = false;
 					}
 				},
 				oBtn: function(){
