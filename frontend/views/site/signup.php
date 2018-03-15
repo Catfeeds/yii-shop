@@ -34,7 +34,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
-								<button @click="register" :disabled="disabled2" href="javascript:;" class="immediately">立即注册</button>
+								<button @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">立即注册</button>
 								<p>若您已有账号，可点击这里<a href="#">登录</a></p>
 								<div class="qt">
 									<b class="b1"></b>
@@ -80,6 +80,8 @@ use yii\helpers\Url;
 				disabled2: true,
 				carShow: false,
 	    		popupShow: false,
+	    		isactive1: false,
+				isactive2: true,
 				msgTel: '',				
 				msgtx: '',
 				msgdx: '',				
@@ -116,6 +118,8 @@ use yii\helpers\Url;
 					}else {
 						this.msgTel = '';
 						this.disabled2 = false;
+						this.isactive1 = true;
+						this.isactive2 = false;
 					}
 				},
 				//验证密码
