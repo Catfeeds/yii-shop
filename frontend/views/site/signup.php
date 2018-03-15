@@ -152,7 +152,7 @@ use yii\helpers\Url;
 				oBtn: function(){
 				    var _this = this;
 				    _this.checkphone();
-				    _this.captchaTxt();
+				    this.captchaTxt();
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
