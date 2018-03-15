@@ -58,7 +58,15 @@ use yii\helpers\Url;
 			</section>
 			<div class="contmain7">
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
-			</div>			
+			</div>
+			<div v-show="carShow" id="carBg" class="carBg"></div>
+			<div v-show="popupShow" id="carPopup" class="carPopup">
+				<i></i>
+				<span>注册成功！</span>
+				<div class="linkShop">
+					<a @click="okBtn" href="javascript:;">确定</a>
+				</div>
+			</div>				
 		</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
@@ -70,6 +78,8 @@ use yii\helpers\Url;
 				sendMsgDisabled: false,
 				disabled: false,
 				disabled2: true,
+				carShow: false,
+	    		popupShow: false,
 	    		isactive1: false,
 				isactive2: true,
 				msgTel: '',				
@@ -203,12 +213,20 @@ use yii\helpers\Url;
 		                	if(data.status == 0){
 		                		console.log('注册成功');
 		                		console.log(data);
+		                		_this.carShow = true;
+	    			    	    _this.popupShow = true;	
 		                	}else {
 		                		console.log('发送失败');
 		                        console.log(data);	
 		                	}	                    
 		                }
 		            })
+				},
+				okBtn: function() {
+					var _This = this;
+					_This.carShow = false;
+	    			_This.popupShow = false;
+	    			window.location.href = '/index';
 				}
 			}
 		})
