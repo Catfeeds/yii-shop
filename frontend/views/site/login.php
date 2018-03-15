@@ -106,7 +106,12 @@
 			                	}			                    
 			                }
 			            })
-	    		   }
+	    		   },
+	    		   okBtn: function() {
+						_This.carShow = false;
+		    			_This.popupShow = false;
+		    			window.location.href = '/index';
+					}
 	    		}
 	    	})
 	    </script>

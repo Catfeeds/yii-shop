@@ -58,7 +58,15 @@ use yii\helpers\Url;
 			</section>
 			<div class="contmain7">
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
-			</div>			
+			</div>
+			<div v-show="carShow" id="carBg" class="carBg"></div>
+			<div v-show="popupShow" id="carPopup" class="carPopup">
+				<i @click="carQx"></i>
+				<span>注册成功！</span>
+				<div class="linkShop">
+					<a @click="okBtn" href="javascript:;">确定</a>
+				</div>
+			</div>				
 		</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
@@ -174,13 +182,20 @@ use yii\helpers\Url;
 		                success: function(data) {
 		                 	if(data.status == 0){
 		                        console.log('发送成功');
-		                        console.log(data);		                        
+		                        console.log(data);
+		                        _This.carShow = true;
+	    			    	    _This.popupShow = true;	                        
 		                    }else{
 		                    	console.log('发送失败');
 		                        console.log(data);	
 		                    }
 		                }
 		           })                  
+				},
+				okBtn: function() {
+					_This.carShow = false;
+	    			_This.popupShow = false;
+	    			window.location.href = '/index';
 				},
 				register: function(){
 					this.checkphone();
