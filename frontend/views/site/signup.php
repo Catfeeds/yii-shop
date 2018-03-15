@@ -146,7 +146,7 @@ use yii\helpers\Url;
 				//验证码倒计时
 				captchaTxt: function(){
 					var _this = this;
-					if(_this.captcha == ''){
+					if(_this.captcha == '' || !_this.captcha == 4){
 					  _this.disabled = !disabled;
 					  _this.msgtx = '请填写验证码';
 					}
