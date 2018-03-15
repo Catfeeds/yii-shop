@@ -80,7 +80,8 @@ class IndexController extends BaseController
     
     
     public function actionTest()
-    {
+    {	
+    	$this->layout = false;
     	//模式一
     	/**
     	* 流程：
@@ -113,8 +114,8 @@ class IndexController extends BaseController
     	$input->SetTrade_type("NATIVE");
     	$input->SetProduct_id("123456789");
     	$result = $notify->GetPayUrl($input);
-    	var_dump($result);exit;
-    	$url2 = $result["code_url"];
-    			return $this->render('test',['url2'=>$url2]);
+    	$url = urlencode($result["code_url"]);
+    	$url ='http://paysdk.weixin.qq.com/example/qrcode.php?data='.$url;
+    	return $this->render('test',['url'=>$url]);
     }
 }
