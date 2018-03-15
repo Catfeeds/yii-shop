@@ -148,6 +148,7 @@ use yii\helpers\Url;
 				  var _this = this;
 				  if(_this.captcha == '' || _this.captcha.length = !4){
 				  	_this.sendMsgDisabled = true;
+				  	_this.msgtx = '请填写验证码';
 				  }
                   if(!_this.sendMsgDisabled){
                   	var setTime = setInterval(function(){
