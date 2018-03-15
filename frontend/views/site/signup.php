@@ -147,13 +147,14 @@ use yii\helpers\Url;
 					  return false;
 					}else {
 					  _this.msgtx = '';
+					  alert(2);
 					}
 				},
 				oBtn: function(){
 				    var _this = this;
 				    _this.checkphone();
 				    _this.captchaTxt();
-				    alert(2);
+				    
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
