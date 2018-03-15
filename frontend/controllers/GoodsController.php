@@ -6,7 +6,7 @@ use common\models\goods\mongodb\Goods;
 use common\models\goods\mongodb\Attr;
 use common\service\goods\GoodsService;
 use Qiniu\json_decode;
-
+use Yii;
 
 /**
  * goods controller
