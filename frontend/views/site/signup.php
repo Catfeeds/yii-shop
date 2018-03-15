@@ -159,9 +159,8 @@ use yii\helpers\Url;
 				captchaTxt: function(){
 					var _this = this;
 					if(_this.captcha == '' || _this.captcha.length != 4){
-					  _this.disabled = true;
+					  
 					  _this.msgtx = '请填写正确的图形验证码';
-					  return false;
 					}else {
 					  _this.msgtx = '';
 					  _this.disabled = false;
