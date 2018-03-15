@@ -154,12 +154,13 @@ use yii\helpers\Url;
 				},
 				oBtn: function(){
 				    var _this = this;
+				    this.checkphone();
 				    _this.captchaTxt();
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
 		                dataType: 'json',
-		                data: {mobile:this.datainfo.mobile, captcha: this.captcha},
+		                data: {mobile:_this.datainfo.mobile, captcha: _this.captcha},
 		                success: function(data) {
 		                 	if(data.status == 0){
 		                        console.log('注册成功');
