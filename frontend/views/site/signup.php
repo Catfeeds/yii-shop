@@ -19,7 +19,7 @@ use yii\helpers\Url;
 								</div>
 								<div class="list">
 									<input  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
-									<button id="btnText" @click="oBtn" type="button">
+									<button :disabled="btnDisabled" id="btnText" @click="oBtn" type="button">
 										<span v-if="sendMsgDisabled">{{ '重新发送' + time }}</span>
 										<span v-if="!sendMsgDisabled">发送验证码</span>
 									</button>
@@ -68,6 +68,7 @@ use yii\helpers\Url;
 			data: {
 				time: 60,
 				sendMsgDisabled: false,
+				btnDisabled: false,
 				msgTel: '',				
 				msgtx: '',
 				msgdx: '',				
@@ -146,7 +147,7 @@ use yii\helpers\Url;
 				captchaTxt: function(){
 					var _this = this;
 					if(_this.captcha == ''){
-					  _this.sendMsgDisabled = false;
+					  _this.btnDisabled = true;
 					  _this.msgtx = '请填写验证码';
 					}
 				},
