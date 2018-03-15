@@ -18,7 +18,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
-									<input  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
+									<input v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
 									<button :disabled="disabled" id="btnText" @click="oBtn" type="button">
 										<span v-if="sendMsgDisabled">{{ '重新发送' + time }}</span>
 										<span v-if="!sendMsgDisabled">发送验证码</span>
@@ -80,7 +80,8 @@ use yii\helpers\Url;
 					password: ''
 				},
 				txmImg: '',
-				captcha: ''
+				captcha: '',
+				code: ''
 			},
 			created: function(){
 				this.createdCode();
@@ -133,13 +134,16 @@ use yii\helpers\Url;
 					this.checkphone();
 					this.checkpass();
 					this.checkpas();
+					this.oBtn();
 					$.ajax({
 		                url: '/site/signup',
 		                type: 'POST',
 		                dataType: 'json',
-		                data: this.datainfo,
+		                data: {mobile: this.datainfo.mobile, password: this.datainfo.password, code: this.code},
 		                success: function(data) {
-		                    console.log('注册成功')
+		                	if(data.status == 0){
+		                		console.log(data);
+		                	}	                    
 		                }
 		            })
 				},
