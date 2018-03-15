@@ -18,7 +18,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
 								<div class="list">
-									<input v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
+									<input @blur="codes" v-model="code"  class="txm" type="text" name="dx_password" id="dx_password" placeholder="请输入短信验证码" />
 									<button :disabled="disabled" id="btnText" @click="oBtn" type="button">
 										<span v-if="sendMsgDisabled">{{ '重新发送' + time }}</span>
 										<span v-if="!sendMsgDisabled">发送验证码</span>
@@ -34,8 +34,8 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
 								<a href="#" class="forget">忘记密码?</a>
-								<a @click="register" href="javascript:;" class="immediately">立即登录</a>
-								<p>若您没有账号，可点击这里<a href="#">注册</a></p>
+								<a @click="register" href="javascript:;" class="immediately">立即注册</a>
+								<p>若您已有账号，可点击这里<a href="#">登录</a></p>
 								<div class="qt">
 									<b class="b1"></b>
 									<p>其它方式登录</p>
@@ -129,12 +129,63 @@ use yii\helpers\Url;
 					}else{
 						this.msgpas = '';
 					}
-				},				
+				},
+				codes: function() {
+					if(this.code == ''){
+						this.msgdx = '请填写正确的短信验证码！';	
+					    return false;
+					}else {
+						this.msgdx = '';	
+					}
+				},							
+				//验证码倒计时
+				captchaTxt: function(){
+					var _this = this;
+					if(_this.captcha.length != 4){
+					  _this.disabled = true;
+					  _this.msgtx = '请填写正确的图形验证码';
+					  return false;
+					}else {
+					  _this.msgtx = '';
+					  _this.disabled = false;
+					  alert(2);
+					  if(!_this.sendMsgDisabled){
+		                  	var setTime = setInterval(function(){
+		                  		_this.time--;
+		                  		if(_this.time <= 0){
+		                  			_this.time = 60;
+		                  			_this.sendMsgDisabled = false;
+		                  			clearInterval(setTime);
+		                  		}
+		                  		console.log(_this.time)
+		                  	},1000)
+		                }                  
+		                _this.sendMsgDisabled = true;
+					}
+				},
+				oBtn: function(){
+				    var _this = this;
+				    _this.checkphone();
+				    _this.captchaTxt();
+				    
+					$.ajax({
+		                url: '/site/sendmsg',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
+		                success: function(data) {
+		                 	if(data.status == 0){
+		                        console.log('发送成功');
+		                        console.log(data);		                        
+		                    }
+		                }
+		           })                  
+				},
 				register: function(){
 					this.checkphone();
 					this.checkpass();
 					this.checkpas();
-					this.oBtn();
+					this.codes();
 					$.ajax({
 		                url: '/site/signup',
 		                type: 'POST',
@@ -146,46 +197,6 @@ use yii\helpers\Url;
 		                	}	                    
 		                }
 		            })
-				},
-				//验证码倒计时
-				captchaTxt: function(){
-					var _this = this;
-					if(_this.captcha == '' || _this.captcha.length != 4){
-					  _this.disabled = !_this.disabled;
-					  _this.msgtx = '请填写验证码';
-					  return false;
-					}else {
-					  _this.msgtx = '';
-					}
-				},
-				oBtn: function(){
-				    var _this = this;
-				    this.checkphone();
-				    _this.captchaTxt();
-					$.ajax({
-		                url: '/site/sendmsg',
-		                type: 'POST',
-		                dataType: 'json',
-		                data: {mobile:_this.datainfo.mobile, captcha: _this.captcha},
-		                success: function(data) {
-		                 	if(data.status == 0){
-		                        console.log('发送成功');
-		                        console.log(data);
-		                        if(!_this.sendMsgDisabled){
-				                  	var setTime = setInterval(function(){
-				                  		_this.time--;
-				                  		if(_this.time <= 0){
-				                  			_this.time = 60;
-				                  			_this.sendMsgDisabled = false;
-				                  			clearInterval(setTime);
-				                  		}
-				                  		console.log(_this.time)
-				                  	},1000)
-				                }                  
-				                _this.sendMsgDisabled = true;
-		                    }
-		                }
-		           })                  
 				}
 			}
 		})
