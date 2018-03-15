@@ -146,7 +146,7 @@ use yii\helpers\Url;
 				captchaTxt: function(){
 					var _this = this;
 					if(_this.captcha == ''){
-					  _this.sendMsgDisabled = true;
+					  _this.sendMsgDisabled = false;
 					  _this.msgtx = '请填写验证码';
 					}
 				},
