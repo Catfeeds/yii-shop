@@ -137,30 +137,14 @@ use yii\helpers\Url;
 					}else {
 						this.msgdx = '';	
 					}
-				},			
-				register: function(){
-					this.checkphone();
-					this.checkpass();
-					this.checkpas();
-					this.codes();
-					$.ajax({
-		                url: '/site/signup',
-		                type: 'POST',
-		                dataType: 'json',
-		                data: {mobile: this.datainfo.mobile, password: this.datainfo.password, code: this.code},
-		                success: function(data) {
-		                	if(data.status == 0){
-		                		console.log(data);
-		                	}	                    
-		                }
-		            })
-				},
+				},							
 				//验证码倒计时
 				captchaTxt: function(){
 					var _this = this;
 					if(_this.captcha == '' || _this.captcha.length != 4){
-					  
+					  _this.disabled = true;
 					  _this.msgtx = '请填写正确的图形验证码';
+					  return false;
 					}else {
 					  _this.msgtx = '';
 					  _this.disabled = false;
@@ -169,6 +153,7 @@ use yii\helpers\Url;
 				oBtn: function(){
 				    var _this = this;
 				    _this.checkphone();
+				    _this.captchaTxt();
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
@@ -193,6 +178,23 @@ use yii\helpers\Url;
 		                    }
 		                }
 		           })                  
+				},
+				register: function(){
+					this.checkphone();
+					this.checkpass();
+					this.checkpas();
+					this.codes();
+					$.ajax({
+		                url: '/site/signup',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: {mobile: this.datainfo.mobile, password: this.datainfo.password, code: this.code},
+		                success: function(data) {
+		                	if(data.status == 0){
+		                		console.log(data);
+		                	}	                    
+		                }
+		            })
 				}
 			}
 		})
