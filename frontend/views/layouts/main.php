@@ -1,4 +1,5 @@
 <?php 
+use Yii;
 use yii\helpers\Url;
 use yii\helpers\Html;
 $this->beginPage() ?>
@@ -23,6 +24,9 @@ $this->beginPage() ?>
 		<script type="text/javascript" src="/js/idangerous.swiper2.7.6.min.js" ></script>
 		<script type="text/javascript" src="/js/aos.js" ></script>
 		<script type="text/javascript" src="/js/main.js" ></script>
+		<script>
+			var imgurl ="<?=Yii::$app->params['image']?>";
+		</script>
 	</head>
 	<body>
 	<?php $this->beginBody() ?>
