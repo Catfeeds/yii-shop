@@ -74,11 +74,11 @@ use yii\helpers\Url;
 		var regi = new Vue({
 			el: "#regist",
 			data: {
-				time: 60,
-				sendMsgDisabled: false,
-				disabled: false,
-				disabled2: true,
-				carShow: false,
+				time: 60,  //初始化短信验证码倒计时时间
+				sendMsgDisabled: false,  //判断是否是发送验证码
+				disabled: false,    //验证码发送禁止点击 初始化
+				disabled2: true,    //注册按钮禁止点击初始化
+				carShow: false,     
 	    		popupShow: false,
 	    		isactive1: false,
 				isactive2: true,
