@@ -56,7 +56,7 @@ class GoodsController extends BaseController
     	{
     		$size = Yii::$app->request->post('size');
     		$offset = Yii::$app->request->post('offset');
-    		return GoodsService::getList($size, $offset);
+    		return ['status' => 0,'data' =>GoodsService::getList($size, $offset)];
     	}
     }
 }
