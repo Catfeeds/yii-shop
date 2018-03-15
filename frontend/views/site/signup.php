@@ -149,11 +149,24 @@ use yii\helpers\Url;
 					if(_this.captcha == '' || _this.captcha.length != 4){
 					  _this.disabled = !disabled;
 					  _this.msgtx = '请填写验证码';
+					  return false;
 					}
 				},
 				oBtn: function(){
 				  var _this = this;
 				  _this.captchaTxt();
+				  $.ajax({
+	                 url: '/site/sendmsg',
+	                 type: 'POST',
+	                 dataType: 'json',
+	                 data: {mobile:this.datainfo.mobile, captcha: this.captcha},
+	                 success: function(data) {
+	                 	if(data.status == 0){
+	                      console.log('注册成功');
+	                      console.log('data');
+	                   }
+	                 }
+	             })
                   if(!_this.sendMsgDisabled){
                   	var setTime = setInterval(function(){
                   		_this.time--;
