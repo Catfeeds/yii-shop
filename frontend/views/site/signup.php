@@ -146,10 +146,7 @@ use yii\helpers\Url;
 				
 				oBtn: function(){
 				  var _this = this;
-				  if(_this.captcha == '' || this.captcha.length = !4){
-				  	_this.sendMsgDisabled = true;
-				  	_this.msgtx = '请填写验证码';
-				  }else if(!_this.sendMsgDisabled){
+                  if(!_this.sendMsgDisabled){
                   	var setTime = setInterval(function(){
                   		_this.time--;
                   		if(_this.time <= 0){
@@ -161,7 +158,6 @@ use yii\helpers\Url;
                   	},1000)
                   }                  
                   _this.sendMsgDisabled = true;
-                  
 				}
 			}
 		})
