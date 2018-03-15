@@ -140,6 +140,7 @@ use yii\helpers\Url;
 				},							
 				//验证码倒计时
 				captchaTxt: function(){
+					var _this = this;
 					if(_this.captcha == '' || _this.captcha.length != 4){
 					  _this.disabled = true;
 					  _this.msgtx = '请填写正确的图形验证码';
@@ -151,27 +152,17 @@ use yii\helpers\Url;
 				},
 				oBtn: function(){
 				    var _this = this;
+				    _this.checkphone();
+				    _this.captchaTxt();
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
 		                dataType: 'json',
-		                data: {mobile:_this.datainfo.mobile, captcha: _this.captcha},
+		                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
 		                success: function(data) {
 		                 	if(data.status == 0){
 		                        console.log('发送成功');
 		                        console.log(data);
-		                        if(!_this.sendMsgDisabled){
-				                  	var setTime = setInterval(function(){
-				                  		_this.time--;
-				                  		if(_this.time <= 0){
-				                  			_this.time = 60;
-				                  			_this.sendMsgDisabled = false;
-				                  			clearInterval(setTime);
-				                  		}
-				                  		console.log(_this.time)
-				                  	},1000)
-				                }                  
-				                _this.sendMsgDisabled = true;
 		                    }
 		                }
 		           })                  
