@@ -132,10 +132,10 @@ use yii\helpers\Url;
 				},
 				codes: function() {
 					if(this.code == ''){
-						this.msgpas = '请填写验证码！';	
+						this.msgdx = '请填写正确的短信验证码！';	
 					    return false;
 					}else {
-						this.msgpas = '';	
+						this.msgdx = '';	
 					}
 				},			
 				register: function(){
@@ -160,16 +160,17 @@ use yii\helpers\Url;
 					var _this = this;
 					if(_this.captcha == '' || _this.captcha.length != 4){
 					  _this.disabled = !_this.disabled;
-					  _this.msgtx = '请填写验证码';
+					  _this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
 					  _this.msgtx = '';
+					  _this.disabled = _this.disabled;
 					}
 				},
 				oBtn: function(){
 				    var _this = this;
 				    this.checkphone();
-				    _this.captchaTxt();
+				    this.captchaTxt();
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
