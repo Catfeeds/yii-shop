@@ -150,6 +150,8 @@ use yii\helpers\Url;
 					  _this.disabled = !_this.disabled;
 					  _this.msgtx = '请填写验证码';
 					  return false;
+					}else {
+					  _this.msgtx = '';
 					}
 				},
 				oBtn: function(){
