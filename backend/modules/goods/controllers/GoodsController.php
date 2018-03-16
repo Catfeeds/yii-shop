@@ -67,8 +67,14 @@ class GoodsController extends \yii\web\Controller
 			$err = '';
 			if($model->validate() && $model->save())
 			{	if($goods['is_product'] == 1)
-				{
+				{	
+					//生成sku商品
 					$product = $request->post('product');
+					if(count($product) <1)
+					{
+						Yii::$app->getSession()->setFlash('error', '请选择对应的sku');
+						return $this->redirect(['index']);
+					}
 					foreach($product as $value)
 					{	
 						$tmp = [];
