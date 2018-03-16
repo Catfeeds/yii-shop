@@ -66,7 +66,7 @@ $ext = $model->ext;
 								<div class="help-block m-b-none"></div>
 							</div>
 						</div>
-						<?= $form->field($model, 'is_product')->label('是否有sku')->radioList(['1'=>'是',0=>'否']) ?>
+						<?= $form->field($model, 'is_product')->label('是否有sku')->radioList([1=>'是',0=>'否']) ?>
 						<div class="form-group">
 							<div class="ibox-content" style="margin-left:12%">
 				                <div class="div_title"><h5>扩展属性</h5></div>
