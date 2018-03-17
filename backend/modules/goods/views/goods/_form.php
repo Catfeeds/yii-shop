@@ -77,15 +77,6 @@ $ext = $model->ext;
 				                <div class="div_ext">
 				                    <?php if(count($attr)>=1): foreach($attr as $val):?>
 				                    <?php if($val['is_sale']==1) continue;?>
-				                        <ul><li><?=$val['name']?>:</li>
-				                        <li><select class="f_fl" name="Goods[ext][<?=$val['_id']?>]">
-                            							<option value="0">请选择</option>
-                            							<?php foreach($val['value'] as $v):?>
-                                                        <option value="<?=$v?>" <?php if($ext["{$val['_id']}"] == $v) echo 'selected';?>><?=$v?></option>
-                                                        <?php endforeach;?>
-                                         </select>
-                                         
-                                         
                                 <table class="table table-hover u_tab">
 								<thead><tr><th>属性名称</th><th>属性值</th><th>操作</th></tr></thead>
 								<tbody>
@@ -98,9 +89,6 @@ $ext = $model->ext;
 									<?php endforeach; endif;?>
 								</tbody>
 							</table>
-                                         </li>
-				                        </ul>
-				                       	
 				                    <?php endforeach; endif;?>
 				                </div>
            					 </div>
