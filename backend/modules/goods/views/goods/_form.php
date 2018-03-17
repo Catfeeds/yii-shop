@@ -59,7 +59,7 @@ $ext = $model->ext;
 						<?= $form->field($model, 'content')->widget(Ueditor::className()) ?>
 						</div>
 						<div class="col-md-5 droppable sortable ui-droppable ui-sortable" style="">
-						<?php if(!in_array($model->is_product,[1,2]))$model->is_product=1;?>
+						<?php if(!in_array($model->is_product,[1,0]))$model->is_product=1;?>
                     	<div class="form-group field-goods-store" <?php if($model->is_product == 1):?>style="display:none"<?php endif;?>>
 							<label class="col-sm-2 control-label" for="goods-store">库存</label>
 							<div class="col-sm-10"><input type="text" id="goods-store" class="form-control" name="store" maxlength="50" <?php if(isset($store['store']))echo 'value="'.$store['store'].'"'?>>
