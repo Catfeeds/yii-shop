@@ -72,7 +72,7 @@ $ext = $model->ext;
 						<div class="form-group">
 							<div class="ibox-content" style="margin-left:12%">
 				                <div class="div_title"><h5>扩展属性</h5>
-				                	<a id="add-sku" class="btn btn-white btn-sm" href="javascript:;" title="创建" data-pjax="0"><i class="fa fa-plus"></i> 创建</a>
+				                	<a id="add-ext" class="btn btn-white btn-sm" href="javascript:;" title="创建" data-pjax="0"><i class="fa fa-plus"></i> 创建</a>
 				                </div>
 				                <div class="div_ext">
 				                    <?php if(count($attr)>=1): foreach($attr as $val):?>
