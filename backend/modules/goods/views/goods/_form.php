@@ -61,7 +61,7 @@ $ext = $model->ext;
 						<?= $form->field($model, 'content')->widget(Ueditor::className()) ?>
 						</div>
 						<div class="col-md-5 droppable sortable ui-droppable ui-sortable" style="">
-						<?php if(is_null($model->is_product))$model->is_product=0;?>
+						<?php if(is_null($model->is_product)){$model->is_product=0;}?>
                     	<div class="form-group field-goods-store" <?php if($model->is_product == 1):?>style="display:none"<?php endif;?>>
 							<label class="col-sm-2 control-label" for="goods-store">库存</label>
 							<div class="col-sm-10"><input type="text" id="goods-store" class="form-control" name="store" maxlength="50" <?php if(isset($store['store']))echo 'value="'.$store['store'].'"'?>>
@@ -94,7 +94,7 @@ $ext = $model->ext;
            					 </div>
 						</div>
 						<div class="form-group" >
-							<div class="ibox-content" style="margin-left:12%" id="sku-content" <?php if($model->is_product==0||is_null($model->is_product)):?>style="display:none"<?php endif;?>>
+							<div class="ibox-content" style="margin-left:12%;<?php if($model->is_product==0):?>display:none;<?php endif;?>" id="sku-content" >
 							    <div style="padding: 5px 8px;" class="div_content">
 				                    <div class="div_title"><h5>产品规格</h5></div>
 				                    <div class="div_contentlist">
