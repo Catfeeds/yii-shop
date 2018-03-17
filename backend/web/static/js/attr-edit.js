@@ -97,7 +97,7 @@ var attrEdit = {
         		var last = $(this).parents('.attr-box').find('.table tr:last');
         	        key = parseInt(parseInt(last.attr('attr-index'))+1);
         	}
-        	var html = '<tr class="cate_attr"><td><input type="text" name="Goods[ext]['+key+'][key]"></td>'
+        	var html = '<tr class="cate_attr" attr-index="'+key+'"><td><input type="text" name="Goods[ext]['+key+'][key]"></td>'
         		+'<td><input type="text" name="Goods[ext]['+key+'][value]"></td>'
         		+'<td><a href="javascript:;" class="attr-del">删除</a></td></tr>';
         	$(this).parents('.attr-box').find('.table').append(html);
