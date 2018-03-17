@@ -74,12 +74,9 @@ $ext = $model->ext;
 				                    <?php if(count($attr)>=1): foreach($attr as $val):?>
 				                    <?php if($val['is_sale']==1) continue;?>
 				                        <ul><li><?=$val['name']?>:</li>
-				                        <li><select class="f_fl" name="Goods[ext][<?=$val['_id']?>]">
-                            							<option value="0">请选择</option>
-                            							<?php foreach($val['value'] as $v):?>
-                                                        <option value="<?=$v?>" <?php if($ext["{$val['_id']}"] == $v) echo 'selected';?>><?=$v?></option>
-                                                        <?php endforeach;?>
-                                         </select></li>
+				                        <li>
+                                         <input type="text" name="Goods[ext][<?=$val['_id']?>]" />
+                                         </li>
 				                        </ul>
 				                       	
 				                    <?php endforeach; endif;?>
