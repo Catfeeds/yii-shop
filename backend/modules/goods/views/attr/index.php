@@ -99,19 +99,6 @@ AttrAsset::register($this);
             <input type="hidden" name="is_sale" value="1"></td>
 	</tr>
 </script>
-<script type="text/html" id="add-attr-ext">
-	<tr class="cate_attr"><td><input type="text" name="name" /></td>
-		<td><a href="javascript:;" class="attr-val-edit">编辑</a><span class="val attr_value"></span></td>
-		<td><select class="value_model_select" name="value_model">
-                <option value="1">单选</option>
-                <option value="2">复选</option>
-                <option value="3">自定义</option>
-        	</select>
-            <input type="hidden" name="is_sale" value="0">    
-         </td>
-		<td><a href="javascript:;" class="attr-del">删除</a></td>
-	</tr>
-</script>
 <script type="text/html" id="add-attr-val-html">
     <div class="f_p30">
         <table class="u_tab" width="100%" id="j_curEdit">

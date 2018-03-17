@@ -17,10 +17,12 @@ use yii\helpers\ArrayHelper;
 use common\helpers\FuncHelper;
 use common\widgets\ueditor\Ueditor;
 use backend\assets\GoodsAsset;
+use backend\assets\AttrAsset;
 use yii\helpers\Html;
 use common\widgets\JsBlock;
 $this->title = "商品管理";
 GoodsAsset::register($this);
+AttrAsset::register($this);
 $ext = $model->ext;
 ?>
 <style>
@@ -69,13 +71,33 @@ $ext = $model->ext;
 						<?= $form->field($model, 'is_product')->label('是否有sku')->radioList([1=>'是',0=>'否']) ?>
 						<div class="form-group">
 							<div class="ibox-content" style="margin-left:12%">
-				                <div class="div_title"><h5>扩展属性</h5></div>
+				                <div class="div_title"><h5>扩展属性</h5>
+				                	<a id="add-sku" class="btn btn-white btn-sm" href="javascript:;" title="创建" data-pjax="0"><i class="fa fa-plus"></i> 创建</a>
+				                </div>
 				                <div class="div_ext">
 				                    <?php if(count($attr)>=1): foreach($attr as $val):?>
 				                    <?php if($val['is_sale']==1) continue;?>
 				                        <ul><li><?=$val['name']?>:</li>
-				                        <li>
-                                         <input type="text" name="Goods[ext][<?=$val['_id']?>]" />
+				                        <li><select class="f_fl" name="Goods[ext][<?=$val['_id']?>]">
+                            							<option value="0">请选择</option>
+                            							<?php foreach($val['value'] as $v):?>
+                                                        <option value="<?=$v?>" <?php if($ext["{$val['_id']}"] == $v) echo 'selected';?>><?=$v?></option>
+                                                        <?php endforeach;?>
+                                         </select>
+                                         
+                                         
+                                <table class="table table-hover u_tab">
+								<thead><tr><th>属性名称</th><th>属性值</th><th>操作</th></tr></thead>
+								<tbody>
+									<?php if($ext):foreach($ext as $k=>$v):?>
+									<tr class="cate_attr">
+										<td>  <input type="text" name="Goods[ext][][key]"></td>
+										<td>  <input type="text" name="Goods[ext][][value]"></td>
+										<td><a href="javascript:;" class="attr-del">删除</a></td>
+            						</tr>
+									<?php endforeach; endif;?>
+								</tbody>
+							</table>
                                          </li>
 				                        </ul>
 				                       	
@@ -150,6 +172,13 @@ $ext = $model->ext;
         </div>
     </div>
 </div>
+<script type="text/html" id="add-attr-ext">
+	<tr class="cate_attr">
+		<td><input type="text" name="Goods[ext][][key]"></td>
+		<td><input type="text" name="Goods[ext][][value]"></td>
+		<td><a href="javascript:;" class="attr-del">删除</a></td>
+    </tr>
+</script>
 <?php JsBlock::begin() ?>
 <script>
 	 var jsAttr = <?=$jsAttr?>;
