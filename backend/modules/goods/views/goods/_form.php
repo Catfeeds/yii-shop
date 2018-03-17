@@ -70,25 +70,25 @@ $ext = $model->ext;
 						</div>
 						<?= $form->field($model, 'is_product')->label('是否有sku')->radioList([1=>'是',0=>'否']) ?>
 						<div class="form-group">
-							<div class="ibox-content" style="margin-left:12%">
+							<div class="ibox-content attr-box" style="margin-left:12%">
 				                <div class="div_title"><h5>扩展属性</h5>
 				                	<a id="add-ext" class="btn btn-white btn-sm" href="javascript:;" title="创建" data-pjax="0"><i class="fa fa-plus"></i> 创建</a>
 				                </div>
 				                <div class="div_ext">
 				                    <?php if(count($attr)>=1): foreach($attr as $val):?>
 				                    <?php if($val['is_sale']==1) continue;?>
-                                <table class="table table-hover u_tab">
-								<thead><tr><th>属性名称</th><th>属性值</th><th>操作</th></tr></thead>
-								<tbody>
-									<?php if($ext):foreach($ext as $k=>$v):?>
-									<tr class="cate_attr">
-										<td>  <input type="text" name="Goods[ext][][key]"></td>
-										<td>  <input type="text" name="Goods[ext][][value]"></td>
-										<td><a href="javascript:;" class="attr-del">删除</a></td>
-            						</tr>
-									<?php endforeach; endif;?>
-								</tbody>
-							</table>
+	                                <table class="table table-hover u_tab">
+										<thead><tr><th>属性名称</th><th>属性值</th><th>操作</th></tr></thead>
+										<tbody>
+											<?php if($ext):foreach($ext as $k=>$v):?>
+											<tr class="cate_attr">
+												<td>  <input type="text" name="Goods[ext][][key]"></td>
+												<td>  <input type="text" name="Goods[ext][][value]"></td>
+												<td><a href="javascript:;" class="attr-del">删除</a></td>
+		            						</tr>
+											<?php endforeach; endif;?>
+										</tbody>
+									</table>
 				                    <?php endforeach; endif;?>
 				                </div>
            					 </div>
