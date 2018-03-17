@@ -94,7 +94,7 @@ var attrEdit = {
         	var key =0;
         	if(index!=1)
         	{
-        		var last = $(this).parents('.attr-box').find('.table tr:last);
+        		var last = $(this).parents('.attr-box').find('.table tr:last');
         	        key = parseInt(last.attr('attr-index'))-1;
         	}
         	var html = '<tr class="cate_attr"><td><input type="text" name="Goods[ext]['+key+'][key]"></td>'
