@@ -88,10 +88,21 @@ var attrEdit = {
         }
         if(isExtend !==true){
         	var html = template('add-attr-sku');
+        	$(this).parents('.attr-box').find('.table').append(html);
         }else{
-        	var html = template('add-attr-ext');
+        	var index = $(this).parents('.attr-box').find('.table tr').length;
+        	var key =0;
+        	if(index!=1)
+        	{
+        		var last = $(this).parents('.attr-box').find('.table tr:last);
+        	        key = parseInt(last.attr('attr-index'))-1;
+        	}
+        	var html = '<tr class="cate_attr"><td><input type="text" name="Goods[ext]['+key+'][key]"></td>'
+        		+'<td><input type="text" name="Goods[ext]['+key+'][value]"></td>'
+        		+'<td><a href="javascript:;" class="attr-del">删除</a></td></tr>';
+        	$(this).parents('.attr-box').find('.table').append(html);
+
         }
-        $(this).parents('.attr-box').find('.table').append(html);
     },
     editAttrVal : function(obj){
         var _this = this;

@@ -81,9 +81,9 @@ $ext = $model->ext;
 										<thead><tr><th>属性名称</th><th>属性值</th><th>操作</th></tr></thead>
 										<tbody>
 											<?php if($ext):foreach($ext as $k=>$v):?>
-											<tr class="cate_attr">
-												<td>  <input type="text" name="Goods[ext][][key]"></td>
-												<td>  <input type="text" name="Goods[ext][][value]"></td>
+											<tr class="cate_attr" attr-index="<?=$k?>">
+												<td>  <input type="text" name="Goods[ext][<?=$k?>][key]"></td>
+												<td>  <input type="text" name="Goods[ext][<?=$k?>][value]"></td>
 												<td><a href="javascript:;" class="attr-del">删除</a></td>
 		            						</tr>
 											<?php endforeach; endif;?>
@@ -160,13 +160,6 @@ $ext = $model->ext;
         </div>
     </div>
 </div>
-<script type="text/html" id="add-attr-ext">
-	<tr class="cate_attr">
-		<td><input type="text" name="Goods[ext][][key]"></td>
-		<td><input type="text" name="Goods[ext][][value]"></td>
-		<td><a href="javascript:;" class="attr-del">删除</a></td>
-    </tr>
-</script>
 <?php JsBlock::begin() ?>
 <script>
 	 var jsAttr = <?=$jsAttr?>;
