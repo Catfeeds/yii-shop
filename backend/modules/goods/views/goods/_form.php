@@ -93,7 +93,7 @@ $ext = $model->ext;
 				                </div>
            					 </div>
 						</div>
-						<div class="form-group" <?php if($model->is_product==2):?>style="display:none"<?php endif;?>>
+						<div class="form-group" <?php if($model->is_product==0):?>style="display:none"<?php endif;?>>
 							<div class="ibox-content" style="margin-left:12%" id="sku-content">
 							    <div style="padding: 5px 8px;" class="div_content">
 				                    <div class="div_title"><h5>产品规格</h5></div>
