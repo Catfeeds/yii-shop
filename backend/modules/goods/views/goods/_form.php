@@ -82,8 +82,8 @@ $ext = $model->ext;
 										<tbody>
 											<?php if($ext):foreach($ext as $k=>$v):?>
 											<tr class="cate_attr" attr-index="<?=$k?>">
-												<td>  <input type="text" name="Goods[ext][<?=$k?>][key]"></td>
-												<td>  <input type="text" name="Goods[ext][<?=$k?>][value]"></td>
+												<td>  <input type="text" name="Goods[ext][<?=$k?>][key]" value="<?=$v['key']?>"></td>
+												<td>  <input type="text" name="Goods[ext][<?=$k?>][value]" value="<?=$v['value']?>"></td>
 												<td><a href="javascript:;" class="attr-del">删除</a></td>
 		            						</tr>
 											<?php endforeach; endif;?>
