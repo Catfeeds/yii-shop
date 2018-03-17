@@ -54,33 +54,6 @@ AttrAsset::register($this);
 							</table>
 						</div>  
 					</div> 
-					<div class="attr-box">
-						<div class="mail-tools tooltip-demo m-t-md">
-							<strong>扩展属性</strong>
-							<a id="add-ext" class="btn btn-white btn-sm" href="javascript:;" title="创建" data-pjax="0"><i class="fa fa-plus"></i> 创建</a>
-						</div> 
-						<div id="w1" class="fixed-table-header">
-							<table class="table table-hover u_tab" id="j_extAttrTab">
-								<thead><tr><th>属性名称</th><th>属性值</th><th>模式</th><th>操作</th></tr></thead>
-								<tbody>
-									<?php foreach($data as $value):?>
-									<?php if($value['is_sale'] ==1) continue;?>
-									<tr class="cate_attr" data-id="<?=$value['_id']?>"><td><input type="text" name="name" value="<?=$value['name']?>"/></td>
-														  <td><a href="javascript:;" class="attr-val-edit">编辑</a><span class="val attr_value"><?php foreach($value['value'] as $v):?><i><?=$v?></i><?php endforeach;?></span></td>
-														 <td><select class="value_model_select" name="value_model">
-												                <option value="1" <?php if($value['is_allow_img'] ==1) echo 'selected';?>>单选</option>
-												                <option value="2" <?php if($value['is_allow_img'] ==2) echo 'selected';?>>复选</option>
-												                <option value="3" <?php if($value['is_allow_img'] ==3) echo 'selected';?>> 自定义</option>
-												        	</select>
-												            <input type="hidden" name="is_sale" value="0">    
-												         </td>
-														<td><a href="javascript:;" class="attr-del">删除</a></td>
-            						</tr>
-									<?php endforeach;?>
-								</tbody>
-							</table>
-						</div>  
-					</div>  
 					<div class="form-group"><button class="btn btn-primary " type="button" style="margin-left:48%" id="j_btnSubmit"><i class="fa fa-check"></i>&nbsp;提交</button></div>     
            		</form>
             </div>
