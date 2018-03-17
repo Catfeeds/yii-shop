@@ -171,6 +171,13 @@ class Goods extends ActiveRecord
     	{
     		$this->sort = (int)$this->sort;
     	}
+    	if($this->is_product =='1')
+    	{
+    		$this->is_product = 1;
+    	}else
+    	{
+    		$this->is_product = 0;
+    	}
     	return parent::beforeSave($insert);
     }
 }
