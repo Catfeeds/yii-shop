@@ -68,7 +68,7 @@ class GoodsService extends BaseService
 	 * */
 	public static function getProductStore($productId)
 	{
-		$product = Product::find($productId);
+		$product = Product::findOne($productId);
 		return $product->store;
 	}
     
