@@ -48,6 +48,12 @@ class GoodsService extends BaseService
      	$goods = Goods::find()->select(['name','short_name','cid','image','_id','shop_price'])->limit($size)->offset($offset)->asArray()->all();
     	return $goods ?: [];
     }
+    
+    
+    public static function getOne($id)
+    {
+    	return Goods::find()->where(['_id' =>$id])->select(['name','short_name','cid','image','shop_price','_id','content','ext'])->asArray()->one();
+    }
     /**
      * 获取库存
      * */
