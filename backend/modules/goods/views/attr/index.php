@@ -37,7 +37,6 @@ AttrAsset::register($this);
 								<thead><tr><th>属性名称</th><th>属性值</th><th>是否上传图片</th><th>操作</th></tr></thead>
 								<tbody>
 									<?php foreach($data as $value):?>
-									<?php if($value['is_sale'] !=1) continue;?>
 									<tr class="cate_attr" data-id="<?=$value['_id']?>"><td><input type="text" name="name" value="<?=$value['name']?>"/></td>
 									<td><a href="javascript:;" class="attr-val-edit">编辑</a><span class="val attr_value"><?php foreach($value['value'] as $v):?><i><?=$v?></i><?php endforeach;?></span></td>
 									 <td><select name="is_allow_img">
@@ -47,7 +46,6 @@ AttrAsset::register($this);
 												        </td>
 												        <td><a href="javascript:;" class="attr-del">删除</a>
 															<input type="hidden" name="value_model" value="1">
-            												<input type="hidden" name="is_sale" value="1"></td>
             						</tr>
 									<?php endforeach;?>
 								</tbody>
@@ -69,7 +67,6 @@ AttrAsset::register($this);
         </select></td>
 		<td><a href="javascript:;" class="attr-del">删除</a>
 			<input type="hidden" name="value_model" value="1">
-            <input type="hidden" name="is_sale" value="1"></td>
 	</tr>
 </script>
 <script type="text/html" id="add-attr-val-html">

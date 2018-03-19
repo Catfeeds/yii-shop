@@ -49,7 +49,6 @@ class Attr extends ActiveRecord
             '_id',
             'cid', //栏目id
             'name',//属性名称
-            'is_sale',//是否销售属性 0-否 1-是 默认0
             'value_model',//输入模式 1-单选 2-多选 3自定义，卖家可以自己输入 默认3
             'is_allow_img',//该属性是否允许上传图片0：不允许 1：允许，只有可销售属性才可以上传 默认0
             'created_at',
@@ -65,7 +64,7 @@ class Attr extends ActiveRecord
     public function rules()
     {
     	return [
-    		[['cid','is_sale','value_model','is_allow_img','created_at','updated_at'],'integer'],
+    		[['cid','value_model','is_allow_img','created_at','updated_at'],'integer'],
     		[['name','value'],'required']
     	];
     }

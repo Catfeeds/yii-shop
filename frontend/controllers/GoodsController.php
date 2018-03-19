@@ -39,7 +39,7 @@ class GoodsController extends BaseController
     	$this->layout = false;
     	$request = $this->myRequest();
     	$data = Goods::findOne((string)$request['id'])->toArray();
-    	$attr = Attr::getAttrByCid($data['goods']['cid']);
+    	//$attr = Attr::getAttrByCid($data['goods']['cid']);
     	return json_encode(['data' =>$data,'attr' =>$attr,'status' =>0]);
     }
     
