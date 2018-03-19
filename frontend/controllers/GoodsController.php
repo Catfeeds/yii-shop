@@ -51,7 +51,7 @@ class GoodsController extends BaseController
     	$this->layout = false;
     	$id = (string)Yii::$app->request->get('id');
     	$data = GoodsService::getOne($id);
-    	return json_encode(['data' =>$data,'status' =>0]);
+    	return ['data' =>$data,'status' =>0];
     }
     
     
