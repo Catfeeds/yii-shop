@@ -8,11 +8,11 @@ use yii\helpers\Url;
             		<div class="goods_main" id="goods">
             			<ul>
             				<li v-for="lis in aLis">
-            					<router-link to="goodsUrl + '?' + 'id=' + lis._id.$oid">
+            					<a :href="goodsUrl + '?' + 'id=' + lis._id.$oid">
             						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
             						<p class="price">{{'￥' + lis.shop_price}}</p>
-            					</router-link>
+            					</a>
             				</li>
             			</ul>
             		</div>
