@@ -1,4 +1,7 @@
-		<!-- 主体内容 start  -->
+<?php
+use yii\helpers\Url;
+?>
+<!-- 主体内容 start  -->
 		<div class="container2">
             <section class="laber_goods">
             	<div class="goods auto clearfix">
@@ -31,6 +34,7 @@
 			},
 			created: function(){
 				var _this = this;
+				var goodsUrl = "<?=Url::to('/goods/detail/')?>";
 				var thisUrl = 
 				$.ajax({
 	                url: '/goods/getlist',
