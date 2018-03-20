@@ -8,11 +8,11 @@ use yii\helpers\Url;
             		<div class="goods_main" id="goods">
             			<ul>
             				<li v-for="lis in aLis">
-            					<a v-bind:href="lis.url">
-            						<img v-bind:src="imgurl + lis.image[0]" alt="茶叶"/>
+            					<router-link to="goodsUrl + '?' + 'id=' + lis._id.$oid">
+            						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
             						<p class="price">{{'￥' + lis.shop_price}}</p>
-            					</a>
+            					</router-link>
             				</li>
             			</ul>
             		</div>
@@ -30,12 +30,12 @@ use yii\helpers\Url;
 		var goods = new Vue({
 			el: '#goods',
 			data: {
-				aLis: []				
+				aLis: [],
+				id:''
 			},
 			created: function(){
 				var _this = this;
 				var goodsUrl = "<?=Url::to('/goods/detail/')?>";
-				var thisUrl = 
 				$.ajax({
 	                url: '/goods/getlist',
 	                type: 'POST',
@@ -43,6 +43,7 @@ use yii\helpers\Url;
 	                data: '',
 	                success: function(data) {
 	                 	_this.aLis = data.data;
+	                 	
 	                 	console.log(_this.aLis)
 	                }
 	            })
