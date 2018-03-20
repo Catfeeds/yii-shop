@@ -16,10 +16,7 @@
             	</div>
             </section>
 			<div>
-								
-				<!-- 底部 start  -->
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
-				<!-- 底部 end  -->
 			</div>			
 		</div>
 		<!-- 主体内容 end  -->
