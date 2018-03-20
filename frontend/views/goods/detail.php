@@ -72,23 +72,18 @@
 			data: {
 				carShow:false,
 				popupShow:false,
-				goodDeta: [],
-				imglis: []
+				goodUrl: '/goods/getdetail',
+				goodDeta: []
 			},
 			created: function(){
 				var _this = this;
-				axios.get('js/good2.json').then(function (response) {
+				axios.get(_this.goodUrl + '?id=' + id).then(function (response) {
 				    _this.goodDeta = response.data.data;
-				    for(var n in _this.goodDeta){
-				    	_this.imglis = _this.goodDeta[n].imgmain;
-				    }
 				    console.log(_this.goodDeta);
-				    console.log(_this.imglis);
 				}).catch(function (error) {
 				    console.log(error);
 				});
-			},
-	
+			},	
             methods: {
             	tjCar: function(){           		
             		this.carShow = true;
