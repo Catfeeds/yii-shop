@@ -8,7 +8,7 @@ use yii\helpers\Url;
             		<div class="goods_main" id="goods">
             			<ul>
             				<li v-for="lis in aLis">
-            					<a :href="goodsUrl + '?' + 'id=' + lis._id.$oid">
+            					<a :href="goodsUrl">
             						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
             						<p class="price">{{'￥' + lis.shop_price}}</p>
@@ -31,7 +31,8 @@ use yii\helpers\Url;
 			el: '#goods',
 			data: {
 				aLis: [],
-				id:''
+				id:'',
+				thisUrl:''
 			},
 			created: function(){
 				var _this = this;
@@ -43,7 +44,7 @@ use yii\helpers\Url;
 	                data: '',
 	                success: function(data) {
 	                 	_this.aLis = data.data;
-	                 	
+	                 	_this.thisUrl = goodsUrl + '?' + 'id='data.data._id.$oid;
 	                 	console.log(_this.aLis)
 	                }
 	            })
