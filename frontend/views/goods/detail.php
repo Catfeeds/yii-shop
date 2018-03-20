@@ -27,7 +27,7 @@
 							<a @click="tjCar" href="javascript:;">添加购物车</a>
 							<ul>
 								<li>
-									<span v-for="(key, value) in keyArr" class="li_w">{{ key.key }}：<em>{{ value.value }}</em></span>
+									<span v-for="arr in keyArr" class="li_w">{{ arr.key }}：<em>{{ arr.value }}</em></span>
 								</li>
 							</ul>
 							<strong>生产日期：<em>见包装盒喷码标识</em></strong>
