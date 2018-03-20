@@ -8,7 +8,7 @@ use yii\helpers\Url;
             		<div class="goods_main" id="goods">
             			<ul>
             				<li v-for="lis in aLis">
-            					<a :href="goodsUrl">
+            					<a :href="thisUrl">
             						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
             						<p class="price">{{'￥' + lis.shop_price}}</p>
