@@ -28,15 +28,6 @@
 							<ul>
 								<li>
 									<span class="li_w">商品编号：<em>03.02.01.02.06</em></span>
-									<span>配料：<em>普洱</em></span>
-								</li>
-								<li>
-									<span class="li_w">净含量：<em>40g</em></span>
-									<span>等级：<em>特级</em></span>
-								</li>
-								<li>
-									<span class="li_w">保质期：<em>1095</em></span>
-									<span>产地：<em>老乌山</em></span>
 								</li>
 							</ul>
 							<strong>生产日期：<em>见包装盒喷码标识</em></strong>
@@ -76,7 +67,8 @@
 				goodName: '',
 				goodPrice: '',
 				imgArr: [],
-				id: ''
+				id: '',
+				keyArr: []
 			},
 			created: function(){
 				var _this = this;
@@ -91,6 +83,7 @@
 	                 	_this.goodName = data.data.name;
 					    _this.goodPrice = data.data.shop_price;
 					    _this.imgArr = data.data.image;
+					    _this.keyArr = data.data.ext;
 					    console.log(_this.goodName);
 					    console.log(_this.goodPrice);
 					    console.log(_this.imgArr);
