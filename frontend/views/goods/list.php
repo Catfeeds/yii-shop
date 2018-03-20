@@ -48,10 +48,10 @@ use yii\helpers\Url;
 	                 	for(var i in list){
 							_this.id = list[i]._id.$oid;
 							console.log(_this.id);
-							list[i].thisUrl = goodsUrl + '?id=' + _this.id[i];
+							list[i].thisUrl = goodsUrl + '?id=' + _this.id;
 						}	                 	
 	                 	_this.aLis = list;
-	                 	console.log(_this.aLis)
+	                 	console.log(list)
 	                }
 	            })
 			}
