@@ -68,7 +68,7 @@
 				goodPrice: '',
 				imgArr: [],
 				id: '',
-				keyArr: []
+				keyArr: null
 			},
 			created: function(){
 				var _this = this;
@@ -88,6 +88,7 @@
 					    console.log(_this.goodPrice);
 					    console.log(_this.imgArr);
 					    console.log(data.data.ext);
+					    console.log(_this.keyArr);
 	                }
 	            })
 			},	
