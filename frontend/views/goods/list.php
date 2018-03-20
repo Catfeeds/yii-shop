@@ -45,7 +45,7 @@ use yii\helpers\Url;
 	                data: '',
 	                success: function(data) {
 	                 	_this.aLis = data.data;
-	                 	_this.thisUrl = goodsUrl + '?' + 'id=' + data.data._id[$oid][0];
+	                 	_this.thisUrl = goodsUrl + '?' + 'id=' + data.data._id.$oid[0];
 	                 	console.log(_this.aLis)
 	                }
 	            })
