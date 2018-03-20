@@ -75,11 +75,13 @@
 				goodUrl: '/goods/getdetail',
 				goodName: '',
 				goodPrice: '',
-				imgArr: []
+				imgArr: [],
+				id: ''
 			},
 			created: function(){
 				var _this = this;
-				axios.get(_this.goodUrl + '?id=' + id).then(function (response) {
+				_this.id = id;
+				axios.get(_this.goodUrl + '?id=' + _this.id).then(function (response) {
 				    _this.goodName = response.data.name;
 				    _this.goodPrice = response.data.shop_price;
 				    _this.imgArr = response.data.image;
