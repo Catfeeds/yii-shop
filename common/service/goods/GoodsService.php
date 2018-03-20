@@ -45,7 +45,7 @@ class GoodsService extends BaseService
     {	
     	$size = $size ?: 10;
     	$offset = $offset ?: 0;
-     	$goods = Goods::find()->select(['name','short_name','cid','image','_id','shop_price'])->limit($size)->offset($offset)->asArray()->all();
+     	$goods = Goods::find()->select(['name','short_name','cid','image','_id','shop_price'])->orderBy('updated_at desc')->limit($size)->offset($offset)->asArray()->all();
     	return $goods ?: [];
     }
     
