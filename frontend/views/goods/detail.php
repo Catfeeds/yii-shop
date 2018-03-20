@@ -8,16 +8,16 @@
 								<img src="/img/pic14.jpg" alt="茶叶" />
 							</div>
 							<ul class="view">
-								<li v-for="(img, index) in imglis">
-									<img :src="img.imgs" alt="茶叶" />
+								<li v-for="img in imgArr">
+									<img :src="img" alt="茶叶" />
 								</li>
 							</ul>
 							<div class="preve"></div>
 							<div class="next"></div>
 						</div>
 						<div class="details_fr">
-							<h1>文榜古树普洱（纯料生茶）10块装</h1>
-							<p>¥300</p>
+							<h1>{{ goodName }}</h1>
+							<p>{{ goodPrice }}</p>
 							<div id="" class="data_number">
 								<em>购买数量：</em><input class="" type="button" value="-" />
 								<input class="sl" type="text" value="1" />
@@ -73,13 +73,19 @@
 				carShow:false,
 				popupShow:false,
 				goodUrl: '/goods/getdetail',
-				goodDeta: []
+				goodName: '',
+				goodPrice: '',
+				imgArr: []
 			},
 			created: function(){
 				var _this = this;
 				axios.get(_this.goodUrl + '?id=' + id).then(function (response) {
-				    _this.goodDeta = response.data.data;
-				    console.log(_this.goodDeta);
+				    _this.goodName = response.data.data.name;
+				    _this.goodPrice = response.data.data.shop_price;
+				    _this.imgArr = response.data.data.image;
+				    console.log(_this.goodName);
+				    console.log(_this.goodPrice);
+				    console.log(_this.imgArr);
 				}).catch(function (error) {
 				    console.log(error);
 				});
