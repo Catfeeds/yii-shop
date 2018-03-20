@@ -7,8 +7,8 @@ use yii\helpers\Url;
             	<div class="goods auto clearfix">
             		<div class="goods_main" id="goods">
             			<ul>
-            				<li v-for="lis in aLis">
-            					<a :href="thisUrl">
+            				<li v-for="(lis, index) in aLis">
+            					<a :href="thisUrl + '?id=' + id[index]">
             						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
             						<p class="price">{{'￥' + lis.shop_price}}</p>
@@ -48,8 +48,7 @@ use yii\helpers\Url;
 	                 	for(var i in _this.aLis){
 							_this.id = _this.aLis[i]._id.$oid;
 							console.log(_this.id);								
-						}
-						_this.thisUrl = goodsUrl + '?id=' + _this.id;	                 	
+						}                 	
 	                 	console.log(_this.aLis)
 	                }
 	            })
