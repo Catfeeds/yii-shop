@@ -87,7 +87,7 @@
 					    console.log(_this.goodName);
 					    console.log(_this.goodPrice);
 					    console.log(_this.imgArr);
-					    console.log(_this.keyArr);
+					    console.log(data.data.ext);
 	                }
 	            })
 			},	
