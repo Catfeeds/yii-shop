@@ -27,7 +27,7 @@
 							<a @click="tjCar" href="javascript:;">添加购物车</a>
 							<ul>
 								<li>
-									<span v-for="arr in keyArr" class="li_w">{{ arr.key }}：{{ arr.value }}</span>
+									<span v-for="arr in keyArr" class="li_w">{{ arr.key }}：<em>{{ arr.value }}</em></span>
 								</li>
 							</ul>
 							<strong>生产日期：<em>见包装盒喷码标识</em></strong>
@@ -84,11 +84,11 @@
 					    _this.goodPrice = data.data.shop_price;
 					    _this.imgArr = data.data.image;
 					    _this.keyArr = data.data.ext;
-					    console.log(_this.goodName);
-					    console.log(_this.goodPrice);
-					    console.log(_this.imgArr);
-					    console.log(data.data.ext);
-					    console.log(_this.keyArr);
+//					    console.log(_this.goodName);
+//					    console.log(_this.goodPrice);
+//					    console.log(_this.imgArr);
+//					    console.log(data.data.ext);
+//					    console.log(_this.keyArr);
 	                }
 	            })
 			},	
