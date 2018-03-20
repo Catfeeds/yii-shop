@@ -280,23 +280,20 @@
           float: left;
           margin-top: 44px; }
           .laber_details .details_main .details_top .details_fr ul li {
+            display: inline-block;
+            color: #999999;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border-bottom: 1px solid #d3d3d3;
+            height: 50px;
+            line-height: 50px;
             float: left;
-            width: 100%; }
-            .laber_details .details_main .details_top .details_fr ul li span {
-              display: inline-block;
-              color: #999999;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              border-bottom: 1px solid #d3d3d3;
-              height: 50px;
-              line-height: 50px;
-              float: left;
-              width: calc(100% - 272px); }
-              .laber_details .details_main .details_top .details_fr ul li span em {
-                color: #3e3a39; }
-            .laber_details .details_main .details_top .details_fr ul li span:nth-child(2n-1) {
-              width: 272px; }
+            width: calc(100% - 272px); }
+            .laber_details .details_main .details_top .details_fr ul li em {
+              color: #3e3a39; }
+          .laber_details .details_main .details_top .details_fr ul li:nth-child(2n-1) {
+            width: 272px; }
         .laber_details .details_main .details_top .details_fr strong {
           width: 100%;
           font-size: 18px;
