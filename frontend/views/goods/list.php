@@ -50,7 +50,7 @@ use yii\helpers\Url;
 							console.log(_this.id);
 							_this.aLis[i].thisUrl = goodsUrl + '?id=' + _this.id[i];
 						}	                 	
-	                 	_this.aLis = data.data;
+	                 	//_this.aLis = data.data;
 	                 	console.log(_this.aLis)
 	                }
 	            })
