@@ -37,15 +37,20 @@ use yii\helpers\Url;
 			created: function(){
 				var _this = this;
 				var goodsUrl = "<?=Url::to('/goods/detail/')?>";
-				console.log(goodsUrl)				
+				console.log(goodsUrl)
+				for(var i in aLis){
+					_this.id = aLis[i]._id.$oid;
+					console.log(_this.id);
+					_this.thisUrl = goodsUrl + '?' + 'id=' + _this.id;	
+				}
+							
 				$.ajax({
 	                url: '/goods/getlist',
 	                type: 'POST',
 	                dataType: 'json',
 	                data: '',
 	                success: function(data) {
-	                 	_this.aLis = data.data;
-	                 	_this.thisUrl = goodsUrl + '?' + 'id=' + data.data._id.$oid[0];
+	                 	_this.aLis = data.data;	                 	
 	                 	console.log(_this.aLis)
 	                }
 	            })
