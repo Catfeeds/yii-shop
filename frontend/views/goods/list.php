@@ -44,15 +44,7 @@ use yii\helpers\Url;
 	                dataType: 'json',
 	                data: '',
 	                success: function(data) {
-<<<<<<< HEAD
 	                 	_this.aLis = data.data;
-	                 	for(var i in _this.aLis){
-							_this.id = _this.aLis[i]._id.$oid;
-							console.log(_this.id);
-							_this.thisUrl = goodsUrl + '?id=' + _this.id;
-						}	                 	
-	                 	console.log(_this.aLis)
-=======
 		                if(data.status =='0')
 			            {
 			                var list = data.data
@@ -62,7 +54,6 @@ use yii\helpers\Url;
 							}	                 	
 		                 	_this.aLis = list;
 				        }
->>>>>>> 4a7a087a6c2708fec8864e0e425d984070bc01ae
 	                }
 	            })
 			}
