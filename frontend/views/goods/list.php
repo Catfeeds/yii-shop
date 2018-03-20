@@ -37,6 +37,7 @@ use yii\helpers\Url;
 			created: function(){
 				var _this = this;
 				var goodsUrl = "<?=Url::to('/goods/detail/')?>";
+				console.log(goodsUrl)
 				$.ajax({
 	                url: '/goods/getlist',
 	                type: 'POST',
