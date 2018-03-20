@@ -26,9 +26,7 @@
 							<a class="gm" href="javascript:;">立即购买</a>
 							<a @click="tjCar" href="javascript:;">添加购物车</a>
 							<ul>
-								<li>
-									<span v-for="arr in keyArr" class="li_w">{{ arr.key }}：<em>{{ arr.value }}</em></span>
-								</li>
+							    <li v-for="arr in keyArr" class="li_w">{{ arr.key }}：<em>{{ arr.value }}</em></li>
 							</ul>
 							<strong>生产日期：<em>见包装盒喷码标识</em></strong>
 						</div>
