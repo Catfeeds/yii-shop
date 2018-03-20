@@ -44,13 +44,13 @@ use yii\helpers\Url;
 	                dataType: 'json',
 	                data: '',
 	                success: function(data) {
-	                	_this.aLis = data.data;
-	                 	for(var i in _this.aLis){
+		                var list = data.data
+	                 	for(var i in list){
 							_this.id = _this.aLis[i]._id.$oid;
 							console.log(_this.id);
-							_this.aLis[i].thisUrl = goodsUrl + '?id=' + _this.id[i];
+							list[i].thisUrl = goodsUrl + '?id=' + _this.id[i];
 						}	                 	
-	                 	//_this.aLis = data.data;
+	                 	_this.aLis = list;
 	                 	console.log(_this.aLis)
 	                }
 	            })
