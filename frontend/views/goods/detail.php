@@ -80,9 +80,9 @@
 			created: function(){
 				var _this = this;
 				axios.get(_this.goodUrl + '?id=' + id).then(function (response) {
-				    _this.goodName = response.data.data.name;
-				    _this.goodPrice = response.data.data.shop_price;
-				    _this.imgArr = response.data.data.image;
+				    _this.goodName = response.data.name;
+				    _this.goodPrice = response.data.shop_price;
+				    _this.imgArr = response.data.image;
 				    console.log(_this.goodName);
 				    console.log(_this.goodPrice);
 				    console.log(_this.imgArr);
