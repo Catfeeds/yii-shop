@@ -37,8 +37,7 @@ use yii\helpers\Url;
 			created: function(){
 				var _this = this;
 				var goodsUrl = "<?=Url::to('/goods/detail/')?>";
-				console.log(goodsUrl)
-				_this.thisUrl = goodsUrl;
+				console.log(goodsUrl)				
 				$.ajax({
 	                url: '/goods/getlist',
 	                type: 'POST',
@@ -46,6 +45,7 @@ use yii\helpers\Url;
 	                data: '',
 	                success: function(data) {
 	                 	_this.aLis = data.data;
+	                 	_this.thisUrl = goodsUrl + '?' + 'id=' + data.data._id;
 	                 	console.log(_this.aLis)
 	                }
 	            })
