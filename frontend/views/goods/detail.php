@@ -82,16 +82,20 @@
 				var _this = this;
 				_this.id = id;
 				console.log(_this.id);
-				axios.get(_this.goodUrl + '?id=' + _this.id).then(function (response) {
-				    _this.goodName = response.data.name;
-				    _this.goodPrice = response.data.shop_price;
-				    _this.imgArr = response.data.image;
-				    console.log(_this.goodName);
-				    console.log(_this.goodPrice);
-				    console.log(_this.imgArr);
-				}).catch(function (error) {
-				    console.log(error);
-				});
+				$.ajax({
+	                url: _this.goodUrl + '?id=' + _this.id,
+	                type: 'POST',
+	                dataType: 'json',
+	                data: '',
+	                success: function(data) {
+	                 	_this.goodName = data.data.name;
+					    _this.goodPrice = data.data.shop_price;
+					    _this.imgArr = data.data.image;
+					    console.log(_this.goodName);
+					    console.log(_this.goodPrice);
+					    console.log(_this.imgArr);
+	                }
+	            })
 			},	
             methods: {
             	tjCar: function(){           		
