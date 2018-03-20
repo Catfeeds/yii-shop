@@ -8,7 +8,7 @@ use yii\helpers\Url;
             		<div class="goods_main" id="goods">
             			<ul>
             				<li v-for="lis in aLis">
-            					<a :href="thisUrl">
+            					<a :href="lis.thisUrl">
             						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
             						<p class="price">{{'￥' + lis.shop_price}}</p>
@@ -44,6 +44,7 @@ use yii\helpers\Url;
 	                dataType: 'json',
 	                data: '',
 	                success: function(data) {
+<<<<<<< HEAD
 	                 	_this.aLis = data.data;
 	                 	for(var i in _this.aLis){
 							_this.id = _this.aLis[i]._id.$oid;
@@ -51,6 +52,17 @@ use yii\helpers\Url;
 							_this.thisUrl = goodsUrl + '?id=' + _this.id;
 						}	                 	
 	                 	console.log(_this.aLis)
+=======
+		                if(data.status =='0')
+			            {
+			                var list = data.data
+		                 	for(var i in list){
+								_this.id = list[i]._id.$oid;
+								list[i].thisUrl = goodsUrl + '?id=' + _this.id;
+							}	                 	
+		                 	_this.aLis = list;
+				        }
+>>>>>>> 4a7a087a6c2708fec8864e0e425d984070bc01ae
 	                }
 	            })
 			}
