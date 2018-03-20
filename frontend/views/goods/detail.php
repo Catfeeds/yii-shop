@@ -81,6 +81,7 @@
 			created: function(){
 				var _this = this;
 				_this.id = id;
+				console.log(_this.id);
 				axios.get(_this.goodUrl + '?id=' + _this.id).then(function (response) {
 				    _this.goodName = response.data.name;
 				    _this.goodPrice = response.data.shop_price;
