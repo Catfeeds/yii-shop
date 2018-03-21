@@ -112,16 +112,16 @@
             		this.num = index;         		
             	},
             	preve: function(){
-            		this.num--;
             		if(this.num == 0){
             			this.num = this.imgArr.length - 1;
             		}
+            		this.num--;            		
             	},
-            	next: function(){
-            		this.num++;
+            	next: function(){            		
             		if(this.num == this.imgArr.length - 1){
             			this.num = 0;
             		}
+            		this.num++;
             	}
             }
 		})
