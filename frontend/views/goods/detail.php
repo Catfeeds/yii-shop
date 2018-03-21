@@ -92,6 +92,7 @@
 //					    console.log(_this.keyArr);
 	                }
 	            })
+	            this.toImg = imgurl + this.imgArr[0];
 			},	
             methods: {
             	tjCar: function(){           		
@@ -103,7 +104,7 @@
             		this.popupShow = false;
             	},
             	btnImg:function(index){
-            		this.toImg = this.imgArr[index];
+            		this.toImg = imgurl + this.imgArr[index];
             	}
             }
 		})
