@@ -107,9 +107,9 @@
             		this.carShow = false;
             		this.popupShow = false;
             	},
-            	btnImg:function(index){
-            		this.num = index;
-            		this.toImg = imgurl + this.imgArr[index];            		
+            	btnImg:function(index){           		
+            		this.toImg = imgurl + this.imgArr[index];
+            		this.num = index;         		
             	},
             	preve: function(){
             		this.num--;
