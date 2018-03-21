@@ -113,7 +113,7 @@
             	},
             	preve: function(){
             		if(this.num == 0){
-            			this.num = this.imgArr.length - 1;
+            			this.num = this.imgArr.length;
             		}
             		this.num--;            		
             	},
