@@ -26,7 +26,7 @@
             					<dd>操作</dd>
             				</dl>
             				<ul>
-            					<li v-for="(item, index) in shopMessage">
+            					<li v-for="(item, index) in message">
             						<div for="" class="checkd dd1">
             							<input type="checkbox" id="price1" value="xj" />
             						</div>            						
