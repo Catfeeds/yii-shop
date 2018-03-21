@@ -58,6 +58,7 @@
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
 		var id = "<?=$id?>";
+		var num = 0;
 		var goodCar = new Vue({
 			el: '#winwBg',
 			data: {
@@ -65,8 +66,7 @@
 				popupShow:false,
 				goodUrl: '/goods/getdetail',
 				goodName: '',
-				goodPrice: '',
-				num: 0,
+				goodPrice: '',				
 				imgArr:[],
 				id: '',
 				keyArr: [],
@@ -74,7 +74,7 @@
 				content:''				
 			},
 			created: function(){
-				var _this = this;
+				var _this = this;				
 				_this.id = id;
 				console.log(_this.id);
 				$.ajax({
@@ -123,19 +123,19 @@
             	},
             	btnImg:function(index){           		
             		this.toImg = imgurl + this.imgArr[index];
-            		this.num = index;         		
+            		num = index;         		
             	},
             	preve: function(){
-            		if(this.num == 0){
-            			this.num = this.imgArr.length;
+            		if(num == 0){
+            			num = this.imgArr.length;
             		}
-            		this.num--;            		
+            		num--;            		
             	},
             	next: function(){            		
-            		if(this.num == this.imgArr.length - 1){
-            			this.num = -1;
+            		if(num == this.imgArr.length - 1){
+            			num = -1;
             		}
-            		this.num++;
+            		num++;
             		console.log(this.num)
             	},
             	btnjj:function(){
