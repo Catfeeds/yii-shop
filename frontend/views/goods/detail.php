@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<div class="details_center">
-						<p><img src="img/pic21.jpg" /></p>
+						{{ conten }}
 					</div>
 				</div>
 			</div>
@@ -66,11 +66,11 @@
 				goodUrl: '/goods/getdetail',
 				goodName: '',
 				goodPrice: '',
+				num: 0,
 				imgArr: null,
 				id: '',
 				keyArr: null,
-				conten:'',
-				num:null
+				conten:''				
 			},
 			created: function(){
 				var _this = this;
