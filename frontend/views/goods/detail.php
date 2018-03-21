@@ -57,7 +57,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-
+		var id = "<?=$id?>";
 		var goodCar = new Vue({
 			el: '#winwBg',
 			data: {
@@ -67,13 +67,14 @@
 				goodName: '',
 				goodPrice: '',
 				imgArr: null,
-				id: "<?=$id?>",
+				id: '',
 				keyArr: null,
 				conten:'',
-				num:0
+				num:''
 			},
 			created: function(){
 				var _this = this;
+				_this.id = id;
 				console.log(_this.id);
 				$.ajax({
 	                url: _this.goodUrl + '?id=' + _this.id,
