@@ -66,7 +66,7 @@
 				goodUrl: '/goods/getdetail',
 				goodName: '',
 				goodPrice: '',
-				imgArr: [],
+				imgArr: null,
 				id: '',
 				keyArr: null
 			},
