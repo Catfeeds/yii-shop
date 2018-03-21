@@ -9,7 +9,7 @@
 							</div>
 							<ul class="view">
 								<li v-for="img in imgArr">
-									<img :src="img" alt="茶叶" />
+									<img :src="goodUrl + img" alt="茶叶" />
 								</li>
 							</ul>
 							<div class="preve"></div>
