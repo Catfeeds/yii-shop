@@ -91,10 +91,8 @@
 //					    console.log(data.data.ext);
 //					    console.log(_this.keyArr);
 	                }
-	            })
-	            
-	             _this.toImg = imgurl + _this.imgArr[0];
-	            	           
+	           })	            
+	            _this.toImg = _this.btnImg;	            	           
 			},	
             methods: {
             	tjCar: function(){           		
