@@ -97,8 +97,8 @@
 	                data: '',
 	                success: function(data) {
 	                	if(data.status == 0){
-	                		this.message = data.data.data;
-	                		console.log(this.shopMessage);
+	                		this.message = this.data.data;
+	                		console.log(this.message);
 	                	}	                 	
 	                }
 	           })
