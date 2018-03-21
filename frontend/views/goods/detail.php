@@ -5,7 +5,7 @@
 					<div class="details_top">
 						<div class="details_fl">
 							<div class="data_img">
-								<img :src="imgurl + imgArr[index]" alt="茶叶" />
+								<img :src="imgurl + imgArr[num]" alt="茶叶" />
 							</div>
 							<ul class="view">
 								<li @click="btnImg(index)" v-for="(img, index) in imgArr">
@@ -104,11 +104,8 @@
             		this.popupShow = false;
             	},
             	btnImg:function(index){
-            		this.toImg = imgurl + this.imgArr[index];
             		this.num = index;
-            	},
-            	preve:function(){
-            		
+            		this.toImg = imgurl + this.imgArr[index];            		
             	}
             }
 		})
