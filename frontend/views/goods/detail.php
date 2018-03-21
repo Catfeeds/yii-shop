@@ -103,7 +103,7 @@
             		this.popupShow = false;
             	},
             	btnImg:function(index){
-            		toImg = this.imgArr[index];
+            		this.toImg = this.imgArr[index];
             	}
             }
 		})
