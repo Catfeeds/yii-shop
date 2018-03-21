@@ -9,9 +9,8 @@ class CartController extends BaseController
 
 
     /**
+     * 添加购物车
      * Displays homepage.
-     *
-     * @return mixed
      */
     public function actionAddcart()
     {	
@@ -26,6 +25,14 @@ class CartController extends BaseController
     	}
         
        	return json_encode(['status' => 0,'msg'=>'添加成功']);
+    }
+    
+    
+    /*购物车列表*/
+    public function actionGetlist()
+    {
+    	$data = CartService::getList();
+    	return ['status' =>0,'data' =>$data];
     }
     
     

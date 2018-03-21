@@ -102,7 +102,7 @@ class CartService extends BaseService
     }
     
     
-    public static function getCart()
+    public static function getList()
     {
     	$cookie = \Yii::$app->request->cookies;
     	$key = Yii::$app->params['goods.cart'];
