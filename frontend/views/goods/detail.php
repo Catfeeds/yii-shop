@@ -118,7 +118,7 @@
             		this.num--;            		
             	},
             	next: function(){            		
-            		if(this.num == this.imgArr.length - 1){
+            		if(this.num == this.imgArr.length){
             			this.num = 0;
             		}
             		this.num++;
