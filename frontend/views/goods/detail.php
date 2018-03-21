@@ -13,7 +13,7 @@
 								</li>
 							</ul>
 							<div @click="preve" class="preve"></div>
-							<div class="next"></div>
+							<div @click="next" class="next"></div>
 						</div>
 						<div class="details_fr">
 							<h1>{{ goodName }}</h1>
@@ -114,7 +114,13 @@
             	preve: function(){
             		this.num--;
             		if(this.num == 0){
-            			this.num = this.imgArr.length;
+            			this.num = this.imgArr.length - 1;
+            		}
+            	},
+            	next: function(){
+            		this.num++;
+            		if(this.num == this.imgArr.length - 1){
+            			this.num = 0;
             		}
             	}
             }
