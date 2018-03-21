@@ -70,7 +70,7 @@
 				id: '',
 				keyArr: null,
 				conten:'',
-				num:''
+				num:null
 			},
 			created: function(){
 				var _this = this;
