@@ -55,7 +55,7 @@ class GoodsService extends BaseService
     	$data = Goods::find()->where(['_id' =>$id])->select(['name','short_name','cid','image','shop_price','_id','content','ext'])->asArray()->one();
     	if($data['content'])
     	{
-	    	$data['content'] = htmlspecialchars($data['content']);
+	    	$data['content'] = htmlspecialchars_decode($data['content']);
     	}
     	return $data ?: [];
     }
