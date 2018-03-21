@@ -78,7 +78,7 @@
          	data: {
 				carShow:false,
 				popupShow:false,
-				message: []		
+				shopMessage: []	
 			},
 			computed: {
 				zjPrice: function() {
@@ -90,7 +90,18 @@
 				}
 			},
 			created: function(){
-				
+				$.ajax({
+	                url: '/cart/getlist',
+	                type: 'GET',
+	                dataType: 'json',
+	                data: '',
+	                success: function(data) {
+	                	if(data.status == 0){
+	                		this.shopMessage = data.data;
+	                		console.log(this.shopMessage);
+	                	}	                 	
+	                }
+	           })
 			},
             methods: {
             	deletes: function(){           		
