@@ -19,9 +19,9 @@
 							<h1>{{ goodName }}</h1>
 							<p>{{ goodPrice }}</p>
 							<div id="" class="data_number">
-								<em>购买数量：</em><input class="" type="button" value="-" />
-								<input class="sl" type="text" :value="value" />
-								<input type="button" value="+" />
+								<em>购买数量：</em><input @click="btnjj" class="" type="button" value="-" />
+								<input class="sl" type="text" :model="value" />
+								<input @click="btnAdd" type="button" value="+" />
 							</div>
 							<a class="gm" href="javascript:;">立即购买</a>
 							<a @click="tjCar" href="javascript:;">添加购物车</a>
@@ -124,6 +124,15 @@
             		}
             		this.num++;
             		console.log(this.num)
+            	},
+            	btnjj:function(){
+            		this.value--;
+            		if(this.value <= 0){
+            			this.value = 0;
+            		}
+            	},
+            	btnAdd:function(){
+            		this.value++;
             	}
             }
 		})
