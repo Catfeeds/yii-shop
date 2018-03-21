@@ -92,7 +92,9 @@
 //					    console.log(_this.keyArr);
 	                }
 	            })
-	            _this.toImg = imgurl + _this.imgArr[0];
+	            for(var i=0;i<_this.imgArr.length;i++){
+	            	 _this.toImg = imgurl + _this.imgArr[0];
+	            }	           
 			},	
             methods: {
             	tjCar: function(){           		
