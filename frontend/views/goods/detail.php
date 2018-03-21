@@ -87,7 +87,7 @@
 					    _this.goodPrice = data.data.shop_price;
 					    _this.imgArr = data.data.image;
 					    _this.keyArr = data.data.ext;
-					    _this.conten = data.data.content;
+					    _this.content = data.data.content;
 					    console.log(_this.imgArr);
 	                }
 	           })	            
