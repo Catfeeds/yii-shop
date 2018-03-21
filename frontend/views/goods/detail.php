@@ -20,7 +20,7 @@
 							<p>{{ goodPrice }}</p>
 							<div id="" class="data_number">
 								<em>购买数量：</em><input @click="btnjj" class="" type="button" value="-" />
-								<input class="sl" type="text" :model="value" />
+								<input class="sl" type="text" v-model="goods_num" />
 								<input @click="btnAdd" type="button" value="+" />
 							</div>
 							<a class="gm" href="javascript:;">立即购买</a>
@@ -70,7 +70,7 @@
 				imgArr: null,
 				id: '',
 				keyArr: null,
-				value: 1,
+				goods_num: 1,
 				content:''				
 			},
 			created: function(){
@@ -126,13 +126,13 @@
             		console.log(this.num)
             	},
             	btnjj:function(){
-            		this.value--;
-            		if(this.value <= 0){
-            			this.value = 0;
+            		this.goods_num--;
+            		if(this.goods_num <= 0){
+            			this.goods_num = 0;
             		}
             	},
             	btnAdd:function(){
-            		this.value++;
+            		this.goods_num++;
             	}
             }
 		})
