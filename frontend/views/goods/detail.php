@@ -48,7 +48,7 @@
 			<span>已成功添加至购物车！</span>
 			<div class="linkShop">
 				<a href="#">继续逛逛</a>
-				<a href="#" class="al1">前往购物车结算</a>
+				<a href="/cart/getlist" class="al1">前往购物车结算</a>
 			</div>
 		</div>
 	</div>
