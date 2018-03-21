@@ -5,7 +5,7 @@
 					<div class="details_top">
 						<div class="details_fl">
 							<div class="data_img">
-								<img :src="imgurl + imgArr[num]" alt="柚子" />
+								<img :src="imgurl + imgArr[0]" alt="柚子" />
 							</div>
 							<ul class="view">
 								<li @click="btnImg(index)" v-for="(img, index) in imgArr">
