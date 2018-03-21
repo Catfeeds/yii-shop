@@ -136,7 +136,7 @@
             			num = -1;
             		}
             		num++;
-            		console.log(this.num)
+            		console.log(num)
             	},
             	btnjj:function(){
             		this.goods_num--;
