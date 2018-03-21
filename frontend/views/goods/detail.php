@@ -12,8 +12,8 @@
 									<img :src="imgurl + img" alt="茶叶" />
 								</li>
 							</ul>
-							<div class="preve"></div>
-							<div class="next"></div>
+							<div @click="preve" class="preve"></div>
+							<div @click="next"class="next"></div>
 						</div>
 						<div class="details_fr">
 							<h1>{{ goodName }}</h1>
@@ -106,6 +106,11 @@
             	},
             	btnImg:function(index){
             		this.toImg = imgurl + this.imgArr[index];
+            	},
+            	preve:function(){
+            		for(var i=0;i<this.imgArr.length;i++){
+            			this.toImg = imgurl + this.imgArr[i];
+            		}
             	}
             }
 		})
