@@ -103,6 +103,10 @@
             		this.carShow = false;
             		this.popupShow = false;
             	},
+            	carBg: function(){
+            		this.carShow = false;
+            		this.popupShow = false;
+            	},
             	btnImg:function(index){
             		this.num = index;
             		this.toImg = imgurl + this.imgArr[index];            		
