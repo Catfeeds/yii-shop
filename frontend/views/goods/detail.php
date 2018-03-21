@@ -5,7 +5,7 @@
 					<div class="details_top">
 						<div class="details_fl">
 							<div class="data_img">
-								<img :src="toImg" alt="茶叶" />
+								<img :src="imgurl + imgArr[index]" alt="茶叶" />
 							</div>
 							<ul class="view">
 								<li @click="btnImg(index)" v-for="(img, index) in imgArr">
@@ -67,9 +67,9 @@
 				goodName: '',
 				goodPrice: '',
 				imgArr: null,
-				toImg: '',
 				id: '',
-				keyArr: null
+				keyArr: null,
+				num:0
 			},
 			created: function(){
 				var _this = this;
@@ -90,7 +90,6 @@
 					    console.log(_this.imgArr);
 //					    console.log(data.data.ext);
 //					    console.log(_this.keyArr);
-                        _this.toImg = imgurl + _this.imgArr[0];	 
 	                }
 	           })	            
 	                       	           
@@ -106,11 +105,10 @@
             	},
             	btnImg:function(index){
             		this.toImg = imgurl + this.imgArr[index];
+            		this.num = index;
             	},
             	preve:function(){
-            		for(var i=0;i<this.imgArr.length;i++){
-            			this.toImg = imgurl + this.imgArr[i];
-            		}
+            		
             	}
             }
 		})
