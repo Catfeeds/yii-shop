@@ -67,7 +67,7 @@
 				goodName: '',
 				goodPrice: '',
 				num: 0,
-				imgArr: [],
+				imgArr:[],
 				id: '',
 				keyArr: null,
 				goods_num: 1,
