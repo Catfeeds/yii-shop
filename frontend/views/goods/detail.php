@@ -69,7 +69,7 @@
 				num: 0,
 				imgArr:[],
 				id: '',
-				keyArr: null,
+				keyArr: {},
 				goods_num: 1,
 				content:''				
 			},
