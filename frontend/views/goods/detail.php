@@ -12,7 +12,7 @@
 									<img :src="imgurl + img" alt="茶叶" />
 								</li>
 							</ul>
-							<div class="preve"></div>
+							<div @click="preve" class="preve"></div>
 							<div class="next"></div>
 						</div>
 						<div class="details_fr">
@@ -110,6 +110,12 @@
             	btnImg:function(index){
             		this.num = index;
             		this.toImg = imgurl + this.imgArr[index];            		
+            	},
+            	preve: function(){
+            		this.num--;
+            		if(this.num == 0){
+            			this.num = this.imgArr.length;
+            		}
             	}
             }
 		})
