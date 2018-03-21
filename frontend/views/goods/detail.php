@@ -108,7 +108,7 @@
             	imgTab:function(index){
             		this.toImg = imgurl + this.imgArr[index];
             	}
-            	btnImg:function(index){
+            	btnImg:function(){
             		this.imgTab(index);
             	}
             }
