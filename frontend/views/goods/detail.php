@@ -97,6 +97,7 @@
 			},	
             methods: {
             	tjCar: function(){
+            		var _this = this;
             		$.ajax({
 	                url: '/cart/addcart',
 	                type: 'POST',
@@ -104,9 +105,9 @@
 	                data: {goods_num: this.goods_num, goods_id: this.id},
 	                success: function(data) {
 		                	if(data.status == 0){
-		                		console.log('发送成功');
-		                		this.carShow = true;
-            		            this.popupShow = true;
+		                		console.log('添加成功');
+		                		_this.carShow = true;
+            		            _this.popupShow = true;
 		                	}	                 	
 		                }
 		           })          		            		
