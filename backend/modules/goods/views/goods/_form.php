@@ -75,12 +75,10 @@ $ext = $model->ext;
 				                	<a id="add-ext" class="btn btn-white btn-sm" href="javascript:;" title="创建" data-pjax="0"><i class="fa fa-plus"></i> 创建</a>
 				                </div>
 				                <div class="div_ext">
-				                    <?php if(count($attr)>=1): foreach($attr as $val):?>
-				                    <?php if($val['is_sale']==1) continue;?>
 	                                <table class="table table-hover u_tab">
 										<thead><tr><th>属性名称</th><th>属性值</th><th>操作</th></tr></thead>
 										<tbody>
-											<?php if($ext):foreach($ext as $k=>$v):?>
+											<?php if(count($ext)>=1):foreach($ext as $k=>$v):?>
 											<tr class="cate_attr" attr-index="<?=$k?>">
 												<td>  <input type="text" name="Goods[ext][<?=$k?>][key]" value="<?=$v['key']?>"></td>
 												<td>  <input type="text" name="Goods[ext][<?=$k?>][value]" value="<?=$v['value']?>"></td>
@@ -89,7 +87,6 @@ $ext = $model->ext;
 											<?php endforeach; endif;?>
 										</tbody>
 									</table>
-				                    <?php endforeach; endif;?>
 				                </div>
            					 </div>
 						</div>
