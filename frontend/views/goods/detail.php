@@ -93,7 +93,7 @@
 	                }
 	            })
 	            
-	            _this.toImg = imgurl + _this.imgArr[0];
+	             _this.toImg = imgurl + _this.imgArr[0];
 	            	           
 			},	
             methods: {
@@ -105,11 +105,8 @@
             		this.carShow = false;
             		this.popupShow = false;
             	},
-            	imgTab:function(index){
+            	btnImg:function(index){
             		this.toImg = imgurl + this.imgArr[index];
-            	}
-            	btnImg:function(){
-            		this.imgTab(index);
             	}
             }
 		})
