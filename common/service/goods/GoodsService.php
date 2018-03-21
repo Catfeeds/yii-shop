@@ -52,7 +52,12 @@ class GoodsService extends BaseService
     
     public static function getOne($id)
     {
-    	return Goods::find()->where(['_id' =>$id])->select(['name','short_name','cid','image','shop_price','_id','content','ext'])->asArray()->one();
+    	$data = Goods::find()->where(['_id' =>$id])->select(['name','short_name','cid','image','shop_price','_id','content','ext'])->asArray()->one();
+    	if($data['content'])
+    	{
+	    	$data['content'] = htmlentities($data['content']);
+    	}
+    	return $data ?: [];
     }
     /**
      * 获取库存
