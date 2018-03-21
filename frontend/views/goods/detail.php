@@ -9,7 +9,7 @@
 							</div>
 							<ul class="view">
 								<li v-for="img in imgArr">
-									<img :src="img" alt="茶叶" />
+									<img :src="imgurl + img" alt="茶叶" />
 								</li>
 							</ul>
 							<div class="preve"></div>
@@ -27,16 +27,7 @@
 							<a @click="tjCar" href="javascript:;">添加购物车</a>
 							<ul>
 								<li>
-									<span class="li_w">商品编号：<em>03.02.01.02.06</em></span>
-									<span>配料：<em>普洱</em></span>
-								</li>
-								<li>
-									<span class="li_w">净含量：<em>40g</em></span>
-									<span>等级：<em>特级</em></span>
-								</li>
-								<li>
-									<span class="li_w">保质期：<em>1095</em></span>
-									<span>产地：<em>老乌山</em></span>
+									<span v-for="arr in keyArr" class="li_w">{{ arr.key }}：<em>{{ arr.value }}</em></span>
 								</li>
 							</ul>
 							<strong>生产日期：<em>见包装盒喷码标识</em></strong>
@@ -75,8 +66,9 @@
 				goodUrl: '/goods/getdetail',
 				goodName: '',
 				goodPrice: '',
-				imgArr: [],
-				id: ''
+				imgArr: null,
+				id: '',
+				keyArr: null
 			},
 			created: function(){
 				var _this = this;
@@ -91,9 +83,12 @@
 	                 	_this.goodName = data.data.name;
 					    _this.goodPrice = data.data.shop_price;
 					    _this.imgArr = data.data.image;
-					    console.log(_this.goodName);
-					    console.log(_this.goodPrice);
+					    _this.keyArr = data.data.ext;
+//					    console.log(_this.goodName);
+//					    console.log(_this.goodPrice);
 					    console.log(_this.imgArr);
+//					    console.log(data.data.ext);
+//					    console.log(_this.keyArr);
 	                }
 	            })
 			},	

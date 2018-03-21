@@ -44,6 +44,7 @@ use yii\helpers\Url;
 	                dataType: 'json',
 	                data: '',
 	                success: function(data) {
+	                 	_this.aLis = data.data;
 		                if(data.status =='0')
 			            {
 			                var list = data.data
