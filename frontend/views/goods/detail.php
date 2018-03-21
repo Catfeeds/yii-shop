@@ -71,7 +71,7 @@
 				id: '',
 				keyArr: null,
 				value: 1,
-				conten:''				
+				content:''				
 			},
 			created: function(){
 				var _this = this;
