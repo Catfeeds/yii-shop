@@ -90,6 +90,7 @@
 						    _this.keyArr = data.data.ext;
 						    _this.content = data.data.content;
 						    console.log(_this.imgArr);
+						    console.log(_this.keyArr);
 	                	}	                 	
 	                }
 	           })	            
