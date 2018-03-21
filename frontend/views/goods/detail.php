@@ -92,7 +92,7 @@
 //					    console.log(_this.keyArr);
 	                }
 	            })
-	            this.toImg = imgurl + this.imgArr[0];
+	            _this.toImg = imgurl + _this.imgArr[0];
 			},	
             methods: {
             	tjCar: function(){           		
