@@ -13,7 +13,7 @@ class CartController extends BaseController
     	$cart = [];
     	if(Yii::$app->user->isGuest)
     	{
-    		$cart = CartService::getCart();
+    		$cart = CartService::getList();
     	}
     	return $this->render('index',['cart'=>$cart]);
     }
