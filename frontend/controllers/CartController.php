@@ -6,7 +6,11 @@ use Yii;
 use common\service\goods\CartService;
 class CartController extends BaseController
 {
-
+	
+	public function actionIndex()
+	{
+		return $this->render('index');
+	}
 
     /**
      * 添加购物车
