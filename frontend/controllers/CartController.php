@@ -7,10 +7,16 @@ use common\service\goods\CartService;
 class CartController extends BaseController
 {
 	
-	public function actionIndex()
-	{
-		return $this->render('index');
-	}
+    
+    public function actionIndex()
+    {	
+    	$cart = [];
+    	if(Yii::$app->user->isGuest)
+    	{
+    		$cart = CartService::getCart();
+    	}
+    	return $this->render('index',['cart'=>$cart]);
+    }
 
     /**
      * 添加购物车
@@ -41,14 +47,5 @@ class CartController extends BaseController
     
     
     
-    
-    public function actionIndex()
-    {	
-    	$cart = [];
-    	if(Yii::$app->user->isGuest)
-    	{
-    		$cart = CartService::getCart();
-    	}
-    	return $this->render('index',['cart'=>$cart]);
-    }
+
 }
