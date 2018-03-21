@@ -119,9 +119,10 @@
             	},
             	next: function(){            		
             		if(this.num == this.imgArr.length){
-            			this.num = -1;
+            			this.num = 0;
             		}
             		this.num++;
+            		console.log(this.num)
             	}
             }
 		})
