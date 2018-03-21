@@ -20,7 +20,7 @@
 							<p>{{ goodPrice }}</p>
 							<div id="" class="data_number">
 								<em>购买数量：</em><input class="" type="button" value="-" />
-								<input class="sl" type="text" value="1" />
+								<input class="sl" type="text" :value="value" />
 								<input type="button" value="+" />
 							</div>
 							<a class="gm" href="javascript:;">立即购买</a>
@@ -70,6 +70,7 @@
 				imgArr: null,
 				id: '',
 				keyArr: null,
+				value: 1,
 				conten:''				
 			},
 			created: function(){
