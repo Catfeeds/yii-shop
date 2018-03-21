@@ -12,8 +12,8 @@
 									<img :src="imgurl + img" alt="茶叶" />
 								</li>
 							</ul>
-							<div @click="preve" class="preve"></div>
-							<div @click="next"class="next"></div>
+							<div class="preve"></div>
+							<div class="next"></div>
 						</div>
 						<div class="details_fr">
 							<h1>{{ goodName }}</h1>
