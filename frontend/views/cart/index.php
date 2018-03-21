@@ -64,7 +64,7 @@
 				<span>确认删除此项？</span>
 				<div class="linkShop">
 					<a href="#">删除</a>
-					<a @click="carQx2" href="#" class="al1">取消</a>
+					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
 				</div>
 			</div>
 		</div>
@@ -78,20 +78,7 @@
          	data: {
 				carShow:false,
 				popupShow:false,
-				message: [
-				   {
-				   	img: 'img/pic14.jpg',
-				   	name: '柚子',
-				   	quantity: 1,
-				   	unitPrice: 300
-				   },
-				   {
-				   	img: 'img/pic14.jpg',
-				   	name: '橘子',
-				   	quantity: 1,
-				   	unitPrice: 300,			   	
-				   }
-				]				
+				message: []		
 			},
 			computed: {
 				zjPrice: function() {
@@ -101,6 +88,9 @@
 					}
 					return zjPrice;
 				}
+			},
+			created: function(){
+				
 			},
             methods: {
             	deletes: function(){           		
@@ -125,7 +115,7 @@
             		if(_this.message[index].quantity <= 0){
             			_this.message[index].quantity = 1;
             		}
-            	},
+            	},           	
             	btnAdd: function(index) {
             		var _this = this;
             		_this.message[index].quantity++;

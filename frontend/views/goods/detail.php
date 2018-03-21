@@ -5,11 +5,11 @@
 					<div class="details_top">
 						<div class="details_fl">
 							<div class="data_img">
-								<img :src="imgurl + imgArr[num]" alt="茶叶" />
+								<img :src="imgurl + imgArr[num]" alt="柚子" />
 							</div>
 							<ul class="view">
 								<li @click="btnImg(index)" v-for="(img, index) in imgArr">
-									<img :src="imgurl + img" alt="茶叶" />
+									<img :src="imgurl + img" alt="柚子" />
 								</li>
 							</ul>
 							<div @click="preve" class="preve"></div>
@@ -67,7 +67,7 @@
 				goodName: '',
 				goodPrice: '',
 				num: 0,
-				imgArr: null,
+				imgArr: [],
 				id: '',
 				keyArr: null,
 				goods_num: 1,
