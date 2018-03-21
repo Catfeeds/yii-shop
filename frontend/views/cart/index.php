@@ -97,7 +97,8 @@
 	                data: '',
 	                success: function(data) {
 	                	if(data.status == 0){
-	                		this.message = this.data.data;
+	                		console.log('获取成功');
+	                		this.message = data.data;
 	                		console.log(this.message);
 	                	}	                 	
 	                }
