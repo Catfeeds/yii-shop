@@ -83,12 +83,14 @@
 	                dataType: 'json',
 	                data: '',
 	                success: function(data) {
-	                 	_this.goodName = data.data.name;
-					    _this.goodPrice = data.data.shop_price;
-					    _this.imgArr = data.data.image;
-					    _this.keyArr = data.data.ext;
-					    _this.content = data.data.content;
-					    console.log(_this.imgArr);
+	                	if(data.status == 0){
+	                		_this.goodName = data.data.name;
+						    _this.goodPrice = data.data.shop_price;
+						    _this.imgArr = data.data.image;
+						    _this.keyArr = data.data.ext;
+						    _this.content = data.data.content;
+						    console.log(_this.imgArr);
+	                	}	                 	
 	                }
 	           })	            
 	                       	           
