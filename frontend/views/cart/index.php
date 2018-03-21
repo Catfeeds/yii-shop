@@ -90,6 +90,7 @@
 				}
 			},
 			created: function(){
+				var _this = this;
 				$.ajax({
 	                url: '/cart/getlist',
 	                type: 'GET',
@@ -98,8 +99,8 @@
 	                success: function(data) {
 	                	if(data.status == 0){
 	                		console.log('获取成功');
-	                		this.message = data.data;
-	                		console.log(this.message);
+	                		_this.message = data.data;
+	                		console.log(_this.message);
 	                	}	                 	
 	                }
 	           })
