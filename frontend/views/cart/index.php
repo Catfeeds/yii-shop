@@ -26,18 +26,18 @@
             					<dd>操作</dd>
             				</dl>
             				<ul>
-            					<li v-for="(item, index) in message">
+            					<li v-for="(item, index) in shopMessage">
             						<div for="" class="checkd dd1">
             							<input type="checkbox" id="price1" value="xj" />
             						</div>            						
             						<a class="dd2" class="d1" href="#">
-            							<img :src="item.img">
+            							<img :src="imgurl + item.image">
             							<b>{{item.name}}</b>
             						</a>
             						<p class="dd3">{{item.unitPrice}}</p>
             						<div id="" class="data_number dd4">
 										<input @click="btnMinus(index)" class="" type="button" value="-" />
-										<input class="sl" type="text" v-model="item.quantity" />
+										<input class="sl" type="text" v-model="item.goods_num" />
 										<input @click="btnAdd(index)" type="button" value="+" />
 									</div>
 									<label for="price1" class="dd5">{{ item.quantity * item.unitPrice }}</label>
@@ -78,13 +78,13 @@
          	data: {
 				carShow:false,
 				popupShow:false,
-				shopMessage: []	
+				message: []	
 			},
 			computed: {
 				zjPrice: function() {
 					var zjPrice = 0;
 					for(var i in this.message){
-						zjPrice += parseInt(this.message[i].quantity * this.message[i].unitPrice);
+						zjPrice += parseInt(this.message[i].goods_num * this.message[i].unitPrice);
 					}
 					return zjPrice;
 				}
@@ -97,7 +97,7 @@
 	                data: '',
 	                success: function(data) {
 	                	if(data.status == 0){
-	                		this.shopMessage = data.data;
+	                		this.message = data.data;
 	                		console.log(this.shopMessage);
 	                	}	                 	
 	                }
@@ -122,14 +122,14 @@
             	},
             	btnMinus: function(index) {
             		var _this = this;
-            		_this.message[index].quantity--;
-            		if(_this.message[index].quantity <= 0){
-            			_this.message[index].quantity = 1;
+            		_this.message[index].goods_num--;
+            		if(_this.message[index].goods_num <= 0){
+            			_this.message[index].goods_num = 1;
             		}
             	},           	
             	btnAdd: function(index) {
             		var _this = this;
-            		_this.message[index].quantity++;
+            		_this.message[index].goods_num++;
             	},
             	deletes: function(index) {
             		var _this = this;
