@@ -34,13 +34,13 @@
             							<img :src="imgurl + item.image">
             							<b>{{item.name}}</b>
             						</a>
-            						<p class="dd3">{{item.unitPrice}}</p>
+            						<p class="dd3">{{item.shop_price}}</p>
             						<div id="" class="data_number dd4">
 										<input @click="btnMinus(index)" class="" type="button" value="-" />
 										<input class="sl" type="text" v-model="item.goods_num" />
 										<input @click="btnAdd(index)" type="button" value="+" />
 									</div>
-									<label for="price1" class="dd5">{{ item.quantity * item.unitPrice }}</label>
+									<label for="price1" class="dd5">{{ item.goods_num * item.shop_price }}</label>
 									<p @click="deletes(index)" class="delete">删除</p>
             					</li>
             				</ul>
