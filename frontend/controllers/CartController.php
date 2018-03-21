@@ -24,7 +24,7 @@ class CartController extends BaseController
     		CartService::addLoginCart($goodsNum, $goodsId);	
     	}
         
-       	return json_encode(['status' => 0,'msg'=>'添加成功']);
+       	return ['status' => 0,'msg'=>'添加成功'];
     }
     
     
