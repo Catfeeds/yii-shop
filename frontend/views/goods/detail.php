@@ -5,10 +5,10 @@
 					<div class="details_top">
 						<div class="details_fl">
 							<div class="data_img">
-								<img src="/img/pic14.jpg" alt="茶叶" />
+								<img :src="toImg" alt="茶叶" />
 							</div>
 							<ul class="view">
-								<li v-for="img in imgArr">
+								<li @click="btnImg(index)" v-for="(img, index) in imgArr">
 									<img :src="imgurl + img" alt="茶叶" />
 								</li>
 							</ul>
@@ -67,6 +67,7 @@
 				goodName: '',
 				goodPrice: '',
 				imgArr: null,
+				toImg: '',
 				id: '',
 				keyArr: null
 			},
@@ -100,6 +101,9 @@
             	carQx: function(){
             		this.carShow = false;
             		this.popupShow = false;
+            	},
+            	btnImg:function(index){
+            		toImg = this.imgArr[index];
             	}
             }
 		})
