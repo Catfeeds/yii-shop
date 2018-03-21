@@ -92,9 +92,9 @@
 //					    console.log(_this.keyArr);
 	                }
 	            })
-	            for(var i=0;i<_this.imgArr.length;i++){
-	            	 _this.toImg = imgurl + _this.imgArr[0];
-	            }	           
+	            
+	            _this.toImg = imgurl + _this.imgArr[0];
+	            	           
 			},	
             methods: {
             	tjCar: function(){           		
@@ -105,8 +105,11 @@
             		this.carShow = false;
             		this.popupShow = false;
             	},
-            	btnImg:function(index){
+            	imgTab:function(index){
             		this.toImg = imgurl + this.imgArr[index];
+            	}
+            	btnImg:function(index){
+            		this.imgTab(index);
             	}
             }
 		})
