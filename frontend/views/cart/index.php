@@ -35,7 +35,7 @@
             				<ul>
             					<li v-for="(item, index) in message">
             						<div for="" class="checkd dd1">
-            							<input :checked="checked" type="checkbox" id="price1" value="xj" />
+            							<input v-model="checked" type="checkbox" id="price1" value="xj" />
             						</div>            						
             						<a class="dd2" class="d1" href="#">
             							<img :src="imgurl + item.image">
@@ -88,8 +88,9 @@
 				noneCar:false,
 				sp:true,
 				cartOrders:true,
+				checked:true,
 				message: [],
-				zjPrice: 0
+				zjPrice: 0				
 			},
 			computed: {
 				zjPrice: function() {
