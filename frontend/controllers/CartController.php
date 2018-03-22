@@ -28,7 +28,7 @@ class CartController extends BaseController
     	$goodsId = (string)Yii::$app->request->post('goods_id');
     	if($goodsNum<1 || !$goodsId)
     	{
-    		return ['status' =>1,'msg' =>'参数错误']
+    		return ['status' =>1,'msg' =>'参数错误'];
     	}
     	if(Yii::$app->user->isGuest)
     	{
