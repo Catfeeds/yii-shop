@@ -142,7 +142,7 @@
             	btnjj:function(){
             		this.goods_num--;
             		if(this.goods_num <= 0){
-            			this.goods_num = 0;
+            			this.goods_num = 1;
             		}
             	},
             	btnAdd:function(){
