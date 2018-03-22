@@ -41,7 +41,7 @@ class BaseController extends CommonController
     	{
 	 		if(Yii::$app->request->isAjax)
 	 		{
-	 			return ['status' =>1,'msg' =>'请先进行登录操作'];
+	 			exit(json_encode(['status' =>1,'msg' =>'请先进行登录操作']));
 	 		}else
 	 		{
 	 			return $this->redirect('/site/login');
