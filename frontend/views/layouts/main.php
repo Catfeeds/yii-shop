@@ -25,7 +25,7 @@ $this->beginPage() ?>
 		<script type="text/javascript" src="/js/main.js" ></script>
 		<script>
 			var imgurl ="<?=Yii::$app->params['image']?>";
-			var islogin = <?=$isLogin?>;
+			var islogin = "<?=$isLogin?>";
 		</script>
 	</head>
 	<body>
