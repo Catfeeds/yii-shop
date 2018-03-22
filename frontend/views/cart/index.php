@@ -94,7 +94,7 @@
 				zjPrice: function() {
 					var zjPrice = 0;
 					for(var i in this.message){
-						zjPrice += parseInt(this.message[i].goods_num * this.message[i].unitPrice);
+						zjPrice += parseInt(this.message[i].goods_num * this.message[i].shop_price);
 					}
 					return zjPrice;
 				}
