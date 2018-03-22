@@ -96,7 +96,6 @@ $ext = $model->ext;
 				                    <div class="div_title"><h5>产品规格</h5></div>
 				                    <div class="div_contentlist">
 				                    	 <?php $i=0; $k=0;if(count($attr)>=1): foreach($attr as $val):?>
-				                    	 <?php if($val['is_sale']!=1) continue;?>
 				                        	<ul class="Father_Title"><li><?=$val['name']?></li></ul>
 				                        	<ul class="Father_Item<?=$k++?>">
 				                        		<?php foreach($val['value'] as $v):?>
