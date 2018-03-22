@@ -348,6 +348,34 @@
     width: 100%;
     float: left;
     margin-bottom: 164px; }
+    .laber_shop .shop_main .noneCar {
+      width: 100%;
+      float: left;
+      text-align: center;
+      margin-top: 138px;
+      margin-bottom: 200px; }
+      .laber_shop .shop_main .noneCar img {
+        display: inline-block; }
+      .laber_shop .shop_main .noneCar p {
+        width: 100%;
+        text-align: center;
+        float: left;
+        margin-top: 56px; }
+      .laber_shop .shop_main .noneCar .goshop {
+        width: 100%;
+        float: left;
+        text-align: center;
+        margin-top: 22px; }
+      .laber_shop .shop_main .noneCar .aShop {
+        width: 180px;
+        height: 40px;
+        background: #d3b799;
+        border-radius: 3px;
+        display: inline-block;
+        text-align: center;
+        line-height: 40px;
+        font-size: 18px;
+        clear: both; }
     .laber_shop .shop_main h1 {
       font-size: 16px;
       color: #3e3a39;
@@ -355,25 +383,6 @@
       float: left;
       font-weight: normal;
       margin-top: 40px; }
-    .laber_shop .shop_main h2 {
-      width: 100%;
-      text-align: center;
-      font-size: 24px;
-      color: #3e3a39;
-      margin-top: 68px;
-      font-weight: normal; }
-    .laber_shop .shop_main .addtreesLink {
-      width: 100%;
-      float: left;
-      text-align: center;
-      margin-top: 46px; }
-      .laber_shop .shop_main .addtreesLink a {
-        font-size: 16px;
-        color: #666666; }
-      .laber_shop .shop_main .addtreesLink a:hover {
-        color: #d3b799;
-        -webkit-transition: 0.5s;
-        transition: 0.5s; }
     .laber_shop .shop_main span {
       font-size: 16px;
       color: #3e3a39;
@@ -509,17 +518,6 @@
           padding-left: 60px; }
         .laber_shop .shop_main .shop_orders .head .d2 {
           width: 152px; }
-        .laber_shop .shop_main .shop_orders .head .od1 {
-          width: 598px;
-          padding-left: 22px; }
-        .laber_shop .shop_main .shop_orders .head .od2 {
-          width: 100px; }
-        .laber_shop .shop_main .shop_orders .head .od3 {
-          width: 118px; }
-        .laber_shop .shop_main .shop_orders .head .od4 {
-          width: 124px; }
-        .laber_shop .shop_main .shop_orders .head .od5 {
-          width: 130px; }
       .laber_shop .shop_main .shop_orders ul {
         width: calc(100% - 2px);
         float: left;
@@ -550,46 +548,11 @@
             line-height: 140px;
             font-size: 16px;
             color: #3e3a39; }
-          .laber_shop .shop_main .shop_orders ul li .btn_cz {
-            float: left;
-            width: 104px;
-            height: 140px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center; }
-            .laber_shop .shop_main .shop_orders ul li .btn_cz button {
-              background: none;
-              width: 100%;
-              float: left;
-              margin: 5px 0;
-              cursor: pointer; }
-            .laber_shop .shop_main .shop_orders ul li .btn_cz button:hover {
-              color: #d3b799; }
           .laber_shop .shop_main .shop_orders ul li .d1 {
             width: 828px;
             padding-left: 60px; }
           .laber_shop .shop_main .shop_orders ul li .d2 {
             width: 152px; }
-          .laber_shop .shop_main .shop_orders ul li .od1 {
-            width: 598px;
-            padding-left: 22px; }
-            .laber_shop .shop_main .shop_orders ul li .od1 b {
-              width: calc(598px - 160px); }
-          .laber_shop .shop_main .shop_orders ul li .od2 {
-            width: 100px; }
-          .laber_shop .shop_main .shop_orders ul li .od3 {
-            width: 118px; }
-          .laber_shop .shop_main .shop_orders ul li .od4 {
-            width: 124px; }
-          .laber_shop .shop_main .shop_orders ul li .od5 {
-            width: 130px; }
       .laber_shop .shop_main .shop_orders .bz {
         width: calc(100% - 62px);
         border: 1px solid #d3d3d3;
@@ -645,7 +608,7 @@
           border-bottom: 1px solid #d3d3d3;
           height: 140px;
           padding: 26px 0; }
-          .laber_shop .shop_main .cart_orders ul li .checkd {
+          .laber_shop .shop_main .cart_orders ul li label {
             float: left;
             margin-top: 62px; }
           .laber_shop .shop_main .cart_orders ul li a {
@@ -667,11 +630,6 @@
             line-height: 140px;
             font-size: 16px;
             color: #3e3a39; }
-          .laber_shop .shop_main .cart_orders ul li label {
-            line-height: 140px;
-            font-size: 16px;
-            color: #3e3a39;
-            float: left; }
           .laber_shop .shop_main .cart_orders ul li .data_number {
             float: left;
             height: 26px;
@@ -756,52 +714,6 @@
         background: #d3b799;
         margin-top: 34px;
         border-radius: 5px; }
-    .laber_shop .shop_main .address_cont {
-      width: 100%;
-      float: left;
-      margin-top: 30px; }
-      .laber_shop .shop_main .address_cont li {
-        float: left;
-        width: 100%;
-        margin-bottom: 26px; }
-        .laber_shop .shop_main .address_cont li .lis {
-          float: left; }
-          .laber_shop .shop_main .address_cont li .lis h3 {
-            font-size: 12px;
-            color: #3e3a39;
-            font-weight: normal; }
-          .laber_shop .shop_main .address_cont li .lis input {
-            width: calc(100% - 22px);
-            height: 38px;
-            padding: 0 10px;
-            float: left;
-            background: #fff;
-            border-radius: 3px;
-            border: 1px solid #d3d3d3;
-            margin-top: 10px; }
-          .laber_shop .shop_main .address_cont li .lis select {
-            height: 40px;
-            padding: 0 10px;
-            float: left;
-            background: #fff;
-            border-radius: 3px;
-            border: 1px solid #d3d3d3;
-            margin-top: 10px; }
-        .laber_shop .shop_main .address_cont li .lis1 {
-          width: 358px;
-          margin-right: 20px; }
-        .laber_shop .shop_main .address_cont li .lis2 {
-          width: 736px; }
-      .laber_shop .shop_main .address_cont a {
-        width: 180px;
-        height: 40px;
-        float: left;
-        background: #d3b799;
-        border-radius: 3px;
-        text-align: center;
-        line-height: 40px;
-        font-size: 18px;
-        color: #3e3a39; }
 
 .carBg {
   width: 100%;

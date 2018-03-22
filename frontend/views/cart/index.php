@@ -15,6 +15,13 @@
             <section class="laber_shop">
             	<div class="shop auto clearfix">
             		<div class="shop_main">
+            			<div v-show="noneCar" class="noneCar">
+            				<img src="/img/kong.png"/>
+            				<p>您还没有添加任何商品，快去逛逛吧</p>
+            				<div class="goshop">
+            					<a class="aShop" href="/index">前往商城</a>
+            				</div>            				
+            			</div>
             			<span>全部商品：</span>
             			<div class="cart_orders">
             				<dl class="head">
@@ -28,7 +35,7 @@
             				<ul>
             					<li v-for="(item, index) in message">
             						<div for="" class="checkd dd1">
-            							<input type="checkbox" id="price1" value="xj" />
+            							<input v-model="checked" type="checkbox" id="price1" value="xj" />
             						</div>            						
             						<a class="dd2" class="d1" href="#">
             							<img :src="imgurl + item.image">
@@ -78,13 +85,18 @@
          	data: {
 				carShow:false,
 				popupShow:false,
-				message: []	
+				noneCar:false,
+				sp:true,
+				cartOrders:true,
+				checked:true,
+				message: [],
+				zjPrice: 0				
 			},
 			computed: {
 				zjPrice: function() {
 					var zjPrice = 0;
 					for(var i in this.message){
-						zjPrice += parseInt(this.message[i].goods_num * this.message[i].unitPrice);
+						zjPrice += parseInt(this.message[i].goods_num * this.message[i].shop_price);
 					}
 					return zjPrice;
 				}
@@ -104,6 +116,11 @@
 	                	}	                 	
 	                }
 	           })
+	           if(this.message.length != ''){
+					this.sp = true;
+				    this.cartOrders = true;
+				    this.noneCar = false;
+				}
 			},
             methods: {
             	deletes: function(){           		
