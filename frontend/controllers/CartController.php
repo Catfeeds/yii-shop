@@ -26,6 +26,10 @@ class CartController extends BaseController
     {	
     	$goodsNum = (int)Yii::$app->request->post('goods_num');
     	$goodsId = (string)Yii::$app->request->post('goods_id');
+    	if($goodsNum<1 || !$goodsId)
+    	{
+    		return ['status' =>1,'msg' =>'参数错误']
+    	}
     	if(Yii::$app->user->isGuest)
     	{
     		CartService::addCart($goodsNum, $goodsId);
