@@ -15,6 +15,13 @@
             <section class="laber_shop">
             	<div class="shop auto clearfix">
             		<div class="shop_main">
+            			<div v-show="noneCar" class="noneCar">
+            				<img src="img/kong.png"/>
+            				<p>您还没有添加任何商品，快去逛逛吧</p>
+            				<div class="goshop">
+            					<a class="aShop" href="/index">前往商城</a>
+            				</div>            				
+            			</div>
             			<span>全部商品：</span>
             			<div class="cart_orders">
             				<dl class="head">
@@ -78,6 +85,9 @@
          	data: {
 				carShow:false,
 				popupShow:false,
+				noneCar:false,
+				sp:true,
+				cartOrders:true,
 				message: []	
 			},
 			computed: {
@@ -104,6 +114,11 @@
 	                	}	                 	
 	                }
 	           })
+	           if(this.message.length != ''){
+					this.sp = true;
+				    this.cartOrders = true;
+				    this.noneCar = false;
+				}
 			},
             methods: {
             	deletes: function(){           		
