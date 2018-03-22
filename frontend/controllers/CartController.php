@@ -24,8 +24,8 @@ class CartController extends BaseController
      */
     public function actionAddcart()
     {	
-    	$goodsNum = (int)Yii::$app->request->get('goods_num');
-    	$goodsId = (string)Yii::$app->request->get('goods_id');
+    	$goodsNum = (int)Yii::$app->request->post('goods_num');
+    	$goodsId = (string)Yii::$app->request->post('goods_id');
     	if(Yii::$app->user->isGuest)
     	{
     		CartService::addCart($goodsNum, $goodsId);

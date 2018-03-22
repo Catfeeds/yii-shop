@@ -76,7 +76,7 @@ class CartService extends BaseService
     /*
      * 把没有登录前的购物车放入到mongodb
      * **/
-    protected static function tranfer()
+    private static function tranfer()
     {	
     	$userId = Yii::$app->user->identity->user_id;
     	$cookie = Yii::$app->request->cookies;
