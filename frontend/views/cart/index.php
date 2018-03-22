@@ -16,7 +16,7 @@
             	<div class="shop auto clearfix">
             		<div class="shop_main">
             			<div v-show="noneCar" class="noneCar">
-            				<img src="img/kong.png"/>
+            				<img src="/img/kong.png"/>
             				<p>您还没有添加任何商品，快去逛逛吧</p>
             				<div class="goshop">
             					<a class="aShop" href="/index">前往商城</a>
@@ -35,7 +35,7 @@
             				<ul>
             					<li v-for="(item, index) in message">
             						<div for="" class="checkd dd1">
-            							<input type="checkbox" id="price1" value="xj" />
+            							<input :checked="checked" type="checkbox" id="price1" value="xj" />
             						</div>            						
             						<a class="dd2" class="d1" href="#">
             							<img :src="imgurl + item.image">
@@ -88,7 +88,8 @@
 				noneCar:false,
 				sp:true,
 				cartOrders:true,
-				message: []	
+				message: [],
+				zjPrice: 0
 			},
 			computed: {
 				zjPrice: function() {
