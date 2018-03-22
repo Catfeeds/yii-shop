@@ -47,6 +47,7 @@ class BaseController extends CommonController
 	 			return $this->redirect('/site/login');
 	 		}   		
     	}
+    	return true;
     }
 	
 }
