@@ -63,9 +63,9 @@ class CartService extends BaseService
     		$model->save();
     	}else
     	{
-    		$goodsModel = new Goods();
-    		$goodsModel->setAttributes($data,false);
-    		$goodsModel->save();
+    		$cartModel = new Cart();
+    		$cartModel->setAttributes($data,false);
+    		$cartModel->save();
     	}
     	
     	return true;
