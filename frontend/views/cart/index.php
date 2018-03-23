@@ -96,7 +96,7 @@
 				curProduct: '', //保存删除的商品
 				message: [],
 				zjPrice: 0,
-				goods_id: ''		
+				id: ''		
 			},
 			created: function(){
 				var _this = this;
@@ -153,8 +153,8 @@
             		this.carShow = true;
 				    this.popupShow = true;
 				    this.curProduct = item;
-				    this.goods_id = item.id.$oid;
-				    console.log(this.goods_id);
+				    this.id = item.id.$oid;
+				    console.log(this.id);
             	},
             	carSc: function(){
             		// 通过indexof 来搜索当前选中的商品 找到索引 index
@@ -162,7 +162,7 @@
             			type:"POST",
             			url:"/cart/remove",
             			dataType: 'json',
-	                    data: {goods_id: this.goods_id},
+	                    data: {id: this.id},
 	                    success: function(data){
 	                    	if(data.status == 0){
 	                    		console.log('成功');
@@ -176,7 +176,6 @@
 	                    	}
 	                    }
             		});
-		            console.log(this.goods_id);
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数
