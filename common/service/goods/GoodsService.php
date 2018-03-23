@@ -77,4 +77,5 @@ class GoodsService extends BaseService
 		return $product->store;
 	}
     
+	
 }

@@ -30,13 +30,7 @@ class CartController extends BaseController
     	{
     		return ['status' =>1,'msg' =>'参数错误'];
     	}
-    	if(Yii::$app->user->isGuest)
-    	{
-    		CartService::addCart($goodsNum, $goodsId);
-    	}else
-    	{
-    		CartService::addLoginCart($goodsNum, $goodsId);	
-    	}
+    	CartService::addLoginCart($goodsNum, $goodsId);	
         
        	return ['status' => 0,'msg'=>'添加成功'];
     }

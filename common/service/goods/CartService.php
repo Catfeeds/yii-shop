@@ -54,7 +54,7 @@ class CartService extends BaseService
     
     public static function addLoginCart($goodsNum,$goodsId)
     {
-    	$userId = Yii::$app->user->identity->user_id;
+    	$userId = Yii::$app->user->identity->id;
     	$data = ['goods_num'=>$goodsNum,'goods_id' =>$goodsId,'created_at' => time(),'user_id' => $userId];
     	$model = Cart::findOne(['goods_id' =>$goodsId,'user_id' =>$userId]);
     	if($model)
@@ -77,7 +77,7 @@ class CartService extends BaseService
      * **/
     private static function tranfer()
     {	
-    	$userId = Yii::$app->user->identity->user_id;
+    	$userId = Yii::$app->user->identity->id;
     	$cookie = Yii::$app->request->cookies;
     	$key = Yii::$app->params['goods.cart'];
     	$data =  json_decode($cookie->getValue($key),true);
@@ -130,7 +130,7 @@ class CartService extends BaseService
      */
     public static function getCartData()
     {
-    	$userId = Yii::$app->user->identity->user_id;
+    	$userId = Yii::$app->user->identity->id;
     	$data = Cart::getList($userId);
     	$result = [];
     	if($data)
@@ -153,7 +153,7 @@ class CartService extends BaseService
     
     public static function remove($goodsId)
     {
-    	$userId = Yii::$app->user->identity->user_id;
+    	$userId = Yii::$app->user->identity->id;
     	Cart::find()->where(['user_id' =>$userId,'goods_id' =>$goodsId])->delete();
     }
 
