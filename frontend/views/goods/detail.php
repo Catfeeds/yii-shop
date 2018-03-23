@@ -47,7 +47,7 @@
 			<i @click="carQx"></i>
 			<span>已成功添加至购物车！</span>
 			<div class="linkShop">
-				<a href="#">继续逛逛</a>
+				<a href="/goods/list">继续逛逛</a>
 				<a href="/cart/index" class="al1">前往购物车结算</a>
 			</div>
 		</div>
