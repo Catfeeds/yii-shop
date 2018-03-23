@@ -88,7 +88,7 @@
 				noneCar:false,
 				sp:true,
 				cartOrders:true,
-				checked:true,
+				checked:false,
 				message: [],
 				zjPrice: 0				
 			},
