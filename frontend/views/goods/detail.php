@@ -100,19 +100,24 @@
             methods: {
             	tjCar: function(){
             		var _this = this;
-            		$.ajax({
-	                url: '/cart/addcart',
-	                type: 'POST',
-	                dataType: 'json',
-	                data: {goods_num: this.goods_num, goods_id: this.id},
-	                success: function(data) {
-		                	if(data.status == 0){
-		                		console.log('添加成功');
-		                		_this.carShow = true;
-            		            _this.popupShow = true;
-		                	}	                 	
-		                }
-		           })          		            		
+            		if(islogin == 1){
+            			$.ajax({
+		                url: '/cart/addcart',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: {goods_num: this.goods_num, goods_id: this.id},
+		                success: function(data) {
+			                	if(data.status == 0){
+			                		console.log('添加成功');
+			                		_this.carShow = true;
+	            		            _this.popupShow = true;
+			                	}	                 	
+			                }
+			           }) 
+            		}else{
+            			window.location = '/site/login';
+            		}
+            		         		            		
             	},
             	carQx: function(){
             		this.carShow = false;
