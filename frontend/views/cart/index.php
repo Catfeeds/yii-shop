@@ -176,7 +176,7 @@
 	                    	}
 	                    }
             		});
-		            
+		            console.log(this.goods_id);
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数
