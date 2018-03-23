@@ -142,8 +142,7 @@
             			_this.message[index].quantity = 1;
             		}
             		_this.caleTotalPrice();
-            	},
-            	
+            	},            	
             	btnAdd: function(index) {
             		var _this = this;
             		_this.message[index].quantity++;
@@ -179,9 +178,7 @@
 		        		_this.checkAllFlag = flag ;
 			            _this.message.forEach(function (item,index) { // 用forEach来遍历 message
 			                if(typeof item.checked == 'undefined'){ // 先判断 是否有这个 item.checked
-			                    Vue.set(item,"checked", _this.checkAllFlag);  // 没有 先注册                                                           
-			                    _this. xzProduct = item;
-			                    console.log(_this. xzProduct);
+			                    Vue.set(item,"checked", _this.checkAllFlag);  // 没有 先注
 			                }else {
 			                    item.checked = _this.checkAllFlag;
 			                    
@@ -191,8 +188,6 @@
 		        		_this.checkAllFlag = false;
 			            _this.message.forEach(function (item,index) { 
 			                    item.checked = _this.checkAllFlag;
-			                    _this. xzProduct = '';
-			                    console.log(_this. xzProduct);
 			            });
 		        	}
 		           
