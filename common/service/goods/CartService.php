@@ -10,9 +10,8 @@ namespace common\service\goods;
 
 use Yii;
 use common\models\goods\mongodb\Goods;
-use common\models\goods\Category;
 use common\service\BaseService;
-use Qiniu\json_decode;
+use common\models\goods\mongodb\Cart;
 class CartService extends BaseService
 {
     public function init()
@@ -57,7 +56,7 @@ class CartService extends BaseService
     {
     	$userId = Yii::$app->user->identity->user_id;
     	$data = ['goods_num'=>$goodsNum,'goods_id' =>$goodsId,'created_at' => time(),'user_id' => $userId];
-    	$model = Goods::findOne(['goods_id' =>$goodsId,'user_id' =>$userId]);
+    	$model = Cart::findOne(['goods_id' =>$goodsId,'user_id' =>$userId]);
     	if($model)
     	{
     		$model->goods_num+=$goodsNum;
@@ -69,7 +68,7 @@ class CartService extends BaseService
     		$goodsModel->save();
     	}
     	
-    	return self::tranfer();
+    	return true;
     	
     }
     
@@ -122,6 +121,40 @@ class CartService extends BaseService
 	    	}
     	}
     	return $result;
+    }
+    
+    
+    
+    /**
+     * @desc 登录的情况 下
+     */
+    public static function getCartData()
+    {
+    	$userId = Yii::$app->user->identity->user_id;
+    	$data = Cart::getList($userId);
+    	$result = [];
+    	if($data)
+    	{
+    		foreach($data as $k=>$v)
+    		{
+    			$temp = [];
+    			$goods = Goods::find($k)->asArray()->one();
+    			$temp['shop_price'] = $goods['shop_price'];
+    			$temp['name'] = $goods['name'];
+    			$temp['image'] = $goods['image'][0];
+    			$temp['goods_num'] = $v;
+    			$temp['id'] = $v['_id'];
+    			$result[$k] = $temp;
+    		}
+    	}
+    	return $result;
+    }
+    
+    
+    public static function remove($goodsId)
+    {
+    	$userId = Yii::$app->user->identity->user_id;
+    	Cart::find()->where(['user_id' =>$userId,'goods_id' =>$goodsId])->delete();
     }
 
 }
