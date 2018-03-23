@@ -25,7 +25,9 @@
             			<span>全部商品：</span>
             			<div class="cart_orders">
             				<dl class="head">
-            					<dd class="dd1"><input type="checkbox" id="" value="" /></dd>
+            					<dd class="dd1"><em @click="allCheck(true)" :class="{'check': checkAllFlag}">
+            						<i></i>
+            					</em></dd>
             					<dd class="dd2">全选</dd>
             					<dd class="dd3">单价（元）</dd>
             					<dd class="dd4">数量</dd>
@@ -35,7 +37,7 @@
             				<ul>
             					<li v-for="(item, index) in message">
             						<div for="" class="checkd dd1">
-            							<em @click="selectedProduct(item)" v-bind:class="{'check':item.checked}" value="xj">
+            							<em @click="selectedProduct(item)" v-bind:class="{'check':item.checked}">
             								<i></i>
             							</em>
             						</div>            						
@@ -174,9 +176,9 @@
 		        //全选
 		        allCheck:function (flag) {
 		        	var _this = this;
-		        	if(this.checkAllFlag == false){
-		        		this.checkAllFlag = flag ;
-			            this.message.forEach(function (item,index) { // 用forEach来遍历 message
+		        	if(_this.checkAllFlag == false){
+		        		_this.checkAllFlag = flag ;
+			            _this.message.forEach(function (item,index) { // 用forEach来遍历 message
 			                if(typeof item.checked == 'undefined'){ // 先判断 是否有这个 item.checked
 			                    Vue.set(item,"checked", _this.checkAllFlag);  // 没有 先注册                                                           
 			                    _this. xzProduct = item;
@@ -186,9 +188,9 @@
 			                    
 			                }
 			            });
-		        	}else if(this.checkAllFlag == true){
-		        		this.checkAllFlag = false;
-			            this.message.forEach(function (item,index) { 
+		        	}else if(_this.checkAllFlag == true){
+		        		_this.checkAllFlag = false;
+			            _this.message.forEach(function (item,index) { 
 			                    item.checked = _this.checkAllFlag;
 			                    _this. xzProduct = '';
 			                    console.log(_this. xzProduct);
