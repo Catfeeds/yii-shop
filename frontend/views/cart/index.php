@@ -108,18 +108,18 @@
 	                		console.log('获取成功');
 	                		_this.message = data.data;
 	                		console.log(_this.message);
+	                		if(this.message.length != ''){
+								this.sp = true;
+							    this.cartOrders = true;
+							    this.noneCar = false;
+							}else{
+								this.sp = false;
+							    this.cartOrders = false;
+							    this.noneCar = true;
+							}
 	                	}	                 	
 	                }
-	           })
-	           if(this.message.length != ''){
-					this.sp = true;
-				    this.cartOrders = true;
-				    this.noneCar = false;
-				}else{
-					this.sp = false;
-				    this.cartOrders = false;
-				    this.noneCar = true;
-				}
+	            })	           
 			},
             methods: {
             	carQx2: function(){
