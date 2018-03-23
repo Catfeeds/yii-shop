@@ -73,7 +73,7 @@
 				<i @click="carQx"></i>
 				<span>确认删除此项？</span>
 				<div class="linkShop">
-					<a @click="carSc" href="#">确定</a>
+					<a @click="carSc" href="javascript:;">确定</a>
 					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
 				</div>
 			</div>
