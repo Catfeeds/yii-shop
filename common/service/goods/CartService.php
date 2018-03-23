@@ -154,7 +154,11 @@ class CartService extends BaseService
     public static function remove($goodsId)
     {
     	$userId = Yii::$app->user->identity->id;
-    	Cart::deleteAll(['user_id' =>$userId,'goods_id' =>$goodsId]);
+    	$data = Cart::find()->where(['user_id' =>$userId,'goods_id' =>$goodsId])->select(['_id'])->asArray()->all();
+		foreach($data as $v)
+		{
+			var_dump($v);
+		}
     }
 
 }
