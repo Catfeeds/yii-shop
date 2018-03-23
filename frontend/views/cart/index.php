@@ -159,6 +159,7 @@
             	carSc: function(){
             		// 通过indexof 来搜索当前选中的商品 找到索引 index
             		var _this = this;
+            		var index = _this.message.indexOf(_this.curProduct);
             		$.ajax({
             			type:"POST",
             			url:"/cart/remove",
@@ -167,11 +168,10 @@
 	                    success: function(data){
 	                    	if(data.status == 0){
 	                    		console.log('成功');
-	                    		var index = _this.message.indexOf(_this.curProduct);
 		            // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
-				            _this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
-				            _this.carShow = false;
-						    _this.popupShow = false; // 删除后 弹框消失
+					            _this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
+					            _this.carShow = false;
+							    _this.popupShow = false; // 删除后 弹框消失
 	                    	}else{
 	                    		console.log('失败');
 	                    	}
