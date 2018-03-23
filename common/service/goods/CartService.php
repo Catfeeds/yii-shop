@@ -131,7 +131,7 @@ class CartService extends BaseService
     public static function getCartData()
     {
     	$userId = Yii::$app->user->identity->id;
-    	$data = Cart::getList($userId);
+    	$data = Cart::find()->where(['user_id' =>$userId])->select()->asArray()->all();
     	$result = [];
     	if($data)
     	{
