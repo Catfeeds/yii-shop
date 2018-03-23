@@ -137,15 +137,15 @@
             	},
             	btnMinus: function(index) {
             		var _this = this;
-            		_this.message[index].quantity--;
-            		if(_this.message[index].quantity <= 0){
-            			_this.message[index].quantity = 1;
+            		_this.message[index].goods_num--;
+            		if(_this.message[index].goods_num <= 0){
+            			_this.message[index].goods_num = 1;
             		}
             		_this.caleTotalPrice();
             	},            	
             	btnAdd: function(index) {
             		var _this = this;
-            		_this.message[index].quantity++;
+            		_this.message[index].goods_num++;
             		_this.caleTotalPrice();
             	},
             	deletes: function(index) {
