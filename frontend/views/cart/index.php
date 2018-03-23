@@ -19,7 +19,7 @@
             				<img src="/img/kong.png"/>
             				<p>您还没有添加任何商品，快去逛逛吧</p>
             				<div class="goshop">
-            					<a class="aShop" href="/index">前往商城</a>
+            					<a class="aShop" href="/goods/list">前往商城</a>
             				</div>            				
             			</div>
             			<span v-show="sp">全部商品：</span>
