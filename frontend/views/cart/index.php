@@ -164,6 +164,7 @@
 	                    data: {goods_id: this.goods_id},
 	                    success: function(data){
 	                    	if(data.status == 0){
+	                    		console.log('成功');
 	                    		var index = this.message.indexOf(this.curProduct);
 		            // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
 				            this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
