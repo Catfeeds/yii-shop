@@ -76,11 +76,17 @@
                     height: 40px;
                     display: inline-block;
                     line-height: 40px;
-                    color: #3e3a39;
-                    background: #d3b799;
+                    color: #3e3a39;                   
                     margin-top: 30px;
                     margin-bottom: 14px;
                     border-radius: 5px;
+                    cursor: pointer;
+                }
+                .active1 {
+                    background: #d3b799;
+                }
+                .active2 {
+                    background: #bbbbbb;
                 }
                 p {
                     font-size: 14px;
@@ -419,9 +425,27 @@
     height: 16px;
     display: inline-block;
     background: url(../img/chek1.png) no-repeat;
+    position: relative;
+    cursor: pointer;
 }
 @mixin checkd2(){
     background:url(../img/chek2.png) no-repeat;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+@mixin inp(){
+    float: left;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #d3d3d3;
+    margin-top: 10px;
+}
+@mixin odmain($wd){
+    width: $wd;
 }
 
 .laber_shop {
@@ -472,6 +496,28 @@
             font-weight: normal;
             margin-top: 40px;
         }
+        h2 {
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            color: #3e3a39;
+            margin-top: 68px; 
+            font-weight: normal;        
+        }
+        .addtreesLink {
+            width: 100%;
+            float: left;
+            text-align: center;
+            margin-top: 46px;
+            a {
+                font-size: 16px;
+                color: #666666;
+            }
+            a:hover {
+                color: #d3b799;
+                transition: 0.5s;
+            }
+        }
         span {
             font-size: 16px;
             color: #3e3a39;
@@ -506,10 +552,10 @@
                         border-left: 1px solid #3e3a39;
                     }
                 }
-                td:first-child input[type = checkbox]{
+                td:first-child em{
                     @include checkd1();
                 }
-                td:first-child input[type = checkbox]:checked{
+                td:first-child .check i{
                     @include checkd2();
                 }
                 .td1 {
@@ -634,6 +680,22 @@
                 .d2 {
                     @include dls2();
                 }
+                .od1 {
+                    @include odmain(598px);
+                    padding-left: 22px;
+                }
+                .od2 {
+                    @include odmain(100px);
+                }
+                .od3 {
+                    @include odmain(118px);
+                }
+                .od4 {
+                    @include odmain(124px);
+                }
+                .od5 {
+                    @include odmain(130px);
+                }
             }
             ul {
                 width: calc(100% - 2px);
@@ -669,12 +731,49 @@
                         font-size: 16px;
                         color: #3e3a39;
                     }
+                    .btn_cz {
+                        float: left;
+                        width: 104px;
+                        height: 140px;
+                        display: flex;
+                        flex-direction:column;
+                        justify-content:center;
+                        button {
+                            background: none;
+                            width: 100%;
+                            float: left;
+                            margin: 5px 0;
+                            cursor: pointer;                            
+                        }
+                        button:hover {
+                            color: #d3b799;
+                        }
+                    }
                     .d1 {
                         @include dls1();
                     }
                     .d2 {
                         @include dls2();
                     }
+                    .od1 {
+                        @include odmain(598px);
+                        padding-left: 22px;
+                        b {
+                            width: calc(598px - 160px);
+                        }
+                    }
+                    .od2 {
+                        @include odmain(100px);
+                    }
+                    .od3 {
+                        @include odmain(118px);
+                    }
+                    .od4 {
+                        @include odmain(124px);
+                    }
+                    .od5 {
+                        @include odmain(130px);
+                    }                 
                 }
             }
             .bz {
@@ -724,10 +823,10 @@
             .dd5 {
                 width: 126px;
             }
-            input[type = checkbox] {
+            em{
                 @include checkd1();
             }
-            input[type = checkbox]:checked {
+            .check i {
                 @include checkd2();
             }
             ul {
@@ -741,7 +840,7 @@
                     border-bottom: 1px solid #d3d3d3;
                     height: 140px;
                     padding: 26px 0;
-                    label {
+                    .checkd {
                         float: left; 
                         margin-top: 62px;                       
                     }
@@ -767,6 +866,12 @@
                         line-height: 140px;
                         font-size: 16px;
                         color: #3e3a39;
+                    }
+                    label {
+                        line-height: 140px;
+                        font-size: 16px;
+                        color: #3e3a39;
+                        float: left;
                     }
                     .data_number {
                         float: left;
@@ -869,6 +974,53 @@
                 background: #d3b799;
                 margin-top: 34px;
                 border-radius: 5px;
+            }
+        }
+        .address_cont {
+            width: 100%;
+            float: left;
+            margin-top: 30px;
+            li {
+                float: left;
+                width: 100%;
+                margin-bottom: 26px;
+                .lis {
+                    float: left;
+                    h3 {
+                        font-size: 12px;
+                        color: #3e3a39;
+                        font-weight: normal;
+                    }
+                    input {
+                        width: calc(100% - 22px);
+                        height: 38px;
+                        padding: 0 10px;
+                        @include inp();                       
+                    }
+                    select {
+                        height: 40px;
+                        padding: 0 10px;
+                        @include inp();
+                    }
+                } 
+                .lis1 {
+                    width: 358px;
+                    margin-right: 20px;
+                }
+                .lis2 {
+                    width: 736px;
+                }              
+            }
+            a {
+               width: 180px;
+               height: 40px;
+               float: left;
+               background: #d3b799; 
+               border-radius: 3px;
+               text-align: center;
+               line-height: 40px;
+               font-size: 18px;
+               color: #3e3a39;
             }
         }
     }
