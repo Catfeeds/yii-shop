@@ -170,6 +170,8 @@
 				            this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
 				            this.carShow = false;
 						    this.popupShow = false; // 删除后 弹框消失
+	                    	}else{
+	                    		console.log('失败');
 	                    	}
 	                    }
             		});
