@@ -52,7 +52,7 @@
 										<input @click="btnAdd(index)" type="button" value="+" />
 									</div>
 									<label for="price1" class="dd5">{{ item.goods_num * item.shop_price }}</label>
-									<p @click="deletes(index)" class="delete">删除</p>
+									<p @click="deletes(item)" class="delete">删除</p>
             					</li>
             				</ul>
             				<div class="js">
@@ -73,7 +73,7 @@
 				<i @click="carQx"></i>
 				<span>确认删除此项？</span>
 				<div class="linkShop">
-					<a @click="carSc" href="#">删除</a>
+					<a @click="carSc" href="#">确定</a>
 					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
 				</div>
 			</div>
@@ -95,7 +95,8 @@
 				zjPrice: 0,  //总金额
 				curProduct: '', //保存删除的商品
 				message: [],
-				zjPrice: 0				
+				zjPrice: 0,
+				goods_id: ''		
 			},
 			created: function(){
 				var _this = this;
@@ -148,18 +149,30 @@
             		_this.message[index].goods_num++;
             		_this.caleTotalPrice();
             	},
-            	deletes: function(index) {
+            	deletes: function(item) {
             		this.carShow = true;
 				    this.popupShow = true;
 				    this.curProduct = item;
+				    this.goods_id = item.id.$oid;
             	},
             	carSc: function(){
             		// 通过indexof 来搜索当前选中的商品 找到索引 index
-		            var index = this.message.indexOf(this.curProduct);
+            		$.ajax({
+            			type:"POST",
+            			url:"/cart/remove",
+            			dataType: 'json',
+	                    data: {goods_id: this.goods_id},
+	                    success: function(data){
+	                    	if(data.status == 0){
+	                    		var index = this.message.indexOf(this.curProduct);
 		            // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
-		            this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
-		            this.carShow = false;
-				    this.popupShow = false; // 删除后 弹框消失
+				            this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
+				            this.carShow = false;
+						    this.popupShow = false; // 删除后 弹框消失
+	                    	}
+	                    }
+            		});
+		            
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数
