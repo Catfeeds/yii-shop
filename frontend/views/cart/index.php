@@ -172,6 +172,15 @@
 					            _this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
 					            _this.carShow = false;
 							    _this.popupShow = false; // 删除后 弹框消失
+							    if(_this.message.length != ''){
+									_this.sp = true;
+								    _this.cartOrders = true;
+								    _this.noneCar = false;
+								}else{
+									_this.sp = false;
+								    _this.cartOrders = false;
+								    _this.noneCar = true;
+								}
 	                    	}else{
 	                    		console.log('失败');
 	                    	}
