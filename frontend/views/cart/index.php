@@ -35,7 +35,9 @@
             				<ul>
             					<li v-for="(item, index) in message">
             						<div for="" class="checkd dd1">
-            							<input v-model="checked" type="checkbox" id="price1" value="xj" />
+            							<em @click="selectedProduct(item)" v-bind:class="{'check':item.checked}" value="xj">
+            								<i></i>
+            							</em>
             						</div>            						
             						<a class="dd2" class="d1" href="#">
             							<img :src="imgurl + item.image">
@@ -70,7 +72,7 @@
 				<i @click="carQx"></i>
 				<span>确认删除此项？</span>
 				<div class="linkShop">
-					<a href="#">删除</a>
+					<a @click="carSc" href="#">删除</a>
 					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
 				</div>
 			</div>
@@ -88,18 +90,11 @@
 				noneCar:false,
 				sp:true,
 				cartOrders:true,
-				checked:false,
+				checkAllFlag: false, //定义是否全选
+				zjPrice: 0,  //总金额
+				curProduct: '', //保存删除的商品
 				message: [],
 				zjPrice: 0				
-			},
-			computed: {
-				zjPrice: function() {
-					var zjPrice = 0;
-					for(var i in this.message){
-						zjPrice += parseInt(this.message[i].goods_num * this.message[i].shop_price);
-					}
-					return zjPrice;
-				}
 			},
 			created: function(){
 				var _this = this;
@@ -113,20 +108,20 @@
 	                		console.log('获取成功');
 	                		_this.message = data.data;
 	                		console.log(_this.message);
-	                	}	                 	
+	                		if(_this.message.length != ''){
+								_this.sp = true;
+							    _this.cartOrders = true;
+							    _this.noneCar = false;
+							}else{
+								_this.sp = false;
+							    _this.cartOrders = false;
+							    _this.noneCar = true;
+							}
+	                	}          	
 	                }
-	           })
-	           if(this.message.length != ''){
-					this.sp = true;
-				    this.cartOrders = true;
-				    this.noneCar = false;
-				}
+	            })	           
 			},
             methods: {
-            	deletes: function(){           		
-            		this.carShow = true;
-            		this.popupShow = true;           		
-            	},
             	carQx2: function(){
         			this.carShow = false;
     		        this.popupShow = false;
@@ -141,22 +136,77 @@
             	},
             	btnMinus: function(index) {
             		var _this = this;
-            		_this.message[index].goods_num--;
-            		if(_this.message[index].goods_num <= 0){
-            			_this.message[index].goods_num = 1;
+            		_this.message[index].quantity--;
+            		if(_this.message[index].quantity <= 0){
+            			_this.message[index].quantity = 1;
             		}
-            	},           	
+            		this.caleTotalPrice();
+            	},
+            	
             	btnAdd: function(index) {
             		var _this = this;
-            		_this.message[index].goods_num++;
+            		_this.message[index].quantity++;
+            		this.caleTotalPrice();
             	},
             	deletes: function(index) {
-            		var _this = this;
-            		_this.message.splice(index, 1);
-            		if(_this.message.length == 0){
-            			window.location = 'http://www.baidu.com';
-            		}
-            	}
+            		this.carShow = true;
+				    this.popupShow = true;
+				    this.curProduct = item;
+            	},
+            	carSc: function(){
+            		// 通过indexof 来搜索当前选中的商品 找到索引 index
+		            var index = this.message.indexOf(this.curProduct);
+		            // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
+		            this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
+		            this.carShow = false;
+				    this.popupShow = false; // 删除后 弹框消失
+            	},
+            	//如何让Vue 监听一个不存在的变量 单选操作
+            	selectedProduct:function (item) { // 接收的参数
+		            if( typeof item.checked == 'undefined'){ 
+		                Vue.set(item,"checked",true);
+		            }else {
+		                item.checked = !item.checked;
+		                this.checkAllFlag = false ;
+		            }
+		            this.caleTotalPrice();
+		        },
+		        //全选
+		        allCheck:function (flag) {
+		        	var _this = this;
+		        	if(this.checkAllFlag == false){
+		        		this.checkAllFlag = flag ;
+			            this.message.forEach(function (item,index) { // 用forEach来遍历 message
+			                if(typeof item.checked == 'undefined'){ // 先判断 是否有这个 item.checked
+			                    Vue.set(item,"checked", _this.checkAllFlag);  // 没有 先注册                                                           
+			                    _this. xzProduct = item;
+			                    console.log(_this. xzProduct);
+			                }else {
+			                    item.checked = _this.checkAllFlag;
+			                    
+			                }
+			            });
+		        	}else if(this.checkAllFlag == true){
+		        		this.checkAllFlag = false;
+			            this.message.forEach(function (item,index) { 
+			                    item.checked = _this.checkAllFlag;
+			                    _this. xzProduct = '';
+			                    console.log(_this. xzProduct);
+			            });
+		        	}
+		           
+		            this.caleTotalPrice();
+		        },
+		        //选中商品总价
+		        caleTotalPrice:function () {
+		            var _this = this;
+		            this.zjPrice = 0;
+		            this.message.forEach(function (item,index) {
+		               if(item.checked){
+		                   _this.zjPrice += item.shop_price * item.goods_num;
+		               }
+		            });
+		        }
             }
          })
 	</script>
