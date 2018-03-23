@@ -50,12 +50,12 @@ class CartController extends BaseController
     */
     public function actionRemove()
     {	
-    	$goodsId = Yii::$app->request->post('goods_id');
-    	if(!$goodsId)
+    	$id = Yii::$app->request->post('id');
+    	if(!$id)
     	{
     		return ['status' => 1,'msg' =>'参数错误'];
     	}
-    	CartService::remove($goodsId);	
+    	CartService::remove($id);	
     	return ['status' =>0,'msg' =>'删除成功'];
     }
     

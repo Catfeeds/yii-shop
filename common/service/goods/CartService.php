@@ -144,21 +144,25 @@ class CartService extends BaseService
     			$temp['image'] = $goods['image'][0];
     			$temp['goods_num'] = $v['goods_num'];
     			$temp['id'] = $v['_id'];
+    			$temp['goods_id'] = $v['goods_id'];
     			$result[$k] = $temp;
     		}
     	}
     	return $result;
     }
     
-    
-    public static function remove($goodsId)
+    /**
+    * @desc 不建议用deleteAll
+    */
+    public static function remove($pk)
     {
     	$userId = Yii::$app->user->identity->id;
-    	$data = Cart::find()->where(['user_id' =>$userId,'goods_id' =>$goodsId])->select(['_id'])->asArray()->all();
-		foreach($data as $v)
-		{
-			var_dump($v);
-		}
+    	$cartModel = Cart::findOne($pk);
+    	if($cartModel->user_id == $userId)
+    	{
+    		$cartModel->delete();
+    	}
+    	return true;
     }
 
 }
