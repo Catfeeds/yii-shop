@@ -56,7 +56,8 @@ class Cart extends ActiveRecord
     public function rules()
     {
     	return [
-    		[['created_at','goods_id','product_id','goods_num'],'integer'],
+    		[['created_at','product_id','goods_num'],'integer'],
+    		[['goods_id'],'string'],
     		[['goods_id','user_id','goods_num'],'required']
     	];
     }
