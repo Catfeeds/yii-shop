@@ -138,7 +138,7 @@ class CartService extends BaseService
     		foreach($data as $k=>$v)
     		{
     			$temp = [];
-    			$goods = Goods::find($k)->asArray()->one();
+    			$goods = Goods::find()->where(['_id' =>$v['goods_id']])->asArray()->one();
     			$temp['shop_price'] = $goods['shop_price'];
     			$temp['name'] = $goods['name'];
     			$temp['image'] = $goods['image'][0];
