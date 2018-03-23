@@ -108,16 +108,16 @@
 	                		console.log('获取成功');
 	                		_this.message = data.data;
 	                		console.log(_this.message);
-	                		if(this.message.length != ''){
-								this.sp = true;
-							    this.cartOrders = true;
-							    this.noneCar = false;
+	                		if(_this.message.length != ''){
+								_this.sp = true;
+							    _this.cartOrders = true;
+							    _this.noneCar = false;
 							}else{
-								this.sp = false;
-							    this.cartOrders = false;
-							    this.noneCar = true;
+								_this.sp = false;
+							    _this.cartOrders = false;
+							    _this.noneCar = true;
 							}
-	                	}	                 	
+	                	}          	
 	                }
 	            })	           
 			},
