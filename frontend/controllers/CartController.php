@@ -39,7 +39,7 @@ class CartController extends BaseController
     /*购物车列表*/
     public function actionGetlist()
     {
-    	$data = CartService::getList();
+    	$data = CartService::getCartData();
     	return ['status' =>0,'data' =>$data];
     }
     
