@@ -170,29 +170,35 @@
                 width: calc(1180px / 3);
                 float: left;
                 margin-right: 10px;
-                img {
+                a{
                     width: 100%;
-                    height: auto;
-                    max-height: 296px;
-                }
-                span {
-                    width: calc(100% - 40px);
-                    padding: 0 20px;
-                    margin-top: 26px;
-                    font-size: 18px;
-                    color: #3e3a39;
+                    height: 296px;
                     float: left;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                }
-                p {
-                    float: left;
-                    width: calc(100% - 40px);
-                    padding: 0 20px;
-                    margin: 12px 0 22px;
-                    color: #f1451a;
-                    font-size: 20px;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        max-height: 296px;
+                        height: 296px;
+                    }
+                    span {
+                        width: calc(100% - 40px);
+                        padding: 0 20px;
+                        margin-top: 26px;
+                        font-size: 18px;
+                        color: #3e3a39;
+                        float: left;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    p {
+                        float: left;
+                        width: calc(100% - 40px);
+                        padding: 0 20px;
+                        margin: 12px 0 22px;
+                        color: #f1451a;
+                        font-size: 20px;
+                    }
                 }
             }
             li:nth-child(3n) {
