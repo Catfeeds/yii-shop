@@ -56,7 +56,6 @@
             					</li>
             				</ul>
             				<div class="js">
-	        					<button>删除选中</button>
 	        					<div class="cart_zj">
 	        						<p>总计：{{ zjPrice }}元</p>
 	        						<a class="cart_js" href="javascript:;">立即结算</a>
@@ -142,13 +141,13 @@
             		if(_this.message[index].quantity <= 0){
             			_this.message[index].quantity = 1;
             		}
-            		this.caleTotalPrice();
+            		_this.caleTotalPrice();
             	},
             	
             	btnAdd: function(index) {
             		var _this = this;
             		_this.message[index].quantity++;
-            		this.caleTotalPrice();
+            		_this.caleTotalPrice();
             	},
             	deletes: function(index) {
             		this.carShow = true;
