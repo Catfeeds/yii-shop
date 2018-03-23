@@ -22,8 +22,8 @@
             					<a class="aShop" href="/index">前往商城</a>
             				</div>            				
             			</div>
-            			<span>全部商品：</span>
-            			<div class="cart_orders">
+            			<span v-show="sp">全部商品：</span>
+            			<div v-show="cartOrders" class="cart_orders">
             				<dl class="head">
             					<dd class="dd1"><em @click="allCheck(true)" :class="{'check': checkAllFlag}">
             						<i></i>
