@@ -142,7 +142,7 @@ class CartService extends BaseService
     			$temp['shop_price'] = $goods['shop_price'];
     			$temp['name'] = $goods['name'];
     			$temp['image'] = $goods['image'][0];
-    			$temp['goods_num'] = $v;
+    			$temp['goods_num'] = $v['goods_num'];
     			$temp['id'] = $v['_id'];
     			$result[$k] = $temp;
     		}
