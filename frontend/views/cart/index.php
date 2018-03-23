@@ -154,6 +154,7 @@
 				    this.popupShow = true;
 				    this.curProduct = item;
 				    this.goods_id = item.id.$oid;
+				    console.log(this.goods_id);
             	},
             	carSc: function(){
             		// 通过indexof 来搜索当前选中的商品 找到索引 index
