@@ -41,7 +41,7 @@
             								<i></i>
             							</em>
             						</div>            						
-            						<a class="dd2" class="d1" href="goodsUrl + item[index].id.$oid">
+            						<a class="dd2" class="d1" href="goodsUrl + '?id=' + item[index].id.$oid">
             							<img :src="imgurl + item.image">
             							<b>{{item.name}}</b>
             						</a>
