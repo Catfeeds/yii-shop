@@ -209,6 +209,8 @@
 //              			_this.dataForm[index].id = item.goods_id; //购物车ID 
 //              			_this.dataForm[index].goods_num = item.goods_num;
 //              			console.log(_this.dataForm[index].goods_id);
+                		}else{
+                			return false;
                 		}
                     })
             		$.ajax({
