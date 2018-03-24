@@ -202,13 +202,14 @@
             		});
             	},
             	cart_js: function(){
-            		this.message.forEach(function (item,index){
+            		var _this = this;
+            		_this.message.forEach(function (item,index){
                 		if(item.checked == true){
-                			this.dataForm[index].goods_id = item.id.$oid; //商品ID
-                			this.dataForm[index].id = item.goods_id; //购物车ID 
+                			_this.dataForm[index].goods_id = item.id.$oid; //商品ID
+                			_this.dataForm[index].id = item.goods_id; //购物车ID 
                 			btnMinus[index];
-                			this.dataForm[index].goods_num = item.goods_num;
-                			console.log(this.dataForm[index].goods_id);
+                			_this.dataForm[index].goods_num = item.goods_num;
+                			console.log(_this.dataForm[index].goods_id);
                 		}
                 	}
             		$.ajax({
