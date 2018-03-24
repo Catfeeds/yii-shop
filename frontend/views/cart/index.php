@@ -41,7 +41,7 @@
             								<i></i>
             							</em>
             						</div>            						
-            						<a class="dd2" class="d1" :href="goodsUrl + '?id=' + item[index].id.$oid">
+            						<a class="dd2" class="d1" :href="item.goodUrl">
             							<img :src="imgurl + item.image">
             							<b>{{item.name}}</b>
             						</a>
@@ -96,7 +96,8 @@
 				curProduct: '', //保存删除的商品
 				message: [],
 				zjPrice: 0,
-				id: ''		
+				id: '',
+				goodUrl: ''		
 			},
 			created: function(){
 				var _this = this;
@@ -118,6 +119,10 @@
 								_this.sp = false;
 							    _this.cartOrders = false;
 							    _this.noneCar = true;
+							}
+							for(var i in message){
+								_this.id = message[i]._id.$oid;
+								message[i].goodUrl = goodsUrl + '?id=' + _this.id;
 							}
 	                	}          	
 	                }
