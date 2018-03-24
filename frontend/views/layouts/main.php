@@ -26,6 +26,8 @@ $this->beginPage() ?>
 		<script>
 			var imgurl ="<?=Yii::$app->params['image']?>";
 			var islogin = "<?=$this->params['isLogin']?>";
+			var id = "<?=$id?>";
+			var goodsUrl = "<?=Url::to('/goods/detail/')?>";
 		</script>
 	</head>
 	<body>
