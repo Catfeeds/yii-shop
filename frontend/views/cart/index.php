@@ -203,14 +203,20 @@
             	},
             	cart_js: function(){
             		var _this = this;
+            		
             		_this.message.forEach(function (item,index){
                 		if(item.checked){
-                			_this.dataForm[index].goods_id = item.id.$oid; //商品ID
-                			_this.dataForm[index].id = item.goods_id; //购物车ID 
-                			_this.dataForm[index].goods_num = item.goods_num;
-                			console.log(_this.dataForm[index].goods_id);
-                			console.log(_this.dataForm[index].id);
-                			console.log(_this.dataForm[index].goods_num);
+                			var temp = {};
+                			temp.goods_id = item.goods_id;
+                			temp.id = item.id.$oid;
+                			temp.goods_num = goods_num;
+                			_this.dataForm.push(temp);
+//              			_this.dataForm[index].goods_id = item.id.$oid; //商品ID
+//              			_this.dataForm[index].id = item.goods_id; //购物车ID 
+//              			_this.dataForm[index].goods_num = item.goods_num;
+//              			console.log(_this.dataForm[index].goods_id);
+//              			console.log(_this.dataForm[index].id);
+//              			console.log(_this.dataForm[index].goods_num);
                 			$.ajax({
 		            			type:"POST",
 		            			url:" /order/confirm",
