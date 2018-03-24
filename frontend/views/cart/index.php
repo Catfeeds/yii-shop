@@ -41,7 +41,7 @@
             								<i></i>
             							</em>
             						</div>            						
-            						<a class="dd2" class="d1" :href="shopUrl">
+            						<a class="dd2" class="d1" :href="item.shopUrl">
             							<img :src="imgurl + item.image">
             							<b>{{item.name}}</b>
             						</a>
@@ -124,7 +124,7 @@
 							for(var i in _this.message){
 								goodId = _this.message[i].id.$oid;
 								console.log(goodId)
-								_this.shopUrl = goodsUrl + '?id=' + goodId;
+								_this.message[i].shopUrl = goodsUrl + '?id=' + goodId;
 							}
 	                	}          	
 	                }
