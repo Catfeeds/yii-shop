@@ -212,26 +212,27 @@
                 			_this.dataForm.push(temp);
                 			console.log(temp.goods_num);
                 			console.log(temp.id);
-                			console.log(temp.goods_id);               			
+                			console.log(temp.goods_id);
+                			console.log(_this.dataForm);
+		                  	 $.ajax({
+		            			type:"POST",
+		            			url:" /order/confirm",
+		            			dataType: 'json',
+			                    data: {goods:_this.dataForm},
+			                    success: function(data){
+		                            if(data.status == 0){
+		                            	console.log('成功');
+		                            	
+		                            }else{
+		                            	console.log('错误');
+		                            }
+			                    }
+		            		});                			
                 		}else{
                 			return false;
                 		}
                    })
-                   console.log(_this.dataForm);
-                   $.ajax({
-            			type:"POST",
-            			url:" /order/confirm",
-            			dataType: 'json',
-	                    data: {goods:_this.dataForm},
-	                    success: function(data){
-                            if(data.status == 0){
-                            	console.log('成功');
-                            	
-                            }else{
-                            	console.log('错误');
-                            }
-	                    }
-            		});       		
+                         		
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数
