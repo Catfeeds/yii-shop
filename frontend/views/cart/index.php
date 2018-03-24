@@ -123,7 +123,6 @@
 							}
 							for(var i in  _this.message){
 								goodId = _this.message[i].goods_id;
-								console.log(goodId)
 								_this.message[i].shopUrl = goodsUrl + '?id=' + goodId;
 							}						
 	                	}          	
