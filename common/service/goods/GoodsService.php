@@ -76,6 +76,16 @@ class GoodsService extends BaseService
 		$product = Product::findOne($productId);
 		return $product->store;
 	}
+	
+	/**
+	* @desc 根据id查询
+	*/
+	public static function getListByids(array $data)
+	{
+		$goodsIds = array_column($data,'goods_id');
+		$data = Goods::find()->where(['in','_id',$goodsIds])->asArray()->all();
+		return $data ?: [];
+	}
     
 	
 }

@@ -3,15 +3,15 @@
 namespace frontend\controllers;
 
 use Yii;
-use common\service\goods\CartService;
+use common\service\goods\GoodsService;
 class OrderController extends BaseController
 {	
 	
 	public function actionIndex()
 	{
 		$goods = Yii::$app->request->post('goods');
-		
-		return $this->render('index');
+		$data = GoodsService::getListByids($goods);
+		return $this->render('index',['goods' =>json_encode($data)]);
 	}
 	
 	
