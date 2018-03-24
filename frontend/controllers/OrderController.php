@@ -16,7 +16,7 @@ class OrderController extends BaseController
 		$goods = Yii::$app->session->get($this->selectTmp);
 		if(!$goods)
 		{
-			return $this->redirect('index');
+			return $this->redirect('/site/index');
 		}
 		$data = GoodsService::getListByids($goods);
 		return $this->render('index',['goods' =>json_encode($data)]);
@@ -30,8 +30,12 @@ class OrderController extends BaseController
     public function actionConfirm()
     {	
     	if(Yii::$app->request->isAjax)
-    	{
+    	{	
 	    	$goods = Yii::$app->request->post('goods');
+	    	if(count($goods) <1)
+	    	{
+	    		return ['status' =>1,'msg' =>'参数提交错误'];
+	    	}
 	    	Yii::$app->session->set($this->selectTmp,$goods);
 	    	return ['status' => 0,'msg' =>'ok'];
     	}
