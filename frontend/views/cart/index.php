@@ -120,16 +120,15 @@
 								_this.sp = false;
 							    _this.cartOrders = false;
 							    _this.noneCar = true;
-							}
-							var list = data.data;
-							for(var i in list){
-								goodId = list[i].id.$oid;
-								console.log(goodId)
-								list[i].shopUrl = goodsUrl + '?id=' + goodId;
-							}
+							}							
 	                	}          	
 	                }
-	            })	           
+	            })
+				for(var i in message){
+					goodId = message[i].id.$oid;
+					console.log(goodId)
+					message[i].shopUrl = goodsUrl + '?id=' + goodId;
+				}	           
 			},
             methods: {
             	carQx2: function(){
