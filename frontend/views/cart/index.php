@@ -217,7 +217,7 @@
             			type:"POST",
             			url:" /order/confirm",
             			dataType: 'json',
-	                    data: dataForm,
+	                    data: _this.dataForm,
 	                    success: function(data){
 
 	                    }
