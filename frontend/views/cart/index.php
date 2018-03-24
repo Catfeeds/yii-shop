@@ -124,7 +124,7 @@
 							for(var i in _this.message){
 								goodId = _this.message[i].id.$oid;
 								console.log(goodId)
-								_this.message[i].goodUrl = goodsUrl + '?id=' + _this.id;
+								_this.message[i].goodUrl = goodsUrl + '?id=' + goodId;
 							}
 	                	}          	
 	                }
