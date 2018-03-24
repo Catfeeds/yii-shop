@@ -121,10 +121,11 @@
 							    _this.cartOrders = false;
 							    _this.noneCar = true;
 							}
-							for(var i in _this.message){
-								goodId = _this.message[i].id.$oid;
+							var list = data.data;
+							for(var i in list){
+								goodId = list[i].id.$oid;
 								console.log(goodId)
-								_this.message[i].shopUrl = goodsUrl + '?id=' + goodId;
+								list[i].shopUrl = goodsUrl + '?id=' + goodId;
 							}
 	                	}          	
 	                }
