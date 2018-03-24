@@ -207,7 +207,6 @@
                 		if(item.checked){
                 			_this.dataForm[index].goods_id = item.id.$oid; //商品ID
                 			_this.dataForm[index].id = item.goods_id; //购物车ID 
-                			btnMinus[index];
                 			_this.dataForm[index].goods_num = item.goods_num;
                 			console.log(_this.dataForm[index].goods_id);
                 		}
