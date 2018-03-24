@@ -58,7 +58,7 @@
             				<div class="js">
 	        					<div class="cart_zj">
 	        						<p>总计：{{ zjPrice }}元</p>
-	        						<a class="cart_js" href="javascript:;">立即结算</a>
+	        						<a @click="cart_js" class="cart_js" href="javascript:;">立即结算</a>
 	        					</div>
 	        				</div>
             			</div>           			
@@ -97,7 +97,14 @@
 				message: [],
 				zjPrice: 0,
 				id: '',
-				shopUrl: ''		
+				shopUrl: '',
+				dataForm: [
+				   {
+				   	goods_id:'',
+				   	goods_num: '',
+				   	id: ''
+				   }
+				]	
 			},
 			created: function(){
 				var _this = this;
@@ -191,6 +198,26 @@
 	                    	}else{
 	                    		console.log('失败');
 	                    	}
+	                    }
+            		});
+            	},
+            	cart_js: function(){
+            		this.message.forEach(function (item,index){
+                		if(item.checked == true){
+                			this.dataForm[index].goods_id = item.id.$oid; //商品ID
+                			this.dataForm[index].id = item.goods_id; //购物车ID 
+                			btnMinus[index];
+                			this.dataForm[index].goods_num = item.goods_num;
+                			console.log(this.dataForm[index].goods_id);
+                		}
+                	}
+            		$.ajax({
+            			type:"POST",
+            			url:" /order/confirm",
+            			dataType: 'json',
+	                    data: dataForm,
+	                    success: function(data){
+
 	                    }
             		});
             	},
