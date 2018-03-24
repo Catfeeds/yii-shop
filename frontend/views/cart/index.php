@@ -206,22 +206,26 @@
             		_this.message.forEach(function (item,index){
                 		if(item.checked){
                 			_this.dataForm[index].goods_id = item.id.$oid; //商品ID
-//              			_this.dataForm[index].id = item.goods_id; //购物车ID 
-//              			_this.dataForm[index].goods_num = item.goods_num;
+                			_this.dataForm[index].id = item.goods_id; //购物车ID 
+                			_this.dataForm[index].goods_num = item.goods_num;
                 			console.log(_this.dataForm[index].goods_id);
+                			console.log(_this.dataForm[index].id);
+                			console.log(_this.dataForm[index].goods_num);
+                			$.ajax({
+		            			type:"POST",
+		            			url:" /order/confirm",
+		            			dataType: 'json',
+			                    data: _this.dataForm,
+			                    success: function(data){
+		                            if(data.status == 0){
+		                            	console.log('成功')
+		                            }
+			                    }
+		            		});
                 		}else{
                 			return false;
                 		}
-                    })
-            		$.ajax({
-            			type:"POST",
-            			url:" /order/confirm",
-            			dataType: 'json',
-	                    data: _this.dataForm,
-	                    success: function(data){
-
-	                    }
-            		});
+                   })           		
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数
