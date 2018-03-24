@@ -210,9 +210,7 @@
                 			temp.id = item.id.$oid;
                 			temp.goods_num = item.goods_num;
                 			_this.dataForm.push(temp);
-                			console.log(temp.goods_num);
-                			console.log(temp.id);
-                			console.log(temp.goods_id);
+                			console.log(temp);
                 			console.log(_this.dataForm);
 		                  	 $.ajax({
 		            			type:"POST",
