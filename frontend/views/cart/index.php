@@ -210,7 +210,7 @@
 //              			_this.dataForm[index].goods_num = item.goods_num;
 //              			console.log(_this.dataForm[index].goods_id);
                 		}
-                	}
+                    })
             		$.ajax({
             			type:"POST",
             			url:" /order/confirm",
