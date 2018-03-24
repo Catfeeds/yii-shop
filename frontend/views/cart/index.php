@@ -41,7 +41,7 @@
             								<i></i>
             							</em>
             						</div>            						
-            						<a class="dd2" class="d1" href="#">
+            						<a class="dd2" class="d1" :href="item.shopUrl">
             							<img :src="imgurl + item.image">
             							<b>{{item.name}}</b>
             						</a>
@@ -96,10 +96,12 @@
 				curProduct: '', //保存删除的商品
 				message: [],
 				zjPrice: 0,
-				id: ''		
+				id: '',
+				shopUrl: ''		
 			},
 			created: function(){
 				var _this = this;
+				var goodId;
 				$.ajax({
 	                url: '/cart/getlist',
 	                type: 'GET',
@@ -119,9 +121,14 @@
 							    _this.cartOrders = false;
 							    _this.noneCar = true;
 							}
+							for(var i in  _this.message){
+								goodId = _this.message[i].goods_id;
+								_this.message[i].shopUrl = goodsUrl + '?id=' + goodId;
+							}						
 	                	}          	
 	                }
-	            })	           
+	            })
+					           
 			},
             methods: {
             	carQx2: function(){
