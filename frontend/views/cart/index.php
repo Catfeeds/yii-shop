@@ -226,7 +226,7 @@
 	                    success: function(data){
                             if(data.status == 0){
                             	console.log('成功');
-                            	window.location = '/order/index';
+                            	
                             }else{
                             	console.log('错误');
                             }
