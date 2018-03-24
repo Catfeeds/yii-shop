@@ -121,8 +121,8 @@
 							    _this.noneCar = true;
 							}
 							for(var i in message){
-								_this.id = message[i]._id.$oid;
-								message[i].goodUrl = goodsUrl + '?id=' + _this.id;
+								_this.id = _this.message[i]._id.$oid;
+								_this.message[i].goodUrl = goodsUrl + '?id=' + _this.id;
 							}
 	                	}          	
 	                }
