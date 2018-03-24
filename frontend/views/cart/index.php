@@ -98,13 +98,7 @@
 				zjPrice: 0,
 				id: '',
 				shopUrl: '',
-				dataForm: [
-				   {
-				   	goods_id:'',
-				   	goods_num: '',
-				   	id: ''
-				   }
-				]	
+				dataForm: []	
 			},
 			created: function(){
 				var _this = this;
