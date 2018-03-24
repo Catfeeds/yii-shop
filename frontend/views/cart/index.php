@@ -101,6 +101,7 @@
 			},
 			created: function(){
 				var _this = this;
+				var goodId;
 				$.ajax({
 	                url: '/cart/getlist',
 	                type: 'GET',
@@ -121,7 +122,8 @@
 							    _this.noneCar = true;
 							}
 							for(var i in _this.message){
-								_this.id = _this.message[i].id.$oid;
+								goodId = _this.message[i].id.$oid;
+								console.log(goodId)
 								_this.message[i].goodUrl = goodsUrl + '?id=' + _this.id;
 							}
 	                	}          	
