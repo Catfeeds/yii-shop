@@ -124,10 +124,10 @@
 	                	}          	
 	                }
 	            })
-				for(var i in message){
-					goodId = message[i].id.$oid;
+				for(var i in  _this.message){
+					goodId = _this.message[i].id.$oid;
 					console.log(goodId)
-					message[i].shopUrl = goodsUrl + '?id=' + goodId;
+					_this.message[i].shopUrl = goodsUrl + '?id=' + goodId;
 				}	           
 			},
             methods: {
