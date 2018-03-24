@@ -41,7 +41,7 @@
             								<i></i>
             							</em>
             						</div>            						
-            						<a class="dd2" class="d1" :href="item.shopUrl">
+            						<a class="dd2" class="d1" :href="shopUrl">
             							<img :src="imgurl + item.image">
             							<b>{{item.name}}</b>
             						</a>
