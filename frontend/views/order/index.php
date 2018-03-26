@@ -1,4 +1,4 @@
-		<div class="container2">
+		<div class="container2" id="shopData">
             <section class="laber_shopUser">
             	<div class="shopUser auto clearfix">
             		<div class="shopUser_main">
@@ -16,8 +16,8 @@
             	<div class="shop auto clearfix">
             		<div class="shop_main">
             			<h1>填写并核对订单信息</h1>
-            			<span>收货信息：</span>
-            			<table border="0" cellspacing="0" cellpadding="0">
+            			<span v-show="">收货信息：</span>
+            			<table v-show="address1" border="0" cellspacing="0" cellpadding="0">
             				<tr class="tr1">
             					<th class="td1"></th>
             					<th class="td2">收件人姓名</th>
@@ -25,21 +25,63 @@
             					<th class="td4">联系电话</th>
             				</tr>
             				<tr class="tr2">
-            					<td class="td1 tdct"><input name="xz" type="checkbox" /></td>
+            					<td class="td1 tdct"><em name="xz" type="checkbox" ></em></td>
             					<td class="td2">李美丽</td>
             					<td class="td3">广东省深圳市福田区深南大道大庆大厦</td>
             					<td class="td4">13045682375</td>
             				</tr>
             				<tr class="tr2">
-            					<td class="td1 tdct"><input name="xz" type="checkbox" /></td>
+            					<td class="td1 tdct"><em name="xz" type="checkbox" ></em></td>
             					<td class="td2">李美丽</td>
             					<td class="td3">广东省深圳市福田区深南大道大庆大厦</td>
             					<td class="td4">13045682375</td>
             				</tr>
             			</table>
-            			<div class="tj">
+            			<div v-show="address1" class="tj">
             				<a href="javascript:;">添加新地址</a>
             			</div>
+                        <ul  v-show="address2" class="address_cont">
+                        	<li>
+                        		<div class="lis lis1">
+                        			<h3>姓名：</h3>
+                        			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
+                        		</div>
+                        		<div class="lis">
+                        			<h3>称谓：</h3>
+                        			<select name="title" style="margin-left: 20px;">
+                        				<option value="先生">先生</option>
+                        				<option value="女士">女士</option>
+                        			</select>
+                        		</div>
+                        	</li>
+                        	<li>
+                        		<div class="lis lis1">
+                        			<h3>联系方式：</h3>
+                        			<input type="text" name="tel" id="tel" v-model="takeDelivery.mobile" placeholder="请输入您的电话号码" />
+                        		</div>
+                        	</li>
+                        	<li>
+                        		<div class="lis">
+                        			<h3>送货地址：</h3>
+                        			<select class="lis1" name="title" v-model="takeDelivery.province">
+                        				<option v-for="option in arr" :value="option.name">{{ option.name }}</option>
+                        			</select>
+                        			<select style="margin-left: 20px;" class="lis1" name="title" v-model="takeDelivery.city">
+                        				<option v-for="option in cityArr" :value="option.name">{{ option.name }}</option>
+                        			</select>
+                        			<select style="margin-top: 20px;" class="lis1" name="title" v-model="takeDelivery.district">
+                        				<option v-for="option in districtArr" :value="option.name">{{ option.name }}</option>
+                        			</select>
+                        		</div>
+                        	</li>
+                        	<li>
+                        		<div class="lis lis2">
+                        			<h3>详细地址：（请填写具体路名和门牌号）</h3>
+                        			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
+                        		</div>
+                        	</li>
+                        	<a @click="bcAdd" href="javascript:;">保存地址</a>
+                        </ul>
             			<span>支付方式：</span>
             			<div class="shop_zf">
             				<li class="on">
