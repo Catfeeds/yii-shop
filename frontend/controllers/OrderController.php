@@ -19,7 +19,7 @@ class OrderController extends BaseController
 			return $this->redirect('/index/index');
 		}
 		$data = GoodsService::getListByids($goods);
-		return $this->render('index',['goods' =>json_encode($data)]);
+		return $this->render('index',['goods' =>json_encode($data,JSON_UNESCAPED_UNICODE)]);
 	}
 	
 	
