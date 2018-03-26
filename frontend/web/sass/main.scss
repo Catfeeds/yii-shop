@@ -988,7 +988,7 @@
             margin-top: 30px;
             li {
                 float: left;
-                width: 100%;
+                width: 740px;
                 margin-bottom: 26px;
                 .lis {
                     float: left;
@@ -1011,7 +1011,6 @@
                 } 
                 .lis1 {
                     width: 358px;
-                    margin-right: 20px;
                 }
                 .lis2 {
                     width: 736px;
@@ -1027,6 +1026,7 @@
                line-height: 40px;
                font-size: 18px;
                color: #3e3a39;
+               clear: both;
             }
         }
     }

@@ -815,7 +815,7 @@
       margin-top: 30px; }
       .laber_shop .shop_main .address_cont li {
         float: left;
-        width: 100%;
+        width: 740px;
         margin-bottom: 26px; }
         .laber_shop .shop_main .address_cont li .lis {
           float: left; }
@@ -841,8 +841,7 @@
             border: 1px solid #d3d3d3;
             margin-top: 10px; }
         .laber_shop .shop_main .address_cont li .lis1 {
-          width: 358px;
-          margin-right: 20px; }
+          width: 358px; }
         .laber_shop .shop_main .address_cont li .lis2 {
           width: 736px; }
       .laber_shop .shop_main .address_cont a {
@@ -854,7 +853,8 @@
         text-align: center;
         line-height: 40px;
         font-size: 18px;
-        color: #3e3a39; }
+        color: #3e3a39;
+        clear: both; }
 
 .carBg {
   width: 100%;
