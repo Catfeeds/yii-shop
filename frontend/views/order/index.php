@@ -110,5 +110,5 @@
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
     	var goods = '<?=$goods?>';
-    	console.log(goods);
+    	console.log(goods.name);
 	</script>
