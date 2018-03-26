@@ -155,3 +155,95 @@
     	var goods = JSON.parse(goods);
     	console.log(goods);
 	</script>
+	<script type="text/javascript">
+        var shop = new Vue({
+       	    el:'#shopData',
+       	    data: {
+       	    	address1: false,
+       	    	address2: true,
+       	    	arr: arrAll,
+       	    	cityArr: [],
+                districtArr: [],
+                takeDelivery: {
+                    consignee: '',   //姓名
+                    mobile: '',  //电话
+                    province: '选择省份', //省
+                    city: '选择市',  //市
+                    district: '选择区',  //县
+                    address: '' //具体地址
+                }
+       	    },
+       	    created: function(){
+       	    	console.log(this.arr)
+       	    	for(var i in this.arr){
+       	    		
+       	    	}
+       	    },
+       	    methods: {
+                updateCity: function () {
+					for (var i in this.arr) {
+						var obj = this.arr[i];
+						if (obj.name == this.takeDelivery.province) {
+							this.cityArr = obj.sub;
+							break;
+						}
+					}
+					if(this.cityArr && this.cityArr.length > 1 && this.cityArr[1].name) {
+						this.takeDelivery.city = this.cityArr[1].name;
+					    console.log(this.takeDelivery.city)
+					} else {
+						this.takeDelivery.city = this.cityArr[0].name;
+					}    
+					
+				},
+				updateDistrict: function () {
+					for (var i in this.cityArr) {
+						var obj = this.cityArr[i];
+						if (obj.name == this.takeDelivery.city) {
+							this.districtArr = obj.sub;
+							break;
+						}
+					}
+					if(this.districtArr && this.districtArr.length > 1 && this.districtArr[1].name) {
+						this.takeDelivery.district = this.districtArr[1].name;
+					} else {
+						this.takeDelivery.district = '';
+					}
+				},
+				bcAdd: function(){
+					$.ajax({
+		                url:'/address/add',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: this.takeDelivery,
+		                success: function(data) {
+		                	if(data.status == 0){
+		                		console.log('提交成功');
+		                	}	                 	
+		                }
+		           })
+				}
+       	    },
+       	    beforeMount: function () {
+				this.updateCity();
+				this.updateDistrict();
+			},
+			computed: {
+				province: function(){
+					return this.takeDelivery.province;
+				},
+				city: function() {
+					return this.takeDelivery.city;
+				}
+			},
+			watch: {
+				province: function () {
+					this.updateCity();
+					this.updateDistrict();
+				},
+				city: function () {
+					this.updateDistrict();
+				}
+			}
+        })
+	</script>
