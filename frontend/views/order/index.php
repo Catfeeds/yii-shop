@@ -175,9 +175,6 @@
        	    },
        	    created: function(){
        	    	console.log(this.arr)
-       	    	for(var i in this.arr){
-       	    		
-       	    	}
        	    },
        	    methods: {
                 updateCity: function () {
