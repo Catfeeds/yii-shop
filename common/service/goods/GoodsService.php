@@ -83,7 +83,7 @@ class GoodsService extends BaseService
 	public static function getListByids(array $data)
 	{
 		$goodsIds = array_column($data,'goods_id');
-		$data = Goods::find()->where(['in','_id',$goodsIds])->asArray()->all();
+		$data = Goods::find()->where(['in','_id',$goodsIds])->select(['image','_id','shop_price','name'])->asArray()->all();
 		return $data ?: [];
 	}
     

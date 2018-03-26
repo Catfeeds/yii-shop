@@ -16,7 +16,7 @@ class OrderController extends BaseController
 		$goods = Yii::$app->session->get($this->selectTmp);
 		if(!$goods)
 		{
-			return $this->redirect('/site/index');
+			return $this->redirect('/index/index');
 		}
 		$data = GoodsService::getListByids($goods);
 		return $this->render('index',['goods' =>json_encode($data)]);
