@@ -110,5 +110,6 @@
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
     	var goods = '<?=$goods?>';
+    	var goods = JSON.parse(goods);
     	console.log(goods);
 	</script>
