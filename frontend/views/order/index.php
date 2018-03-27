@@ -179,7 +179,10 @@
 		                }	                 	
 		            }
        	    	});
-       	    	_this.disNone();    	    	
+       	    	    	    	
+       	    },
+       	    updated: function(){
+       	    	this.disNone();
        	    },
        	    methods: {
        	    	disNone: function(){
