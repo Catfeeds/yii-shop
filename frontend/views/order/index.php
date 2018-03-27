@@ -317,6 +317,7 @@
 		            }    						
 				},
 				bcAdd2: function(){
+					var _this = this;
 					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
                 		this.messgDz = "地址信息填写有误";
 				        this.messgs = true;
@@ -333,8 +334,8 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');	
-				                    this.carShow = false;
-       	    	                    this.addressShow = false;			                    
+				                    _this.carShow = false;
+       	    	                    _this.addressShow = false;			                    
 				                }	                 	
 				            }
 				        })
