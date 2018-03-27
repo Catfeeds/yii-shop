@@ -49,8 +49,8 @@
                         		<div class="lis">
                         			<h3>称谓：</h3>
                         			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
-                        				<option value="先生">先生</option>
-                        				<option value="女士">女士</option>
+                        				<option value="男">男</option>
+                        				<option value="女">女</option>
                         			</select>
                         		</div>
                         	</li>
