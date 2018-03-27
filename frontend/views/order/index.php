@@ -217,7 +217,6 @@
 		                }	                 	
 		            }
        	    	});
-       	    	this.disNone();
        	    	_this.caleTotalPrice();   	    		    	
        	    },
        	    $nextTick: function(){
