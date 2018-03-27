@@ -132,6 +132,11 @@
 		            }
        	    	});      	    	   		    	
        	    },
+       	    $nextTick: function(){
+       	    	addressSc: function(index){
+					this.addressData.splice(index,1);
+				}     	    	
+       	    },
        	    methods: {
        	    	//添加新地址
        	    	bjAddress: function(){
@@ -217,10 +222,8 @@
 				            }
 				        })
 		            }    						
-				},
-				addressSc: function(index){
-					this.addressData.splice(index,1);
 				}
+				
        	   },
        	    beforeMount: function () {
 				this.updateCity();
