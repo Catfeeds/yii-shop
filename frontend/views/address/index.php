@@ -153,6 +153,37 @@
 						this.messgs = false;
 					}
        	    	},
+       	    	//省市
+                updateCity: function () {
+					for (var i in this.arr) {
+						var obj = this.arr[i];
+						if (obj.name == this.takeDelivery.province) {
+							this.cityArr = obj.sub;
+							break;
+						}
+					}
+					if(this.cityArr && this.cityArr.length > 1 && this.cityArr[1].name) {
+						this.takeDelivery.city = this.cityArr[1].name;
+					    console.log(this.takeDelivery.city)
+					} else {
+						this.takeDelivery.city = this.cityArr[0].name;
+					}    
+					
+				},
+				updateDistrict: function () {
+					for (var i in this.cityArr) {
+						var obj = this.cityArr[i];
+						if (obj.name == this.takeDelivery.city) {
+							this.districtArr = obj.sub;
+							break;
+						}
+					}
+					if(this.districtArr && this.districtArr.length > 1 && this.districtArr[1].name) {
+						this.takeDelivery.district = this.districtArr[1].name;
+					} else {
+						this.takeDelivery.district = '';
+					}
+				},
 				bcAdd2: function(){
 					var _this = this;
 					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){

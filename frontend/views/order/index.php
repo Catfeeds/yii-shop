@@ -233,6 +233,7 @@
 		            });
 		            _this.zjMoney = zjPrice;
 		        },
+		        //判断是否有地址数据
        	    	disNone: function(){
        	    		if(this.addressData.length != ''){
 	       	    		this.address1 = true;
@@ -242,6 +243,7 @@
 	       	    		this.address2 = true;
 		       	    } 
        	    	},
+       	    	//验证手机号码
        	    	mobile: function(){
        	    		var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
 					if(this.takeDelivery.mobile == ''){
@@ -257,10 +259,12 @@
 						this.messgs = false;
 					}
        	    	},
+       	    	// 添加新地址弹窗
        	    	bjAddress: function(){
        	    		this.carShow = true;
        	    	    this.addressShow = true;
        	    	},
+       	    	// 关闭新地址弹窗
        	    	carBg: function(){
        	    		this.carShow = false;
        	    	    this.addressShow = false;
@@ -269,6 +273,7 @@
        	    		this.carShow = false;
        	    	    this.addressShow = false;
        	    	},
+       	    	//省市
                 updateCity: function () {
 					for (var i in this.arr) {
 						var obj = this.arr[i];
