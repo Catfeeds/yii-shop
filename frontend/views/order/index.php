@@ -91,7 +91,7 @@
             							<b>{{ goodLis.name }}</b>
             						</a>
             						<p  class="d2">{{ parseInt(goodLis.goods_num) }}</p>
-            						<p>300</p>
+            						<p>{{ parseInt(goodLis.goods_num) }} * {{ goodLis.shop_price }}</p>
             					</li>
             				</ul>
             				<div class="bz">
