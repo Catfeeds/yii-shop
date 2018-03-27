@@ -90,7 +90,7 @@
             							<img :src="imgurl + goodLis.image[0]">
             							<b>{{ goodLis.name }}</b>
             						</a>
-            						<p  class="d2">{{ parseInt(goodLis.) }}</p>
+            						<p  class="d2">{{ parseInt(goodLis.goods_num) }}</p>
             						<p>300</p>
             					</li>
             				</ul>
