@@ -176,7 +176,7 @@
                 		</div>
                 	</li>
                 	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
-                	<a @click="bcAdd" href="javascript:;">保存地址</a>
+                	<a @click="bcAdd2" href="javascript:;">保存地址</a>
                 </ul>
 			</div>			
 		</div>
@@ -311,6 +311,30 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');				                    
+				                }	                 	
+				            }
+				        })
+		            }    						
+				}
+				bcAdd2: function(){
+					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
+                		this.messgDz = "地址信息填写有误";
+				        this.messgs = true;
+				        return false;
+	                }else{
+	                	this.messgDz = "";
+					    this.messgs = false;
+					    this.addressData.push(this.takeDelivery);					    
+	                	$.ajax({
+				            url:'/address/add',
+				            type: 'POST',
+				            dataType: 'json',
+				            data: this.takeDelivery,
+				            success: function(data) {
+				                if(data.status == 0){
+				                    console.log('提交成功');	
+				                    this.carShow = false;
+       	    	                    this.addressShow = false;			                    
 				                }	                 	
 				            }
 				        })
