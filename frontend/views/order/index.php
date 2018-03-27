@@ -49,7 +49,8 @@
                         		<div class="lis">
                         			<h3>称谓：</h3>
                         			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
-                        				<option v-for="sex in sexList" value="先生">{{ sex.label }}</option>
+                        				<option value="先生">先生</option>
+                        				<option value="女士">女士</option>
                         			</select>
                         		</div>
                         	</li>
@@ -166,18 +167,9 @@
                 districtArr: [],
                 messgDz: '',
                 messgs: false,
-                sexList: [
-                    {
-                    	value:1,
-                    	label: '男'
-                    },
-                    {
-                    	value:2,
-                    	label: '女'
-                    }
-                ],
                 takeDelivery: {
                     consignee: '',   //姓名
+                    sex: '男',
                     mobile: '',  //电话
                     province: '选择省份', //省
                     city: '选择市',  //市
