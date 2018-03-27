@@ -21,7 +21,7 @@
             				<img src="/img/kong.png"/>
             				<p>您还没有添加任何地址，快去添加吧</p>
             				<div class="goshop">
-            					<a class="aShop" href="javascript:;">添加地址</a>
+            					<a @click="bjAddress" class="aShop" href="javascript:;">添加地址</a>
             				</div>            				
             			</div>
             			<span v-show="sp">收货地址：</span>
