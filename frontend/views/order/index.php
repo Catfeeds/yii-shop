@@ -167,6 +167,7 @@
        	    },
        	    created: function(){
        	    	var _this = this;
+       	    	_this.disNone();
        	    	$.ajax({
        	    		type:"get",
        	    		url:"/address/getlist",
@@ -181,9 +182,6 @@
 		                }	                 	
 		            }
        	    	});      	    	
-       	    },
-       	    init: function(){
-       	    	this.disNone();
        	    },
        	    methods: {
        	    	disNone: function(){
