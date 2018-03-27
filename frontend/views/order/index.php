@@ -100,7 +100,7 @@
             				<ul>
             					<li v-for="goodLis in goodsData">
             						<a class="d1" href="#">
-            							<img src="img/pic14.jpg">
+            							<img src="imgurl + goods.image[0]">
             							<b>文榜古树普洱（纯料生茶）10块装</b>
             						</a>
             						<p  class="d2">1</p>
