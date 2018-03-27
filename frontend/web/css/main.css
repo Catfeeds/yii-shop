@@ -844,6 +844,12 @@
           width: 358px; }
         .laber_shop .shop_main .address_cont li .lis2 {
           width: 736px; }
+      .laber_shop .shop_main .address_cont .messgDz {
+        width: 100%;
+        float: left;
+        margin-bottom: 26px;
+        font-size: 12px;
+        color: #fe2626; }
       .laber_shop .shop_main .address_cont a {
         width: 180px;
         height: 40px;
