@@ -27,13 +27,13 @@
             				<tr class="tr2">
             					<td class="td1 tdct"><em name="xz" type="checkbox" ></em></td>
             					<td class="td2">李美丽</td>
-            					<td class="td3">广东省深圳市福田区深南大道大庆大厦</td>
+            					<td class="td3">广东省深圳市福田区</td>
             					<td class="td4">13045682375</td>
             				</tr>
             				<tr class="tr2">
             					<td class="td1 tdct"><em name="xz" type="checkbox" ></em></td>
             					<td class="td2">李美丽</td>
-            					<td class="td3">广东省深圳市福田区深南大道大庆大厦</td>
+            					<td class="td3">广东省深圳市福田区</td>
             					<td class="td4">13045682375</td>
             				</tr>
             			</table>
