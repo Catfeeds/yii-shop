@@ -915,3 +915,70 @@
       margin: 0 12px; }
     .carPopup .linkShop .al1 {
       background: #d3b799; }
+
+.addressPopup {
+  width: 740px;
+  padding: 42px 50px;
+  position: fixed;
+  background: #fff;
+  z-index: 444;
+  top: 130px;
+  left: 50%;
+  margin-left: -420px;
+  border-radius: 5px; }
+  .addressPopup span {
+    color: #3e3a39;
+    font-size: 16px;
+    float: left; }
+  .addressPopup .address_cont {
+    width: 100%;
+    float: left;
+    margin-top: 30px; }
+    .addressPopup .address_cont li {
+      float: left;
+      width: 740px;
+      margin-bottom: 26px; }
+      .addressPopup .address_cont li .lis {
+        float: left; }
+        .addressPopup .address_cont li .lis h3 {
+          font-size: 12px;
+          color: #3e3a39;
+          font-weight: normal; }
+        .addressPopup .address_cont li .lis input {
+          width: calc(100% - 22px);
+          height: 38px;
+          padding: 0 10px;
+          float: left;
+          background: #fff;
+          border-radius: 3px;
+          border: 1px solid #d3d3d3;
+          margin-top: 10px; }
+        .addressPopup .address_cont li .lis select {
+          height: 40px;
+          padding: 0 10px;
+          float: left;
+          background: #fff;
+          border-radius: 3px;
+          border: 1px solid #d3d3d3;
+          margin-top: 10px; }
+      .addressPopup .address_cont li .lis1 {
+        width: 358px; }
+      .addressPopup .address_cont li .lis2 {
+        width: 736px; }
+    .addressPopup .address_cont .messgDz {
+      width: 100%;
+      float: left;
+      margin-bottom: 26px;
+      font-size: 12px;
+      color: #fe2626; }
+    .addressPopup .address_cont a {
+      width: 180px;
+      height: 40px;
+      float: left;
+      background: #d3b799;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 18px;
+      color: #3e3a39;
+      clear: both; }

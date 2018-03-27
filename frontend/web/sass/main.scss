@@ -1096,3 +1096,73 @@
         }
     }
 }
+.addressPopup {
+    width: 740px;
+    padding: 42px 50px;
+    position: fixed;
+    background: #fff;
+    z-index: 444;
+    top: 130px;
+    left: 50%;
+    margin-left: -420px;
+    border-radius: 5px;
+    span {
+        color: #3e3a39;
+        font-size: 16px;
+        float: left;
+    }
+    .address_cont {
+        width: 100%;
+        float: left;
+        margin-top: 30px;
+        li {
+            float: left;
+            width: 740px;
+            margin-bottom: 26px;
+            .lis {
+                float: left;
+                h3 {
+                    font-size: 12px;
+                    color: #3e3a39;
+                    font-weight: normal;
+                }
+                input {
+                    width: calc(100% - 22px);
+                    height: 38px;
+                    padding: 0 10px;
+                    @include inp();                       
+                }
+                select {
+                    height: 40px;
+                    padding: 0 10px;
+                    @include inp();
+                }
+            } 
+            .lis1 {
+                width: 358px;
+            }
+            .lis2 {
+                width: 736px;
+            }              
+        }
+        .messgDz {
+            width: 100%;
+            float: left;
+            margin-bottom: 26px;
+            font-size: 12px;
+            color: #fe2626;
+        }
+        a {
+           width: 180px;
+           height: 40px;
+           float: left;
+           background: #d3b799; 
+           border-radius: 3px;
+           text-align: center;
+           line-height: 40px;
+           font-size: 18px;
+           color: #3e3a39;
+           clear: both;
+        }
+    }
+}
