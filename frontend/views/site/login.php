@@ -112,7 +112,8 @@
 	    		   	    var _This = this;
 						_This.carShow = false;
 		    			_This.popupShow = false;
-		    			window.location.href = 'history.go(-1)';
+		    			window.location.href = document.referrer;
+                        window.history.back(-1);
 					},
 	    		   okBtn: function() {
 	    		   	    this.winBOX();
