@@ -240,6 +240,7 @@
 	                }else{
 	                	this.messgDz = "";
 					    this.messgs = false;
+					    this.addressData.push(this.takeDelivery);
 	                	$.ajax({
 				            url:'/address/add',
 				            type: 'POST',
@@ -247,8 +248,7 @@
 				            data: this.takeDelivery,
 				            success: function(data) {
 				                if(data.status == 0){
-				                    console.log('提交成功');
-				                    this.addressData.push(this.takeDelivery);
+				                    console.log('提交成功');				                    
 				                }	                 	
 				            }
 				        })
