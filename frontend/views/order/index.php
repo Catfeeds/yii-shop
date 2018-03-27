@@ -265,6 +265,10 @@
        	    		this.carShow = false;
        	    	    this.addressShow = false;
        	    	},
+       	    	carQx:function(){
+       	    		this.carShow = false;
+       	    	    this.addressShow = false;
+       	    	},
                 updateCity: function () {
 					for (var i in this.arr) {
 						var obj = this.arr[i];
