@@ -82,7 +82,7 @@
             				<dl class="head">
             					<dd class="d1">商品详情</dd>
             					<dd class="d2">数量</dd>
-            					<dd>金额</dd>
+            					<dd>总金额</dd>
             				</dl>
             				<ul>
             					<li v-for="goodLis in goodsData">
