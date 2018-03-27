@@ -17,8 +17,15 @@
             <section class="laber_shop">
             	<div class="shop auto clearfix">
             		<div class="shop_main" style="margin-bottom: 466px;">
-            			<span>收货地址：</span>
-            			<table border="0" cellspacing="0" cellpadding="0">
+            			<div v-show="noneCar" class="noneCar">
+            				<img src="/img/kong.png"/>
+            				<p>您还没有添加任何地址，快去添加吧</p>
+            				<div class="goshop">
+            					<a class="aShop" href="javascript:;">添加地址</a>
+            				</div>            				
+            			</div>
+            			<span v-show="sp">收货地址：</span>
+            			<table  v-show="cartOrders" border="0" cellspacing="0" cellpadding="0">
             				<tr class="tr1">
             					<th style="padding-left:20px; width:262px;" class="td2">收件人姓名</th>
             					<th style="width: 562px;" class="td3">详细地址</th>
@@ -101,6 +108,9 @@
        	    data: {
        	    	carShow: false, 
        	    	addressShow: false, //弹窗
+       	    	noneCar:false,
+				sp:true,
+				cartOrders:true,
        	    	arr: arrAll,
        	    	cityArr: [],
                 districtArr: [],
@@ -128,7 +138,16 @@
 		                if(data.status == 0){
 		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
-		                    console.log(_this.addressData);	                  
+		                    console.log(_this.addressData);
+		                    if(_this.addressData.length != ''){
+								_this.sp = true;
+							    _this.cartOrders = true;
+							    _this.noneCar = false;
+							}else{
+								_this.sp = false;
+							    _this.cartOrders = false;
+							    _this.noneCar = true;
+							}               
 		                }	                 	
 		            }
        	    	});      	    	   		    	
