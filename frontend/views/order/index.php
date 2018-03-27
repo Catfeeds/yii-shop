@@ -222,12 +222,12 @@
        	    },
        	    methods: {
        	    	disNone: function(){
-       	    		if(_this.addressData.length != ''){
-	       	    		_this.address1 = true;
-	       	    		_this.address2 = false;
+       	    		if(this.addressData.length != ''){
+	       	    		this.address1 = true;
+	       	    		this.address2 = false;
 	       	    	}else{
-	       	    		_this.address1 = false;
-	       	    		_this.address2 = true;
+	       	    		this.address1 = false;
+	       	    		this.address2 = true;
 		       	    } 
        	    	},
        	    	mobile: function(){
