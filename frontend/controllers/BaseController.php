@@ -12,7 +12,7 @@ class BaseController extends CommonController
 {
     public $category = [];
     
-    protected $loginController = ['cart','order'];
+    protected $loginController = ['cart','order','address'];
     
     public function init()
     {
