@@ -215,24 +215,21 @@
 		                }	                 	
 		            }
        	    	});
-       	    	if(_this.addressData.length != ''){
-       	    		_this.address1 = true;
-       	    		_this.address2 = false;
-       	    	}else{
-       	    		_this.address1 = false;
-       	    		_this.address2 = true;
-	       	    }      	    		    	
+       	    	this.disNone();     	    		    	
        	    },
        	    $nextTick: function(){
-       	    	if(_this.addressData.length != ''){
-       	    		_this.address1 = true;
-       	    		_this.address2 = false;
-       	    	}else{
-       	    		_this.address1 = false;
-       	    		_this.address2 = true;
-	       	    } 
+       	    	this.disNone();
        	    },
        	    methods: {
+       	    	disNone: function(){
+       	    		if(_this.addressData.length != ''){
+	       	    		_this.address1 = true;
+	       	    		_this.address2 = false;
+	       	    	}else{
+	       	    		_this.address1 = false;
+	       	    		_this.address2 = true;
+		       	    } 
+       	    	},
        	    	mobile: function(){
        	    		var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
 					if(this.takeDelivery.mobile == ''){
