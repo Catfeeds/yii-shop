@@ -173,7 +173,6 @@
                 addressData: []
        	    },
        	    created: function(){
-       	    	console.log(this.arr)
        	    	$.ajax({
        	    		type:"get",
        	    		url:"/address/getlist",
@@ -183,7 +182,8 @@
 		                    console.log('数据获取成功');
 		                   
 		                    this.addressData = data.data;
-		                     console.log(this.addressData);
+		                    console.log(this.addressData);
+		                    console.log(this.addressData[0].consignee)
 		                }	                 	
 		            }
        	    	});
