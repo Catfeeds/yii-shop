@@ -53,7 +53,7 @@ class AddressController extends BaseController
 	
 	public function actionGetlist()
 	{
-		$userId = Yii::$app->user->identity->user_id;
+		$userId = Yii::$app->user->identity->id;
 		$addressModel = new UserAddress();
 		$data = $addressModel->getList($userId);
 		return ['status' => 0,'data' => $data];
@@ -66,6 +66,7 @@ class AddressController extends BaseController
     public function actionAdd()
     {	
     	$data = Yii::$app->request->post();
+    	$data['user_id'] = Yii::$app->user->identity->id;
     	$addressModel = new UserAddress();
     	if($addressModel->add($data))
     	{
