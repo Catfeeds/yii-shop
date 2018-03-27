@@ -273,6 +273,7 @@
        	    beforeMount: function () {
 				this.updateCity();
 				this.updateDistrict();
+				this.disNone();
 			},
 			computed: {
 				province: function(){
