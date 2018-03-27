@@ -48,9 +48,8 @@
                         		</div>
                         		<div class="lis">
                         			<h3>称谓：</h3>
-                        			<select name="title" style="margin-left: 20px;">
-                        				<option value="先生">先生</option>
-                        				<option value="女士">女士</option>
+                        			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
+                        				<option v-for="sex in sexList" value="先生">{{ sex.label }}</option>
                         			</select>
                         		</div>
                         	</li>
