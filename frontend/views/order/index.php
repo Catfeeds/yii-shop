@@ -90,7 +90,7 @@
             							<img :src="imgurl + goodLis.image[0]">
             							<b>{{ goodLis.name }}</b>
             						</a>
-            						<p  class="d2">1</p>
+            						<p  class="d2">{{ parseInt(goodLis.) }}</p>
             						<p>300</p>
             					</li>
             				</ul>
@@ -215,7 +215,7 @@
 		                }	                 	
 		            }
        	    	});
-       	    	this.disNone();     	    		    	
+       	    	_this.disNone();     	    		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();
@@ -283,6 +283,7 @@
 						this.takeDelivery.district = '';
 					}
 				},
+				//保存地址
 				bcAdd: function(){
 					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
                 		this.messgDz = "地址信息填写有误";
@@ -307,6 +308,8 @@
 				        })
 		            }    						
 				},
+				
+				//添加新地址
 				bcAdd2: function(){
 					var _this = this;
 					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
