@@ -217,12 +217,11 @@
 		                }	                 	
 		            }
        	    	});
-       	    	_this.disNone();
+       	    	this.disNone();
        	    	_this.caleTotalPrice();   	    		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();
-       	    	
+       	    	this.disNone();      	    	
        	    },
        	    methods: {
        	    	//总价
