@@ -167,15 +167,13 @@
        	    },
        	    created: function(){
        	    	var _this = this;
-       	    	_this.disNone();
        	    	$.ajax({
        	    		type:"get",
        	    		url:"/address/getlist",
        	    		async:true,
        	    		success: function(data) {
 		                if(data.status == 0){
-		                    console.log('数据获取成功');
-		                   
+		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
 		                    console.log(_this.addressData);
 		                    console.log(_this.addressData[0].consignee)
