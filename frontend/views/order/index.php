@@ -211,10 +211,17 @@
 		                if(data.status == 0){
 		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
-		                    console.log(_this.addressData);		                  
+		                    console.log(_this.addressData);	                  
 		                }	                 	
 		            }
-       	    	});      	    		    	
+       	    	});
+       	    	if(_this.addressData.length != ''){
+       	    		_this.address1 = true;
+       	    		_this.address2 = false;
+       	    	}else{
+       	    		_this.address1 = false;
+       	    		_this.address2 = true;
+	       	    }      	    		    	
        	    },
        	    $nextTick: function(){
        	    	if(_this.addressData.length != ''){
