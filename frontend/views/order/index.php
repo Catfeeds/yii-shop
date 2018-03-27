@@ -154,7 +154,7 @@
         var shop = new Vue({
        	    el:'#shopData',
        	    data: {
-       	    	address1: true,
+       	    	address1: false,
        	    	address2: true,
        	    	arr: arrAll,
        	    	cityArr: [],
@@ -188,6 +188,13 @@
 		                }	                 	
 		            }
        	    	});
+       	    	if(_this.addressData.length == ''){
+       	    		_this.address1 = false;
+       	    		_this.address2 = true;
+       	    	}else{
+       	    		_this.address1 = true;
+       	    		_this.address2 = false;
+       	    	}
        	    },
        	    methods: {
        	    	mobile: function(){
