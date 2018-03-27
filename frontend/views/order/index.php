@@ -227,7 +227,7 @@
        	    	caleTotalPrice:function () {
 		            var _this = this;
 		            var zjPrice = 0;
-		            _this.addressData.forEach(function (item,index) {
+		            _this.goodsData.forEach(function (item,index) {
 		                   zjPrice += parseInt(item.goods_num) * item.shop_price;
 		            });
 		            _this.zjMoney = zjPrice;
