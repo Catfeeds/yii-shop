@@ -77,19 +77,6 @@
                         	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
                         	<a @click="bcAdd" href="javascript:;">保存地址</a>
                         </ul>
-            			<span>支付方式：</span>
-            			<div class="shop_zf">
-            				<li class="on">
-            					<i class="wx"></i>
-            					<span>微信支付</span>
-            					<p>Wechat Pay</p>
-            				</li>
-            				<li>
-            					<i class="zfb"></i>
-            					<span>支付宝</span>
-            					<p class="lp1">ALIPAY</p>
-            				</li>
-            			</div>
             			<span>订单信息：</span>
             			<div class="shop_orders">
             				<dl class="head">
