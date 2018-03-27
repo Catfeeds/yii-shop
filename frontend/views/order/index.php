@@ -142,7 +142,7 @@
                 			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
                 		</div>
                 		<div class="lis">
-                			<h3>称谓：</h3>
+                			<h3 style="margin-left: 20px;">称谓：</h3>
                 			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
                 				<option value="男">男</option>
                 				<option value="女">女</option>
@@ -157,7 +157,7 @@
                 	</li>
                 	<li>
                 		<div class="lis">
-                			<h3 style="margin-left: 20px;">送货地址：</h3>
+                			<h3>送货地址：</h3>
                 			<select class="lis1" name="title" v-model="takeDelivery.province">
                 				<option v-for="option in arr" :value="option.name">{{ option.name }}</option>
                 			</select>
