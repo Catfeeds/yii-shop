@@ -187,6 +187,17 @@
        	    },
        	    created: function(){
        	    	console.log(this.arr)
+       	    	$.ajax({
+       	    		type:"get",
+       	    		url:"/user/getlist",
+       	    		async:true,
+       	    		success: function(data) {
+		                if(data.status == 0){
+		                    console.log('数据获取成功');
+		                    console.log(data);
+		                }	                 	
+		            }
+       	    	});
        	    },
        	    methods: {
        	    	mobile: function(){
