@@ -115,7 +115,7 @@
                     district: '选择区',  //县
                     address: '' //具体地址
                 },
-                addressData:[],
+                addressData:[]
        	    },
        	    created: function(){
        	    	var _this = this;
