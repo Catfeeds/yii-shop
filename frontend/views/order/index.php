@@ -188,7 +188,7 @@
 		                }	                 	
 		            }
        	    	});
-       	    	if(_this.addressData.length ！= ''){
+       	    	if(_this.addressData.length != ''){
        	    		_this.address1 = true;
        	    		_this.address2 = false;
        	    	}else{
