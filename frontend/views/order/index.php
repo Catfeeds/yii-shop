@@ -315,7 +315,7 @@
 				            }
 				        })
 		            }    						
-				}
+				},
 				bcAdd2: function(){
 					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
                 		this.messgDz = "地址信息填写有误";
