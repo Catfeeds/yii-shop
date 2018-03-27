@@ -100,7 +100,6 @@
        	    data: {
        	    	carShow: false, 
        	    	addressShow: false, //弹窗
-       	    	address2: false,
        	    	arr: arrAll,
        	    	cityArr: [],
                 districtArr: [],
