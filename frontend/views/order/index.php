@@ -189,7 +189,7 @@
        	    	console.log(this.arr)
        	    	$.ajax({
        	    		type:"get",
-       	    		url:"/user/getlist",
+       	    		url:"/address/getlist",
        	    		async:true,
        	    		success: function(data) {
 		                if(data.status == 0){
