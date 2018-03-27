@@ -49,7 +49,7 @@ class UserAddress extends \yii\db\ActiveRecord
             [['consignee', 'address'], 'string', 'max' => 100],
             [['mobile', 'province', 'city', 'district'], 'string', 'max' => 20],
             [['postcode'], 'string', 'max' => 10],
-            [['default_address'], 'integer', 'max' => 1],
+            [['default_address','gender'], 'integer', 'max' => 1],
         ];
     }
 
