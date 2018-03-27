@@ -178,7 +178,8 @@
 		                    console.log(_this.addressData);		                  
 		                }	                 	
 		            }
-       	    	});      	    	
+       	    	});
+       	    	_this.disNone();    	    	
        	    },
        	    methods: {
        	    	disNone: function(){
@@ -268,8 +269,7 @@
 				},
 				city: function() {
 					return this.takeDelivery.city;
-				},
-				this.disNone();
+				},				
 			},
 			watch: {
 				province: function () {
