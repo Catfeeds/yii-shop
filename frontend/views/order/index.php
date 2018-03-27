@@ -187,7 +187,9 @@
 		                    console.log(_this.addressData[0].consignee)
 		                }	                 	
 		            }
-       	    	});
+       	    	});      	    	
+       	    },
+       	    init: function(){
        	    	if(_this.addressData.length != ''){
        	    		_this.address1 = true;
        	    		_this.address2 = false;
