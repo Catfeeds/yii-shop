@@ -24,17 +24,11 @@
             					<th class="td3">详细地址</th>
             					<th class="td4">联系电话</th>
             				</tr>
-            				<tr class="tr2">
+            				<tr v-for="addList in addressData" class="tr2">
             					<td class="td1 tdct"><em name="xz" type="checkbox" ></em></td>
-            					<td class="td2">李美丽</td>
-            					<td class="td3">广东省深圳市福田区</td>
-            					<td class="td4">13045682375</td>
-            				</tr>
-            				<tr class="tr2">
-            					<td class="td1 tdct"><em name="xz" type="checkbox" ></em></td>
-            					<td class="td2">李美丽</td>
-            					<td class="td3">广东省深圳市福田区</td>
-            					<td class="td4">13045682375</td>
+            					<td class="td2">{{ addList.consignee }}</td>
+            					<td class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
+            					<td class="td4">{{ addList.mobile }}</td>
             				</tr>
             			</table>
             			<div v-show="address1" class="tj">
@@ -175,7 +169,8 @@
                     city: '选择市',  //市
                     district: '选择区',  //县
                     address: '' //具体地址
-                }
+                },
+                addressData: []
        	    },
        	    created: function(){
        	    	console.log(this.arr)
@@ -253,6 +248,7 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');
+				                    this.addressData.push(this.takeDelivery);
 				                }	                 	
 				            }
 				        })
