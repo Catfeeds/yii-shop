@@ -105,11 +105,11 @@
             				</dl>
             				<dl>
             					<dt>运费</dt>
-            					<dd>￥10元</dd>
+            					<dd>￥{{ yfMoney}} 元</dd>
             				</dl>
             				<dl>
             					<dt class="fs1">支付金额</dt>
-            					<dd class="fs1">￥310元</dd>
+            					<dd class="fs1">￥{{ yfMoney + zjMoney }} 元</dd>
             				</dl>
             				<a href="javascript" class="money-zf">立即支付</a>
             			</div>
@@ -200,7 +200,8 @@
                 },
                 addressData: [],
                 goodsData: goods,
-                zjMoney: 0 //总价
+                zjMoney: 0, //总价
+                yfMoney: 10
        	    },
        	    created: function(){
        	    	var _this = this;
