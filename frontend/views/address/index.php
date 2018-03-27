@@ -209,6 +209,27 @@
 				        })
 		            }    						
 				}
-       	    }
+       	    }，
+       	    beforeMount: function () {
+				this.updateCity();
+				this.updateDistrict();
+			},
+			computed: {
+				province: function(){
+					return this.takeDelivery.province;
+				},
+				city: function() {
+					return this.takeDelivery.city;
+				},				
+			},
+			watch: {
+				province: function () {
+					this.updateCity();
+					this.updateDistrict();
+				},
+				city: function () {
+					this.updateDistrict();
+				}
+			}
         })
 	</script>
