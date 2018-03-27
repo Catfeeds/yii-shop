@@ -25,7 +25,7 @@
             					<th class="td4">联系电话</th>
             				</tr>
             				<tr v-for="addList in addressData" class="tr2">
-            					<td class="td1 tdct"><em @click="selectedProduct(item)" v-bind:class="{'check':item.checked}" ></em></td>
+            					<td class="td1 tdct"><em @click="selectedProduct(addList)" v-bind:class="{'check':addList.checked}" ><i></i></em></td>
             					<td class="td2">{{ addList.consignee }}</td>
             					<td class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
             					<td class="td4">{{ addList.mobile }}</td>
@@ -347,7 +347,14 @@
 				            }
 				        })
 		            }    						
-				}
+				},
+				selectedProduct:function (addList) { // 接收的参数
+		            if( typeof addList.checked == 'undefined'){ 
+		                Vue.set(addList,"checked",true);
+		            }else {
+		                addList.checked = !addList.checked;
+		            }
+		        }
        	    },
        	    beforeMount: function () {
 				this.updateCity();
