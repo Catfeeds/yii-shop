@@ -19,6 +19,13 @@ class OrderController extends BaseController
 			return $this->redirect('/index/index');
 		}
 		$data = GoodsService::getListByids($goods);
+		foreach($goods as $v)
+		{
+			foreach($data as $value)
+			{
+				print_r($value['_id']);
+			}
+		}
 		return $this->render('index',['goods' =>json_encode($data)]);
 	}
 	
