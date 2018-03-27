@@ -216,11 +216,12 @@
 		                }	                 	
 		            }
        	    	});
-       	    	_this.disNone();   	    		    	
+       	    	_this.disNone();
+       	    	_this.caleTotalPrice();   	    		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();
-       	    	this.caleTotalPrice();
+       	    	
        	    },
        	    methods: {
        	    	//总价
