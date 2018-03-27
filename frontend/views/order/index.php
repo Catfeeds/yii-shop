@@ -135,7 +135,7 @@
 			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
 			<div v-show="addressShow" id="addressPopup" class="addressPopup">
 				<span>编辑新地址</span>
-                <ul  v-show="address2" class="address_cont">
+                <ul  v-show="address3" class="address_cont">
                 	<li>
                 		<div class="lis lis1">
                 			<h3>姓名：</h3>
