@@ -226,10 +226,11 @@
        	    	//总价
        	    	caleTotalPrice:function () {
 		            var _this = this;
-		            _this.zjMoney = 0;
+		            var zjPrice = 0;
 		            _this.addressData.forEach(function (item,index) {
-		                   _this.zjMoney += parseInt(item.goods_num) * item.shop_price;
+		                   zjPrice += parseInt(item.goods_num) * item.shop_price;
 		            });
+		            _this.zjMoney = zjPrice;
 		        },
        	    	disNone: function(){
        	    		if(this.addressData.length != ''){
