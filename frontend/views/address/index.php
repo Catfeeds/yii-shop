@@ -108,7 +108,7 @@
        	    data: {
        	    	carShow: false, 
        	    	addressShow: false, //弹窗
-       	    	noneCar:false,
+       	    	noneCar:true,
 				sp:true,
 				cartOrders:true,
        	    	arr: arrAll,
