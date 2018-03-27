@@ -25,11 +25,11 @@
             					<th style="width: 232px;" class="td4">联系电话</th>
             					<th class="td4">操作</th>
             				</tr>
-            				<tr v-for="addList in addressData" class="tr2">
+            				<tr v-for="(addList, index) in addressData" class="tr2">
             					<td  style="padding-left:20px; width:262px;" class="td2">{{ addList.consignee }}</td>
             					<td style="width: 562px;" class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
             					<td style="width: 232px;" class="td4">{{ addList.mobile }}</td>
-            					<td class="td4"><p>编辑</p><p @click="addressSc($index)">删除</p></td>
+            					<td class="td4"><p>编辑</p><p @click="addressSc(index)">删除</p></td>
             				</tr>
             			</table>
             			<div class="tj">
