@@ -23,7 +23,8 @@ class OrderController extends BaseController
 		{
 			foreach($data as $value)
 			{
-				print_r($value['_id']);
+				$a= (string)$value['_id'];
+				var_dump($a);
 			}
 		}
 		return $this->render('index',['goods' =>json_encode($data)]);
