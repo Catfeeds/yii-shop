@@ -138,6 +138,15 @@
        	    		this.carShow = true;
        	    	    this.addressShow = true;
        	    	},
+       	    	// 关闭新地址弹窗
+       	    	carBg: function(){
+       	    		this.carShow = false;
+       	    	    this.addressShow = false;
+       	    	},
+       	    	carQx:function(){
+       	    		this.carShow = false;
+       	    	    this.addressShow = false;
+       	    	},
        	    	mobile: function(){
        	    		var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
 					if(this.takeDelivery.mobile == ''){
