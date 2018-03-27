@@ -16,7 +16,7 @@
             	<div class="shop auto clearfix">
             		<div class="shop_main">
             			<h1>填写并核对订单信息</h1>
-            			<span v-show="">收货信息：</span>
+            			<span v-show="address1">收货信息：</span>
             			<table v-show="address1" border="0" cellspacing="0" cellpadding="0">
             				<tr class="tr1">
             					<th class="td1"></th>
