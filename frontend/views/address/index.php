@@ -218,7 +218,7 @@
 				        })
 		            }    						
 				},
-				addressSc: function(){
+				addressSc: function(index){
 					this.addressData.splice(index,1);
 				}
        	   },
