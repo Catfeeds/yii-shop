@@ -98,20 +98,12 @@
             					<dd>金额</dd>
             				</dl>
             				<ul>
-            					<li>
+            					<li v-for="goodLis in goodsData">
             						<a class="d1" href="#">
             							<img src="img/pic14.jpg">
             							<b>文榜古树普洱（纯料生茶）10块装</b>
             						</a>
             						<p  class="d2">1</p>
-            						<p>300</p>
-            					</li>
-            					<li>
-            						<a class="d1" href="#">
-            							<img src="img/pic14.jpg">
-            							<b>文榜古树普洱（纯料生茶）10块装</b>
-            						</a>
-            						<p class="d2">1</p>
             						<p>300</p>
             					</li>
             				</ul>
@@ -170,7 +162,8 @@
                     district: '选择区',  //县
                     address: '' //具体地址
                 },
-                addressData: []
+                addressData: [],
+                goodsData: goods;
        	    },
        	    created: function(){
        	    	var _this = this;
@@ -273,7 +266,6 @@
        	    beforeMount: function () {
 				this.updateCity();
 				this.updateDistrict();
-				this.disNone();
 			},
 			computed: {
 				province: function(){
