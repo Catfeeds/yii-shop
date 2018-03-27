@@ -181,8 +181,9 @@
        	    		success: function(data) {
 		                if(data.status == 0){
 		                    console.log('数据获取成功');
-		                    console.log(data);
+		                   
 		                    this.addressData = data.data;
+		                     console.log(this.addressData);
 		                }	                 	
 		            }
        	    	});
