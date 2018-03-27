@@ -57,7 +57,7 @@
                         	<li>
                         		<div class="lis lis1">
                         			<h3>联系方式：</h3>
-                        			<input type="text" name="tel" id="tel" v-model="takeDelivery.mobile" placeholder="请输入您的电话号码" />
+                        			<input @blur="mobile" type="text" name="tel" id="tel" v-model="takeDelivery.mobile" placeholder="请输入您的电话号码" />
                         		</div>
                         	</li>
                         	<li>
@@ -80,6 +80,7 @@
                         			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
                         		</div>
                         	</li>
+                        	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
                         	<a @click="bcAdd" href="javascript:;">保存地址</a>
                         </ul>
             			<span>支付方式：</span>
@@ -164,6 +165,18 @@
        	    	arr: arrAll,
        	    	cityArr: [],
                 districtArr: [],
+                messgDz: '',
+                messgs: false,
+                sexList: [
+                    {
+                    	value:1,
+                    	label: '男'
+                    },
+                    {
+                    	value:2,
+                    	label: '女'
+                    }
+                ],
                 takeDelivery: {
                     consignee: '',   //姓名
                     mobile: '',  //电话
@@ -177,6 +190,21 @@
        	    	console.log(this.arr)
        	    },
        	    methods: {
+       	    	mobile: function(){
+       	    		var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+					if(this.takeDelivery.mobile == ''){
+						this.messgDz = "手机号不能为空";
+						this.messgs = true;
+						return false;
+					}else if(!telreg.test($('#tel').val())){
+						this.messgDz = "请输入有效号码";
+						this.messgs = true;
+						return false;
+					}else {
+						this.messgDz = '';
+						this.messgs = false;
+					}
+       	    	},
                 updateCity: function () {
 					for (var i in this.arr) {
 						var obj = this.arr[i];
@@ -214,8 +242,16 @@
 		                dataType: 'json',
 		                data: this.takeDelivery,
 		                success: function(data) {
-		                	if(data.status == 0){
-		                		console.log('提交成功');
+		                	if(this.takeDelivery.consignee == '' && this.takeDelivery.sex == '' && this.takeDelivery.address == ''){
+		                		this.messgDz = "地址信息填写有误";
+						        this.messgs = true;
+						        return false;
+		                	}else{
+		                		this.messgDz = "";
+						        this.messgs = false;
+		                		if(data.status == 0){
+			                		console.log('提交成功');
+			                	}
 		                	}	                 	
 		                }
 		           })
