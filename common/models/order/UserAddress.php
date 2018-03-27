@@ -84,7 +84,7 @@ class UserAddress extends \yii\db\ActiveRecord
     		}
     		return false;
     	}
-    	return false;
+    	return true;
     }
     
     
