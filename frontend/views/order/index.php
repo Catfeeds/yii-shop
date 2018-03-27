@@ -228,12 +228,12 @@
 		                }	                 	
 		            }
        	    	});
-       	    	if(this.addressData.length != ''){
-       	    		this.address1 = true;
-       	    		this.address2 = false;
+       	    	if(_this.addressData.length != ''){
+       	    		_this.address1 = true;
+       	    		_this.address2 = false;
        	    	}else{
-       	    		this.address1 = false;
-       	    		this.address2 = true;
+       	    		_this.address1 = false;
+       	    		_this.address2 = true;
 	       	    } 	    	
        	    },
        	    methods: {
