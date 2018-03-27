@@ -209,7 +209,7 @@
 				        })
 		            }    						
 				}
-       	    }，
+       	   },
        	    beforeMount: function () {
 				this.updateCity();
 				this.updateDistrict();
