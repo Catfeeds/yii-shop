@@ -101,7 +101,7 @@
             			<div class="money">
             				<dl>
             					<dt>商品总额</dt>
-            					<dd>￥300元</dd>
+            					<dd>￥{{ zjMoney }}</dd>
             				</dl>
             				<dl>
             					<dt>运费</dt>
@@ -200,6 +200,7 @@
                 },
                 addressData: [],
                 goodsData: goods,
+                zjMoney: 0 //总价
        	    },
        	    created: function(){
        	    	var _this = this;
@@ -215,12 +216,21 @@
 		                }	                 	
 		            }
        	    	});
-       	    	_this.disNone();     	    		    	
+       	    	_this.disNone();
+       	    	_this.caleTotalPrice();   	    		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();
        	    },
        	    methods: {
+       	    	//总价
+       	    	caleTotalPrice:function () {
+		            var _this = this;
+		            _this.zjMoney = 0;
+		            _this.addressData.forEach(function (item,index) {
+		                   _this.zjMoney += parseInt(item.goods_num) * item.shop_price;
+		            });
+		        },
        	    	disNone: function(){
        	    		if(this.addressData.length != ''){
 	       	    		this.address1 = true;
