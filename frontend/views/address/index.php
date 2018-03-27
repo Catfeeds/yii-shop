@@ -1,6 +1,6 @@
 		<!-- 导航 end -->
 		<!-- 主体内容 start  -->
-		<div class="container2">
+		<div class="container2" id="addressList">
             <section class="laber_shopUser">
             	<div class="shopUser auto clearfix">
             		<div class="shopUser_main">
@@ -25,10 +25,10 @@
             					<th style="width: 232px;" class="td4">联系电话</th>
             					<th class="td4">操作</th>
             				</tr>
-            				<tr class="tr2">
-            					<td style="padding-left:20px; width:262px;" class="td2">李美丽</td>
-            					<td style="width: 562px;" class="td3">广东省深圳市福田区深南大道大庆大厦</td>
-            					<td style="width: 232px;" class="td4">13045682375</td>
+            				<tr v-for="addList in addressData" class="tr2">
+            					<td  style="padding-left:20px; width:262px;" class="td2">{{ addList.consignee }}</td>
+            					<td style="width: 562px;" class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
+            					<td style="width: 232px;" class="td4">{{ addList.mobile }}</td>
             					<td class="td4"><p>编辑</p><p>删除</p></td>
             				</tr>
             			</table>
@@ -48,93 +48,24 @@
 	<script type="text/javascript" src="js/axios.min.js" ></script>
 	<script type="text/javascript">
         var shop = new Vue({
-       	    el:'#shopData',
+       	    el: '#addressList',
        	    data: {
-       	    	address1: false,
-       	    	address2: true,
-       	    	arr: arrAll,
-       	    	cityArr: [],
-                districtArr: [],
-                takeDelivery: {
-                    consignee: '',   //姓名
-                    mobile: '',  //电话
-                    province: '选择省份', //省
-                    city: '选择市',  //市
-                    district: '选择区',  //县
-                    address: '' //具体地址
-                }
+       	    	addressData:[]
        	    },
        	    created: function(){
-       	    	console.log(this.arr)
-       	    	for(var i in this.arr){
-       	    		
-       	    	}
+       	    	var _this = this;
+       	    	$.ajax({
+       	    		type:"get",
+       	    		url:"/address/getlist",
+       	    		async:true,
+       	    		success: function(data) {
+		                if(data.status == 0){
+		                    console.log('数据获取成功');		                   
+		                    _this.addressData = data.data;
+		                    console.log(_this.addressData);	                  
+		                }	                 	
+		            }
+       	    	});      	    	   		    	
        	    },
-       	    methods: {
-                updateCity: function () {
-					for (var i in this.arr) {
-						var obj = this.arr[i];
-						if (obj.name == this.takeDelivery.province) {
-							this.cityArr = obj.sub;
-							break;
-						}
-					}
-					if(this.cityArr && this.cityArr.length > 1 && this.cityArr[1].name) {
-						this.takeDelivery.city = this.cityArr[1].name;
-					    console.log(this.takeDelivery.city)
-					} else {
-						this.takeDelivery.city = this.cityArr[0].name;
-					}    
-					
-				},
-				updateDistrict: function () {
-					for (var i in this.cityArr) {
-						var obj = this.cityArr[i];
-						if (obj.name == this.takeDelivery.city) {
-							this.districtArr = obj.sub;
-							break;
-						}
-					}
-					if(this.districtArr && this.districtArr.length > 1 && this.districtArr[1].name) {
-						this.takeDelivery.district = this.districtArr[1].name;
-					} else {
-						this.takeDelivery.district = '';
-					}
-				},
-				bcAdd: function(){
-					$.ajax({
-		                url:'/address/add',
-		                type: 'POST',
-		                dataType: 'json',
-		                data: this.takeDelivery,
-		                success: function(data) {
-		                	if(data.status == 0){
-		                		console.log('提交成功');
-		                	}	                 	
-		                }
-		           })
-				}
-       	    },
-       	    beforeMount: function () {
-				this.updateCity();
-				this.updateDistrict();
-			},
-			computed: {
-				province: function(){
-					return this.takeDelivery.province;
-				},
-				city: function() {
-					return this.takeDelivery.city;
-				}
-			},
-			watch: {
-				province: function () {
-					this.updateCity();
-					this.updateDistrict();
-				},
-				city: function () {
-					this.updateDistrict();
-				}
-			}
         })
 	</script>
