@@ -74,7 +74,7 @@ class UserAddress extends \yii\db\ActiveRecord
     
     
     public function add( array $data)
-    {
+    {	
     	$this->setAttributes($data);
     	if(!$this->save())
     	{
