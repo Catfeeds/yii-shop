@@ -115,7 +115,8 @@
                     district: '选择区',  //县
                     address: '' //具体地址
                 },
-                addressData:[]
+                addressData:[],
+                curAddress: ''  //保存要删除地址
        	    },
        	    created: function(){
        	    	var _this = this;

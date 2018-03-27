@@ -214,7 +214,8 @@
 		                if(data.status == 0){
 		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
-		                    console.log(_this.addressData);	                  
+		                    console.log(_this.addressData);
+		                    _this.disNone();              
 		                }	                 	
 		            }
        	    	});      	    	 
