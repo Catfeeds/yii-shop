@@ -112,7 +112,7 @@
 	    		   	    var _This = this;
 						_This.carShow = false;
 		    			_This.popupShow = false;
-		    			window.location.href = '/index';
+		    			window.location.href = 'history.go(-1)';
 					},
 	    		   okBtn: function() {
 	    		   	    this.winBOX();
