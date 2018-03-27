@@ -235,25 +235,25 @@
 					}
 				},
 				bcAdd: function(){
-					$.ajax({
-		                url:'/address/add',
-		                type: 'POST',
-		                dataType: 'json',
-		                data: this.takeDelivery,
-		                success: function(data) {
-		                	if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
-		                		this.messgDz = "地址信息填写有误";
-						        this.messgs = true;
-						        return false;
-		                	}else{
-		                		this.messgDz = "";
-						        this.messgs = false;
-		                		if(data.status == 0){
-			                		console.log('提交成功');
-			                	}
-		                	}	                 	
-		                }
-		           })
+					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
+                		this.messgDz = "地址信息填写有误";
+				        this.messgs = true;
+				        return false;
+	                }else{
+	                	this.messgDz = "";
+					    this.messgs = false;
+	                	$.ajax({
+				            url:'/address/add',
+				            type: 'POST',
+				            dataType: 'json',
+				            data: this.takeDelivery,
+				            success: function(data) {
+				                if(data.status == 0){
+				                    console.log('提交成功');
+				                }	                 	
+				            }
+				        })
+		            }    						
 				}
        	    },
        	    beforeMount: function () {
