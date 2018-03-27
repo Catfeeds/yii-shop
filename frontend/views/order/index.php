@@ -163,7 +163,7 @@
                     address: '' //具体地址
                 },
                 addressData: [],
-                goodsData: goods;
+                goodsData: goods,
        	    },
        	    created: function(){
        	    	var _this = this;
