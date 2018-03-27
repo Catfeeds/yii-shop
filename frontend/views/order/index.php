@@ -32,7 +32,7 @@
             				</tr>
             			</table>
             			<div v-show="address1" class="tj">
-            				<a href="javascript:;">添加新地址</a>
+            				<a @click="bjAddress" href="javascript:;">添加新地址</a>
             			</div>
                         <ul  v-show="address2" class="address_cont">
                         	<li>
