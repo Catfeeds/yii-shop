@@ -146,7 +146,7 @@
         var shop = new Vue({
        	    el:'#shopData',
        	    data: {
-       	    	address1: true,
+       	    	address1: false,
        	    	address2: false,
        	    	arr: arrAll,
        	    	cityArr: [],
