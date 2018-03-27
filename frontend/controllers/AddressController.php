@@ -66,6 +66,9 @@ class AddressController extends BaseController
     public function actionAdd()
     {	
     	$data = Yii::$app->request->post();
+    	$gender = ['男'=>1,'女' =>2];
+    	$data['gender'] = $gender[$data['gender']] ?: 1;
+    	
     	$data['user_id'] = Yii::$app->user->identity->id;
     	$addressModel = new UserAddress();
     	if($addressModel->add($data))
