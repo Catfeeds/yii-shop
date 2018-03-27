@@ -1106,6 +1106,15 @@
     left: 50%;
     margin-left: -420px;
     border-radius: 5px;
+    i {
+        background: url(../img/qx2.png) no-repeat;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        cursor: pointer;
+    }
     span {
         color: #3e3a39;
         font-size: 16px;
