@@ -72,7 +72,7 @@ class AddressController extends BaseController
     	$addressModel = new UserAddress();
     	if($addressModel->add($data))
     	{
-    		return ['status' => 0,'msg' =>'添加成功'];
+    		return ['status' => 0,'msg' =>'添加成功','id' => $addressModel->id];
     	}else
     	{
     		return ['status' =>1,'msg' =>$addressModel->errorMsg];
