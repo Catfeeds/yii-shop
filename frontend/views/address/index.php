@@ -36,7 +36,7 @@
             					<td  style="padding-left:20px; width:262px;" class="td2">{{ addList.consignee }}</td>
             					<td style="width: 562px;" class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
             					<td style="width: 232px;" class="td4">{{ addList.mobile }}</td>
-            					<td class="td4"><p>编辑</p><p @click="addressSc(index)">删除</p></td>
+            					<td class="td4"><p>编辑</p><p @click="addressSc(addList)">删除</p></td>
             				</tr>
             			</table>
             			<div class="tj">
@@ -49,6 +49,14 @@
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>
 			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
+			<div v-show="popupShow" id="carPopup" class="carPopup">
+				<i @click="carQx"></i>
+				<span>确认删除此地址？</span>
+				<div class="linkShop">
+					<a @click="carSc" href="javascript:;">确定</a>
+					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
+				</div>
+			</div>
 		<div v-show="addressShow" id="addressPopup" class="addressPopup">
 			<i @click="carQx"></i>
 			<span>编辑新地址</span>
@@ -107,6 +115,7 @@
        	    el: '#addressList',
        	    data: {
        	    	carShow: false, 
+       	    	popupShow:false,
        	    	addressShow: false, //弹窗
        	    	noneCar:true,
 				sp:true,
@@ -241,8 +250,12 @@
 				        })
 		            }    						
 				},
-				addressSc: function(index){
-					this.addressData.splice(index,1);
+				addressSc: function(addList){
+					this.carShow = true;
+				    this.popupShow = true;
+				    this.curProduct = item;
+				    this.id = addList.id;
+				    console.log(this.id);
 				}
        	   },
        	    beforeMount: function () {

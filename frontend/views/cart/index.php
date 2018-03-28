@@ -71,7 +71,7 @@
 			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
 			<div v-show="popupShow" id="carPopup" class="carPopup">
 				<i @click="carQx"></i>
-				<span>确认删除此项？</span>
+				<span>确认删除此商品？</span>
 				<div class="linkShop">
 					<a @click="carSc" href="javascript:;">确定</a>
 					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
