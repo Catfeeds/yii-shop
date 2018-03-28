@@ -95,7 +95,7 @@
             					</li>
             				</ul>
             				<div class="bz">
-            					备注：<input type="text" placeholder="您有什么想备注的呢？（限50字）" />
+            					备注：<input v-model="message" type="text" placeholder="您有什么想备注的呢？（限50字）" />
             				</div>
             			</div>
             			<div class="money">
@@ -203,8 +203,9 @@
                 goodsData: goods,
                 zjMoney: 0, //总价
                 yfMoney: 10,  //邮费                
-                addressId: '',
-                currenIndex:0
+                addressId: '',  // 传给后端地址ID
+                currenIndex:0，  // 默认index
+                message： ''
        	    },
        	    created: function(){
        	    	var _this = this;
@@ -222,8 +223,7 @@
 		                }	                 	
 		            }
        	    	});      	    	 
-       	    	_this.caleTotalPrice();  
-       	    	 		    	
+       	    	_this.caleTotalPrice();        	    	 		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();       	    	       	    	
@@ -361,6 +361,7 @@
 				        })
 		            }    						
 				},
+				//单选地址
 				selectedProduct:function (index) { // 接收的参数
 					this.currenIndex = index;
 					this.infor();
@@ -375,7 +376,18 @@
 		        	})
 		        },
 		        moneyZf: function(){
-		        	
+		        	var _this = this;
+		        	$.ajax({
+			            url:'/order/create',
+			            type: 'POST',
+			            dataType: 'json',
+			            data: {address_id: _this.addressId, message: _this.message},
+			            success: function(data) {
+			                if(data.status == 0){
+			                    console.log('提交成功');			                    
+			                }	                 	
+			            }
+			        })
 		        }
        	    },
        	    beforeMount: function () {
