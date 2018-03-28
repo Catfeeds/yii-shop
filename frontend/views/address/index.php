@@ -302,6 +302,9 @@
 	                    	}
 	                    }
             		});
+            		_this.$nextTick(function(){
+	       	    		_this.carSc();
+	       	    	}) 
 				},
 				carQx2: function(){
         			this.carShow = false;
