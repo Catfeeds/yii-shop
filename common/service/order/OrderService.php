@@ -93,7 +93,7 @@ class OrderService extends BaseService
     		$this->errorMsg = '购物车数据错误，重新提交确认订单';
     		return false;
     	}
-    	$this->data = $data = GoodsService::getListByids($goods);
+    	$data = GoodsService::getListByids($goods);
     	foreach($data as $k =>$value)
 		{
 			$id = (string)$value['_id'];
@@ -107,7 +107,7 @@ class OrderService extends BaseService
 			}
 			$data[$k] = $value;
 		}
-		
+		$this->data = $data;
     	$total = 0;
 		foreach($data as $v)
 		{
@@ -124,7 +124,6 @@ class OrderService extends BaseService
     {
     	foreach ($this->data as $value)
     	{	
-    		print_r($value);
 	    	$model = new OrderGoods();
     		$model->order_id = $orderId;
     		$model->goods_num = $value['goods_num'];
@@ -134,10 +133,6 @@ class OrderService extends BaseService
     		$model->goods_id = (string)$value['_id'];
     		if(!$model->save())
     		{	
-    			$error = $model->getErrors();
-    			foreach($error as $v){
-    				print_r($v);
-    			}
     			return false;
     		}
     	}
