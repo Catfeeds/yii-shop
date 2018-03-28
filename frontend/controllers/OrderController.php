@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\service\goods\GoodsService;
+use common\service\goods\OrderService;
 class OrderController extends BaseController
 {	
 	
@@ -67,7 +68,12 @@ class OrderController extends BaseController
     	{
     		return ['status' =>1,'参数错误'];
     	}
-    	
+    	$orderService = new OrderService();
+    	if(!$orderService->create($this->userId, $addressId, $message))
+    	{
+    		return ['status' => 1,'msg' =>$orderService->errorMsg];
+    	}
+    	return ['status' => 0,'msg' =>''];
     }
 
 }
