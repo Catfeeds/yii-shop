@@ -317,9 +317,7 @@
                 		this.messgDz = "地址信息填写有误";
 				        this.messgs = true;
 				        return false;
-	                }else{
-	                	
-       	    		    					    
+	               }else{					    
 	                	$.ajax({
 				            url:'/address/add',
 				            type: 'POST',
@@ -357,7 +355,12 @@
 				            data: this.takeDelivery,
 				            success: function(data) {
 				                if(data.status == 0){
-				                    console.log('提交成功');	
+				                    console.log('提交成功');
+				                    this.messgDz = "";
+								    this.messgs = false;
+								    this.addressData.push(this.takeDelivery);
+								    this.address1 = true;
+			       	    		    this.address2 = false; 
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
