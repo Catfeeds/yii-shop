@@ -318,11 +318,7 @@
 				        this.messgs = true;
 				        return false;
 	                }else{
-	                	this.messgDz = "";
-					    this.messgs = false;
-					    this.addressData.push(this.takeDelivery);
-					    this.address1 = true;
-       	    		    this.address2 = false;
+	                	
        	    		    					    
 	                	$.ajax({
 				            url:'/address/add',
@@ -332,14 +328,18 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');	
-				                     			                    
+				                    this.messgDz = "";
+								    this.messgs = false;
+								    this.addressData.push(this.takeDelivery);
+								    this.address1 = true;
+			       	    		    this.address2 = false; 			                    
 				                }	                 	
 				            }
 				        })
 		            }    						
 				},
 				
-				//添加新地址
+				//添加新地址保存
 				bcAdd2: function(){
 					var _this = this;
 					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
