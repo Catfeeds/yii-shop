@@ -48,7 +48,7 @@ class OrderService extends BaseService
     		return false;
     	}
     	$orderSn = $this->getOrderId();
-    	$orderData = ['order_amount' =>$goodsAmount,'consignee' =>$address['consignee'],'mobile' =>$address['mobile'],'province' =>$address['province'],
+    	$orderData = ['order_amount' =>$orderAmount,'consignee' =>$address['consignee'],'mobile' =>$address['mobile'],'province' =>$address['province'],
     					'city' =>$address['city'],'district' => $address['district'],'address' => $address['address'],'created_at' =>time(),'updated_at' => time(),
     					'order_sn' =>$orderSn,'message' => $message,'user_id' => $userId,'order_status' => 1
     	];
