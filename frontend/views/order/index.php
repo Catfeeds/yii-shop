@@ -197,7 +197,8 @@
                     province: '选择省份', //省
                     city: '选择市',  //市
                     district: '选择区',  //县
-                    address: '' //具体地址
+                    address: '', //具体地址
+                    id :0
                 },
                 addressData: [],
                 goodsData: goods,
@@ -357,6 +358,7 @@
 				                    console.log('提交成功');
 				                    this.messgDz = "";
 								    this.messgs = false;
+								    _this.takeDelivery.id = data.id;
 								    _this.addressData.push(_this.takeDelivery);	
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
