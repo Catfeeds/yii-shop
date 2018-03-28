@@ -223,7 +223,8 @@
 		                }	                 	
 		            }
        	    	});      	    	 
-       	    	_this.caleTotalPrice();        	    	 		    	
+       	    	_this.caleTotalPrice(); 
+       	    	this.infor();       	    	 		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();
@@ -395,8 +396,7 @@
        	    },
        	    beforeMount: function () {
 				this.updateCity();
-				this.updateDistrict();
-				this.infor();
+				this.updateDistrict();				
 			},
 			computed: {
 				province: function(){
