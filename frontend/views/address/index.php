@@ -161,10 +161,7 @@
 							}               
 		                }	                 	
 		            }
-       	    	});
-       	    	_this.$nextTick(function(){
-       	    		_this.created();
-       	    	})  	    	   		    	
+       	    	});	    	   		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();	    	
