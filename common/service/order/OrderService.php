@@ -123,7 +123,8 @@ class OrderService extends BaseService
     private function createOrderGoods($orderId)
     {
     	foreach ($this->data as $value)
-    	{
+    	{	
+    		print_r($value);
 	    	$model = new OrderGoods();
     		$model->order_id = $orderId;
     		$model->goods_num = $value['goods_num'];

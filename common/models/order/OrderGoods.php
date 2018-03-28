@@ -49,7 +49,7 @@ class OrderGoods extends \yii\db\ActiveRecord
     {
         return [
             [['order_id', 'goods_id', 'goods_name', 'shop_price', 'goods_num'], 'required'],
-            [['order_id', 'product_id', 'goods_id', 'goods_num', 'shop_id', 'aftersales_status', 'complaints_status'], 'integer'],
+            [['order_id', 'product_id', 'goods_num', 'shop_id', 'aftersales_status', 'complaints_status'], 'integer'],
             [['cheap_price', 'shop_price'], 'number'],
             [['goods_name'], 'string', 'max' => 100],
             [['goods_image'], 'string', 'max' => 255],
