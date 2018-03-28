@@ -90,7 +90,7 @@ class UserAddress extends \yii\db\ActiveRecord
     
     public function getList($userId)
     {
-    	$data = $this->find()->where(['user_id' =>$userId])->select(['user_id','consignee','mobile','province','city','district','address','default_address'])->asArray()->all();
+    	$data = $this->find()->where(['user_id' =>$userId])->select(['user_id','consignee','mobile','province','city','district','address','default_address','id'])->asArray()->all();
     	return $data ?: [];
     }
 }
