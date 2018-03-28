@@ -330,6 +330,8 @@
 				                    console.log('提交成功');	
 				                    this.messgDz = "";
 								    this.messgs = false;
+								    _this.takeDelivery.id = data.id;
+								    _this.addressId = data.id;
 								    _this.addressData.push(_this.takeDelivery);
 								    _this.address1 = true;
 			       	    		    _this.address2 = false; 			                    
