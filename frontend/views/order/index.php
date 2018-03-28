@@ -359,6 +359,7 @@
 				                    this.messgDz = "";
 								    this.messgs = false;
 								    _this.takeDelivery.id = data.id;
+								    _this.addressId = data.id;
 								    _this.addressData.push(_this.takeDelivery);	
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
