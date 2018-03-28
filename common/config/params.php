@@ -4,7 +4,8 @@ return [
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,
     'image' => ' http://p301ah80l.bkt.clouddn.com/',//图片域名七牛 http://p301ah80l.bkt.clouddn.com
-    'goods.cart'=>'xiwenkeji',//value不能含有. cookie获取不到
+    'goods.cart'=>'xiwenkeji',//value不能含有. cookie获取不到,不登录临时保存购物车
+    'goods.selectcart' => 'selectcart',
     'site' => [
     	'url' => '',
     	'sign' => '',//数据库中保存的本站地址，展示时替换成正确url

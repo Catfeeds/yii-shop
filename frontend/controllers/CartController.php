@@ -10,12 +10,7 @@ class CartController extends BaseController
     
     public function actionIndex()
     {	
-    	$cart = [];
-    	if(Yii::$app->user->isGuest)
-    	{
-    		$cart = CartService::getList();
-    	}
-    	return $this->render('index',['cart'=>$cart]);
+    	return $this->render('index');
     }
 
     /**

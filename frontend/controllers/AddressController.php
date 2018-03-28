@@ -53,9 +53,8 @@ class AddressController extends BaseController
 	
 	public function actionGetlist()
 	{
-		$userId = Yii::$app->user->identity->id;
 		$addressModel = new UserAddress();
-		$data = $addressModel->getList($userId);
+		$data = $addressModel->getList($this->userId);
 		return ['status' => 0,'data' => $data];
 	}
 
@@ -69,7 +68,7 @@ class AddressController extends BaseController
     	$gender = ['先生'=>1,'女士' =>2];
     	$data['gender'] = $gender[$data['gender']] ?: 1;
     	
-    	$data['user_id'] = Yii::$app->user->identity->id;
+    	$data['user_id'] = $this->userId;
     	$addressModel = new UserAddress();
     	if($addressModel->add($data))
     	{
@@ -78,6 +77,23 @@ class AddressController extends BaseController
     	{
     		return ['status' =>1,'msg' =>$addressModel->errorMsg];
     	}
+    }
+    
+    
+    public function actionDelete()
+    {
+    	$id = (int)Yii::$app->request->get('id');
+    	if(!$id)
+    	{
+    		return ['status' => 1,'msg' =>'参数错误'];
+    	}
+    	$model =UserAddress::findOne($id);
+    	if($model->user_id == $this->userId)
+    	{
+    		$model->delete();
+    		return ['status' =>0,'msg' =>'删除成功'];
+    	}
+    	return ['status' =>1,'msg' =>'参数异常'];
     }
 
 }

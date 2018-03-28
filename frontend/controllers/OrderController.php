@@ -6,14 +6,14 @@ use Yii;
 use common\service\goods\GoodsService;
 class OrderController extends BaseController
 {	
-	protected  $selectTmp = 'selectcart';
 	
 	/**
 	* @desc 确认订单页面(此方法数据没有完全分离)
 	*/
 	public function actionIndex()
-	{
-		$goods = Yii::$app->session->get($this->selectTmp);
+	{	
+		$key = Yii::$app->params['goods.selectcart'];
+		$goods = Yii::$app->session->get($key);
 		if(!$goods)
 		{
 			return $this->redirect('/index/index');
@@ -49,17 +49,24 @@ class OrderController extends BaseController
 	    	{
 	    		return ['status' =>1,'msg' =>'参数提交错误'];
 	    	}
-	    	Yii::$app->session->set($this->selectTmp,$goods);
+	    	$key = Yii::$app->params['goods.selectcart'];
+	    	Yii::$app->session->set($key,$goods);
 	    	return ['status' => 0,'msg' =>'ok'];
     	}
     }
 
     
     /**
-    * @desc 
+    * @desc 订单创建
     */
     public function actionCreate()
     {
+    	$addressId = (int)Yii::$app->request->post('address_id');
+    	$message = (string)Yii::$app->request->post('message');
+    	if(!$addressId)
+    	{
+    		return ['status' =>1,'参数错误'];
+    	}
     	
     }
 
