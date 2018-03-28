@@ -287,7 +287,7 @@
 	                    	}
 	                    }
             		});
-				}，
+				},
 				carQx2: function(){
         			this.carShow = false;
     		        this.popupShow = false;
