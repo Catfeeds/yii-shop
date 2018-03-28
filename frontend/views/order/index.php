@@ -25,7 +25,7 @@
             					<th class="td4">联系电话</th>
             				</tr>
             				<tr v-for="addList in addressData" class="tr2">
-            					<td class="td1 tdct"><em @click="selectedProduct(addList)" v-bind:class="{'check':addList.checked}" ><i></i></em></td>
+            					<td class="td1 tdct"><em @click="selectedProduct(index)" v-bind:class="{'check':index == currenIndex}" ><i></i></em></td>
             					<td class="td2">{{ addList.consignee }}</td>
             					<td class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
             					<td class="td4">{{ addList.mobile }}</td>
@@ -203,7 +203,8 @@
                 goodsData: goods,
                 zjMoney: 0, //总价
                 yfMoney: 10,  //邮费                
-                addressId: ''
+                addressId: '',
+                currenIndex:0
        	    },
        	    created: function(){
        	    	var _this = this;
@@ -358,13 +359,18 @@
 				        })
 		            }    						
 				},
-				selectedProduct:function (addList) { // 接收的参数
-					let _this = this;
-		            for(var i = 0; i < _this.addressData.length; i++) {  
-		                _this.addressData[i].checked = false;
-		                console.log(1)
-		            }
-		            addList.checked = true;
+				selectedProduct:function (index) { // 接收的参数
+					this.currenIndex = index;
+					this.inFor();
+		        },
+		        infor: function(){
+		        	var _this = this;
+		        	_this.addressData.forEach(function(item,index){
+		        		if(_this.currenIndex == index){
+			        		_this.id = item.id;
+			        		console.log(_this.id);
+			        	}
+		        	})
 		        },
 		        moneyZf: function(){
 		        	
