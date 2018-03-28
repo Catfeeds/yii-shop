@@ -345,9 +345,7 @@
 				        this.messgs = true;
 				        return false;
 	                }else{
-	                	this.messgDz = "";
-					    this.messgs = false;
-					    this.addressData.push(this.takeDelivery);					    
+	                					    
 	                	$.ajax({
 				            url:'/address/add',
 				            type: 'POST',
@@ -358,9 +356,7 @@
 				                    console.log('提交成功');
 				                    this.messgDz = "";
 								    this.messgs = false;
-								    this.addressData.push(this.takeDelivery);
-								    this.address1 = true;
-			       	    		    this.address2 = false; 
+								    this.addressData.push(this.takeDelivery);	
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
