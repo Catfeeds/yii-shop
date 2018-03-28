@@ -236,7 +236,7 @@
 		        },
 		        //判断是否有地址数据
        	    	disNone: function(){
-       	    		if(this.addressData.length != ''){
+       	    		if(this.addressData.length != 0){
 	       	    		this.address1 = true;
 	       	    		this.address2 = false;
 	       	    	}else{
