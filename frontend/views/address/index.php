@@ -39,7 +39,7 @@
             					<td class="td4"><p>编辑</p><p @click="addressSc(addList)">删除</p></td>
             				</tr>
             			</table>
-            			<div class="tj">
+            			<div v-show="cartOrders" class="tj">
             				<a @click="bjAddress" href="javascript:;">添加新地址</a>
             			</div>
             		</div>
