@@ -160,8 +160,7 @@
 							}               
 		                }	                 	
 		            }
-       	    	});
-       	    	_this.bcAdd2();    	    	   		    	
+       	    	});	    	   		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();
@@ -256,7 +255,7 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');
-				                    _this.addressData.push(_this.takeDelivery);
+				                    data.push(_this.takeDelivery);
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
