@@ -149,7 +149,7 @@
 		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
 		                    console.log(_this.addressData);
-		                    if(_this.addressData.length != 0){
+		                    if(data.data.length != 0){
 								_this.sp = true;
 							    _this.cartOrders = true;
 							    _this.noneCar = false;
