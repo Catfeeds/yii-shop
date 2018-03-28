@@ -132,7 +132,8 @@
                     province: '选择省份', //省
                     city: '选择市',  //市
                     district: '选择区',  //县
-                    address: '' //具体地址
+                    address: '', //具体地址
+                    id :0
                 },
                 addressData:[],
                 curAddress: '',  //保存要删除地址
@@ -149,7 +150,7 @@
 		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
 		                    console.log(_this.addressData);
-		                    if(data.data.length != 0){
+		                    if(_this.addressData.length != 0){
 								_this.sp = true;
 							    _this.cartOrders = true;
 							    _this.noneCar = false;
@@ -175,6 +176,7 @@
        	    	carBg: function(){
        	    		this.carShow = false;
        	    	    this.addressShow = false;
+       	    	    this.popupShow = false;
        	    	},
        	    	carQx:function(){
        	    		this.carShow = false;
@@ -243,7 +245,7 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');
-				                    _this.addressData.push(this.takeDelivery);
+				                    _this.addressData.push(_this.takeDelivery);
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
