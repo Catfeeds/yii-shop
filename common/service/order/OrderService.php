@@ -18,12 +18,15 @@ use common\models\order\UserAddress;
 use common\service\goods\GoodsService;
 use common\models\order\Order;
 use common\models\order\OrderGoods;
-
+use common\models\goods\mongodb\Cart;
 class OrderService extends BaseService
 {	
 	public $errorMsg;
 	
 	public $data = [];//购物车商品数据
+	
+	
+	public $orderSn;
 	
     public function init()
     {
@@ -60,6 +63,8 @@ class OrderService extends BaseService
 	    	if($this->createOrderGoods($orderModel->id))
 	    	{
 	    		$transaction->commit();
+	    		$this->orderSn = $orderSn;
+	    		$this->removeCart($userId);
 	    		return true;
 	    	}
 	    		$transaction->rollBack();
@@ -77,7 +82,7 @@ class OrderService extends BaseService
     */
     private function getOrderId()
     {
-    	return date('Y-m-d').uniqid();
+    	return date('Ymd').uniqid();
     }
     
     /**
@@ -138,5 +143,21 @@ class OrderService extends BaseService
     	}
     	return true;
     	
+    }
+    
+    /**
+    * @desc 生成数据后清空相应的购物车数据(一般不采用deleteAll)
+    */
+    private function removeCart($userId)
+    {
+    	foreach($this->data as $v)
+    	{	
+    		$cartData = Cart::find()->where(['user_id' =>$userId,'goods_id' =>$v['_id']])->asArray()->one();
+    		if($cartData)
+    		{
+    			Cart::findOne($cartData['_id'])->delete();
+    		}
+    	}
+    	return true;
     }
 }

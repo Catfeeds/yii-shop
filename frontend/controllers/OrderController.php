@@ -73,7 +73,7 @@ class OrderController extends BaseController
     	{
     		return ['status' => 1,'msg' =>$orderService->errorMsg];
     	}
-    	return ['status' => 0,'msg' =>''];
+    	return ['status' => 0,'msg' =>'','order_sn' => $orderService->orderSn];
     }
 
 }
