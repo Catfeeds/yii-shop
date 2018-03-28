@@ -217,7 +217,8 @@
 		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
 		                    console.log(_this.addressData);
-		                    _this.disNone();              
+		                    _this.disNone();
+		                    _this.infor();            
 		                }	                 	
 		            }
        	    	});      	    	 
@@ -225,8 +226,7 @@
        	    	 		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();
-       	    	this.infor();       	    	
+       	    	this.disNone();       	    	       	    	
        	    },
        	    methods: {
        	    	//总价
