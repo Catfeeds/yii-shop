@@ -360,7 +360,7 @@
 				},
 				selectedProduct:function (addList) { // 接收的参数
 		            if( typeof addList.checked == 'undefined'){ 
-		                Vue.$set(addList,"checked",true);
+		                this.$set(addList,"checked",true);
 		            }else {
 		                addList.checked = !addList.checked;
 		            }
