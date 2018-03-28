@@ -313,6 +313,7 @@
 				},
 				//保存地址
 				bcAdd: function(){
+					var _this = this;
 					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
                 		this.messgDz = "地址信息填写有误";
 				        this.messgs = true;
@@ -328,9 +329,9 @@
 				                    console.log('提交成功');	
 				                    this.messgDz = "";
 								    this.messgs = false;
-								    this.addressData.push(this.takeDelivery);
-								    this.address1 = true;
-			       	    		    this.address2 = false; 			                    
+								    _this.addressData.push(_this.takeDelivery);
+								    _this.address1 = true;
+			       	    		    _this.address2 = false; 			                    
 				                }	                 	
 				            }
 				        })
@@ -356,7 +357,7 @@
 				                    console.log('提交成功');
 				                    this.messgDz = "";
 								    this.messgs = false;
-								    this.addressData.push(_this.takeDelivery);	
+								    _this.addressData.push(_this.takeDelivery);	
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
