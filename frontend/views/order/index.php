@@ -204,8 +204,8 @@
                 zjMoney: 0, //总价
                 yfMoney: 10,  //邮费                
                 addressId: '',  // 传给后端地址ID
-                currenIndex:0，  // 默认index
-                message： ''
+                currenIndex:0,  // 默认index
+                message: ''
        	    },
        	    created: function(){
        	    	var _this = this;
