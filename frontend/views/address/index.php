@@ -164,7 +164,8 @@
        	    	});      	    	   		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();     	    	
+       	    	this.disNone();
+       	    	this.addressSc();   	    	
        	    },
        	    methods: {
        	    	disNone: function(){
