@@ -111,7 +111,7 @@
             					<dt class="fs1">支付金额</dt>
             					<dd class="fs1">￥{{ yfMoney + zjMoney }}元</dd>
             				</dl>
-            				<a href="javascript" class="money-zf">立即支付</a>
+            				<a @click="moneyZf" href="javascript" class="money-zf">立即支付</a>
             			</div>
             		</div>
             	</div>
@@ -202,7 +202,8 @@
                 addressData: [],
                 goodsData: goods,
                 zjMoney: 0, //总价
-                yfMoney: 10
+                yfMoney: 10,  //邮费                
+                addressId: ''
        	    },
        	    created: function(){
        	    	var _this = this;
@@ -359,10 +360,13 @@
 				},
 				selectedProduct:function (addList) { // 接收的参数
 		            if( typeof addList.checked == 'undefined'){ 
-		                Vue.set(addList,"checked",true);
+		                Vue.$set(addList,"checked",true);
 		            }else {
 		                addList.checked = !addList.checked;
 		            }
+		        },
+		        moneyZf: function(){
+		        	
 		        }
        	    },
        	    beforeMount: function () {
