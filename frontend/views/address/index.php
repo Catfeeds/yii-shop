@@ -135,7 +135,8 @@
                     address: '' //具体地址
                 },
                 addressData:[],
-                curAddress: ''  //保存要删除地址
+                curAddress: '',  //保存要删除地址
+                id: '' //删除的地址ID
        	    },
        	    created: function(){
        	    	var _this = this;
@@ -253,10 +254,44 @@
 				addressSc: function(addList){
 					this.carShow = true;
 				    this.popupShow = true;
-				    this.curProduct = item;
+				    this.curAddress = addList;
 				    this.id = addList.id;
 				    console.log(this.id);
-				}
+				},
+				carSc: function(){
+					var _this = this;
+            		var index = _this.addressData.indexOf(_this.curAddress);
+            		$.ajax({
+            			type:"POST",
+            			url:"/address/delete",
+            			dataType: 'json',
+	                    data: {id: _this.id},
+	                    success: function(data){
+	                    	if(data.status == 0){
+	                    		console.log('成功');
+		            // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
+					            _this.addressData.splice(index ,1);// 从当前索引开始删，删除一个元素
+					            _this.carShow = false;
+							    _this.popupShow = false; // 删除后 弹框消失
+							    if(_this.addressData.length != ''){
+									_this.sp = true;
+								    _this.cartOrders = true;
+								    _this.noneCar = false;
+								}else{
+									_this.sp = false;
+								    _this.cartOrders = false;
+								    _this.noneCar = true;
+								}
+	                    	}else{
+	                    		console.log('失败');
+	                    	}
+	                    }
+            		});
+				}，
+				carQx2: function(){
+        			this.carShow = false;
+    		        this.popupShow = false;
+        		}
        	   },
        	    beforeMount: function () {
 				this.updateCity();
