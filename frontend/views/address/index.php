@@ -234,8 +234,7 @@
 				        return false;
 	                }else{
 	                	this.messgDz = "";
-					    this.messgs = false;
-					    this.addressData.push(this.takeDelivery);					    
+					    this.messgs = false;					    					    
 	                	$.ajax({
 				            url:'/address/add',
 				            type: 'POST',
@@ -243,7 +242,8 @@
 				            data: this.takeDelivery,
 				            success: function(data) {
 				                if(data.status == 0){
-				                    console.log('提交成功');	
+				                    console.log('提交成功');
+				                    _this.addressData.push(this.takeDelivery);
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
