@@ -130,6 +130,7 @@ class OrderService extends BaseService
     		$model->shop_price = $value['shop_price'];
     		$model->goods_name = $value['name'];
     		$model->goods_image = $value['image'][0];
+    		$model->goods_id = (string)$value['_id'];
     		if(!$model->save())
     		{	
     			return false;
