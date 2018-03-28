@@ -322,7 +322,7 @@
 					    this.addressData.push(this.takeDelivery);
 					    this.address1 = true;
        	    		    this.address2 = false;
-       	    		    this.infor();					    
+       	    		    					    
 	                	$.ajax({
 				            url:'/address/add',
 				            type: 'POST',
@@ -396,6 +396,7 @@
        	    beforeMount: function () {
 				this.updateCity();
 				this.updateDistrict();
+				this.infor();
 			},
 			computed: {
 				province: function(){
