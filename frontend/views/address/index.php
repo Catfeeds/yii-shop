@@ -285,6 +285,9 @@
 					            _this.addressData.splice(index ,1);// 从当前索引开始删，删除一个元素
 					            _this.carShow = false;
 							    _this.popupShow = false; // 删除后 弹框消失
+							    _this.$nextTick(function(){
+				       	    		_this.carSc();
+				       	    	})
 							    if(_this.addressData.length != 0){
 									_this.sp = true;
 								    _this.cartOrders = true;
@@ -298,7 +301,8 @@
 	                    		console.log('失败');
 	                    	}
 	                    }
-            		}); 
+            		});
+ 
 				},
 				carQx2: function(){
         			this.carShow = false;
