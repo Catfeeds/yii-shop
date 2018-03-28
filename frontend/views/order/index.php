@@ -111,7 +111,7 @@
             					<dt class="fs1">支付金额</dt>
             					<dd class="fs1">￥{{ yfMoney + zjMoney }}元</dd>
             				</dl>
-            				<a @click="moneyZf" href="javascript" class="money-zf">立即支付</a>
+            				<a @click="moneyZf" href="javascript:;" class="money-zf">立即支付</a>
             			</div>
             		</div>
             	</div>
