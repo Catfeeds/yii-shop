@@ -164,7 +164,7 @@
        	    	});      	    	   		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();      	    	
+       	    	this.disNone();     	    	
        	    },
        	    methods: {
        	    	disNone: function(){
@@ -190,6 +190,7 @@
        	    	carQx:function(){
        	    		this.carShow = false;
        	    	    this.addressShow = false;
+       	    	    this.popupShow = false;
        	    	},
        	    	mobile: function(){
        	    		var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
@@ -284,7 +285,7 @@
 					            _this.addressData.splice(index ,1);// 从当前索引开始删，删除一个元素
 					            _this.carShow = false;
 							    _this.popupShow = false; // 删除后 弹框消失
-							    if(_this.addressData.length != ''){
+							    if(_this.addressData.length != 0){
 									_this.sp = true;
 								    _this.cartOrders = true;
 								    _this.noneCar = false;
