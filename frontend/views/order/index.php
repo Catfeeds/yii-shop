@@ -330,8 +330,8 @@
 				                    this.messgDz = "";
 								    this.messgs = false;
 								    _this.addressData.push(_this.takeDelivery);
-								    this.address1 = true;
-			       	    		    this.address2 = false; 			                    
+								    _this.address1 = true;
+			       	    		    _this.address2 = false; 			                    
 				                }	                 	
 				            }
 				        })
