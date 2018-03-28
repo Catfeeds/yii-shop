@@ -6,7 +6,7 @@
  * Time: 13:56
  */
 
-namespace common\service\goods;
+namespace common\service\order;
 
 
 use common\models\goods\mongodb\Goods;
