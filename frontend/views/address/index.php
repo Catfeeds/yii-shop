@@ -298,10 +298,7 @@
 	                    		console.log('失败');
 	                    	}
 	                    }
-            		});
-            		_this.$nextTick(function(){
-	       	    		_this.carSc();
-	       	    	}) 
+            		}); 
 				},
 				carQx2: function(){
         			this.carShow = false;
