@@ -221,7 +221,8 @@
 		                }	                 	
 		            }
        	    	});      	    	 
-       	    	_this.caleTotalPrice();    		    	
+       	    	_this.caleTotalPrice();  
+       	    	_this.inFor();  		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();      	    	
@@ -361,7 +362,7 @@
 				},
 				selectedProduct:function (index) { // 接收的参数
 					this.currenIndex = index;
-					this.inFor();
+					this.infor();
 		        },
 		        infor: function(){
 		        	var _this = this;
