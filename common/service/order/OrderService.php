@@ -152,7 +152,7 @@ class OrderService extends BaseService
     {
     	foreach($this->data as $v)
     	{	
-    		$cartData = Cart::find()->where(['user_id' =>$userId,'goods_id' =>$v['_id']])->asArray()->one();
+    		$cartData = Cart::find()->select(['_id'])->where(['user_id' =>$userId,'goods_id' =>(string)$v['_id']])->asArray()->one();
     		if($cartData)
     		{
     			Cart::findOne($cartData['_id'])->delete();
