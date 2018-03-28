@@ -163,8 +163,7 @@
        	    	});	    	   		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();
-       	    	this.addressSc();   	    	
+       	    	this.disNone();  	    	
        	    },
        	    methods: {
        	    	disNone: function(){
