@@ -364,11 +364,7 @@
 		                _this.addressData[i].checked = false;
 		                console.log(1)
 		            }
-		            if( typeof addList.checked == 'undefined'){ 
-		                this.$set(addList,"checked",true);
-		            }else {
-		                addList.checked = !addList.checked;
-		            }
+		            addList.checked = true;
 		        },
 		        moneyZf: function(){
 		        	
