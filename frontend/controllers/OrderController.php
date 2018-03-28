@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\service\goods\GoodsService;
-use common\service\goods\OrderService;
+use common\service\order\OrderService;
 class OrderController extends BaseController
 {	
 	
