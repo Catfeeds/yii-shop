@@ -329,7 +329,8 @@
 				            data: this.takeDelivery,
 				            success: function(data) {
 				                if(data.status == 0){
-				                    console.log('提交成功');				                    
+				                    console.log('提交成功');	
+				                    this.infor(); 			                    
 				                }	                 	
 				            }
 				        })
