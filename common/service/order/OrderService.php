@@ -82,7 +82,7 @@ class OrderService extends BaseService
     */
     private function getOrderId()
     {
-    	return microtime().rand(10000, 99999).uniqid();
+    	return date('Y-m-d').uniqid();
     }
     
     /**
