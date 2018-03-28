@@ -321,7 +321,8 @@
 					    this.messgs = false;
 					    this.addressData.push(this.takeDelivery);
 					    this.address1 = true;
-       	    		    this.address2 = false;					    
+       	    		    this.address2 = false;
+       	    		    this.infor();					    
 	                	$.ajax({
 				            url:'/address/add',
 				            type: 'POST',
@@ -330,7 +331,7 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');	
-				                    this.infor(); 			                    
+				                     			                    
 				                }	                 	
 				            }
 				        })
