@@ -222,10 +222,11 @@
 		            }
        	    	});      	    	 
        	    	_this.caleTotalPrice();  
-       	    	this.infor();  		    	
+       	    	 		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();      	    	
+       	    	this.disNone();
+       	    	this.infor();       	    	
        	    },
        	    methods: {
        	    	//总价
