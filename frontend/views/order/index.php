@@ -225,7 +225,11 @@
 		            }
        	    	});      	    	 
        	    	_this.caleTotalPrice(); 
-       	    	this.infor();       	    	 		    	
+       	    	
+       	    	_this.$nextTick(function(){
+       	    		_this.addressData = data.data;
+       	    		this.infor();
+       	    	})     	    	 		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();
