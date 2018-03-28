@@ -205,7 +205,7 @@
                 yfMoney: 10,  //邮费                
                 addressId: '',  // 传给后端地址ID
                 currenIndex:0,  // 默认index
-                message： ''
+                message: ''
        	    },
        	    created: function(){
        	    	var _this = this;
