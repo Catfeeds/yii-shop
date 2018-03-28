@@ -175,6 +175,7 @@
        	    	carBg: function(){
        	    		this.carShow = false;
        	    	    this.addressShow = false;
+       	    	    this.popupShow = false;
        	    	},
        	    	carQx:function(){
        	    		this.carShow = false;
