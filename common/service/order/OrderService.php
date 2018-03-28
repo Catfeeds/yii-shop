@@ -50,7 +50,7 @@ class OrderService extends BaseService
     	$orderSn = $this->getOrderId();
     	$orderData = ['order_amount' =>$goodsAmount,'consignee' =>$address['consignee'],'mobile' =>$address['mobile'],'province' =>$address['province'],
     					'city' =>$address['city'],'district' => $address['district'],'address' => $address['address'],'created_at' =>time(),'updated_at' => time(),
-    					'order_sn' =>$orderSn,'message' => $message,'user_id' => $userId
+    					'order_sn' =>$orderSn,'message' => $message,'user_id' => $userId,'order_status' => 1
     	];
     	$orderModel = new Order();
     	$transaction = Order::getDb()->beginTransaction();

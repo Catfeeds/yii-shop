@@ -68,7 +68,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['order_sn', 'user_id', 'goods_amount', 'order_amount', 'consignee', 'mobile', 'province', 'city', 'district',  'address', 'created_at', 'updated_at'], 'required'],
+            [['order_sn', 'user_id', 'order_amount', 'consignee', 'mobile', 'province', 'city', 'district',  'address', 'created_at', 'updated_at'], 'required'],
             [['shop_id', 'user_id', 'order_status', 'shipping_id', 'pay_id', 'pay_time', 'remind_time', 'cancel_reson', 'close_time', 'is_show', 'platform_type', 'province', 'city', 'district', 'created_at', 'updated_at'], 'integer'],
             [['shipping_fee', 'goods_amount', 'cheap_price', 'order_amount', 'refund_amount'], 'number'],
             [['order_sn', 'mobile'], 'string', 'max' => 20],
