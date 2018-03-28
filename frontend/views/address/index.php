@@ -132,7 +132,8 @@
                     province: '选择省份', //省
                     city: '选择市',  //市
                     district: '选择区',  //县
-                    address: '' //具体地址
+                    address: '', //具体地址
+                    id :0
                 },
                 addressData:[],
                 curAddress: '',  //保存要删除地址
