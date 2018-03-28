@@ -262,7 +262,7 @@
 					var _this = this;
             		var index = _this.addressData.indexOf(_this.curAddress);
             		$.ajax({
-            			type:"POST",
+            			type:"get",
             			url:"/address/delete",
             			dataType: 'json',
 	                    data: {id: _this.id},
