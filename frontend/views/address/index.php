@@ -160,7 +160,8 @@
 							}               
 		                }	                 	
 		            }
-       	    	});      	    	   		    	
+       	    	});
+       	    	_this.bcAdd2();    	    	   		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();
