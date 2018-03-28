@@ -24,7 +24,7 @@
             					<th class="td3">详细地址</th>
             					<th class="td4">联系电话</th>
             				</tr>
-            				<tr v-for="addList in addressData" class="tr2">
+            				<tr v-for="(addList, index) in addressData" class="tr2">
             					<td class="td1 tdct"><em @click="selectedProduct(index)" v-bind:class="{'check':index == currenIndex}" ><i></i></em></td>
             					<td class="td2">{{ addList.consignee }}</td>
             					<td class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
