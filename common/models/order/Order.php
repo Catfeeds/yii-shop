@@ -69,14 +69,14 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             [['order_sn', 'user_id', 'order_amount', 'consignee', 'mobile', 'province', 'city', 'district',  'address', 'created_at', 'updated_at'], 'required'],
-            [['shop_id', 'user_id', 'order_status', 'shipping_id', 'pay_id', 'pay_time', 'remind_time', 'cancel_reson', 'close_time', 'is_show', 'platform_type', 'province', 'city', 'district', 'created_at', 'updated_at'], 'integer'],
+            [['shop_id', 'user_id', 'order_status', 'shipping_id', 'pay_id', 'pay_time', 'remind_time', 'cancel_reson', 'close_time', 'is_show', 'platform_type', 'created_at', 'updated_at'], 'integer'],
             [['shipping_fee', 'goods_amount', 'cheap_price', 'order_amount', 'refund_amount'], 'number'],
-            [['order_sn', 'mobile'], 'string', 'max' => 20],
+            [['order_sn', 'mobile'], 'string', 'max' => 30],
             [['shop_name', 'message', 'remark', 'address'], 'string', 'max' => 255],
             [['shipping_name'], 'string', 'max' => 15],
             [['pay_account', 'consignee'], 'string', 'max' => 100],
             [['trade_no'], 'string', 'max' => 50],
-            [['invoice_no'], 'string', 'max' => 35],
+            [['invoice_no','province', 'city', 'district'], 'string', 'max' => 35],
             [['postcode'], 'string', 'max' => 10],
             [['order_sn'], 'unique'],
         ];
