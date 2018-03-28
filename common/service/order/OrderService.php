@@ -66,12 +66,7 @@ class OrderService extends BaseService
 	    		$this->errorMsg = '生成订单商品失败';
 	    		return false;
     	}
-    	//$this->errorMsg = '生成订单失败';
-    	$errors = $orderModel->getErrors();
-    	foreach($errors as $v)
-    	{
-    		$this->errorMsg = $v;break;
-    	}
+    	$this->errorMsg = '生成订单失败';
     	$transaction->rollBack();
     	return false;
     }

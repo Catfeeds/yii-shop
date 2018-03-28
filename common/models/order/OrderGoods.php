@@ -48,11 +48,12 @@ class OrderGoods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['order_id', 'goods_id', 'goods_name', 'shop_price', 'goods_num', 'shop_id'], 'required'],
+            [['order_id', 'goods_id', 'goods_name', 'shop_price', 'goods_num'], 'required'],
             [['order_id', 'product_id', 'goods_id', 'goods_num', 'shop_id', 'aftersales_status', 'complaints_status'], 'integer'],
             [['cheap_price', 'shop_price'], 'number'],
             [['goods_name'], 'string', 'max' => 100],
             [['goods_image'], 'string', 'max' => 255],
+            [['goods_id'],'string','max' =>24],
             [['attr_string'], 'string', 'max' => 125],
             [['order_id'], 'exist', 'skipOnError' => true, 'targetClass' => Order::className(), 'targetAttribute' => ['order_id' => 'id']],
         ];
