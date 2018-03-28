@@ -88,7 +88,7 @@ class OrderService extends BaseService
     {
     	$key = Yii::$app->params['goods.selectcart'];
     	$goods= Yii::$app->session->get($key);
-    	if(!$data)
+    	if(!$goods)
     	{
     		$this->errorMsg = '购物车数据错误，重新提交确认订单';
     		return false;
