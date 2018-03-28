@@ -359,9 +359,13 @@
 		            }    						
 				},
 				selectedProduct:function (addList) { // 接收的参数
-					var _this = this;
+					let _this = this;
+		            for(var i = 0; i < _this.addressData.length; i++) {  
+		                _this.addressData[i].checked = false;
+		                console.log(1)
+		            }
 		            if( typeof addList.checked == 'undefined'){ 
-		                _this.$set(addList,"checked",true);
+		                this.$set(addList,"checked",true);
 		            }else {
 		                addList.checked = !addList.checked;
 		            }
