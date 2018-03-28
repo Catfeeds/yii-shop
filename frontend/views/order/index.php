@@ -222,7 +222,7 @@
 		            }
        	    	});      	    	 
        	    	_this.caleTotalPrice();  
-       	    	_this.inFor();  		    	
+       	    	_this.infor();  		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();      	    	
