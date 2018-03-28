@@ -8,7 +8,7 @@
 
 namespace common\service\order;
 
-
+use Yii;
 use common\models\goods\mongodb\Goods;
 use common\models\goods\Category;
 use common\service\BaseService;
