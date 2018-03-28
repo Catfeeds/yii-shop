@@ -167,6 +167,15 @@
        	    	this.disNone();      	    	
        	    },
        	    methods: {
+       	    	disNone: function(){
+       	    		if(this.addressData.length != 0){
+	       	    		this.address1 = true;
+	       	    		this.address2 = false;
+	       	    	}else{
+	       	    		this.address1 = false;
+	       	    		this.address2 = true;
+		       	    } 
+       	    	},
        	    	//添加新地址
        	    	bjAddress: function(){
        	    		this.carShow = true;
