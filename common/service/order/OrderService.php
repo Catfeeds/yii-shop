@@ -133,6 +133,10 @@ class OrderService extends BaseService
     		$model->goods_id = (string)$value['_id'];
     		if(!$model->save())
     		{	
+    			$error = $model->getErrors();
+    			foreach($error as $v){
+    				print_r($v);
+    			}
     			return false;
     		}
     	}
