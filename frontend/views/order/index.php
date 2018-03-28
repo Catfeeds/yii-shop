@@ -393,7 +393,8 @@
 			            data: {address_id: _this.addressId, message: _this.message},
 			            success: function(data) {
 			                if(data.status == 0){
-			                    console.log('提交成功');			                    
+			                    console.log('提交成功');	
+			                    console.log({address_id: _this.addressId, message: _this.message});	                    
 			                }	                 	
 			            }
 			        })
