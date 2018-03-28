@@ -42,15 +42,15 @@ class OrderService extends BaseService
     		$this->errorMsg = '找不到相应的收获地址';
     		return false;
     	}
-    	$goodsAmount = $this->getOrderAmount();
-    	if(!$goodsAmount)
+    	$orderAmount = $this->getOrderAmount();
+    	if(!$orderAmount)
     	{
     		return false;
     	}
     	$orderSn = $this->getOrderId();
-    	$orderData = ['goods_amount' =>$goodsAmount,'consignee' =>$address['consignee'],'mobile' =>$address['mobile'],'province' =>$address['province'],
+    	$orderData = ['order_amount' =>$goodsAmount,'consignee' =>$address['consignee'],'mobile' =>$address['mobile'],'province' =>$address['province'],
     					'city' =>$address['city'],'district' => $address['district'],'address' => $address['address'],'created_at' =>time(),'updated_at' => time(),
-    					'order_sn' =>$orderSn,'message' => $message
+    					'order_sn' =>$orderSn,'message' => $message,'user_id' => $userId
     	];
     	$orderModel = new Order();
     	$transaction = Order::getDb()->beginTransaction();
