@@ -356,7 +356,7 @@
 				                    console.log('提交成功');
 				                    this.messgDz = "";
 								    this.messgs = false;
-								    this.addressData.push(this.takeDelivery);	
+								    this.addressData.push(_this.takeDelivery);	
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
