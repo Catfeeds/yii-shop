@@ -226,7 +226,8 @@
        	    	_this.caleTotalPrice();        	    	 		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();       	    	       	    	
+       	    	this.disNone();
+       	    	this.infor();      	    	       	    	
        	    },
        	    methods: {
        	    	//总价
