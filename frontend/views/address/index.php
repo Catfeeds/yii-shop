@@ -163,7 +163,7 @@
        	    	});	    	   		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();  	    	
+       	    	this.disNone();	    	
        	    },
        	    methods: {
        	    	disNone: function(){
@@ -254,7 +254,7 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');
-				                    data.push(_this.takeDelivery);
+				                    _this.addressData.push(_this.takeDelivery);
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
