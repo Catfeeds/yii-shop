@@ -610,6 +610,13 @@
                 margin: 20px 0 0 60px;
             }
         }
+        h3 {
+            font-size: 24px;
+            color: #3e3a39;
+            float: left;
+            font-weight: normal;
+            margin: 34px 0 20px 0;
+        }
         .shop_zf {
             width: 100%;
             float: left;
@@ -651,10 +658,10 @@
                     letter-spacing: 3px;
                 }
             }
-            .on {
+            .on1 {
                 border: 1px solid #61bc45;
             }
-            .on:after {
+            .on1:after {
                 content: '';
                 position: absolute;
                 background: url(../img/dg.png) no-repeat;
@@ -662,6 +669,31 @@
                 height: 12px;
                 left: 22px;
                 top: 42px;             
+            }
+            .on2 {
+                border: 1px solid #0e87cc;
+            }
+            .on2:after {
+                content: '';
+                position: absolute;
+                background: url(../img/dg2.png) no-repeat;
+                width: 16px;
+                height: 12px;
+                left: 22px;
+                top: 42px;             
+            }
+            button {
+                width: 270px;
+                height: 75px;
+                float: left;
+                font-size: 24px;
+                color: #3e3a39;
+                text-align: center;
+                line-height: 75px;
+                border-radius: 5px;
+                background: #d3b799;
+                clear: both;
+                margin-top: 172px;
             }
         }
         .shop_orders {
