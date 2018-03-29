@@ -150,7 +150,7 @@
 		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
 		                    _this.$nextTick(function(){
-			       	    		 _this.addressData = data.data;
+			       	    		 _this.created();
 			       	    	})
 		                    console.log(_this.addressData);
 		                    if(_this.addressData.length != 0){
