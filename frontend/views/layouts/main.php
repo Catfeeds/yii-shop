@@ -44,6 +44,7 @@ $this->beginPage() ?>
 			<div class="laber_top">
 				<div class="top_main auto">
 					<div class="login">
+						 <a class="loginCart" href="javascript:;">购物车</a>
 						  <?php if(!Yii::$app->user->isGuest):?>
 						  	<?php if(Yii::$app->user->identity->mobile):?>
 						  		<a href="#"><?=Yii::$app->user->identity->mobile?></a>
