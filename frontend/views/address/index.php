@@ -132,8 +132,8 @@
                     province: '选择省份', //省
                     city: '选择市',  //市
                     district: '选择区',  //县
-                    address: '',
-                    id: 0 //具体地址
+                    address: '',//具体地址#
+                    id: 0 
                 },
                 addressData:[],
                 curAddress: '',  //保存要删除地址
@@ -246,8 +246,7 @@
 				        return false;
 	                }else{
 	                	this.messgDz = "";
-					    this.messgs = false;
-					    _this.addressData.push(_this.takeDelivery);					    					    
+					    this.messgs = false;					   				    					    
 	                	$.ajax({
 				            url:'/address/add',
 				            type: 'POST',
@@ -256,6 +255,7 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');
+				                    _this.addressData.push(_this.takeDelivery);	
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
