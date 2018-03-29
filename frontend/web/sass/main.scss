@@ -413,7 +413,26 @@
             height: 60px;
             li {
                 float: left;
-                margin-left: 70px;
+                margin-left: 60px;
+                height: 60px;
+                text-align: center;
+                position: relative;
+                a {
+                    
+                    height: 60px;
+                    
+                }
+            }
+            .on:after{
+                position: absolute;
+                bottom: 4px;
+                width: 26px;
+                height: 5px;
+                background: #fff;
+                content: '';
+                left: 50%;
+                margin-left: -13px;
+                transition: 0.3s;
             }
         }
     }

@@ -347,7 +347,23 @@
       height: 60px; }
       .laber_shopUser .shopUser_main ul li {
         float: left;
-        margin-left: 70px; }
+        margin-left: 60px;
+        height: 60px;
+        text-align: center;
+        position: relative; }
+        .laber_shopUser .shopUser_main ul li a {
+          height: 60px; }
+      .laber_shopUser .shopUser_main ul .on:after {
+        position: absolute;
+        bottom: 4px;
+        width: 26px;
+        height: 5px;
+        background: #fff;
+        content: '';
+        left: 50%;
+        margin-left: -13px;
+        -webkit-transition: 0.3s;
+        transition: 0.3s; }
 
 .laber_shop {
   width: 100%;
