@@ -140,7 +140,7 @@
                 id: '' //删除的地址ID
        	    },
        	    created: function(){
-       	    	   this.dressData();  		    	
+       	    	this.dressData();  		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();	    	
