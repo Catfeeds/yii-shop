@@ -255,7 +255,17 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');
-				                    _this.addressData.push(_this.takeDelivery);	
+				                    let add = {
+				                    	consignee: _this.takeDelivery.consignee,   //姓名
+					                    sex: _this.takeDelivery.sex,
+					                    mobile: _this.takeDelivery.mobile,  //电话
+					                    province: _this.takeDelivery.province, //省
+					                    city: _this.takeDelivery.city,  //市
+					                    district: _this.takeDelivery.district,  //县
+					                    address: _this.takeDelivery.address,//具体地址#
+					                    id: 0
+				                    }
+				                    _this.addressData.push(add);	
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
@@ -285,9 +295,6 @@
 					            _this.addressData.splice(index ,1);// 从当前索引开始删，删除一个元素
 					            _this.carShow = false;
 							    _this.popupShow = false; // 删除后 弹框消失
-							    _this.$nextTick(function(){
-				       	    		_this.addressData.splice(index ,1);
-				       	    	})
 							    if(_this.addressData.length != 0){
 									_this.sp = true;
 								    _this.cartOrders = true;
