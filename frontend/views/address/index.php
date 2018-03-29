@@ -256,8 +256,8 @@
 				                if(data.status == 0){
 				                    console.log('提交成功');
 				                    _this.addressData.push(_this.takeDelivery);
-    							    this.$nextTick(function(){
-					       	    		 this.bcAdd2();
+    							    _this.$nextTick(function(){
+					       	    		 _this.bcAdd2();
 					       	    	})
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
