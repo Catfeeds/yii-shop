@@ -379,7 +379,6 @@
 				//单选地址
 				selectedProduct:function (index) { // 接收的参数
 					this.currenIndex = index;
-					this.infor();
 		        },
 		        infor: function(){
 		        	var _this = this;
