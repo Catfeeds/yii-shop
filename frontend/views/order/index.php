@@ -392,6 +392,7 @@
 		        },
 		        moneyZf: function(){
 		        	var _this = this;
+		        	var linkUrl;
 		        	$.ajax({
 			            url:'/order/create',
 			            type: 'POST',
@@ -400,7 +401,9 @@
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('提交成功');	
-			                    console.log({address_id: _this.addressId, message: _this.message});	                    
+			                    console.log({address_id: _this.addressId, message: _this.message});	
+			                    linkUrl = data.return_url;
+			                    console.log(linkUrl);              
 			                }	                 	
 			            }
 			        })
