@@ -404,7 +404,7 @@
 			                    console.log({address_id: _this.addressId, message: _this.message});	
 			                    linkUrl = data.return_url;
 			                    console.log(linkUrl);
-			                    window.location = 'linkUrl';
+			                    window.location = linkUrl;
 			                }	                 	
 			            }
 			        })
