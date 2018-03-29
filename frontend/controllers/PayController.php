@@ -14,7 +14,7 @@ use common\models\order\Order;
 class PayController extends BaseController
 {	
 	
-	public function index()
+	public function actionIndex()
 	{
 		$orderSn  = trim(Yii::$app->request->get('id'),'');
 		if(!$orderSn)
