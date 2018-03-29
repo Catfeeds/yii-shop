@@ -403,7 +403,8 @@
 			                    console.log('提交成功');	
 			                    console.log({address_id: _this.addressId, message: _this.message});	
 			                    linkUrl = data.return_url;
-			                    console.log(linkUrl);              
+			                    console.log(linkUrl);
+			                    window.location = 'linkUrl';
 			                }	                 	
 			            }
 			        })
