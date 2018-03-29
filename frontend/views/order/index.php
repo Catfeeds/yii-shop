@@ -209,29 +209,40 @@
                 message: ''
        	    },
        	    created: function(){
-       	    	var _this = this;
-       	    	$.ajax({
-       	    		type:"get",
-       	    		url:"/address/getlist",
-       	    		async:true,
-       	    		success: function(data) {
-		                if(data.status == 0){
-		                    console.log('数据获取成功');		                   
-		                    _this.addressData = data.data;
-		                    console.log(_this.addressData);
-		                    _this.disNone();
-		                    _this.infor();            
-		                }	                 	
-		            }
-       	    	});      	    	 
-       	    	_this.caleTotalPrice(); 
-       	    	this.infor();   	    	 		    	
+       	    	this.dressData();     	    	 
+       	    	this.caleTotalPrice();   	    	 		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();
        	    	this.infor();      	    	       	    	
        	    },
        	    methods: {
+       	    	//获取数据
+       	    	dressData: function(){
+       	    		var _this = this;
+	       	    	$.ajax({
+	       	    		type:"get",
+	       	    		url:"/address/getlist",
+	       	    		async:true,
+	       	    		success: function(data) {
+			                if(data.status == 0){
+			                    console.log('数据获取成功');		                   
+			                    _this.addressData = data.data;		                    
+			                    console.log(_this.addressData);			                    
+			                    if(_this.addressData.length != 0){
+									_this.sp = true;
+								    _this.cartOrders = true;
+								    _this.noneCar = false;
+								}else{
+									_this.sp = false;
+								    _this.cartOrders = false;
+								    _this.noneCar = true;
+								}
+								_this.infor();               
+			                }	                 	
+			            }
+	       	    	});	
+       	    	},
        	    	//总价
        	    	caleTotalPrice:function () {
 		            var _this = this;
@@ -333,6 +344,9 @@
 								    _this.takeDelivery.id = data.id;
 								    _this.addressId = data.id;
 								    _this.addressData.push(_this.takeDelivery);
+								    _this.$nextTick( function(){
+				                    	_this.dressData();
+				                    });
 								    _this.address1 = true;
 			       	    		    _this.address2 = false; 			                    
 				                }	                 	
