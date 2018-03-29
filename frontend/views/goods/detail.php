@@ -17,7 +17,7 @@
 						</div>
 						<div class="details_fr">
 							<h1>{{ goodName }}</h1>
-							<p>{{ goodPrice }}</p>
+							<p>￥{{ goodPrice }}</p>
 							<div id="" class="data_number">
 								<em>购买数量：</em><input @click="btnjj" class="" type="button" value="-" />
 								<input class="sl" type="text" v-model="goods_num" />
