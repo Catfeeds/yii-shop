@@ -286,7 +286,7 @@
 					            _this.carShow = false;
 							    _this.popupShow = false; // 删除后 弹框消失
 							    _this.$nextTick(function(){
-				       	    		_this.carSc();
+				       	    		_this.addressData.splice(index ,1);
 				       	    	})
 							    if(_this.addressData.length != 0){
 									_this.sp = true;
