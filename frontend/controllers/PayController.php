@@ -13,7 +13,9 @@ use common\models\order\Order;
  */
 class PayController extends BaseController
 {	
-	
+	/**
+	* @desc 支付页面
+	*/
 	public function actionIndex()
 	{
 		$orderSn  = trim(Yii::$app->request->get('id'),'');
@@ -29,6 +31,8 @@ class PayController extends BaseController
 		}
 		return $this->render('index',['order' => $order]);
 	}
+	
+	
     /**
     * @desc 发起微信支付
     */
