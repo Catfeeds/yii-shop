@@ -229,7 +229,7 @@
 			                    console.log('数据获取成功');		                   
 			                    _this.addressData = data.data;		                    
 			                    console.log(_this.addressData);			                    
-			                    this.disNone();
+			                    _this.disNone();
 								_this.infor();               
 			                }	                 	
 			            }
