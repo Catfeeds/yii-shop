@@ -490,6 +490,12 @@
         display: block;
         border-radius: 5px;
         margin: 20px 0 0 60px; }
+    .laber_shop .shop_main h3 {
+      font-size: 24px;
+      color: #3e3a39;
+      float: left;
+      font-weight: normal;
+      margin: 34px 0 20px 0; }
     .laber_shop .shop_main .shop_zf {
       width: 100%;
       float: left; }
@@ -524,9 +530,9 @@
           color: #3e3a39; }
         .laber_shop .shop_main .shop_zf li .lp1 {
           letter-spacing: 3px; }
-      .laber_shop .shop_main .shop_zf .on {
+      .laber_shop .shop_main .shop_zf .on1 {
         border: 1px solid #61bc45; }
-      .laber_shop .shop_main .shop_zf .on:after {
+      .laber_shop .shop_main .shop_zf .on1:after {
         content: '';
         position: absolute;
         background: url(../img/dg.png) no-repeat;
@@ -534,6 +540,28 @@
         height: 12px;
         left: 22px;
         top: 42px; }
+      .laber_shop .shop_main .shop_zf .on2 {
+        border: 1px solid #0e87cc; }
+      .laber_shop .shop_main .shop_zf .on2:after {
+        content: '';
+        position: absolute;
+        background: url(../img/dg2.png) no-repeat;
+        width: 16px;
+        height: 12px;
+        left: 22px;
+        top: 42px; }
+      .laber_shop .shop_main .shop_zf button {
+        width: 270px;
+        height: 75px;
+        float: left;
+        font-size: 24px;
+        color: #3e3a39;
+        text-align: center;
+        line-height: 75px;
+        border-radius: 5px;
+        background: #d3b799;
+        clear: both;
+        margin-top: 172px; }
     .laber_shop .shop_main .shop_orders {
       width: 100%;
       float: left;
@@ -861,6 +889,25 @@
         font-size: 18px;
         color: #3e3a39;
         clear: both; }
+  .laber_shop .weChat_main {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-bottom: 310px; }
+    .laber_shop .weChat_main span {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font-size: 24px;
+      color: #f1451a;
+      margin-top: 110px; }
+    .laber_shop .weChat_main p {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font-size: 14px;
+      color: #666666;
+      margin: 26px 0 16px; }
 
 .carBg {
   width: 100%;
@@ -926,14 +973,6 @@
   left: 50%;
   margin-left: -420px;
   border-radius: 5px; }
-  .addressPopup i {
-    background: url(../img/qx2.png) no-repeat;
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    cursor: pointer; }
   .addressPopup span {
     color: #3e3a39;
     font-size: 16px;

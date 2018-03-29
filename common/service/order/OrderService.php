@@ -160,4 +160,14 @@ class OrderService extends BaseService
     	}
     	return true;
     }
+    
+    /**
+    * @desc  根据order_sn查询 
+    * @param
+    */
+    public function getOrderByOrdersn($orderSn)
+    {
+    	$order = Order::find()->select(['*'])->where(['order_sn' =>$orderSn])->asArray()->one();
+    	return $order ?: [];
+    }
 }

@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use common\service\goods\GoodsService;
 use common\service\order\OrderService;
+use yii\helpers\Url;
 class OrderController extends BaseController
 {	
 	
@@ -73,7 +74,8 @@ class OrderController extends BaseController
     	{
     		return ['status' => 1,'msg' =>$orderService->errorMsg];
     	}
-    	return ['status' => 0,'msg' =>'','order_sn' => $orderService->orderSn];
+    	$returnUrl = Url::to(['/pay/index','id' =>$orderService->orderSn]);
+    	return ['status' => 0,'msg' =>'','return_url' => $returnUrl];
     }
 
 }

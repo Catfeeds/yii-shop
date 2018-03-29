@@ -5,16 +5,34 @@ namespace frontend\controllers;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+use common\service\order\OrderService;
 use common\service\pay\weixin\NativePay;
+use common\models\order\Order;
 /**
  * Site controller
  */
 class PayController extends BaseController
-{
+{	
+	
+	public function index()
+	{
+		$orderSn  = trim(Yii::$app->request->get('id'),'');
+		if(!$orderSn)
+		{
+			return $this->redirect('/');
+		}
+		$orderService = new OrderService();
+		$order = $orderService->getOrderByOrdersn($orderSn);
+		if(!$order)
+		{
+			return $this->redirect('/');
+		}
+		return $this->render('index',['order' => $order]);
+	}
     /**
     * @desc 发起微信支付
     */
-    public function actionTest()
+    public function actionWeixin()
     {	
     	$this->layout = false;
     	//模式一

@@ -63,6 +63,86 @@
 	   	 "content": 40,
 	   	 "period": 2019,
 	   	 "local": "乌山"
+	   },
+	   {
+	   	 "imgmain": [
+	   	    {"imgs": "img/pic14.jpg"},
+	   	    {"imgs": "img/pic13.jpg"},
+	   	    {"imgs": "img/pic15.jpg"},
+	   	    {"imgs": "img/pic16.jpg"}
+	   	 ],
+	   	 "name": "文榜古树普洱茶（纯料生茶）10块装",
+	   	 "price": 1000,
+	   	 "amount": 1,
+	   	 "number": "03.02.10.02.06",
+	   	 "batching": "普洱",
+	   	 "content": 40,
+	   	 "period": 2019,
+	   	 "local": "乌山"
+	   },
+	   {
+	   	 "imgmain": [
+	   	    {"imgs": "img/pic14.jpg"},
+	   	    {"imgs": "img/pic13.jpg"},
+	   	    {"imgs": "img/pic15.jpg"},
+	   	    {"imgs": "img/pic16.jpg"}
+	   	 ],
+	   	 "name": "文榜古树普洱茶（纯料生茶）10块装",
+	   	 "price": 1000,
+	   	 "amount": 1,
+	   	 "number": "03.02.10.02.06",
+	   	 "batching": "普洱",
+	   	 "content": 40,
+	   	 "period": 2019,
+	   	 "local": "乌山"
+	   },
+	   {
+	   	 "imgmain": [
+	   	    {"imgs": "img/pic14.jpg"},
+	   	    {"imgs": "img/pic13.jpg"},
+	   	    {"imgs": "img/pic15.jpg"},
+	   	    {"imgs": "img/pic16.jpg"}
+	   	 ],
+	   	 "name": "文榜古树普洱茶（纯料生茶）10块装",
+	   	 "price": 1000,
+	   	 "amount": 1,
+	   	 "number": "03.02.10.02.06",
+	   	 "batching": "普洱",
+	   	 "content": 40,
+	   	 "period": 2019,
+	   	 "local": "乌山"
+	   },
+	   {
+	   	 "imgmain": [
+	   	    {"imgs": "img/pic14.jpg"},
+	   	    {"imgs": "img/pic13.jpg"},
+	   	    {"imgs": "img/pic15.jpg"},
+	   	    {"imgs": "img/pic16.jpg"}
+	   	 ],
+	   	 "name": "文榜古树普洱茶（纯料生茶）10块装",
+	   	 "price": 1000,
+	   	 "amount": 1,
+	   	 "number": "03.02.10.02.06",
+	   	 "batching": "普洱",
+	   	 "content": 40,
+	   	 "period": 2019,
+	   	 "local": "乌山"
+	   },
+	   {
+	   	 "imgmain": [
+	   	    {"imgs": "img/pic14.jpg"},
+	   	    {"imgs": "img/pic13.jpg"},
+	   	    {"imgs": "img/pic15.jpg"},
+	   	    {"imgs": "img/pic16.jpg"}
+	   	 ],
+	   	 "name": "文榜古树普洱茶（纯料生茶）10块装",
+	   	 "price": 1000,
+	   	 "amount": 1,
+	   	 "number": "03.02.10.02.06",
+	   	 "batching": "普洱",
+	   	 "content": 40,
+	   	 "period": 2019,
+	   	 "local": "乌山"
 	   }
 	]
 }
