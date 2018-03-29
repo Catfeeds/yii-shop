@@ -132,40 +132,18 @@
                     province: '选择省份', //省
                     city: '选择市',  //市
                     district: '选择区',  //县
-                    address: '' //具体地址
+                    address: '',//具体地址#
+                    id: 0 
                 },
                 addressData:[],
                 curAddress: '',  //保存要删除地址
                 id: '' //删除的地址ID
        	    },
        	    created: function(){
-       	    	var _this = this;
-       	    	$.ajax({
-       	    		type:"get",
-       	    		url:"/address/getlist",
-       	    		async:true,
-       	    		success: function(data) {
-		                if(data.status == 0){
-		                    console.log('数据获取成功');		                   
-		                    _this.addressData = data.data;
-		                    console.log(_this.addressData);
-		                    if(_this.addressData.length != 0){
-								_this.sp = true;
-							    _this.cartOrders = true;
-							    _this.noneCar = false;
-							}else{
-								_this.sp = false;
-							    _this.cartOrders = false;
-							    _this.noneCar = true;
-							}               
-		                }	                 	
-		            }
-       	    	});
-       	    	_this.bcAdd2();    	    	   		    	
+       	    	this.dressData();  		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();
-       	    	this.addressSc();   	    	
+       	    	this.disNone();	    	
        	    },
        	    methods: {
        	    	disNone: function(){
@@ -176,6 +154,31 @@
 	       	    		this.address1 = false;
 	       	    		this.address2 = true;
 		       	    } 
+       	    	},
+       	    	//获取数据
+       	    	dressData: function(){
+       	    		var _this = this;
+	       	    	$.ajax({
+	       	    		type:"get",
+	       	    		url:"/address/getlist",
+	       	    		async:true,
+	       	    		success: function(data) {
+			                if(data.status == 0){
+			                    console.log('数据获取成功');		                   
+			                    _this.addressData = data.data;		                    
+			                    console.log(_this.addressData);
+			                    if(_this.addressData.length != 0){
+									_this.sp = true;
+								    _this.cartOrders = true;
+								    _this.noneCar = false;
+								}else{
+									_this.sp = false;
+								    _this.cartOrders = false;
+								    _this.noneCar = true;
+								}               
+			                }	                 	
+			            }
+	       	    	});	
        	    	},
        	    	//添加新地址
        	    	bjAddress: function(){
@@ -247,7 +250,7 @@
 				        return false;
 	                }else{
 	                	this.messgDz = "";
-					    this.messgs = false;					    					    
+					    this.messgs = false;					   				    					    
 	                	$.ajax({
 				            url:'/address/add',
 				            type: 'POST',
@@ -256,7 +259,28 @@
 				            success: function(data) {
 				                if(data.status == 0){
 				                    console.log('提交成功');
-				                    _this.addressData.push(_this.takeDelivery);
+				                    let add = {
+				                    	consignee: _this.takeDelivery.consignee,   //姓名
+					                    sex: _this.takeDelivery.sex,
+					                    mobile: _this.takeDelivery.mobile,  //电话
+					                    province: _this.takeDelivery.province, //省
+					                    city: _this.takeDelivery.city,  //市
+					                    district: _this.takeDelivery.district,  //县
+					                    address: _this.takeDelivery.address,//具体地址#
+					                    id: 0
+				                    }
+				                    _this.addressData.push(add);
+				                    _this.$nextTick( function(){
+				                    	_this.dressData();
+				                    });
+				                    _this.takeDelivery.consignee = '';
+				                    _this.takeDelivery.sex = '男';
+				                    _this.takeDelivery.mobile = '';
+				                    _this.takeDelivery.province = '选择省份';
+				                    _this.takeDelivery.city = '选择市';
+				                    _this.takeDelivery.district = '选择区';
+				                    _this.takeDelivery.address = '';
+				                    _this.takeDelivery.id = 0;
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
@@ -300,6 +324,7 @@
 	                    	}
 	                    }
             		});
+ 
 				},
 				carQx2: function(){
         			this.carShow = false;
