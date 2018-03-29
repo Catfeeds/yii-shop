@@ -45,7 +45,7 @@ $this->beginPage() ?>
 				<div class="top_main auto">
 					
 					<div class="login">
-						 <button type="button" class="loginCart">购物车</button>
+						 <button id="loginCart" type="button" class="loginCart">购物车</button>
 						  <?php if(!Yii::$app->user->isGuest):?>
 						  	<?php if(Yii::$app->user->identity->mobile):?>
 						  		<a href="#"><?=Yii::$app->user->identity->mobile?></a>
@@ -78,6 +78,17 @@ $this->beginPage() ?>
 		
 		<?= $content;?>
 		<?php $this->endBody() ?>
+	    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	    <script type="text/javascript" src="/js/axios.min.js" ></script>
+	    <script type="text/javascript">
+	    	$('#loginCart').click(function(){
+	    		if(islogin == 1){
+	    			window.location = '/cart/index';
+	    		}else{
+	    			window.location = '/site/login';
+	    		}
+	    	})
+	    </script>
 	</body>
 </html>
 <?php $this->endPage() ?>
