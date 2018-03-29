@@ -272,7 +272,15 @@
 				                    _this.addressData.push(add);
 				                    _this.$nextTick( function(){
 				                    	_this.dressData();
-				                    })	
+				                    });
+				                    _this.takeDelivery.consignee = '';
+				                    _this.takeDelivery.sex = '男';
+				                    _this.takeDelivery.mobile = '';
+				                    _this.takeDelivery.province = '选择省份';
+				                    _this.takeDelivery.city = '选择市';
+				                    _this.takeDelivery.district = '选择区';
+				                    _this.takeDelivery.address = '';
+				                    _this.takeDelivery.id = 0;
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
