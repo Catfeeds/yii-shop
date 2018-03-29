@@ -140,28 +140,7 @@
                 id: '' //删除的地址ID
        	    },
        	    created: function(){
-       	    	var _this = this;
-       	    	$.ajax({
-       	    		type:"get",
-       	    		url:"/address/getlist",
-       	    		async:true,
-       	    		success: function(data) {
-		                if(data.status == 0){
-		                    console.log('数据获取成功');		                   
-		                    _this.addressData = data.data;		                    
-		                    console.log(_this.addressData);
-		                    if(_this.addressData.length != 0){
-								_this.sp = true;
-							    _this.cartOrders = true;
-							    _this.noneCar = false;
-							}else{
-								_this.sp = false;
-							    _this.cartOrders = false;
-							    _this.noneCar = true;
-							}               
-		                }	                 	
-		            }
-       	    	});	    	   		    	
+       	    	   this.dressData();  		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();	    	
@@ -175,6 +154,31 @@
 	       	    		this.address1 = false;
 	       	    		this.address2 = true;
 		       	    } 
+       	    	},
+       	    	//获取数据
+       	    	dressData: function(){
+       	    		var _this = this;
+	       	    	$.ajax({
+	       	    		type:"get",
+	       	    		url:"/address/getlist",
+	       	    		async:true,
+	       	    		success: function(data) {
+			                if(data.status == 0){
+			                    console.log('数据获取成功');		                   
+			                    _this.addressData = data.data;		                    
+			                    console.log(_this.addressData);
+			                    if(_this.addressData.length != 0){
+									_this.sp = true;
+								    _this.cartOrders = true;
+								    _this.noneCar = false;
+								}else{
+									_this.sp = false;
+								    _this.cartOrders = false;
+								    _this.noneCar = true;
+								}               
+			                }	                 	
+			            }
+	       	    	});	
        	    	},
        	    	//添加新地址
        	    	bjAddress: function(){
@@ -265,7 +269,10 @@
 					                    address: _this.takeDelivery.address,//具体地址#
 					                    id: 0
 				                    }
-				                    _this.addressData.push(add);	
+				                    _this.addressData.push(add);
+				                    _this.$nextTick( function(){
+				                    	_this.dressData();
+				                    })	
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
