@@ -149,6 +149,9 @@
 		                if(data.status == 0){
 		                    console.log('数据获取成功');		                   
 		                    _this.addressData = data.data;
+		                    _this.$nextTick(function(){
+			       	    		 _this.addressData = data.data;
+			       	    	})
 		                    console.log(_this.addressData);
 		                    if(_this.addressData.length != 0){
 								_this.sp = true;
@@ -256,6 +259,9 @@
 				                if(data.status == 0){
 				                    console.log('提交成功');
 				                    _this.addressData.push(_this.takeDelivery);
+    							    _this.$nextTick(function(){
+					       	    		 _this.addressData.push(_this.takeDelivery);
+					       	    	})
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    
 				                }	                 	
