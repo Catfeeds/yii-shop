@@ -99,8 +99,8 @@ class PayController extends BaseController
 		{
 			echo $result['err_code_des'];exit;
 		}
-    	$url = urlencode($result["code_url"]);
-    	$url ='http://paysdk.weixin.qq.com/qrcode.php?data='.$url;
+    	$url = $result["code_url"];
+    	$url = QRcode::png($url , $outfile = false, $level = QR_ECLEVEL_L, $size = 6, $margin = 2, $saveandprint=false );
     	return $this->render('weixin',['url'=>$url,'orderAmount' =>$order['order_amount']]);
     }
     
