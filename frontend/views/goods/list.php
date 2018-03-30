@@ -6,6 +6,10 @@ use yii\helpers\Url;
             <section class="laber_goods">
             	<div class="goods auto clearfix">
             		<div class="goods_main" id="goods">
+            			<div v-show="noneCar" class="noneCar">
+            				<img src="/img/kong.png"/>
+            				<p>您还没有添加任何商品，快去逛逛吧</p>           				
+            			</div>
             			<ul>
             				<li v-for="lis in aLis">
             					<a :href="lis.thisUrl">
@@ -32,7 +36,8 @@ use yii\helpers\Url;
 			data: {
 				aLis: [],
 				id:'',
-				thisUrl:''
+				thisUrl:'',
+				noneCar: true
 			},
 			created: function(){
 				var _this = this;				
