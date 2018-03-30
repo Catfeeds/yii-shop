@@ -1,3 +1,6 @@
+<?php 
+use yii\helpers\Url;
+?>
 		<div class="container2">
             <section class="laber_shopUser">
             	<div class="shopUser auto clearfix">
@@ -17,7 +20,7 @@
             		<div class="weChat_main">
             			<span>¥<?=$orderAmount?>元</span>
             			<p>打开微信“扫一扫”，立即支付</p>
-            			<img src="<?=$url;?>" />
+            			<img src="<?=Url::to('/pay/qrcode',['data'=>$data]);?>" />
             		</div>
             	</div>
             </section>
