@@ -5,7 +5,7 @@ require_once __DIR__.'/lib/WxPay.Notify.php';
 
 //初始化日志
 
-class PayNotifyCallBack extends WxPayNotify
+class PayNotifyCallBack extends \WxPayNotify
 {
 	//查询订单
 	public function Queryorder($transaction_id)
