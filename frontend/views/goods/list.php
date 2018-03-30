@@ -41,8 +41,7 @@ use yii\helpers\Url;
 				goooList: true
 			},
 			created: function(){
-				var _this = this;				
-				console.log(goodsUrl)							
+				var _this = this;										
 				$.ajax({
 	                url: '/goods/getlist',
 	                type: 'POST',
