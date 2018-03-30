@@ -43,7 +43,7 @@ use yii\helpers\Url;
 			created: function(){
 				var _this = this;										
 				$.ajax({
-	                url: 'goods/getlist',
+	                url: '/goods/getlist',
 	                type: 'POST',
 	                dataType: 'json',
 	                data: '',
