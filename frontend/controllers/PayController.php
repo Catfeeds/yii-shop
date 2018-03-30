@@ -110,6 +110,7 @@ class PayController extends BaseController
     	require yii::getAlias('@common').'/service/pay/weixin/phpqrcode/phpqrcode.php';
     	$url = urldecode($_GET["data"]);
     	\QRcode::png($url , $outfile = false, $level = QR_ECLEVEL_L, $size = 6, $margin = 2, $saveandprint=false );
+		exit();
     }
     
     public function actionWeixinnotify()
