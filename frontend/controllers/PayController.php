@@ -100,6 +100,7 @@ class PayController extends BaseController
 			echo $result['err_code_des'];exit;
 		}
     	$url = $result["code_url"];
+    	ob_clean();
     	$url = \QRcode::png($url , $outfile = false, $level = QR_ECLEVEL_L, $size = 6, $margin = 2, $saveandprint=false );
     	return $this->render('weixin',['url'=>$url,'orderAmount' =>$order['order_amount']]);
     }
