@@ -94,12 +94,10 @@ class PayController extends BaseController
 		if($result['return_code'] == 'FAIL')
 		{	
 			echo $result['return_msg'];exit;
-			//return $this->redirect('/');
 		}
-		print_r($result);exit;
     	$url = urlencode($result["code_url"]);
-    	$url ='http://paysdk.weixin.qq.com/example/qrcode.php?data='.$url;
-    	return $this->render('test',['url'=>$url]);
+    	$url ='http://paysdk.weixin.qq.com/qrcode.php?data='.$url;
+    	return $this->render('test',['url'=>$url,'orderAmount' =>$order['order_amount']]);
     }
     
     
