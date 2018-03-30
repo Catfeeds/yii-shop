@@ -10,7 +10,7 @@ use yii\helpers\Url;
             				<img src="/img/kong.png"/>
             				<p>您还没有添加任何商品，快去逛逛吧</p>           				
             			</div>
-            			<ul>
+            			<ul v-show="goooList">
             				<li v-for="lis in aLis">
             					<a :href="lis.thisUrl">
             						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
@@ -37,7 +37,8 @@ use yii\helpers\Url;
 				aLis: [],
 				id:'',
 				thisUrl:'',
-				noneCar: true
+				noneCar: true,
+				goooList: true
 			},
 			created: function(){
 				var _this = this;				
@@ -60,6 +61,13 @@ use yii\helpers\Url;
 				        }
 	                }
 	            })
+	            if(_this.aLis.length != 0){
+	            	_this.goooList = true;
+	            	_this.noneCar = false;
+	            }else{
+	            	_this.goooList = false;
+	            	_this.noneCar = true;
+	            }
 			}
 		})
 	</script>
