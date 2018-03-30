@@ -133,7 +133,7 @@ class PayController extends BaseController
     	{
     		$xml = file_get_contents('php://input');
     		try {
-    			$result = WxPayResults::Init($xml);
+    			$result = \WxPayResults::Init($xml);
     			file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
     		} catch (WxPayException $e){
     			$msg = $e->errorMessage();
