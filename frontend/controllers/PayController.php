@@ -8,7 +8,6 @@ use yii\web\BadRequestHttpException;
 use common\service\order\OrderService;
 use common\service\pay\weixin\NativePay;
 use common\models\order\Order;
-use common\service\pay\weixin\phpqrcode\QRcode;
 /**
  * Site controller
  */
@@ -108,6 +107,7 @@ class PayController extends BaseController
     public function actionQrcode()
     {	
     	ob_clean();
+    	require yii::getAlias('@common').'/service/pay/weixin/phpqrcode/phpqrcode.php';
     	$url = urldecode($_GET["data"]);
     	QRcode::png($url , $outfile = false, $level = QR_ECLEVEL_L, $size = 6, $margin = 2, $saveandprint=false );
     }

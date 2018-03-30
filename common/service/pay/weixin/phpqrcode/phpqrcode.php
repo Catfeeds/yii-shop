@@ -1,5 +1,4 @@
 <?php
-namespace common\service\pay\weixin\phpqrcode;
 /*
  * PHP QR Code encoder
  *
