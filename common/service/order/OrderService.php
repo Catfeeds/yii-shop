@@ -170,4 +170,11 @@ class OrderService extends BaseService
     	$order = Order::find()->select(['*'])->where(['order_sn' =>$orderSn])->asArray()->one();
     	return $order ?: [];
     }
+    
+    
+    public function getOrderGoodsByOrderId($orderId)
+    {
+    	$orderGoods = OrderGoods::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->one();
+    	return $orderGoods ?: [];
+    }
 }
