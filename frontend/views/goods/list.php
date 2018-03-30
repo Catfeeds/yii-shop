@@ -42,10 +42,10 @@ use yii\helpers\Url;
 	                type: 'POST',
 	                dataType: 'json',
 	                data: '',
-	                success: function(data) {
-	                 	_this.aLis = data.data;
+	                success: function(data) {	                 	
 		                if(data.status =='0')
 			            {
+			            	_this.aLis = data.data;
 			                var list = data.data
 		                 	for(var i in list){
 								_this.id = list[i]._id.$oid;
