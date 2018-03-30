@@ -52,22 +52,22 @@ use yii\helpers\Url;
 		                if(data.status =='0')
 			            {
 			            	_this.aLis = data.data;
+			            	if(_this.aLis.length != 0){
+				            	_this.goooList = true;
+				            	_this.noneCar = false;
+				            }else{
+				            	_this.goooList = false;
+				            	_this.noneCar = true;
+				            }
 			                var list = data.data
 		                 	for(var i in list){
 								_this.id = list[i]._id.$oid;
 								list[i].thisUrl = goodsUrl + '?id=' + _this.id;
 							}	                 	
-		                 	_this.aLis = list;
 				        }
 	                }
 	            })
-	            if(_this.aLis.length != 0){
-	            	_this.goooList = true;
-	            	_this.noneCar = false;
-	            }else{
-	            	_this.goooList = false;
-	            	_this.noneCar = true;
-	            }
+	            
 			}
 		})
 	</script>
