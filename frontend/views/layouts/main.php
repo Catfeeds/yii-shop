@@ -15,7 +15,7 @@ $this->beginPage() ?>
 		<link rel="stylesheet" href="/css/video-js.css" />
 		<link rel="stylesheet" href="/css/aos.css" />
 		<link rel="stylesheet" href="/css/main.css" />
-		
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">		
 		<link rel="icon" href="/img/ico.ico" type="image/x-icon">
 		<link rel="shortcut icon" href="/img/ico.ico" mce_href="/img/ico.ico" type="image/x-icon" />
 		<script type="text/javascript" src="/js/html5shiv.js" ></script>
@@ -24,6 +24,7 @@ $this->beginPage() ?>
 		<script type="text/javascript" src="/js/aos.js" ></script>
 		<script type="text/javascript" src="/js/main.js" ></script>
 		<script type="text/javascript" src="/js/city.js" ></script>
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 		<script>
 			var imgurl ="<?=Yii::$app->params['image']?>";
 			var islogin = "<?=$this->params['isLogin']?>";			

@@ -29,7 +29,7 @@ use yii\helpers\Url;
 		<!-- 主体内容 end  -->
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<script type="text/javascript" src="/js/axios.min.js" ></script>
+	<script type="text/javascript" src="/js/axios.min.js" ></script>	
 	<script type="text/javascript">
 		var goods = new Vue({
 			el: '#goods',
@@ -43,7 +43,7 @@ use yii\helpers\Url;
 			created: function(){
 				var _this = this;										
 				$.ajax({
-	                url: '/goods/getlist',
+	                url: 'goods/getlist',
 	                type: 'POST',
 	                dataType: 'json',
 	                data: '',
@@ -63,6 +63,16 @@ use yii\helpers\Url;
 								_this.id = list[i]._id.$oid;
 								list[i].thisUrl = goodsUrl + '?id=' + _this.id;
 							}	                 	
+				        }else{
+				        	this.$alert('这是一段内容', '标题名称', {
+					          confirmButtonText: '确定',
+					          callback: function(action){
+					            this.$message({
+					              type: 'info',
+					              message: `action: ${ action }`
+					            });
+					          }
+					        });
 				        }
 	                }
 	            })
