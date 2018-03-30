@@ -8,7 +8,7 @@ use yii\helpers\Url;
             		<div class="goods_main" id="goods">
             			<div v-show="noneCar" class="noneCar">
             				<img src="/img/kong.png"/>
-            				<p>您还没有添加任何商品，快去逛逛吧</p>           				
+            				<p>暂时没有任何商品，商家正在紧急上货中...</p>           				
             			</div>
             			<ul v-show="goooList">
             				<li v-for="lis in aLis">
