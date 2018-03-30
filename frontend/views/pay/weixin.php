@@ -20,7 +20,7 @@ use yii\helpers\Url;
             		<div class="weChat_main">
             			<span>¥<?=$orderAmount?>元</span>
             			<p>打开微信“扫一扫”，立即支付</p>
-            			<img src="<?=Url::to('/pay/qrcode',['data'=>$data]);?>" />
+            			<img src="<?=Url::to('/pay/qrcode',['data'=>$url]);?>" />
             		</div>
             	</div>
             </section>
