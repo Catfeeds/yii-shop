@@ -64,15 +64,7 @@ use yii\helpers\Url;
 								list[i].thisUrl = goodsUrl + '?id=' + _this.id;
 							}	                 	
 				        }else{
-				        	this.$alert('这是一段内容', '标题名称', {
-					          confirmButtonText: '确定',
-					          callback: function(action){
-					            this.$message({
-					              type: 'info',
-					              message: `action: ${ action }`
-					            });
-					          }
-					        });
+				        	alert('页面信息错误');
 				        }
 	                }
 	            })
