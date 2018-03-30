@@ -36,7 +36,8 @@ use yii\helpers\Url;
 			data: {
 				aLis: [],
 				id:'',
-				thisUrl:''
+				thisUrl:'',
+				noneCar: true
 			},
 			created: function(){
 				var _this = this;				
