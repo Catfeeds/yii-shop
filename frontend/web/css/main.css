@@ -876,6 +876,25 @@
         font-size: 18px;
         color: #3e3a39;
         clear: both; }
+  .laber_shop .weChat_main {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-bottom: 310px; }
+    .laber_shop .weChat_main span {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font-size: 24px;
+      color: #f1451a;
+      margin-top: 110px; }
+    .laber_shop .weChat_main p {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font-size: 14px;
+      color: #666666;
+      margin: 26px 0 16px; }
 
 .noneCar {
   width: 100%;

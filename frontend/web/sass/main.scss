@@ -1054,6 +1054,28 @@
             }
         }
     }
+     .weChat_main {
+        width: 100%;
+        float: left;
+        text-align: center;
+        margin-bottom: 310px;
+        span {
+            width: 100%;
+            float: left;
+            text-align: center;
+            font-size: 24px;
+            color: #f1451a;
+            margin-top: 110px;
+        }
+        p{
+            width: 100%;
+            float: left;
+            text-align: center;
+            font-size: 14px;
+            color: #666666;
+            margin: 26px 0 16px;
+        }
+    }
 }
 .noneCar {
     width: 100%;
