@@ -143,6 +143,7 @@
         margin-right: 10px; }
         .laber_goods .goods_main ul li a {
           width: 100%;
+          height: 296px;
           float: left; }
           .laber_goods .goods_main ul li a img {
             width: 100%;
@@ -347,23 +348,7 @@
       height: 60px; }
       .laber_shopUser .shopUser_main ul li {
         float: left;
-        margin-left: 60px;
-        height: 60px;
-        text-align: center;
-        position: relative; }
-        .laber_shopUser .shopUser_main ul li a {
-          height: 60px; }
-      .laber_shopUser .shopUser_main ul .on:after {
-        position: absolute;
-        bottom: 4px;
-        width: 26px;
-        height: 5px;
-        background: #fff;
-        content: '';
-        left: 50%;
-        margin-left: -13px;
-        -webkit-transition: 0.3s;
-        transition: 0.3s; }
+        margin-left: 70px; }
 
 .laber_shop {
   width: 100%;
@@ -372,6 +357,34 @@
     width: 100%;
     float: left;
     margin-bottom: 164px; }
+    .laber_shop .shop_main .noneCar {
+      width: 100%;
+      float: left;
+      text-align: center;
+      margin-top: 138px;
+      margin-bottom: 200px; }
+      .laber_shop .shop_main .noneCar img {
+        display: inline-block; }
+      .laber_shop .shop_main .noneCar p {
+        width: 100%;
+        text-align: center;
+        float: left;
+        margin-top: 56px; }
+      .laber_shop .shop_main .noneCar .goshop {
+        width: 100%;
+        float: left;
+        text-align: center;
+        margin-top: 22px; }
+      .laber_shop .shop_main .noneCar .aShop {
+        width: 180px;
+        height: 40px;
+        background: #d3b799;
+        border-radius: 3px;
+        display: inline-block;
+        text-align: center;
+        line-height: 40px;
+        font-size: 18px;
+        clear: both; }
     .laber_shop .shop_main h1 {
       font-size: 16px;
       color: #3e3a39;
@@ -876,35 +889,25 @@
         font-size: 18px;
         color: #3e3a39;
         clear: both; }
-
-.noneCar {
-  width: 100%;
-  float: left;
-  text-align: center;
-  margin-top: 138px;
-  margin-bottom: 200px; }
-  .noneCar img {
-    display: inline-block; }
-  .noneCar p {
-    width: 100%;
-    text-align: center;
-    float: left;
-    margin-top: 56px; }
-  .noneCar .goshop {
+  .laber_shop .weChat_main {
     width: 100%;
     float: left;
     text-align: center;
-    margin-top: 22px; }
-  .noneCar .aShop {
-    width: 180px;
-    height: 40px;
-    background: #d3b799;
-    border-radius: 3px;
-    display: inline-block;
-    text-align: center;
-    line-height: 40px;
-    font-size: 18px;
-    clear: both; }
+    margin-bottom: 310px; }
+    .laber_shop .weChat_main span {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font-size: 24px;
+      color: #f1451a;
+      margin-top: 110px; }
+    .laber_shop .weChat_main p {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font-size: 14px;
+      color: #666666;
+      margin: 26px 0 16px; }
 
 .carBg {
   width: 100%;
@@ -970,14 +973,6 @@
   left: 50%;
   margin-left: -420px;
   border-radius: 5px; }
-  .addressPopup i {
-    background: url(../img/qx2.png) no-repeat;
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    cursor: pointer; }
   .addressPopup span {
     color: #3e3a39;
     font-size: 16px;

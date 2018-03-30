@@ -7,6 +7,8 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use common\service\order\OrderService;
 use common\service\pay\weixin\NativePay;
+use common\service\pay\weixin\PayNotifyCallBack;
+
 use common\models\order\Order;
 /**
  * Site controller
@@ -104,6 +106,11 @@ class PayController extends BaseController
     	return $this->render('weixin',['url'=>$url,'orderAmount' =>$order['order_amount']]);
     }
     
+    
+    /**
+    * @desc 微信支付生成二维码
+    * @param
+    */
     public function actionQrcode()
     {	
     	ob_clean();
@@ -113,8 +120,27 @@ class PayController extends BaseController
 		exit();
     }
     
+    /**
+    * @desc 微信异步回调
+    */
     public function actionWeixinnotify()
     {
-    	
+    	$notify = new PayNotifyCallBack();
+    	$result = $notify->Handle(false);
+    	file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
+    	//验证签名成功
+    	if($result)
+    	{
+    		$xml = file_get_contents('php://input');
+    		try {
+    			$result = WxPayResults::Init($xml);
+    			file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
+    		} catch (WxPayException $e){
+    			$msg = $e->errorMessage();
+    			$notify->setNofity('FAIL',$msg); return;
+    		}
+    		file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
+    	}
     }
+    
 }
