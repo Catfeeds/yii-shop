@@ -79,7 +79,9 @@ class PayController extends BaseController
     	$input->SetAttach($orderGoods['goods_name']);
     	$input->SetGoods_tag($orderGoods['goods_name']);
     	$input->SetOut_trade_no($orderSn);
-    	$input->SetTotal_fee($order['order_amount']);
+    	
+    	$orderAmount = $order['order_amount'] * 100;
+    	$input->SetTotal_fee($orderAmount);
     	
     	$url = Yii::$app->params['weixin.notify'];
     	$input->SetNotify_url($url);
@@ -94,8 +96,7 @@ class PayController extends BaseController
 			echo $result['return_msg'];exit;
 			//return $this->redirect('/');
 		}
-    	var_dump($result);
-    	var_dump($order);
+		print_r($result);exit;
     	$url = urlencode($result["code_url"]);
     	$url ='http://paysdk.weixin.qq.com/example/qrcode.php?data='.$url;
     	return $this->render('test',['url'=>$url]);
