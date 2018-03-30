@@ -89,7 +89,13 @@ class PayController extends BaseController
     	$input->SetTrade_type("NATIVE");
     	$input->SetProduct_id($orderGoods['goods_id']);
     	$result = $notify->GetPayUrl($input);
-    	var_dump($result);exit;
+		if($result['return_code'] == 'FAIL')
+		{	
+			echo $result['return_msg'];exit;
+			//return $this->redirect('/');
+		}
+    	var_dump($result);
+    	var_dump($order);
     	$url = urlencode($result["code_url"]);
     	$url ='http://paysdk.weixin.qq.com/example/qrcode.php?data='.$url;
     	return $this->render('test',['url'=>$url]);
