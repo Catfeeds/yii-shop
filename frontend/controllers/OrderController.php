@@ -118,7 +118,7 @@ class OrderController extends BaseController
     		$order_status = -1;
     	}
     	$data = $orderService->getList($this->userId,$page,$size,$order_status);
-    	return json_encode(['status' => 0,'data' => $data]);
+    	return ['status' => 0,'data' => $data];
     }
 
 }
