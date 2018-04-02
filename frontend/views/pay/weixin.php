@@ -56,9 +56,9 @@ use yii\helpers\Url;
 			                    console.log('请求数据成功');
 			                    orderUrl = data.return_url;
 			                    console.log(orderUrl)
-//			                    if(data.pay_status != 1){
-//			                    	
-//			                    }
+			                    if(data.pay_status != 1){
+			                    	window.location = orderUrl;
+			                    }
 			                }else{
 			                	console.log('请求数据出错');
 			                }                 	
