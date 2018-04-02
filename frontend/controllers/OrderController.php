@@ -77,5 +77,22 @@ class OrderController extends BaseController
     	$returnUrl = Url::to(['/pay/index','id' =>$orderService->orderSn]);
     	return ['status' => 0,'msg' =>'','return_url' => $returnUrl];
     }
+    
+    /**
+    * @desc 查询订单状态 (api)
+    * @param
+    * @return
+    */
+    public function actionPaystatus()
+    {	
+    	$orderSn = trim(Yii::$app->request->get('order_sn'),'');
+    	if(!$orderSn)
+    	{
+    		return ['status' =>1,'msg' => '参数异常' ];
+    	}
+    	$orderService =new	OrderService();
+    	$order =$orderService->getOrderByOrdersn($orderSn);
+		return ['status' =>0,'pay_status' => $order['order_status'] ];
+    }
 
 }
