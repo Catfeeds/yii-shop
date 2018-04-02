@@ -194,4 +194,14 @@ class OrderService extends BaseService
     	 }
     	 return false;
     }
+    
+    
+    public function getList($userId,$offset,$size)
+    {
+    	$orderData = Order::find()->select(['order_status','order_sn','order_amount','consignee','id'])->where(['user_id' => $userId])->offset($offset)->limit($size)->asArray()->all();
+    	foreach($orderData as $v)
+    	{
+    		
+    	}
+    }
 }
