@@ -166,6 +166,24 @@ class PayController extends BaseController
     	{
     		file_put_contents("log.txt", var_export("ok",1)."\n",FILE_APPEND);
     		$xml = file_get_contents('php://input');
+    		$xml = '<xml><appid><![CDATA[wx20cbebb0f693a97d]]></appid>
+<attach><![CDATA[一级普洱茶]]></attach>
+<bank_type><![CDATA[CFT]]></bank_type>
+<cash_fee><![CDATA[10]]></cash_fee>
+<fee_type><![CDATA[CNY]]></fee_type>
+<is_subscribe><![CDATA[Y]]></is_subscribe>
+<mch_id><![CDATA[1499825342]]></mch_id>
+<nonce_str><![CDATA[lz8z9xoenpwpqgj2qxcwm0g9utyzcl11]]></nonce_str>
+<openid><![CDATA[oU75jxDQt8Mn1fBKxWFfylpRIR3A]]></openid>
+<out_trade_no><![CDATA[201804025ac1a38e954f1]]></out_trade_no>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<return_code><![CDATA[SUCCESS]]></return_code>
+<sign><![CDATA[AAEE07BCF720F17EBE578BEFAFD3CBFB]]></sign>
+<time_end><![CDATA[20180402112955]]></time_end>
+<total_fee>10</total_fee>
+<trade_type><![CDATA[NATIVE]]></trade_type>
+<transaction_id><![CDATA[4200000079201804020532115273]]></transaction_id>
+</xml>';
     		try {
     			$result = \WxPayResults::Init($xml);
     			file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
