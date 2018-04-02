@@ -45,7 +45,7 @@ use yii\helpers\Url;
         	methods: {
         		refreshData: function(){
         			$.ajax({
-			            url:'/user/paystatus',
+			            url:'/order/paystatus',
 			            type: 'GET',
 			            dataType: 'json',
 			            data: '',
