@@ -33,7 +33,7 @@ use yii\helpers\Url;
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-        new vue({
+        new Vue({
         	el: '#weixin',
         	data: {
         		
