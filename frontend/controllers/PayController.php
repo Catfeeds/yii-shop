@@ -39,7 +39,7 @@ class PayController extends BaseController
     /**
     * @desc 发起微信支付
     */
-    public function actionStartwexin()
+    public function actionStartweixin()
     {	
     	$orderSn  = trim(Yii::$app->request->get('id'),'');
     	if(!$orderSn)
@@ -142,6 +142,9 @@ class PayController extends BaseController
     			$notify->setNofity('FAIL',$msg); return;
     		}
     		file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
+    	}else
+    	{
+    		echo "数据验证失败";
     	}
     }
     
