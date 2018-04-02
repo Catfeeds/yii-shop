@@ -39,7 +39,7 @@ class PayController extends BaseController
     /**
     * @desc 发起微信支付
     */
-    public function actionStartweixin()
+    public function actionWeixin()
     {	
     	$orderSn  = trim(Yii::$app->request->get('id'),'');
     	if(!$orderSn)
@@ -120,35 +120,7 @@ class PayController extends BaseController
 		exit();
     }
     
-    /**
-    * @desc 微信异步回调
-    */
-    public function actionWeixin()
-    {
-    	$xml = file_get_contents('php://input');
-    	file_put_contents("log.txt", var_export($xml,1)."\n",FILE_APPEND);
-    	$notify = new PayNotifyCallBack();
-    	$result = $notify->Handle(false);
-    	 
-    	//验证签名成功
-    	if($result)
-    	{
-	    	file_put_contents("log.txt", var_export("ok",1)."\n",FILE_APPEND);
-    		$xml = file_get_contents('php://input');
-    		try {
-    			$result = \WxPayResults::Init($xml);
-    			file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
-    		} catch (WxPayException $e){
-    			$msg = $e->errorMessage();
-    			$notify->setNofity('FAIL',$msg); return;
-    		}
-    		file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
-    	}else
-    	{	
-    		file_put_contents("log.txt", var_export("fail",1)."\n",FILE_APPEND);
-    		echo "数据验证失败";
-    	}
-    }
+
     
     
     /**
@@ -156,51 +128,38 @@ class PayController extends BaseController
      */
     public function actionWeixinnotify()
     {
-    	$xml = file_get_contents('php://input');
-    	file_put_contents("log.txt", var_export($xml,1)."\n",FILE_APPEND);
     	$notify = new PayNotifyCallBack();
     	$result = $notify->Handle(false);
-    	 var_dump("验证签名");
-		var_dump($result);
     	//验证签名成功
     	if($result)
     	{
-    		file_put_contents("log.txt", var_export("ok",1)."\n",FILE_APPEND);
     		$xml = file_get_contents('php://input');
-    		$xml = '<xml><appid><![CDATA[wx20cbebb0f693a97d]]></appid>
-<attach><![CDATA[一级普洱茶]]></attach>
-<bank_type><![CDATA[CFT]]></bank_type>
-<cash_fee><![CDATA[10]]></cash_fee>
-<fee_type><![CDATA[CNY]]></fee_type>
-<is_subscribe><![CDATA[Y]]></is_subscribe>
-<mch_id><![CDATA[1499825342]]></mch_id>
-<nonce_str><![CDATA[lz8z9xoenpwpqgj2qxcwm0g9utyzcl11]]></nonce_str>
-<openid><![CDATA[oU75jxDQt8Mn1fBKxWFfylpRIR3A]]></openid>
-<out_trade_no><![CDATA[201804025ac1a38e954f1]]></out_trade_no>
-<result_code><![CDATA[SUCCESS]]></result_code>
-<return_code><![CDATA[SUCCESS]]></return_code>
-<sign><![CDATA[AAEE07BCF720F17EBE578BEFAFD3CBFB]]></sign>
-<time_end><![CDATA[20180402112955]]></time_end>
-<total_fee>10</total_fee>
-<trade_type><![CDATA[NATIVE]]></trade_type>
-<transaction_id><![CDATA[4200000079201804020532115273]]></transaction_id>
-</xml>';
+	    	file_put_contents("log.txt", var_export($xml,1)."\n",FILE_APPEND);
     		try {
-    			var_dump("处理逻辑");
     			$dataBase = new \WxPayDataBase();
     			$result = $dataBase->FromXml($xml);
-    			var_dump($result);exit;
-    			file_put_contents("log.txt", var_export($result,1)."result\n",FILE_APPEND);
+    			
+    			$orderService = new OrderService();
+    			$order = $orderService->getOrderByOrdersn($orderSn);
+    			if($order['order_status']!= '1' || !$result['out_trade_no'])
+    			{
+    				 $notify->setNofity('FAIL','订单已支付或者商户订单号不存在'); return;
+    			}
+    			$res = $orderService->updateOrderStatus($result['out_trade_no'],$result['transaction_id']);
+    			if(!$res)
+    			{
+    				$notify->setNofity('FAIL','订单状态更新失败'); return;
+    			}
+    			$notify->setNofity('SUCCESS','订单状态更新成功');
     		} catch (WxPayException $e){
     			$msg = $e->errorMessage();
-    			var_dump("处理逻辑错误".$msg);exit;
     			$notify->setNofity('FAIL',$msg); return;
     		}
     		file_put_contents("log.txt", var_export($result,1)."resultok\n",FILE_APPEND);
     	}else
     	{
     		file_put_contents("log.txt", var_export("fail",1)."\n",FILE_APPEND);
-    		echo "数据验证失败";
+    		$notify->setNofity('FAIL','数据验证失败'); return;
     	}
     }
     

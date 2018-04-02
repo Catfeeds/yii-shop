@@ -177,4 +177,21 @@ class OrderService extends BaseService
     	$orderGoods = OrderGoods::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->one();
     	return $orderGoods ?: [];
     }
+    
+    /**
+    * @desc  更新订单状态
+    * @param
+    */
+    public function updateOrderStatus($orderSn,$tradeNo)
+    {
+    	 $orderModel = Order::findOne(['order_sn' => $orderSn,'order_status' =>1]);
+    	 if($orderModel)
+    	 {
+    	 	$orderModel->order_status = 2;
+    	 	$orderModel->trade_no = $tradeNo;
+    	 	$orderModel->save();
+    	 	return true;
+    	 }
+    	 return false;
+    }
 }

@@ -18,16 +18,16 @@ class WxPayNotify extends WxPayNotifyReply
 		$result = WxpayApi::notify(array($this, 'NotifyCallBack'), $msg);
 		
 		if($result == false){
-			////$this->SetReturn_code("FAIL");
-			//$this->SetReturn_msg($msg);
-			//$this->ReplyNotify(false);
+			$this->SetReturn_code("FAIL");
+			$this->SetReturn_msg($msg);
+			$this->ReplyNotify(false);
 		} else {
 			//该分支在成功回调到NotifyCallBack方法，处理完成之后流程
-			//$this->SetReturn_code("SUCCESS");
-			//$this->SetReturn_msg("OK");
+			$this->SetReturn_code("SUCCESS");
+			$this->SetReturn_msg("OK");
+			$this->ReplyNotify($needSign);
 		}
 		return $result;
-		//$this->ReplyNotify($needSign);
 	}
 	
 	
@@ -72,7 +72,6 @@ class WxPayNotify extends WxPayNotifyReply
 			$this->SetReturn_code("FAIL");
 			$this->SetReturn_msg($msg);
 		}
-		file_put_contents("log.txt", var_export($msg,1)."step2\n",FILE_APPEND);
 		return $result;
 	}
 	
