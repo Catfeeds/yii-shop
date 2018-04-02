@@ -9,6 +9,11 @@ use yii\helpers\Url;
 class OrderController extends BaseController
 {	
 	
+	public function actionList()
+	{
+		return $this->render('list');
+	}
+	
 	/**
 	* @desc 确认订单页面(此方法数据没有完全分离)
 	*/
