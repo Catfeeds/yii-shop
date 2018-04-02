@@ -101,7 +101,7 @@
             			<div class="money">
             				<dl>
             					<dt>商品总额</dt>
-            					<dd>￥{{ zjMoney }}</dd>
+            					<dd>￥{{ zjMoney | formatMoney }}</dd>
             				</dl>
             				<!--<dl>
             					<dt>运费</dt>
