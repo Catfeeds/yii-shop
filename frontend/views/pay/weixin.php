@@ -44,11 +44,12 @@ use yii\helpers\Url;
         	},
         	methods: {
         		refreshData: function(){
+        			var _this = this;
         			$.ajax({
 			            url:'/order/paystatus',
 			            type: 'GET',
 			            dataType: 'json',
-			            data: '{order_sn: this.orderId}',
+			            data: {order_sn: _this.orderId},
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('请求数据成功');
