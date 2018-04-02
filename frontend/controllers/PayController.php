@@ -103,7 +103,7 @@ class PayController extends BaseController
 		}
     	$url = $result["code_url"];
     	$url = urlencode($url);
-    	return $this->render('weixin',['url'=>$url,'orderAmount' =>$order['order_amount']]);
+    	return $this->render('weixin',['url'=>$url,'orderAmount' =>$order['order_amount'],'id' =>$orderSn]);
     }
     
     
