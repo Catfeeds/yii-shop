@@ -140,22 +140,24 @@ class PayController extends BaseController
     			$result = $dataBase->FromXml($xml);
     			
     			$orderService = new OrderService();
-    			$order = $orderService->getOrderByOrdersn($orderSn);
-    			if($order['order_status']!= '1' || !$result['out_trade_no'])
-    			{
+    			$order = $orderService->getOrderByOrdersn($result['out_trade_no']);
+    			if($order['order_status']!= '1')
+    			{	
+    				file_put_contents("log.txt", var_export('订单已支付或者商户订单号不存在',1)."\n",FILE_APPEND);
     				 $notify->setNofity('FAIL','订单已支付或者商户订单号不存在'); return;
     			}
     			$res = $orderService->updateOrderStatus($result['out_trade_no'],$result['transaction_id']);
     			if(!$res)
-    			{
+    			{	
+    				file_put_contents("log.txt", var_export('订单状态更新失败',1)."\n",FILE_APPEND);
     				$notify->setNofity('FAIL','订单状态更新失败'); return;
     			}
-    			$notify->setNofity('SUCCESS','订单状态更新成功');
+    			file_put_contents("log.txt", var_export('订单状态更新成功',1)."\n",FILE_APPEND);
+    			$notify->setNofity('SUCCESS','订单状态更新成功');return;
     		} catch (WxPayException $e){
     			$msg = $e->errorMessage();
     			$notify->setNofity('FAIL',$msg); return;
     		}
-    		file_put_contents("log.txt", var_export($result,1)."resultok\n",FILE_APPEND);
     	}else
     	{
     		file_put_contents("log.txt", var_export("fail",1)."\n",FILE_APPEND);
