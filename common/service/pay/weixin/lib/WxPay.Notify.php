@@ -21,12 +21,12 @@ class WxPayNotify extends WxPayNotifyReply
 			////$this->SetReturn_code("FAIL");
 			//$this->SetReturn_msg($msg);
 			//$this->ReplyNotify(false);
-			return $result;
 		} else {
 			//该分支在成功回调到NotifyCallBack方法，处理完成之后流程
 			//$this->SetReturn_code("SUCCESS");
 			//$this->SetReturn_msg("OK");
 		}
+		return $result;
 		//$this->ReplyNotify($needSign);
 	}
 	
