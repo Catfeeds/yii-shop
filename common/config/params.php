@@ -35,5 +35,5 @@ return [
         'appsecret' =>'6a3facc08da612495421efb22f153735',
         'callback' =>'http://yii-shop.xiwenkeji.com/user/weixin',
     ],
-    'weixin.notify' => 'http://tea.reallytalent.cn/pay/weixinnotify',
+    'weixin.notify' => 'http://tea.reallytalent.cn/pay/weixin',
 ];

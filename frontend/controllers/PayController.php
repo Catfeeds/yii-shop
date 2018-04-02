@@ -39,7 +39,7 @@ class PayController extends BaseController
     /**
     * @desc 发起微信支付
     */
-    public function actionWeixin()
+    public function actionStartwexin()
     {	
     	$orderSn  = trim(Yii::$app->request->get('id'),'');
     	if(!$orderSn)
@@ -123,7 +123,7 @@ class PayController extends BaseController
     /**
     * @desc 微信异步回调
     */
-    public function actionWeixinnotify()
+    public function actionWeixin()
     {
     	$notify = new PayNotifyCallBack();
     	$result = $notify->Handle(false);
