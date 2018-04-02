@@ -127,6 +127,8 @@ class PayController extends BaseController
     {
     	$notify = new PayNotifyCallBack();
     	$result = $notify->Handle(false);
+    	$xml = file_get_contents('php://input');
+    	file_put_contents("log.txt", var_export($xml,1),FILE_APPEND);
     	file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
     	//验证签名成功
     	if($result)
