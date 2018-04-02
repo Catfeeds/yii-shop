@@ -35,5 +35,5 @@ return [
         'appsecret' =>'6a3facc08da612495421efb22f153735',
         'callback' =>'http://tea.reallytalent.cn/user/weixin',
     ],
-    'weixin.notify' => 'http://tea.reallytalent.cn/pay/weixinNotify/',
+    'weixin.notify' => 'http://tea.reallytalent.cn/pay/weixinnotify/',
 ];
