@@ -433,7 +433,7 @@ class WxPayApi
 		//如果返回成功则验证签名
 		try {
 			$result = WxPayResults::Init($xml);
-			file_put_contents("log.txt", var_export($msg,1)."step1\n",FILE_APPEND);
+			file_put_contents("log.txt", var_export($result,1)."step01\n",FILE_APPEND);
 		} catch (WxPayException $e){
 			$msg = $e->errorMessage();
 			file_put_contents("log.txt", var_export($msg,1)."step1\n",FILE_APPEND);
