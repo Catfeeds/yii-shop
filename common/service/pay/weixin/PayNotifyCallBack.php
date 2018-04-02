@@ -10,9 +10,9 @@ class PayNotifyCallBack extends \WxPayNotify
 	//查询订单
 	public function Queryorder($transaction_id)
 	{
-		$input = new WxPayOrderQuery();
+		$input = new \WxPayOrderQuery();
 		$input->SetTransaction_id($transaction_id);
-		$result = WxPayApi::orderQuery($input);
+		$result = \WxPayApi::orderQuery($input);
 		//Log::DEBUG("query:" . json_encode($result));
 		if(array_key_exists("return_code", $result)
 			&& array_key_exists("result_code", $result)
