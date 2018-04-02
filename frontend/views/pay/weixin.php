@@ -37,21 +37,28 @@ use yii\helpers\Url;
         new Vue({
         	el: '#weixin',
         	data: {
-        		
+        		orderId: id
         	},
         	created: function(){
         		this.refreshData();
         	},
         	methods: {
         		refreshData: function(){
+        			var _this = this;
+        			var orderUrl;
         			$.ajax({
 			            url:'/order/paystatus',
 			            type: 'GET',
 			            dataType: 'json',
-			            data: '',
+			            data: {order_sn: _this.orderId},
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('请求数据成功');
+			                    orderUrl = data.return_url;
+			                    console.log(orderUrl)
+			                    if(data.pay_status != 1){
+			                    	window.location = orderUrl;
+			                    }
 			                }else{
 			                	console.log('请求数据出错');
 			                }                 	
