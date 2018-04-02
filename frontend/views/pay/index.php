@@ -24,7 +24,7 @@
             					<span>{{ opt.name }}</span>
             					<p>{{ opt.nameEg }}</p>
             				</li>
-            				<button type="button">立即付款</button>
+            				<button @click="btnFk" type="button">立即付款</button>
             			</div>            			
             		</div>
             	</div>
@@ -62,6 +62,9 @@
         	methods: {
         		payment: function(index){
         			this.ont = index;
+        		},
+        		btnFk: function(){
+        			window.location = '/pay/weixin' + '?id=' + order_id;
         		}
         	}
         })
