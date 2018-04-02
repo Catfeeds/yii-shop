@@ -187,6 +187,7 @@ class PayController extends BaseController
     		try {
     			$dataBase = new \WxPayDataBase();
     			$result = $dataBase->FromXml($xml);
+    			var_dump($result);exit;
     			file_put_contents("log.txt", var_export($result,1)."result\n",FILE_APPEND);
     		} catch (WxPayException $e){
     			$msg = $e->errorMessage();
