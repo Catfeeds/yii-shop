@@ -48,7 +48,6 @@ use yii\helpers\Url;
 			            type: 'GET',
 			            dataType: 'json',
 			            data: '',
-			            time
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('请求数据成功');
