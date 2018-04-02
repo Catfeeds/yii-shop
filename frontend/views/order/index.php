@@ -91,7 +91,7 @@
             							<b>{{ goodLis.name }}</b>
             						</a>
             						<p  class="d2">{{ parseInt(goodLis.goods_num) }}</p>
-            						<p>{{ parseInt(goodLis.goods_num) * goodLis.shop_price }}</p>
+            						<p>{{ parseInt(goodLis.goods_num) * goodLis.shop_price | formatMoney}}</p>
             					</li>
             				</ul>
             				<div class="bz">
@@ -103,13 +103,13 @@
             					<dt>商品总额</dt>
             					<dd>￥{{ zjMoney }}</dd>
             				</dl>
-            				<dl>
+            				<!--<dl>
             					<dt>运费</dt>
             					<dd>￥{{ yfMoney}}元</dd>
-            				</dl>
+            				</dl>-->
             				<dl>
             					<dt class="fs1">支付金额</dt>
-            					<dd class="fs1">￥{{ yfMoney + zjMoney }}元</dd>
+            					<dd class="fs1">￥{{zjMoney | formatMoney}}元</dd>
             				</dl>
             				<a @click="moneyZf" href="javascript:;" class="money-zf">立即支付</a>
             			</div>
@@ -178,6 +178,24 @@
     	console.log(goods);
 	</script>
 	<script type="text/javascript">
+		Vue.filter('formatMoney', function(val){
+		 	val = val.toString().replace(/\$|\,/g,'');
+		    if(isNaN(val)) {
+		      val = "0";  
+		    } 
+		    let sign = (val == (val = Math.abs(val)));
+		    val = Math.floor(val*100+0.50000000001);
+		    let cents = val%100;
+		    val = Math.floor(val/100).toString();
+		    if(cents<10) {
+		       cents = "0" + cents
+		    }
+		    for (var i = 0; i < Math.floor((val.length-(1+i))/3); i++) {
+		        val = val.substring(0,val.length-(4*i+3))+',' + val.substring(val.length-(4*i+3));
+		    }
+		
+		    return (((sign)?'':'-') + val + '.' + cents);
+		})
         var shop = new Vue({
        	    el:'#shopData',
        	    data: {
