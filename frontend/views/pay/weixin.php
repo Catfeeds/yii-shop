@@ -45,6 +45,7 @@ use yii\helpers\Url;
         	methods: {
         		refreshData: function(){
         			var _this = this;
+        			var orderUrl;
         			$.ajax({
 			            url:'/order/paystatus',
 			            type: 'GET',
@@ -53,6 +54,11 @@ use yii\helpers\Url;
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('请求数据成功');
+			                    orderUrl = data.return_url;
+			                    console.log(orderUrl)
+//			                    if(data.pay_status != 1){
+//			                    	
+//			                    }
 			                }else{
 			                	console.log('请求数据出错');
 			                }                 	
