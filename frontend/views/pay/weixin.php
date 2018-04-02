@@ -39,9 +39,8 @@ use yii\helpers\Url;
         	data: {
         		orderId: id
         	},
-        	created() {
-        		var _this = this;
-        		setinterval(_this.refreshData(),1000)
+        	created(){
+        		setinterval(this.refreshData(),1000)
         	},
         	methods: {
         		refreshData: function(){
