@@ -150,4 +150,35 @@ class PayController extends BaseController
     	}
     }
     
+    
+    /**
+     * @desc 微信异步回调
+     */
+    public function actionWeixinnotify()
+    {
+    	$notify = new PayNotifyCallBack();
+    	$result = $notify->Handle(false);
+    	$xml = file_get_contents('php://input');
+    	file_put_contents("log.txt", var_export($xml,1)."\n",FILE_APPEND);
+    
+    	//验证签名成功
+    	if($result)
+    	{
+    		file_put_contents("log.txt", var_export("ok",1)."\n",FILE_APPEND);
+    		$xml = file_get_contents('php://input');
+    		try {
+    			$result = \WxPayResults::Init($xml);
+    			file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
+    		} catch (WxPayException $e){
+    			$msg = $e->errorMessage();
+    			$notify->setNofity('FAIL',$msg); return;
+    		}
+    		file_put_contents("log.txt", var_export($result,1),FILE_APPEND);
+    	}else
+    	{
+    		file_put_contents("log.txt", var_export("fail",1)."\n",FILE_APPEND);
+    		echo "数据验证失败";
+    	}
+    }
+    
 }
