@@ -41,10 +41,11 @@ class GoodsService extends BaseService
     }
 	
     
-    public static function getList($size,$offset)
+    public static function getList($page,$size)
     {	
     	$size = $size ?: 10;
-    	$offset = $offset ?: 0;
+    	$page = $page ?: 0;
+    	$offset = $page*$size;
      	$goods = Goods::find()->select(['name','short_name','cid','image','_id','shop_price'])->orderBy('updated_at desc')->limit($size)->offset($offset)->asArray()->all();
     	return $goods ?: [];
     }

@@ -195,13 +195,27 @@ class OrderService extends BaseService
     	 return false;
     }
     
-    
-    public function getList($userId,$offset,$size)
-    {
-    	$orderData = Order::find()->select(['order_status','order_sn','order_amount','consignee','id'])->where(['user_id' => $userId])->offset($offset)->limit($size)->asArray()->all();
-    	foreach($orderData as $v)
+    /**
+    * @desc订单列表 
+    * @param
+    * @return
+    */
+    public function getList($userId,$page=0,$size=10,$orderStatus=-1)
+    {	
+    	$size = $size ?: 10 ;
+    	$page = $page ?: 0;
+    	$offset = $page*$size;
+    	$where = ['user_id' => $userId];
+    	if($orderStatus !=-1)
     	{
-    		
+    		$where['order_status'] = $orderStatus;
     	}
+    	$orderData = Order::find()->select(['order_status','order_sn','order_amount','consignee','id'])->where($where)->offset($offset)->limit($size)->asArray()->all();
+    	foreach($orderData as $k =>$v)
+    	{
+    		$v['goods_list'] =$this->getOrderGoodsByOrderId($v['id']);
+    		$orderData[$k] = $v;
+    	}
+    	return $orderData ?: [];
     }
 }

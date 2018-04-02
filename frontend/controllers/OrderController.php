@@ -108,8 +108,17 @@ class OrderController extends BaseController
     * @desc 订单列表api
     */
     public function actionOrderlist()
-    {
-    	
+    {	
+    	$orderService = new OrderService();	
+    	$size = Yii::$app->request->post('size');
+    	$page = Yii::$app->request->post('page');
+    	$order_status = Yii::$app->request->post('order_status');
+    	if(!$order_status)
+    	{
+    		$order_status = -1;
+    	}
+    	$data = $orderService->getList($this->userId,$page,$size,$order_status);
+    	return json_encode(['status' => 0,'data' => $data]);
     }
 
 }
