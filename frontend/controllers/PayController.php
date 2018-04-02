@@ -125,10 +125,10 @@ class PayController extends BaseController
     */
     public function actionWeixin()
     {
-    	$notify = new PayNotifyCallBack();
-    	$result = $notify->Handle(false);
     	$xml = file_get_contents('php://input');
     	file_put_contents("log.txt", var_export($xml,1)."\n",FILE_APPEND);
+    	$notify = new PayNotifyCallBack();
+    	$result = $notify->Handle(false);
     	 
     	//验证签名成功
     	if($result)
@@ -156,11 +156,11 @@ class PayController extends BaseController
      */
     public function actionWeixinnotify()
     {
-    	$notify = new PayNotifyCallBack();
-    	$result = $notify->Handle(false);
     	$xml = file_get_contents('php://input');
     	file_put_contents("log.txt", var_export($xml,1)."\n",FILE_APPEND);
-    
+    	$notify = new PayNotifyCallBack();
+    	$result = $notify->Handle(false);
+    	 
     	//验证签名成功
     	if($result)
     	{
