@@ -1,7 +1,7 @@
 <?php 
 use yii\helpers\Url;
 ?>
-		<div class="container2">
+		<div class="container2" id="weixin">
             <section class="laber_shopUser">
             	<div class="shopUser auto clearfix">
             		<div class="shopUser_main">
@@ -33,5 +33,29 @@ use yii\helpers\Url;
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-    
+        new vue({
+        	el: '#weixin',
+        	data: {
+        		
+        	},
+        	created: function(){
+        		this.refreshData();
+        	},
+        	methods: {
+        		refreshData: function(){
+        			$.ajax({
+			            url:'/user/paystatus',
+			            type: 'GET',
+			            dataType: 'json',
+			            data: '',
+			            time
+			            success: function(data) {
+			                if(data.status == 0){
+			                    console.log('请求数据成功');
+			                }	                 	
+			            }
+			        })
+        		}       		
+        	}
+        })
 	</script>
