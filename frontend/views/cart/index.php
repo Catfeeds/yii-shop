@@ -45,13 +45,13 @@
             							<img :src="imgurl + item.image">
             							<b>{{item.name}}</b>
             						</a>
-            						<p class="dd3">{{item.shop_price}}</p>
+            						<p class="dd3">{{item.shop_price | formatMoney}}</p>
             						<div id="" class="data_number dd4">
 										<input @click="btnMinus(index)" class="" type="button" value="-" />
 										<input class="sl" type="text" v-model="item.goods_num" />
 										<input @click="btnAdd(index)" type="button" value="+" />
 									</div>
-									<label for="price1" class="dd5">{{ item.goods_num * item.shop_price }}</label>
+									<label for="price1" class="dd5">{{ item.goods_num * item.shop_price | formatMoney }}</label>
 									<p @click="deletes(item)" class="delete">删除</p>
             					</li>
             				</ul>
@@ -100,6 +100,11 @@
 				shopUrl: '',
 				dataForm: []	
 			},
+			filters:{ // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
+		        formatMoney:function (value) { // 默认接收一个参数
+		            return value.toFixed(2); // 返回一个¥ 加上2位小数
+		        }
+		    },
 			created: function(){
 				var _this = this;
 				var goodId;
