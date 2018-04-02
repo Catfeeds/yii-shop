@@ -40,7 +40,8 @@ use yii\helpers\Url;
         		orderId: id
         	},
         	created: function(){
-        		setinterval(this.refreshData(),1000)
+        		var _this = this;
+        		setinterval(_this.refreshData(),1000)
         	},
         	methods: {
         		refreshData: function(){
