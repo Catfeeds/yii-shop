@@ -83,8 +83,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-		 Vue.filter('formatMoney', function(value){
-		 	return value.toFixed(2); // 返回一个¥ 加上2位小数
+		 Vue.filter('formatMoney', function(val){
+		 	return val.toFixed(2); // 返回一个¥ 加上2位小数
 		 })
          var cartMain = new Vue({
          	el: '#cartmain',
