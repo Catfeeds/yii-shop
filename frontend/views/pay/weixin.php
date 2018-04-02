@@ -51,7 +51,9 @@ use yii\helpers\Url;
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('请求数据成功');
-			                }	                 	
+			                }else{
+			                	console.log('请求数据出错');
+			                }                 	
 			            }
 			        })
         		}       		
