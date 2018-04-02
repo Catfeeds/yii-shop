@@ -36,7 +36,7 @@ use yii\helpers\Url;
         new Vue({
         	el: '#weixin',
         	data: {
-        		
+        		order_sn
         	},
         	created: function(){
         		this.refreshData();
