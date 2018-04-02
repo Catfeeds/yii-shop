@@ -185,7 +185,8 @@ class PayController extends BaseController
 <transaction_id><![CDATA[4200000079201804020532115273]]></transaction_id>
 </xml>';
     		try {
-    			$result = \WxPayResults::Init($xml);
+    			$dataBase = new \WxPayDataBase();
+    			$result = $dataBase->FromXml($xml);
     			file_put_contents("log.txt", var_export($result,1)."result\n",FILE_APPEND);
     		} catch (WxPayException $e){
     			$msg = $e->errorMessage();
