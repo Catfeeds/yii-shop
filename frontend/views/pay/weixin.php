@@ -37,7 +37,7 @@ use yii\helpers\Url;
         new Vue({
         	el: '#weixin',
         	data: {
-        		order_sn
+        		orderId: id
         	},
         	created: function(){
         		this.refreshData();
@@ -48,7 +48,7 @@ use yii\helpers\Url;
 			            url:'/order/paystatus',
 			            type: 'GET',
 			            dataType: 'json',
-			            data: '',
+			            data: '{order_sn: this.orderId}',
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('请求数据成功');
