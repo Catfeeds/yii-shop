@@ -101,7 +101,7 @@ class OrderController extends BaseController
     	{
     		return ['status' =>1,'msg' => '订单号异常' ];
     	}
-		return ['status' =>0,'pay_status' => $order['order_status'] ];
+		return ['status' =>0,'pay_status' => $order['order_status'],'return_url' =>Url::to(['/order/list'])  ];
     }
 
 }
