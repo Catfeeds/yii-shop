@@ -19,7 +19,7 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
-
+./frontend/web/log.txt
 # composer itself is not needed
 composer.phar
 
