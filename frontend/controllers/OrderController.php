@@ -92,6 +92,10 @@ class OrderController extends BaseController
     	}
     	$orderService =new	OrderService();
     	$order =$orderService->getOrderByOrdersn($orderSn);
+    	if($order['user_id'] !=$this->userId)
+    	{
+    		return ['status' =>1,'msg' => '订单号异常' ];
+    	}
 		return ['status' =>0,'pay_status' => $order['order_status'] ];
     }
 
