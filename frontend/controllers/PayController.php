@@ -160,7 +160,8 @@ class PayController extends BaseController
     	file_put_contents("log.txt", var_export($xml,1)."\n",FILE_APPEND);
     	$notify = new PayNotifyCallBack();
     	$result = $notify->Handle(false);
-    	 
+    	 var_dump("验证签名");
+		var_dump($result);
     	//验证签名成功
     	if($result)
     	{
@@ -185,12 +186,14 @@ class PayController extends BaseController
 <transaction_id><![CDATA[4200000079201804020532115273]]></transaction_id>
 </xml>';
     		try {
+    			var_dump("处理逻辑");
     			$dataBase = new \WxPayDataBase();
     			$result = $dataBase->FromXml($xml);
     			var_dump($result);exit;
     			file_put_contents("log.txt", var_export($result,1)."result\n",FILE_APPEND);
     		} catch (WxPayException $e){
     			$msg = $e->errorMessage();
+    			var_dump("处理逻辑错误".$msg);exit;
     			$notify->setNofity('FAIL',$msg); return;
     		}
     		file_put_contents("log.txt", var_export($result,1)."resultok\n",FILE_APPEND);
