@@ -83,6 +83,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
+		 Vue.filter('formatMoney', function(value){
+		 	return value.toFixed(2); // 返回一个¥ 加上2位小数
+		 })
          var cartMain = new Vue({
          	el: '#cartmain',
          	data: {
@@ -100,11 +103,11 @@
 				shopUrl: '',
 				dataForm: []	
 			},
-			filters:{ // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
-		        formatMoney:function (value) { // 默认接收一个参数
-		            return value.toFixed(2); // 返回一个¥ 加上2位小数
-		        }
-		    },
+//			filters:{ 
+//		        formatMoney:function (value) { // 默认接收一个参数
+//		            return value.toFixed(2); // 返回一个¥ 加上2位小数
+//		        }
+//		    },
 			created: function(){
 				var _this = this;
 				var goodId;
