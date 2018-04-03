@@ -139,7 +139,8 @@ class Order extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-    	return $this->hasOne(User::className(), ['user_id' => 'id']);
+    	$userModel = User::findOne($this->user_id);
+    	return $userModel->mobile;
     }
     
     /**

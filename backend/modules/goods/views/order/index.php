@@ -48,8 +48,8 @@ $this->title = "Admin Log";
                 		[
                 			'attribute' => 'user_id',
                 			'value' => function($model){
-                				$user = $model->user;
-                				return $user->mobile;
+                				return  $model->user;
+                				
                 			}
                 		],
                        [
