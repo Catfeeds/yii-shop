@@ -86,7 +86,7 @@
             				</dl>
             				<ul>
             					<li v-for="goodLis in goodsData">
-            						<a class="d1" href="#">
+            						<a class="d1" :href="goodUrl + '?id=' + goodLis._id[0].$oid">
             							<img :src="imgurl + goodLis.image[0]">
             							<b>{{ goodLis.name }}</b>
             						</a>
@@ -224,7 +224,8 @@
                 yfMoney: 10,  //邮费                
                 addressId: '',  // 传给后端地址ID
                 currenIndex:0,  // 默认index
-                message: ''
+                message: '',
+                goodUrl: goodsUrl
        	    },
        	    created: function(){
        	    	this.dressData();     	    	 
