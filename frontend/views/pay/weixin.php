@@ -37,8 +37,7 @@ use yii\helpers\Url;
         new Vue({
         	el: '#weixin',
         	data: {
-        		orderId: id,
-        		orderUrl: ''
+        		orderId: id
         	},
         	created: function(){ 
         		let self = this;
@@ -48,7 +47,7 @@ use yii\helpers\Url;
         	methods: {
         		refreshData: function(){
         			var _this = this;
-//      			var orderUrl;
+        			var orderUrl;
         			$.ajax({
 			            url:'/order/paystatus',
 			            type: 'GET',
@@ -57,10 +56,10 @@ use yii\helpers\Url;
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('请求数据成功');
-			                    _this.orderUrl = data.return_url;
+			                    orderUrl = data.return_url;
 			                    console.log(orderUrl)
 			                    if(data.pay_status != 1){
-			                    	window.location = _this.orderUrl;
+			                    	window.location = orderUrl;
 			                    	console.log(1);
 			                    }
 			                }else{
