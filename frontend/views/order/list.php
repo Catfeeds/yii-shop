@@ -77,6 +77,7 @@
             methods: {
                 orderList: function(){
                 	let _this = this;
+                	var goodList;
                 	$.ajax({
                 		type:"POST",
                 		url:"/order/orderlist",
@@ -86,11 +87,12 @@
                 			if(data.status == 0){
                 				console.log('数据获取成功');
                 				_this.ListData = data.data;
-//              				for(var i in _this.ListData){
-//              					_this.goodList = _this.ListData[i].goods_list;
-//              					
-//              				}
-//              				console.log(_this.goodList);
+                				for(var i in _this.ListData){
+                					goodList = _this.ListData[i].goods_list;
+                					for(var j in goodList){
+                						console.log(goodList[j].length);
+                					}
+                				}             				
                 				console.log(_this.ListData);
                 				if(_this.ListData.order_status == 1){
                 					_this.statusNum = 1;
