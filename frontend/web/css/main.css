@@ -217,6 +217,20 @@
           height: 130px;
           background: #d3b799;
           cursor: pointer; }
+        .laber_details .details_main .details_top .details_fl .preve:hover {
+          background: #bb956c;
+          -webkit-transition: 1s;
+          transition: 1s; }
+        .laber_details .details_main .details_top .details_fl .preve:after {
+          content: '';
+          position: absolute;
+          width: 11px;
+          height: 18px;
+          left: 50%;
+          margin-left: -5px;
+          background: url(../img/left.png) no-repeat;
+          top: 50%;
+          margin-top: -9px; }
         .laber_details .details_main .details_top .details_fl .next {
           position: absolute;
           bottom: 0;
@@ -225,6 +239,20 @@
           height: 130px;
           background: #d3b799;
           cursor: pointer; }
+        .laber_details .details_main .details_top .details_fl .next:hover {
+          background: #bb956c;
+          -webkit-transition: 1s;
+          transition: 1s; }
+        .laber_details .details_main .details_top .details_fl .next:after {
+          content: '';
+          position: absolute;
+          width: 11px;
+          height: 18px;
+          left: 50%;
+          margin-left: -5px;
+          background: url(../img/right.png) no-repeat;
+          top: 50%;
+          margin-top: -9px; }
       .laber_details .details_main .details_top .details_fr {
         width: calc(600px - 158px);
         height: 535px;
@@ -839,7 +867,7 @@
         margin-top: 34px;
         border-radius: 5px; }
     .laber_shop .shop_main .address_cont {
-      width: 100%;
+      width: 740px;
       float: left;
       margin-top: 30px; }
       .laber_shop .shop_main .address_cont li {
@@ -851,7 +879,8 @@
           .laber_shop .shop_main .address_cont li .lis h3 {
             font-size: 12px;
             color: #3e3a39;
-            font-weight: normal; }
+            font-weight: normal;
+            float: none; }
           .laber_shop .shop_main .address_cont li .lis input {
             width: calc(100% - 22px);
             height: 38px;

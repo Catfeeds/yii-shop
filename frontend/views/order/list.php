@@ -5,9 +5,9 @@
             			<p>您好，15038384758</p>
             			<ul>
             				<li><a href="">密码管理</a></li>
-            				<li><a href="">购物车</a></li>
-            				<li><a href="">收货地址</a></li>
-            				<li><a href="">我的订单</a></li>
+            				<li><a href="/cart/index">购物车</a></li>
+            				<li><a href="/address/index">收货地址</a></li>
+            				<li class="on"><a href="/order/list">我的订单</a></li>
             			</ul>
             		</div>
             	</div>
@@ -15,8 +15,15 @@
             <section class="laber_shop">
             	<div class="shop auto clearfix">
             		<div class="shop_main">
-            			<span>订单信息：</span>
-            			<div class="shop_orders">
+            			<div v-show="noneCar" class="noneCar">
+            				<img src="/img/kong.png"/>
+            				<p>您还没有任何订单，赶快去商城逛逛吧...</p>
+            				<div class="goshop">
+            					<a class="aShop" href="/goods/list">前往商城</a>
+            				</div>            				
+            			</div>
+            			<span v-show="shopOrders">订单信息：</span>
+            			<div v-show="shopOrders" class="shop_orders">
             				<dl class="head">
             					<dd class="od1">商品详情</dd>
             					<dd class="od2">数量</dd>
@@ -42,9 +49,10 @@
 	            						<p v-show="list.order_status == 4" class="od5">订单关闭</p>
 	            						<p v-show="list.order_status == 5" class="od5">交易成功</p>
 	            						<div class="btn_cz">
-	            							<button class="orders_qx">取消订单</button>
-	            							<button class="orders_zf">立即支付</button>
-	            							<button class="orders_zf">物流跟踪</button>
+	            							<button @click="orders_qx(list)" type="button" v-show="list.order_status == 1" class="orders_qx">取消订单</button>
+	            							<button @click="orders_zf(list)" type="button" v-show="list.order_status == 1" class="orders_zf">立即支付</button>
+	            							<button type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
+	            							<button type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</button>
 	            						</div>
             						
             					</li>
@@ -56,6 +64,15 @@
 			<div>
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>
+			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
+			<div v-show="popupShow" id="carPopup" class="carPopup">
+				<i @click="carQx"></i>
+				<span>确认删除此订单？</span>
+				<div class="linkShop">
+					<a @click="carSc" href="javascript:;">确定</a>
+					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
+				</div>
+			</div>
 		</div>
 		<!-- 主体内容 end  -->
 	</body>
@@ -65,11 +82,16 @@
 		new Vue({
          	el: '#orderList',
          	data: {
+         		carShow: false,
+         		popupShow: false,
+         		noneCar: true,
+         		shopOrders: false,
          		ListData: [],
          		goodList: [],
          		statusNum: 0,
          		imgUrl: imgurl,
-         		goodUrl: goodsUrl
+         		goodUrl: goodsUrl,
+         		id: ''
          	},
          	created: function(){
          		let _this = this;
@@ -88,10 +110,63 @@
                 			if(data.status == 0){
                 				console.log('数据获取成功');
                 				_this.ListData = data.data;            				
-                				console.log(_this.ListData);              				
+                				console.log(_this.ListData);
+                				if(_this.ListData.length != 0){
+                					_this.shopOrders = true;
+                					_this.noneCar = false;
+                				}else{
+                					_this.shopOrders = false;
+                					_this.noneCar = true;
+                				}            				
+                			}else{
+                				alert('订单信息有误');
                 			}
                 		}
                 	});
+                },
+                //立即支付
+                orders_zf: function(list){
+                	window.location = '/pay/index?id=' + list.order_sn;
+                },
+                //取消订单
+                orders_qx: function(item){
+                	let _this = this;
+                	_this.carShow = true;
+         		    _this.popupShow = true;
+                	_this.id = item.order_sn;
+                	console.log(_this.id);
+                	
+                },
+                //确定删除订单
+                carSc: function(){
+                	let _this = this;
+                	$.ajax({
+                		type:"GET",
+                		url:"/order/cancel",
+                		dataType: 'json',
+                		data: {id:_this.id},
+                		succsee: function(){
+                			if(data.status == 0){
+                				console.log('取消成功');
+                				_this.$nextTick( function(){
+			                    	_this.ListData();
+			                    });
+                			}else{
+                				console.log('取消失败');
+                			}
+                		}
+                	});
+                },
+                //取消删除
+                carQx2: function(){
+                	let _this = this;
+                	_this.carShow = false;
+         		    _this.popupShow = false;
+                },
+                carQx: function(){
+                	let _this = this;
+                	_this.carShow = false;
+         		    _this.popupShow = false;
                 }
             }
          })
