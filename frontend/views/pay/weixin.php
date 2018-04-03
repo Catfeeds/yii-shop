@@ -33,14 +33,17 @@ use yii\helpers\Url;
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-		var id = "<?=$id?>";
+		var id = "<?=$id?>";		
         new Vue({
         	el: '#weixin',
         	data: {
         		orderId: id
         	},
-        	created(){
-        		setinterval(this.refreshData(),1000)
+        	created: function(){ 
+        		this.fetchJobList()
+			    this.intervalId = setInterval(function(){
+			        this.refreshData();
+			    }, 1000)     		
         	},
         	methods: {
         		refreshData: function(){
