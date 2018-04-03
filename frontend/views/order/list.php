@@ -69,7 +69,7 @@
          		orderList: []
          	},
          	created: function(){
-         		this.orderList;
+         		this.orderList();
          	},
             methods: {
                 orderList: function(){
