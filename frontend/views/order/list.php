@@ -29,14 +29,9 @@
             					<li v-for="list in ListData">
             						<div class="list_i od1">
 	            						<a class="order_list" href="#">
-	            							<img src="/img/pic14.jpg">
-	            							<b>文榜古树普洱（纯料生茶）10块装</b>
-	            							<p class="od2">1</p>
-	            						</a>
-	            						<a class="order_list" href="#">
-	            							<img src="/img/pic14.jpg">
-	            							<b>文榜古树普洱（纯料生茶）10块装</b>
-	            							<p class="od2">1</p>
+	            							<img :src="imgUrl + list.goods_list.goods_image">
+	            							<b>{{ list.goods_list.goods_name }}</b>
+	            							<p class="od2">{{ list.goods_list.goods_num }}</p>
 	            						</a>
 	            					</div>
 	            						<p class="od3">{{ list.consignee }}</p>
@@ -71,7 +66,8 @@
          	el: '#orderList',
          	data: {
          		ListData: [],
-         		statusNum: 0
+         		statusNum: 0,
+         		imgUrl: imgurl
          	},
          	created: function(){
          		let _this = this;
