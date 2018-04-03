@@ -134,13 +134,14 @@
                 	_this.carShow = true;
          		    _this.popupShow = true;
                 	_this.id = item.order_sn;
+                	console.log(_this.id);
                 	
                 },
                 //确定删除订单
                 carSc: function(){
                 	let _this = this;
                 	$.ajax({
-                		type:"POST",
+                		type:"GET",
                 		url:"/order/cancel",
                 		dataType: 'json',
                 		data: {id:_this.id},
