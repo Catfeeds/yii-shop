@@ -42,6 +42,10 @@ $this->title = "Admin Log";
                         [
                             'attribute' => 'order_sn',
                         ],
+                		[
+                			'attribute' =>'order_amount'
+                		],
+                		
                         [
                             'attribute' => 'trade_no',
                         ],
@@ -56,6 +60,12 @@ $this->title = "Admin Log";
 							'attribute' => 'created_at',
 							'format' => ['date','php:Y-m-d'],
 						],
+						[
+							'attribute' => 'order_status',
+							'value' =>function($model){
+                				return $model->orderStatus[$model->order_status];
+                			}
+						]
                     ]
                 ]); ?>
             </div>

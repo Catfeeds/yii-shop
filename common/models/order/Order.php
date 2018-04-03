@@ -46,7 +46,8 @@ use yii\data\ActiveDataProvider;
  * @property OrderGoods[] $orderGoods
  */
 class Order extends \yii\db\ActiveRecord
-{
+{	
+	public $orderStatus = [1 =>'未付款',2 =>'待发货',3=>'待收货',4=>'订单关闭',5=>'交易成功'];
     /**
      * @inheritdoc
      */
@@ -105,7 +106,7 @@ class Order extends \yii\db\ActiveRecord
             'invoice_no' => '发货单号',
             'goods_amount' => '订单中商品金额',
             'cheap_price' => '优惠价格',
-            'order_amount' => '订单应付款金额，支付取此字段值',
+            'order_amount' => '订单金额',
             'refund_amount' => ' 退款金额，其中微信退款以分为单位',
             'pay_time' => '付款时间',
             'remind_time' => '买家提醒发货时间，只有已付款待发货状态下，才可提醒',
