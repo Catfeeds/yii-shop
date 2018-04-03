@@ -15,8 +15,15 @@
             <section class="laber_shop">
             	<div class="shop auto clearfix">
             		<div class="shop_main">
-            			<span>订单信息：</span>
-            			<div class="shop_orders">
+            			<div v-show="noneCar" class="noneCar">
+            				<img src="/img/kong.png"/>
+            				<p>您还没有任何订单，赶快去商城逛逛吧...</p>
+            				<div class="goshop">
+            					<a class="aShop" href="/goods/list">前往商城</a>
+            				</div>            				
+            			</div>
+            			<span v-show="shopOrders">订单信息：</span>
+            			<div v-show="shopOrders" class="shop_orders">
             				<dl class="head">
             					<dd class="od1">商品详情</dd>
             					<dd class="od2">数量</dd>
@@ -66,6 +73,8 @@
 		new Vue({
          	el: '#orderList',
          	data: {
+         		noneCar: true,
+         		shopOrders: false,
          		ListData: [],
          		goodList: [],
          		statusNum: 0,
@@ -89,7 +98,14 @@
                 			if(data.status == 0){
                 				console.log('数据获取成功');
                 				_this.ListData = data.data;            				
-                				console.log(_this.ListData);              				
+                				console.log(_this.ListData);
+                				if(_this.ListData.length != 0){
+                					_this.shopOrders = true;
+                					_this.noneCar = false;
+                				}else{
+                					_this.shopOrders = false;
+                					_this.noneCar = true;
+                				}            				
                 			}
                 		}
                 	});
