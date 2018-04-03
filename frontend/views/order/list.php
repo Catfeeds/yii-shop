@@ -1,4 +1,4 @@
-		<div class="container2" id="ordermain">
+		<div class="container2" id="orderList">
             <section class="laber_shopUser">
             	<div class="shopUser auto clearfix">
             		<div class="shopUser_main">
@@ -63,8 +63,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-		var cartMain = new Vue({
-         	el: '#ordermain',
+		new Vue({
+         	el: '#orderList',
          	data: {
          		orderList: []
          	},
