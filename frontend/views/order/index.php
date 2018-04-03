@@ -86,7 +86,7 @@
             				</dl>
             				<ul>
             					<li v-for="goodLis in goodsData">
-            						<a class="d1" :href="goodUrl + '?id=' + goodLis._id[0].$oid">
+            						<a class="d1" :href="goodUrl + '?id=' + goodLis._id.$oid">
             							<img :src="imgurl + goodLis.image[0]">
             							<b>{{ goodLis.name }}</b>
             						</a>
