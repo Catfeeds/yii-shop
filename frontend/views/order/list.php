@@ -26,7 +26,7 @@
             					<dd>操作</dd>
             				</dl>
             				<ul>
-            					<li>
+            					<li v-for="list in ListData">
             						<div class="list_i od1">
 	            						<a class="order_list" href="#">
 	            							<img src="/img/pic14.jpg">
@@ -39,9 +39,13 @@
 	            							<p class="od2">1</p>
 	            						</a>
 	            					</div>
-	            						<p class="od3">李美丽</p>
-	            						<p class="od4">￥300</p>
-	            						<p class="od5">待支付</p>
+	            						<p class="od3">{{ list.consignee }}</p>
+	            						<p class="od4">{{ list.order_amount }}</p>
+	            						<p v-show="statusNum == 1" class="od5">未付款</p>
+	            						<p v-show="statusNum == 2" class="od5">待发货</p>
+	            						<p v-show="statusNum == 3" class="od5">待收货</p>
+	            						<p v-show="statusNum == 4" class="od5">订单关闭</p>
+	            						<p v-show="statusNum == 5" class="od5">交易成功</p>
 	            						<div class="btn_cz">
 	            							<button class="orders_qx">取消订单</button>
 	            							<button class="orders_zf">立即支付</button>
@@ -66,7 +70,8 @@
 		new Vue({
          	el: '#orderList',
          	data: {
-         		ListData: []
+         		ListData: [],
+         		statusNum: 0
          	},
          	created: function(){
          		let _this = this;
@@ -85,6 +90,17 @@
                 				console.log('数据获取成功');
                 				_this.ListData = data.data;
                 				console.log(_this.ListData)
+                				if(_this.ListData.order_status == 1){
+                					_this.statusNum = 1;
+                				}else if(_this.ListData.order_status == 2){
+                					_this.statusNum = 2;
+                				}else if(_this.ListData.order_status == 3){
+                					_this.statusNum = 3;
+                				}else if(_this.ListData.order_status ==4){
+                					_this.statusNum = 4;
+                				}else if(_this.ListData.order_status ==5){
+                					_this.statusNum = 5;
+                				}
                 			}
                 		}
                 	});
