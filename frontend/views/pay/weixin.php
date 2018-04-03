@@ -40,7 +40,9 @@ use yii\helpers\Url;
         		orderId: id
         	},
         	created: function(){ 
-			    this.intervalId = setInterval(this.refreshData(), 1000)     		
+        		let self = this;
+        		var timer;
+			    setInterval(function(){self.refreshData();}, 1000)     		
         	},
         	methods: {
         		refreshData: function(){
@@ -58,6 +60,7 @@ use yii\helpers\Url;
 			                    console.log(orderUrl)
 			                    if(data.pay_status != 1){
 			                    	window.location = orderUrl;
+			                    	console.log(1);
 			                    }
 			                }else{
 			                	console.log('请求数据出错');
@@ -65,6 +68,9 @@ use yii\helpers\Url;
 			            }
 			        })
         		}       		
+        	},
+        	beforeDestroy: function{
+        		clearInterval(this.refreshData);
         	}
         })
 	</script>
