@@ -36,11 +36,11 @@
 	            					</div>
 	            						<p class="od3">{{ list.consignee }}</p>
 	            						<p class="od4">{{ list.order_amount }}</p>
-	            						<p v-show="statusNum == 1" class="od5">未付款</p>
-	            						<p v-show="statusNum == 2" class="od5">待发货</p>
-	            						<p v-show="statusNum == 3" class="od5">待收货</p>
-	            						<p v-show="statusNum == 4" class="od5">订单关闭</p>
-	            						<p v-show="statusNum == 5" class="od5">交易成功</p>
+	            						<p v-show="list.order_status == 1" class="od5">未付款</p>
+	            						<p v-show="list.order_status == 2" class="od5">待发货</p>
+	            						<p v-show="list.order_status == 3" class="od5">待收货</p>
+	            						<p v-show="list.order_status == 4" class="od5">订单关闭</p>
+	            						<p v-show="list.order_status == 5" class="od5">交易成功</p>
 	            						<div class="btn_cz">
 	            							<button class="orders_qx">取消订单</button>
 	            							<button class="orders_zf">立即支付</button>
@@ -88,25 +88,24 @@
                 				console.log('数据获取成功');
                 				_this.ListData = data.data;            				
                 				console.log(_this.ListData);
-                				for(var i in _this.ListData){
-                					if(_this.ListData[i].order_status = 1){
-	                					console.log(1)
-	                					_this.statusNum = 1;
-	                				}else if(_this.ListData[i].order_status = 2){
-	                					console.log(2)
-	                					_this.statusNum = 2;
-	                				}else if(_this.ListData[i].order_status = 3){
-	                					console.log(3)
-	                					_this.statusNum = 3;
-	                				}else if(_this.ListData[i].order_status =4){
-	                					console.log(4)
-	                					_this.statusNum = 4;
-	                				}else if(_this.ListData[i].order_status ==5){
-	                					console.log(5)
-	                					_this.statusNum = 5;
-	                				}
-                				}
-                				
+//              				for(var i in _this.ListData){
+//              					if(_this.ListData[i].order_status = 1){
+//	                					console.log(1)
+//	                					_this.statusNum = 1;
+//	                				}else if(_this.ListData[i].order_status = 2){
+//	                					console.log(2)
+//	                					_this.statusNum = 2;
+//	                				}else if(_this.ListData[i].order_status = 3){
+//	                					console.log(3)
+//	                					_this.statusNum = 3;
+//	                				}else if(_this.ListData[i].order_status =4){
+//	                					console.log(4)
+//	                					_this.statusNum = 4;
+//	                				}else if(_this.ListData[i].order_status ==5){
+//	                					console.log(5)
+//	                					_this.statusNum = 5;
+//	                				}
+//              				}               				
                 			}
                 		}
                 	});
