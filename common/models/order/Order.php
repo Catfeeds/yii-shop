@@ -139,7 +139,7 @@ class Order extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-    	return $this->hasOne(OrderGoods::className(), ['user_id' => 'id']);
+    	return $this->hasOne(User::className(), ['user_id' => 'id']);
     }
     
     /**
