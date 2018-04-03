@@ -68,6 +68,9 @@
          	data: {
          		orderList: []
          	},
+         	created: function(){
+         		this.orderList;
+         	},
             methods: {
                 orderList: function(){
                 	let _this = this;
