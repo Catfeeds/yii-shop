@@ -27,47 +27,30 @@
             				</dl>
             				<ul>
             					<li>
-            						<a class="od1" href="#">
-            							<img src="img/pic14.jpg">
-            							<b>文榜古树普洱（纯料生茶）10块装</b>
-            						</a>
-            						<p class="od2">1</p>
-            						<p class="od3">李美丽</p>
-            						<p class="od4">￥300</p>
-            						<p class="od5">待支付</p>
-            						<div class="btn_cz">
-            							<button class="orders_qx">取消订单</button>
-            							<button class="orders_zf">立即支付</button>
-            						</div>
-            					</li>
-            					<li>
-            						<a class="od1" href="#">
-            							<img src="img/pic14.jpg">
-            							<b>文榜古树普洱（纯料生茶）10块装</b>
-            						</a>
-            						<p class="od2">1</p>
-            						<p class="od3">李美丽</p>
-            						<p class="od4">￥300</p>
-            						<p class="od5">待支付</p>
-            						<div class="btn_cz">
-            							<button class="orders_qx">取消订单</button>
-            							<button class="orders_zf">立即支付</button>
-            						</div>
-            					</li>
-            					<li>
-            						<a class="od1" href="#">
-            							<img src="img/pic14.jpg">
-            							<b>文榜古树普洱（纯料生茶）10块装</b>
-            						</a>
-            						<p class="od2">1</p>
-            						<p class="od3">李美丽</p>
-            						<p class="od4">￥300</p>
-            						<p class="od5">待支付</p>
-            						<div class="btn_cz">
-            							<button class="orders_qx">取消订单</button>
-            							<button class="orders_zf">立即支付</button>
-            							<button class="orders_zf">物流跟踪</button>
-            						</div>
+            						<div class="list_i od1">
+	            						<a class="order_list" href="#">
+	            							<img src="/img/pic14.jpg">
+	            							<b>文榜古树普洱（纯料生茶）10块装</b>
+	            						</a>
+	            						<a  class="order_list" href="#">
+	            							<img src="/img/pic14.jpg">
+	            							<b>文榜古树普洱（纯料生茶）10块装</b>
+	            						</a>
+	            						<a  class="order_list" href="#">
+	            							<img src="/img/pic14.jpg">
+	            							<b>文榜古树普洱（纯料生茶）10块装</b>
+	            						</a>
+	            					</div>
+	            						<p class="od2">1</p>
+	            						<p class="od3">李美丽</p>
+	            						<p class="od4">￥300</p>
+	            						<p class="od5">待支付</p>
+	            						<div class="btn_cz">
+	            							<button class="orders_qx">取消订单</button>
+	            							<button class="orders_zf">立即支付</button>
+	            							<button class="orders_zf">物流跟踪</button>
+	            						</div>
+            						
             					</li>
             				</ul>
             			</div>

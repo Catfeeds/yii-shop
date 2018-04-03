@@ -729,8 +729,20 @@
                     float: left;
                     width: 100%;
                     border-bottom: 1px solid #d3d3d3;
-                    height: 140px;
                     padding: 26px 0;
+                    .list_i {
+                        float: left;
+                        position: relative;
+                    }
+                    .list_i:after{
+                        content: '';
+                        width: 1px;
+                        height: calc(100% + 52px);
+                        top: -26px;
+                        right: -50px;
+                        background: #d3d3d3;
+                        position: absolute;
+                    } 
                     a {
                         float: left;
                         img {
@@ -747,6 +759,12 @@
                             font-weight: normal;
                             line-height: 140px;
                         }
+                    }
+                    .order_list {
+                        width: 100%;
+                    }
+                    .order_list + .order_list {
+                        padding-top: 26px;
                     }
                     p {
                         float: left;
