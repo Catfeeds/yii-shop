@@ -14,7 +14,7 @@ use backend\actions\CreateAction;
 use backend\actions\UpdateAction;
 use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
-
+use Yii;
 /**
  * FriendLink controller
  */
