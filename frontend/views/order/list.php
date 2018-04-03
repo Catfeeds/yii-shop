@@ -1,4 +1,4 @@
-		<div class="container2" id="ordermain">
+		<div class="container2" id="orderList">
             <section class="laber_shopUser">
             	<div class="shopUser auto clearfix">
             		<div class="shopUser_main">
@@ -26,48 +26,27 @@
             					<dd>操作</dd>
             				</dl>
             				<ul>
-            					<li>
-            						<a class="od1" href="#">
-            							<img src="img/pic14.jpg">
-            							<b>文榜古树普洱（纯料生茶）10块装</b>
-            						</a>
-            						<p class="od2">1</p>
-            						<p class="od3">李美丽</p>
-            						<p class="od4">￥300</p>
-            						<p class="od5">待支付</p>
-            						<div class="btn_cz">
-            							<button class="orders_qx">取消订单</button>
-            							<button class="orders_zf">立即支付</button>
-            						</div>
-            					</li>
-            					<li>
-            						<a class="od1" href="#">
-            							<img src="img/pic14.jpg">
-            							<b>文榜古树普洱（纯料生茶）10块装</b>
-            						</a>
-            						<p class="od2">1</p>
-            						<p class="od3">李美丽</p>
-            						<p class="od4">￥300</p>
-            						<p class="od5">待支付</p>
-            						<div class="btn_cz">
-            							<button class="orders_qx">取消订单</button>
-            							<button class="orders_zf">立即支付</button>
-            						</div>
-            					</li>
-            					<li>
-            						<a class="od1" href="#">
-            							<img src="img/pic14.jpg">
-            							<b>文榜古树普洱（纯料生茶）10块装</b>
-            						</a>
-            						<p class="od2">1</p>
-            						<p class="od3">李美丽</p>
-            						<p class="od4">￥300</p>
-            						<p class="od5">待支付</p>
-            						<div class="btn_cz">
-            							<button class="orders_qx">取消订单</button>
-            							<button class="orders_zf">立即支付</button>
-            							<button class="orders_zf">物流跟踪</button>
-            						</div>
+            					<li v-for="list in ListData">
+            						<div class="list_i od1">
+	            						<a class="order_list" href="#">
+	            							<img :src="imgUrl + list.goods_list.goods_image">
+	            							<b>{{ list.goods_list.goods_name }}</b>
+	            							<p class="od2">{{ list.goods_list.goods_num }}</p>
+	            						</a>
+	            					</div>
+	            						<p class="od3">{{ list.consignee }}</p>
+	            						<p class="od4">{{ list.order_amount }}</p>
+	            						<p v-show="statusNum == 1" class="od5">未付款</p>
+	            						<p v-show="statusNum == 2" class="od5">待发货</p>
+	            						<p v-show="statusNum == 3" class="od5">待收货</p>
+	            						<p v-show="statusNum == 4" class="od5">订单关闭</p>
+	            						<p v-show="statusNum == 5" class="od5">交易成功</p>
+	            						<div class="btn_cz">
+	            							<button class="orders_qx">取消订单</button>
+	            							<button class="orders_zf">立即支付</button>
+	            							<button class="orders_zf">物流跟踪</button>
+	            						</div>
+            						
             					</li>
             				</ul>
             			</div>
@@ -77,44 +56,51 @@
 			<div>
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>
-			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
-			<div v-show="popupShow" id="carPopup" class="carPopup">
-				<i @click="carQx"></i>
-				<span>确认删除此项？</span>
-				<div class="linkShop">
-					<a href="#">删除</a>
-					<a @click="carQx2" href="#" class="al1">取消</a>
-				</div>
-			</div>
 		</div>
 		<!-- 主体内容 end  -->
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-		var cartMain = new Vue({
-         	el: '#ordermain',
+		new Vue({
+         	el: '#orderList',
          	data: {
-         		carShow:false,
-				popupShow:false
+         		ListData: [],
+         		statusNum: 0,
+         		imgUrl: imgurl
+         	},
+         	created: function(){
+         		let _this = this;
+         		_this.orderList();
          	},
             methods: {
-            	deletes: function(){           		
-            		this.carShow = true;
-            		this.popupShow = true;           		
-            	},
-            	carQx2: function(){
-        			this.carShow = false;
-    		        this.popupShow = false;
-        		},
-            	carQx: function(){
-            		this.carShow = false;
-            		this.popupShow = false;
-            	},
-            	carBg: function(){
-            		this.carShow = false;
-            		this.popupShow = false;
-            	}
+                orderList: function(){
+                	let _this = this;
+                	$.ajax({
+                		type:"POST",
+                		url:"/order/orderlist",
+                		dataType: 'json',
+                		data:'',
+                		success: function(data){
+                			if(data.status == 0){
+                				console.log('数据获取成功');
+                				_this.ListData = data.data;
+                				console.log(_this.ListData)
+                				if(_this.ListData.order_status == 1){
+                					_this.statusNum = 1;
+                				}else if(_this.ListData.order_status == 2){
+                					_this.statusNum = 2;
+                				}else if(_this.ListData.order_status == 3){
+                					_this.statusNum = 3;
+                				}else if(_this.ListData.order_status ==4){
+                					_this.statusNum = 4;
+                				}else if(_this.ListData.order_status ==5){
+                					_this.statusNum = 5;
+                				}
+                			}
+                		}
+                	});
+                }
             }
          })
 	</script>

@@ -33,14 +33,16 @@ use yii\helpers\Url;
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-		var id = "<?=$id?>";
+		var id = "<?=$id?>";		
         new Vue({
         	el: '#weixin',
         	data: {
         		orderId: id
         	},
-        	created: function(){
-        		self.setinterval(this.refreshData(),1000)
+        	created: function(){ 
+        		let self = this;
+        		var timer;
+			    setInterval(function(){self.refreshData();}, 1000)     		
         	},
         	methods: {
         		refreshData: function(){
@@ -58,6 +60,7 @@ use yii\helpers\Url;
 			                    console.log(orderUrl)
 			                    if(data.pay_status != 1){
 			                    	window.location = orderUrl;
+			                    	console.log(1);
 			                    }
 			                }else{
 			                	console.log('请求数据出错');
@@ -65,6 +68,9 @@ use yii\helpers\Url;
 			            }
 			        })
         		}       		
+        	},
+        	beforeDestroy: function(){
+        		clearInterval(this.refreshData);
         	}
         })
 	</script>

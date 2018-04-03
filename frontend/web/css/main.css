@@ -589,8 +589,18 @@
           float: left;
           width: 100%;
           border-bottom: 1px solid #d3d3d3;
-          height: 140px;
           padding: 26px 0; }
+          .laber_shop .shop_main .shop_orders ul li .list_i {
+            float: left;
+            position: relative; }
+          .laber_shop .shop_main .shop_orders ul li .list_i:after {
+            content: '';
+            width: 1px;
+            height: calc(100% + 52px);
+            top: -26px;
+            right: 50px;
+            background: #d3d3d3;
+            position: absolute; }
           .laber_shop .shop_main .shop_orders ul li a {
             float: left; }
             .laber_shop .shop_main .shop_orders ul li a img {
@@ -605,6 +615,10 @@
               color: #3e3a39;
               font-weight: normal;
               line-height: 140px; }
+          .laber_shop .shop_main .shop_orders ul li .order_list {
+            width: 100%; }
+          .laber_shop .shop_main .shop_orders ul li .order_list + .order_list {
+            padding-top: 26px; }
           .laber_shop .shop_main .shop_orders ul li p {
             float: left;
             line-height: 140px;
@@ -638,7 +652,7 @@
           .laber_shop .shop_main .shop_orders ul li .d2 {
             width: 152px; }
           .laber_shop .shop_main .shop_orders ul li .od1 {
-            width: 598px;
+            width: 698px;
             padding-left: 22px; }
             .laber_shop .shop_main .shop_orders ul li .od1 b {
               width: calc(598px - 160px); }
