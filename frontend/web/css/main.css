@@ -217,6 +217,20 @@
           height: 130px;
           background: #d3b799;
           cursor: pointer; }
+        .laber_details .details_main .details_top .details_fl .preve:hover {
+          background: #bb956c;
+          -webkit-transition: 1s;
+          transition: 1s; }
+        .laber_details .details_main .details_top .details_fl .preve:after {
+          content: '';
+          position: absolute;
+          width: 11px;
+          height: 18px;
+          left: 50%;
+          margin-left: -5px;
+          background: url(../img/left.png) no-repeat;
+          top: 50%;
+          margin-top: -9px; }
         .laber_details .details_main .details_top .details_fl .next {
           position: absolute;
           bottom: 0;
@@ -225,6 +239,20 @@
           height: 130px;
           background: #d3b799;
           cursor: pointer; }
+        .laber_details .details_main .details_top .details_fl .next:hover {
+          background: #bb956c;
+          -webkit-transition: 1s;
+          transition: 1s; }
+        .laber_details .details_main .details_top .details_fl .next:after {
+          content: '';
+          position: absolute;
+          width: 11px;
+          height: 18px;
+          left: 50%;
+          margin-left: -5px;
+          background: url(../img/right.png) no-repeat;
+          top: 50%;
+          margin-top: -9px; }
       .laber_details .details_main .details_top .details_fr {
         width: calc(600px - 158px);
         height: 535px;
