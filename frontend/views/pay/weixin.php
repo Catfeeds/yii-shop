@@ -26,6 +26,13 @@ use yii\helpers\Url;
             </section>
 			<div>
 			<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+			</div>
+			<div v-show="carShow" id="carBg" class="carBg"></div>
+			<div v-show="popupShow" id="carPopup" class="carPopup">
+				<span>付款成功</span>
+				<div class="linkShop">
+					<a @click="carSc" href="javascript:;">确定</a>
+				</div>
 			</div>			
 		</div>
 		<!-- 主体内容 end  -->
@@ -37,7 +44,10 @@ use yii\helpers\Url;
         new Vue({
         	el: '#weixin',
         	data: {
-        		orderId: id
+        		carShow: false,
+        		popupShow: false,
+        		orderId: id,
+        		orderUrl: ''
         	},
         	created: function(){ 
         		let self = this;
@@ -57,17 +67,22 @@ use yii\helpers\Url;
 			                if(data.status == 0){
 			                    console.log('请求数据成功');
 			                    orderUrl = data.return_url;
-			                    console.log(orderUrl)
+			                    _this.orderUrl = orderUrl;
+			                    console.log(_this.orderUrl);
 			                    if(data.pay_status != 1){
-			                    	window.location = orderUrl;
-			                    	console.log(1);
+			                    	_this.carShow = false;
+        		                    _this.popupShow = false;			                    	
 			                    }
 			                }else{
 			                	console.log('请求数据出错');
 			                }                 	
 			            }
 			        })
-        		}       		
+        		},
+        		carSc: function(){
+        			var _this = this;
+        			window.location = _this.orderUrl;
+        		}     		
         	},
         	beforeDestroy: function(){
         		clearInterval(this.refreshData);
