@@ -93,14 +93,19 @@
                 				}             				
                 				console.log(_this.ListData);
                 				if(_this.ListData.order_status == 1){
+                					console.log(1)
                 					_this.statusNum = 1;
                 				}else if(_this.ListData.order_status == 2){
+                					console.log(2)
                 					_this.statusNum = 2;
                 				}else if(_this.ListData.order_status == 3){
+                					console.log(3)
                 					_this.statusNum = 3;
                 				}else if(_this.ListData.order_status ==4){
+                					console.log(4)
                 					_this.statusNum = 4;
                 				}else if(_this.ListData.order_status ==5){
+                					console.log(5)
                 					_this.statusNum = 5;
                 				}
                 			}
