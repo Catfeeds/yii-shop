@@ -89,9 +89,7 @@
                 				_this.ListData = data.data;
                 				for(var i in _this.ListData){
                 					goodList = _this.ListData[i].goods_list;
-                					for(var j in goodList){
-                						console.log(goodList[j].length);
-                					}
+                						console.log(goodList.length);
                 				}             				
                 				console.log(_this.ListData);
                 				if(_this.ListData.order_status == 1){
