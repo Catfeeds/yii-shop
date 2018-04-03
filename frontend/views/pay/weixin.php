@@ -70,8 +70,8 @@ use yii\helpers\Url;
 			                    _this.orderUrl = orderUrl;
 			                    console.log(_this.orderUrl);
 			                    if(data.pay_status != 1){
-			                    	_this.carShow = false;
-        		                    _this.popupShow = false;			                    	
+			                    	_this.carShow = true;
+        		                    _this.popupShow = true;			                    	
 			                    }
 			                }else{
 			                	console.log('请求数据出错');
@@ -85,7 +85,8 @@ use yii\helpers\Url;
         		}     		
         	},
         	beforeDestroy: function(){
-        		clearInterval(this.refreshData);
+        		let self = this;
+        		clearInterval(function(){self.refreshData()});
         	}
         })
 	</script>
