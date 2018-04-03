@@ -151,7 +151,7 @@
                 				_this.carShow = false;
          		                _this.popupShow = false;
                 				_this.$nextTick( function(){
-			                    	_this.ListData();
+			                    	_this.orderList();
 			                    });
                 			}else{
                 				console.log('取消失败');
