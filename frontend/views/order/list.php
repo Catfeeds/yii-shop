@@ -39,7 +39,6 @@
 	            							<p class="od2">1</p>
 	            						</a>
 	            					</div>
-	            						<p class="od2">1</p>
 	            						<p class="od3">李美丽</p>
 	            						<p class="od4">￥300</p>
 	            						<p class="od5">待支付</p>
