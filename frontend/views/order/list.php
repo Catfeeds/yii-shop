@@ -145,7 +145,7 @@
                 		url:"/order/cancel",
                 		dataType: 'json',
                 		data: {id:_this.id},
-                		succsee: function(){
+                		succsee: function(data){
                 			if(data.status == 0){
                 				console.log('取消成功');
 //              				_this.carShow = false;
