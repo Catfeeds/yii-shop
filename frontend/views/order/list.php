@@ -31,14 +31,12 @@
 	            						<a class="order_list" href="#">
 	            							<img src="/img/pic14.jpg">
 	            							<b>文榜古树普洱（纯料生茶）10块装</b>
+	            							<p class="od2">1</p>
 	            						</a>
-	            						<a  class="order_list" href="#">
+	            						<a class="order_list" href="#">
 	            							<img src="/img/pic14.jpg">
 	            							<b>文榜古树普洱（纯料生茶）10块装</b>
-	            						</a>
-	            						<a  class="order_list" href="#">
-	            							<img src="/img/pic14.jpg">
-	            							<b>文榜古树普洱（纯料生茶）10块装</b>
+	            							<p class="od2">1</p>
 	            						</a>
 	            					</div>
 	            						<p class="od2">1</p>

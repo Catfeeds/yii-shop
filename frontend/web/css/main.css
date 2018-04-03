@@ -598,7 +598,7 @@
             width: 1px;
             height: calc(100% + 52px);
             top: -26px;
-            right: -50px;
+            right: 50px;
             background: #d3d3d3;
             position: absolute; }
           .laber_shop .shop_main .shop_orders ul li a {
@@ -652,7 +652,7 @@
           .laber_shop .shop_main .shop_orders ul li .d2 {
             width: 152px; }
           .laber_shop .shop_main .shop_orders ul li .od1 {
-            width: 598px;
+            width: 698px;
             padding-left: 22px; }
             .laber_shop .shop_main .shop_orders ul li .od1 b {
               width: calc(598px - 160px); }

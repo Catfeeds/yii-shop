@@ -739,7 +739,7 @@
                         width: 1px;
                         height: calc(100% + 52px);
                         top: -26px;
-                        right: -50px;
+                        right: 50px;
                         background: #d3d3d3;
                         position: absolute;
                     } 
@@ -797,7 +797,7 @@
                         @include dls2();
                     }
                     .od1 {
-                        @include odmain(598px);
+                        @include odmain(698px);
                         padding-left: 22px;
                         b {
                             width: calc(598px - 160px);
