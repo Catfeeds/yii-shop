@@ -212,8 +212,9 @@ class OrderService extends BaseService
     	}
     	$orderData = Order::find()->select(['order_status','order_sn','order_amount','consignee','id'])->where($where)->offset($offset)->limit($size)->asArray()->all();
     	foreach($orderData as $k =>$v)
-    	{
-    		$v['goods_list'] =$this->getOrderGoodsByOrderId($v['id']);
+    	{	
+    		$goodsList = OrderGoods::find()->select(['*'])->where(['order_id' =>$v['id']])->asArray()->all();
+    		$v['goods_list'] = $goodsList;
     		$orderData[$k] = $v;
     	}
     	return $orderData ?: [];

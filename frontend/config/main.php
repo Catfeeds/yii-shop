@@ -54,7 +54,14 @@ return [
             'rules' => [
             ],
         ],
-
+        'response' => [
+	        'formatters' => [
+	        	\yii\web\Response::FORMAT_JSON => [
+	        		'class' => 'yii\web\JsonResponseFormatter',
+	        		'encodeOptions' => 32,
+	        	],
+	        ],
+        ],
     ],
     'params' => $params,
 ];
