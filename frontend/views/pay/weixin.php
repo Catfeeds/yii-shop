@@ -69,7 +69,7 @@ use yii\helpers\Url;
 			        })
         		}       		
         	},
-        	beforeDestroy: function{
+        	beforeDestroy: function(){
         		clearInterval(this.refreshData);
         	}
         })
