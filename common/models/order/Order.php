@@ -150,7 +150,6 @@ class Order extends \yii\db\ActiveRecord
     public function search($params)
     {
     	$query = self::find()->orderBy("id desc");
-    	$query->joinWith(['user']);
     	$dataProvider = new ActiveDataProvider([
     			'query' => $query,
     			]);
