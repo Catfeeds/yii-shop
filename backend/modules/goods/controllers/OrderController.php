@@ -37,7 +37,7 @@ class OrderController extends \yii\web\Controller
             ],
             'update' => [
                 'class' => UpdateAction::className(),
-                'modelClass' => Brand::className(),
+                'modelClass' => Order::className(),
             ],
         ];
     }
