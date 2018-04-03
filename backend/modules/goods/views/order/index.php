@@ -48,7 +48,7 @@ $this->title = "Admin Log";
                 		[
                 			'attribute' => 'user_id',
                 			'value' => function($model){
-                				return  $model->user;
+                				return  $model->getUserMobile();
                 				
                 			}
                 		],
