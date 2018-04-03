@@ -219,4 +219,19 @@ class OrderService extends BaseService
     	}
     	return $orderData ?: [];
     }
+    
+    /**
+    * @desc 取消订单
+    */
+    public function cancel($orderSn,$userId)
+    {
+    	$orderModel = Order::findOne(['order_sn' => $orderSn,'user_id' =>$userId]);
+    	if($orderModel->order_status == '1')
+    	{
+    		$orderModel->order_status = 4;
+    		$orderModel->save();
+    		return true;
+    	}
+    	return false;
+    }
 }

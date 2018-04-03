@@ -120,5 +120,23 @@ class OrderController extends BaseController
     	$data = $orderService->getList($this->userId,$page,$size,$order_status);
     	return ['status' => 0,'data' => $data];
     }
+    
+    /**
+    * @desc 取消订单api
+    */
+    public function actionCancel()
+    {
+    	$id = trim(Yii::$app->request->get('id'));
+    	if(!$id)
+    	{
+    		return ['status' =>1,'msg' => '参数异常' ];
+    	}
+    	$orderService = new OrderService();
+    	if($orderService->cancel($id, $this->userId))
+    	{
+    		return ['status' =>0,'msg' => '取消成功' ];
+    	}
+    	return ['status' =>1,'msg' => '取消失败' ];
+    }
 
 }
