@@ -28,10 +28,10 @@
             				<ul>
             					<li v-for="list in ListData">
             						<div class="list_i od1">
-	            						<a class="order_list" href="#">
-	            							<img :src="imgUrl + list.goods_list.goods_image">
-	            							<b>{{ list.goods_list.goods_name }}</b>
-	            							<p class="od2">{{ list.goods_list.goods_num }}</p>
+	            						<a v-for="item in goodList" class="order_list" href="#">
+	            							<img :src="imgUrl + item.goods_image">
+	            							<b>{{ item.goods_name }}</b>
+	            							<p class="od2">{{ item.goods_num }}</p>
 	            						</a>
 	            					</div>
 	            						<p class="od3">{{ list.consignee }}</p>
@@ -66,6 +66,7 @@
          	el: '#orderList',
          	data: {
          		ListData: [],
+         		goodList: [],
          		statusNum: 0,
          		imgUrl: imgurl
          	},
@@ -85,6 +86,11 @@
                 			if(data.status == 0){
                 				console.log('数据获取成功');
                 				_this.ListData = data.data;
+                				for(var i in _this.ListData){
+                					_this.goodList = _this.ListData[i].goods_list;
+                					console.log(_this.goodList);
+                				}
+                				
                 				console.log(_this.ListData)
                 				if(_this.ListData.order_status == 1){
                 					_this.statusNum = 1;
