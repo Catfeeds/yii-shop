@@ -40,10 +40,7 @@ use yii\helpers\Url;
         		orderId: id
         	},
         	created: function(){ 
-        		this.fetchJobList()
-			    this.intervalId = setInterval(function(){
-			        this.refreshData();
-			    }, 1000)     		
+			    this.intervalId = setInterval(this.refreshData(), 1000)     		
         	},
         	methods: {
         		refreshData: function(){
