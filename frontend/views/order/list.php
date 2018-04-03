@@ -49,7 +49,7 @@
 	            						<p v-show="list.order_status == 4" class="od5">订单关闭</p>
 	            						<p v-show="list.order_status == 5" class="od5">交易成功</p>
 	            						<div class="btn_cz">
-	            							<button type="button" v-show="list.order_status == 1" class="orders_qx">取消订单</button>
+	            							<button @click="orders_qx(list)" type="button" v-show="list.order_status == 1" class="orders_qx">取消订单</button>
 	            							<button @click="orders_zf(list)" type="button" v-show="list.order_status == 1" class="orders_zf">立即支付</button>
 	            							<button type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
 	            							<button type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</button>
@@ -64,6 +64,15 @@
 			<div>
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>
+			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
+			<div v-show="popupShow" id="carPopup" class="carPopup">
+				<i @click="carQx"></i>
+				<span>确认删除此订单？</span>
+				<div class="linkShop">
+					<a @click="carSc" href="javascript:;">确定</a>
+					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
+				</div>
+			</div>
 		</div>
 		<!-- 主体内容 end  -->
 	</body>
@@ -73,13 +82,16 @@
 		new Vue({
          	el: '#orderList',
          	data: {
+         		carShow: false,
+         		popupShow: false,
          		noneCar: true,
          		shopOrders: false,
          		ListData: [],
          		goodList: [],
          		statusNum: 0,
          		imgUrl: imgurl,
-         		goodUrl: goodsUrl
+         		goodUrl: goodsUrl,
+         		id: ''
          	},
          	created: function(){
          		let _this = this;
@@ -112,8 +124,46 @@
                 		}
                 	});
                 },
+                //立即支付
                 orders_zf: function(list){
                 	window.location = '/pay/index?id=' + list.order_sn;
+                },
+                //取消订单
+                orders_qx: function(item){
+                	let _this = this;
+                	_this.carShow = true;
+         		    _this.popupShow = true;
+                	_this.id = item.order_sn;
+                	
+                },
+                //确定删除订单
+                carSc: function(){
+                	let _this = this;
+                	$.ajax({
+                		type:"POST",
+                		url:"/order/cancel",
+                		dataType: 'json',
+                		data: {id:_this.id},
+                		succsee: function(){
+                			if(data.status == 0){
+                				console.log('取消成功');
+                				
+                			}else{
+                				console.log('取消失败');
+                			}
+                		}
+                	});
+                },
+                //取消删除
+                carQx2: function(){
+                	let _this = this;
+                	_this.carShow = false;
+         		    _this.popupShow = false;
+                },
+                carQx: function(){
+                	let _this = this;
+                	_this.carShow = false;
+         		    _this.popupShow = false;
                 }
             }
          })
