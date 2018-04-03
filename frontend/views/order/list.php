@@ -84,6 +84,7 @@
                 			if(data.status == 0){
                 				console.log('数据获取成功');
                 				_this.ListData = data.data;
+                				console.log(_this.ListData)
                 			}
                 		}
                 	});
