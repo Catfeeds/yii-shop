@@ -95,7 +95,7 @@ class Order extends \yii\db\ActiveRecord
             'shop_id' => '商铺id，订单所属商家',
             'shop_name' => '商家名称',
             'user_id' => '用户',
-            'order_status' => '1未付款,2待发货,3待收货4订单关闭,5交易成功',
+            'order_status' => '订单状态',
             'message' => '用户留言',
             'shipping_id' => '发货方式，具体查看配置文件',
             'shipping_name' => '配送方式名称，取值shipping',
