@@ -57,15 +57,6 @@
 			<div>
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>
-			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
-			<div v-show="popupShow" id="carPopup" class="carPopup">
-				<i @click="carQx"></i>
-				<span>确认删除此项？</span>
-				<div class="linkShop">
-					<a href="#">删除</a>
-					<a @click="carQx2" href="#" class="al1">取消</a>
-				</div>
-			</div>
 		</div>
 		<!-- 主体内容 end  -->
 	</body>
@@ -75,26 +66,24 @@
 		var cartMain = new Vue({
          	el: '#ordermain',
          	data: {
-         		carShow:false,
-				popupShow:false
+         		orderList: []
          	},
             methods: {
-            	deletes: function(){           		
-            		this.carShow = true;
-            		this.popupShow = true;           		
-            	},
-            	carQx2: function(){
-        			this.carShow = false;
-    		        this.popupShow = false;
-        		},
-            	carQx: function(){
-            		this.carShow = false;
-            		this.popupShow = false;
-            	},
-            	carBg: function(){
-            		this.carShow = false;
-            		this.popupShow = false;
-            	}
+                orderList: function(){
+                	let _this = this;
+                	$.ajax({
+                		type:"POST",
+                		url:"/order/orderlist",
+                		dataType: 'json',
+                		data:'',
+                		success: function(data){
+                			if(data.status == 0){
+                				console.log('数据获取成功');
+                				_this.orderList = data;
+                			}
+                		}
+                	});
+                }
             }
          })
 	</script>
