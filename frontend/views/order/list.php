@@ -106,6 +106,8 @@
                 					_this.shopOrders = false;
                 					_this.noneCar = true;
                 				}            				
+                			}else{
+                				alert('订单信息有误');
                 			}
                 		}
                 	});
