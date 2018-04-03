@@ -147,7 +147,9 @@
                 		succsee: function(){
                 			if(data.status == 0){
                 				console.log('取消成功');
-                				
+                				_this.$nextTick( function(){
+			                    	_this.ListData();
+			                    });
                 			}else{
                 				console.log('取消失败');
                 			}
