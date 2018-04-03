@@ -14,7 +14,7 @@ use backend\actions\CreateAction;
 use backend\actions\UpdateAction;
 use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
-
+use Yii;
 /**
  * FriendLink controller
  */
@@ -27,26 +27,17 @@ class OrderController extends \yii\web\Controller
             'index' => [
                 'class' => IndexAction::className(),
                 'data' => function(){
-                    $query = Brand::find();
-                    $dataProvider = new ActiveDataProvider([
-                        'query' => $query
-                    ]);
+                    $searchModel = new Order();
+                    $dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
                     return [
                         'dataProvider' => $dataProvider,
+                        'searchModel' => $searchModel
                     ];
                 }
             ],
-            'create' => [
-                'class' => CreateAction::className(),
-                'modelClass' => Brand::className(),
-            ],
             'update' => [
                 'class' => UpdateAction::className(),
-                'modelClass' => Brand::className(),
-            ],
-            'delete' => [
-                'class' => DeleteAction::className(),
-                'modelClass' => Brand::className(),
+                'modelClass' => Order::className(),
             ],
         ];
     }

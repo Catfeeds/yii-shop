@@ -3,7 +3,8 @@
 namespace common\models\order;
 
 use Yii;
-
+use common\models\User;
+use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "{{%order}}".
  *
@@ -92,14 +93,14 @@ class Order extends \yii\db\ActiveRecord
             'order_sn' => '订单号',
             'shop_id' => '商铺id，订单所属商家',
             'shop_name' => '商家名称',
-            'user_id' => '用户ID',
+            'user_id' => '用户',
             'order_status' => '1未付款,2待发货,3待收货4订单关闭,5交易成功',
             'message' => '用户留言',
             'shipping_id' => '发货方式，具体查看配置文件',
             'shipping_name' => '配送方式名称，取值shipping',
             'pay_id' => '支付方式1:微信',
             'pay_account' => '支付的账号',
-            'trade_no' => '交易号，对应支付方式的交易号，为了退款',
+            'trade_no' => '交易号',
             'shipping_fee' => '订单运费',
             'invoice_no' => '发货单号',
             'goods_amount' => '订单中商品金额',
@@ -131,5 +132,55 @@ class Order extends \yii\db\ActiveRecord
     public function getOrderGoods()
     {
         return $this->hasMany(OrderGoods::className(), ['order_id' => 'id']);
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserMobile()
+    {
+    	$userModel = User::findOne($this->user_id);
+    	return $userModel->mobile;
+    }
+    
+    /**
+     * @param $params
+     * @return \yii\data\ActiveDataProvider
+     */
+    public function search($params)
+    {
+    	$query = self::find()->orderBy("id desc");
+    	$query->joinWith(['user']);
+    	$dataProvider = new ActiveDataProvider([
+    			'query' => $query,
+    			]);
+    	$this->load($params);
+    	if (! $this->validate()) {
+    		return $dataProvider;
+    	}
+    	/*$query->andFilterWhere(['id' => $this->id])
+    	->andFilterWhere(['like', 'route', $this->route])
+    	->andFilterWhere(['like', 'description', $this->description])
+    	->andFilterWhere(['like', 'admin_user.username', $this->user_username]);
+    	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = $update_start_at_unixtimestamp = $update_end_at_unixtimestamp = '';
+    	if ($this->create_start_at != '') {
+    		$create_start_at_unixtimestamp = strtotime($this->create_start_at);
+    	}
+    	if ($this->create_end_at != '') {
+    		$create_end_at_unixtimestamp = strtotime($this->create_end_at);
+    	}
+    	if ($create_start_at_unixtimestamp != '' && $create_end_at_unixtimestamp == '') {
+    		$query->andFilterWhere(['>', 'admin_log.created_at', $create_start_at_unixtimestamp]);
+    	} elseif ($create_start_at_unixtimestamp == '' && $create_end_at_unixtimestamp != '') {
+    		$query->andFilterWhere(['<', 'admin_log.created_at', $create_end_at_unixtimestamp]);
+    	} else {
+    		$query->andFilterWhere([
+    				'between',
+    				'admin_log.created_at',
+    				$create_start_at_unixtimestamp,
+    				$create_end_at_unixtimestamp
+    				]);
+    	}*/
+    	return $dataProvider;
     }
 }
