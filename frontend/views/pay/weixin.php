@@ -42,7 +42,7 @@ use yii\helpers\Url;
         	created: function(){ 
         		let self = this;
         		var timer;
-			    setInterval(function(){self.refreshData();}, 1000)     		
+			    setInterval(function(){self.refreshData();}, 1500)     		
         	},
         	methods: {
         		refreshData: function(){
