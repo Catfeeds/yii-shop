@@ -66,7 +66,7 @@
 		new Vue({
          	el: '#orderList',
          	data: {
-         		orderList: []
+         		ListData: []
          	},
          	created: function(){
          		let _this = this;
@@ -83,7 +83,7 @@
                 		success: function(data){
                 			if(data.status == 0){
                 				console.log('数据获取成功');
-                				_this.orderList = data;
+                				_this.ListData = data.data;
                 			}
                 		}
                 	});
