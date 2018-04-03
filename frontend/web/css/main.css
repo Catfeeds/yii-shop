@@ -593,7 +593,7 @@
           .laber_shop .shop_main .shop_orders ul li .list_i {
             float: left;
             position: relative; }
-          .laber_shop .shop_main .shop_orders ul li .list_i:after {
+          .laber_shop .shop_main .shop_orders ul li .lisBorder:after {
             content: '';
             width: 1px;
             height: calc(100% + 52px);

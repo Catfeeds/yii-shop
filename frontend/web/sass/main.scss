@@ -734,7 +734,7 @@
                         float: left;
                         position: relative;
                     }
-                    .list_i:after{
+                    .lisBorder:after{
                         content: '';
                         width: 1px;
                         height: calc(100% + 52px);
@@ -742,7 +742,7 @@
                         right: 50px;
                         background: #d3d3d3;
                         position: absolute;
-                    } 
+                    }
                     a {
                         float: left;
                         img {
