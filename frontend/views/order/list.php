@@ -86,28 +86,27 @@
                 		success: function(data){
                 			if(data.status == 0){
                 				console.log('数据获取成功');
-                				_this.ListData = data.data;
-                				for(var i in _this.ListData){
-                					goodList = _this.ListData[i].goods_list;
-                					console.log(goodList.length);
-                				}             				
+                				_this.ListData = data.data;            				
                 				console.log(_this.ListData);
-                				if(_this.ListData.order_status == 1){
-                					console.log(1)
-                					_this.statusNum = 1;
-                				}else if(_this.ListData.order_status == 2){
-                					console.log(2)
-                					_this.statusNum = 2;
-                				}else if(_this.ListData.order_status == 3){
-                					console.log(3)
-                					_this.statusNum = 3;
-                				}else if(_this.ListData.order_status ==4){
-                					console.log(4)
-                					_this.statusNum = 4;
-                				}else if(_this.ListData.order_status ==5){
-                					console.log(5)
-                					_this.statusNum = 5;
+                				for(var i in _this.ListData){
+                					if(_this.ListData[i].order_status = 1){
+	                					console.log(1)
+	                					_this.statusNum = 1;
+	                				}else if(_this.ListData[i].order_status = 2){
+	                					console.log(2)
+	                					_this.statusNum = 2;
+	                				}else if(_this.ListData[i].order_status = 3){
+	                					console.log(3)
+	                					_this.statusNum = 3;
+	                				}else if(_this.ListData[i].order_status =4){
+	                					console.log(4)
+	                					_this.statusNum = 4;
+	                				}else if(_this.ListData[i].order_status ==5){
+	                					console.log(5)
+	                					_this.statusNum = 5;
+	                				}
                 				}
+                				
                 			}
                 		}
                 	});
