@@ -42,9 +42,10 @@
 	            						<p v-show="list.order_status == 4" class="od5">订单关闭</p>
 	            						<p v-show="list.order_status == 5" class="od5">交易成功</p>
 	            						<div class="btn_cz">
-	            							<button class="orders_qx">取消订单</button>
-	            							<button class="orders_zf">立即支付</button>
-	            							<button class="orders_zf">物流跟踪</button>
+	            							<button type="button" v-show="list.order_status == 1" class="orders_qx">取消订单</button>
+	            							<button type="button" v-show="list.order_status == 1" class="orders_zf">立即支付</button>
+	            							<button type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
+	            							<button type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</button>
 	            						</div>
             						
             					</li>

@@ -72,7 +72,7 @@
 				keyArr: [],
 				goods_num: 1,
 				content:'',
-				imgUrl: imgurl				
+				imgUrl: imgurl
 			},
 			created: function(){
 				var _this = this;
