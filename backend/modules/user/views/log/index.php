@@ -33,9 +33,9 @@ $this->title = "Admin Log";
                     'dataProvider' => $dataProvider,
                     'filterModel' => $searchModel,
                     'columns' => [
-                        /*[
+                        [
                             'class' => CheckboxColumn::className(),
-                        ],*/
+                        ],
                         [
                             'attribute' => 'id',
                         ],
