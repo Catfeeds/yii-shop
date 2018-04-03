@@ -867,7 +867,7 @@
         margin-top: 34px;
         border-radius: 5px; }
     .laber_shop .shop_main .address_cont {
-      width: 100%;
+      width: 740px;
       float: left;
       margin-top: 30px; }
       .laber_shop .shop_main .address_cont li {
@@ -879,7 +879,8 @@
           .laber_shop .shop_main .address_cont li .lis h3 {
             font-size: 12px;
             color: #3e3a39;
-            font-weight: normal; }
+            font-weight: normal;
+            float: none; }
           .laber_shop .shop_main .address_cont li .lis input {
             width: calc(100% - 22px);
             height: 38px;
