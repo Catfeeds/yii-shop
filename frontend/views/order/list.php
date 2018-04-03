@@ -145,14 +145,14 @@
                 		url:"/order/cancel",
                 		dataType: 'json',
                 		data: {id:_this.id},
-                		succsee: function(data){
+                		success: function(data){
                 			if(data.status == 0){
                 				console.log('取消成功');
                 				_this.carShow = false;
          		                _this.popupShow = false;
-//              				_this.$nextTick( function(){
-//			                    	_this.ListData();
-//			                    });
+                				_this.$nextTick( function(){
+			                    	_this.ListData();
+			                    });
                 			}else{
                 				console.log('取消失败');
                 			}
