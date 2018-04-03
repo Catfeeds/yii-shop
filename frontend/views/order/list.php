@@ -27,8 +27,8 @@
             				</dl>
             				<ul>
             					<li v-for="(list, index) in ListData">
-            						<div class="list_i od1">
-	            						<a v-for="item in ListData[index].goods_list" class="order_list" href="#">
+            						<div class="list_i od1" :class="{'lisBorder': list.goods_list.length > 1}">
+	            						<a v-for="item in list.goods_list" class="order_list" href="#">
 	            							<img :src="imgUrl + item.goods_image">
 	            							<b>{{ item.goods_name }}</b>
 	            							<p class="od2">{{ item.goods_num }}</p>
