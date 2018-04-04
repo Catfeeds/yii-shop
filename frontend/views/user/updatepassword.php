@@ -116,7 +116,7 @@
 			                url: '/user/updatepwd',
 			                type: 'POST',
 			                dataType: 'json',
-			                data: _this.updataPass,
+			                data: {old_password: _this.updataPass.old_password, password: _this.updataPass.password},
 			                success: function(data) {
 			                	if(data.status == 0){
 			                		console.log('获取成功');
