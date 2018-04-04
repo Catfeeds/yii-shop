@@ -183,12 +183,6 @@
             	btnAdd:function(){
             		this.goods_num++;
             	}
-            },
-            watch: {
-            	goods_num: function(){
-            		this.btnjj();
-            		this.btnAdd();
-            	}
             }
 		})
 	</script>
