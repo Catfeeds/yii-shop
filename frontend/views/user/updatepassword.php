@@ -15,11 +15,18 @@
 			<section class="laber_login">
 				<div class="login auto clearfix">
 					<div class="login_main">
+						<div v-show="noneCar" class="noneCar">
+            				<img src="/img/kong.png"/>
+            				<p>您还没有添加任何商品，快去逛逛吧</p>
+            				<div class="goshop">
+            					<a class="aShop" href="/goods/list">前往商城</a>
+            				</div>            				
+            			</div>
 						<div class="login_center">
 							<h1>修改密码</h1>
 							<form id="form">
 								<div class="list">
-									<input v-model='updataPass.old_password' type="text" name="old_password" id="old_password" placeholder="请输入旧密码" />
+									<input @blur="oldPassword" v-model='updataPass.old_password' type="text" name="old_password" id="old_password" placeholder="请输入旧密码" />
 									<strong class="stro1">{{ oldMsg }}</strong>
 								</div>
 								<div class="list">
@@ -50,6 +57,7 @@
 	    			disabled2: true,
 	    			isactive1: false,
 				    isactive2: true,
+				    noneCar: true,
 	    			oldMsg:'',
 	    			newMsg1:'',
 	    			newMsg2:'',
@@ -60,6 +68,20 @@
 	    			}
 	    		},
 	    		methods: {
+	    			oldPassword: function(){
+	    				if(this.updataPass.old_password == ''){
+							this.newMsg1 = '新密码不能为空！';
+							return false;
+						}else if(this.updataPass.old_password.length < 6 || this.updataPass.old_password.length > 12){
+							this.newMsg1 = '您输入6-12位密码';
+							return false;
+						}else {
+							this.newMsg1 = '';
+							this.disabled2 = false;
+							this.isactive1 = true;
+							this.isactive2 = false;
+						}
+	    			},
 	    		    //验证密码
 					password1:function(){
 						if(this.updataPass.password == ''){
@@ -84,6 +106,7 @@
 							this.newMsg2 = '';
 						}
 					}
+					
 	    		}
 	    	})
 	    </script>
