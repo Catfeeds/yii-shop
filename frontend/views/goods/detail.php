@@ -171,13 +171,15 @@
             		console.log(this.num)
             	},
             	btnjj:function(){
-            		this.goods_num--;
-            		if(this.goods_num <= 0){
-            			this.goods_num = 1;
+            		var _this = this;
+            		_this.goods_num--;
+            		if(_this.goods_num <= 0){
+            			_this.goods_num = 1;
             		}
             	},
             	btnAdd:function(){
-            		this.goods_num++;
+            		var _this = this;
+            		_this.goods_num++;
             	}
             }
 		})

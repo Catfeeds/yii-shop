@@ -71,7 +71,8 @@ use yii\helpers\Url;
 			                    console.log(_this.orderUrl);
 			                    if(data.pay_status != 1){
 			                    	_this.carShow = true;
-        		                    _this.popupShow = true;			                    	
+        		                    _this.popupShow = true;	
+        		                    clearInterval(function(){_this.refreshData()});		                    	
 			                    }
 			                }else{
 			                	console.log('请求数据出错');
