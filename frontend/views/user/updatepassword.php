@@ -19,16 +19,16 @@
 							<h1>修改密码</h1>
 							<form id="form">
 								<div class="list">
-									<input @blur="usedPass" v-model='logindata.mobile' type="text" name="user_name" id="user_name" placeholder="请输入旧密码" />
-									<strong class="stro1">{{ logPhoneMsg }}</strong>
+									<input v-model='logindata.old_password' type="text" name="old_password" id="old_password" placeholder="请输入旧密码" />
+									<strong class="stro1">{{ oldMsg }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="password" v-model='logindata.password'  type="text" name="password" id="password" placeholder="请输入新密码" />
-									<strong class="stro1">{{ logPassMsg }}</strong>
+									<input @blur="password1" v-model='logindata.password'  type="text" name="password" id="password" placeholder="请输入新密码" />
+									<strong class="stro1">{{ newMsg1 }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="password" v-model='logindata.password'  type="text" name="password" id="password" placeholder="请再次确认新密码" />
-									<strong class="stro1">{{ logPassMsg }}</strong>
+									<input @blur="password2" v-model='password2'  type="text" name="password" id="password" placeholder="请再次确认新密码" />
+									<strong class="stro1">{{ newMsg2 }}</strong>
 								</div>
 								<button style="margin: 76px 0 322px;" type="button" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">保存修改</button>
 							</form>
@@ -50,33 +50,40 @@
 	    			disabled2: true,
 	    			isactive1: false,
 				    isactive2: true,
-	    			logPhoneMsg:'',
-	    			logPassMsg:'',
+	    			oldMsg:'',
+	    			newMsg1:'',
+	    			newMsg2:'',
+	    			password2: '',
 	    			logindata: {
-	    				usedPass: '',
+	    				old_password: '',
 	    				password:''
 	    			}
 	    		},
 	    		methods: {
-	    			usedPass: function(){
-	    				var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
-						if(this.logindata.mobile == ''){
-							this.logPhoneMsg = "手机号不能为空";
+	    		    //验证密码
+					password1:function(){
+						if(this.datainfo.password == ''){
+							this.newMsg1 = '新密码不能为空！';
 							return false;
-						}else if(!telreg.test($('#user_name').val())){
-							this.logPhoneMsg = "请输入有效号码";
+						}else if(this.datainfo.password.length < 6 || this.datainfo.password.length > 12){
+							this.newMsg1 = '您输入6-12位密码';
 							return false;
 						}else {
-							this.logPhoneMsg = '';
+							this.newMsg1 = '';
 						}
-	    		   },
-	    		   password: function(){
-	    		   	   if(this.logindata.password == ''){
-	    		   	   	    this.logPassMsg = '手机号不能为空';
-	    		   	   }else {
-	    		   	   	    this.logPassMsg = '';
-	    		   	   }
-	    		   }
+					},
+					//验证再次输入密码
+					password2:function(){
+						if(this.password2 == ''){
+						    this.newMsg2 = '新密码不能为空！';	
+						    return false;
+						}else if(this.password2 != this.datainfo.password){
+							this.newMsg2 = '两次输入密码保持一致';
+							return false;
+						}else{
+							this.newMsg2 = '';
+						}
+					}
 	    		}
 	    	})
 	    </script>
