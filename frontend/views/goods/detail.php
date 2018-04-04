@@ -23,7 +23,7 @@
 								<input class="sl" type="text" v-model="goods_num" />
 								<input @click="btnAdd" type="button" value="+" />
 							</div>
-							<a class="gm" href="javascript:;">立即购买</a>
+							<a @click="buyShop" class="gm" href="javascript:;">立即购买</a>
 							<a @click="tjCar" href="javascript:;">添加购物车</a>
 							<ul>
 								<li>
@@ -72,11 +72,13 @@
 				keyArr: [],
 				goods_num: 1,
 				content:'',
-				imgUrl: imgurl
+				imgUrl: imgurl,
+				goodData: []
 			},
 			created: function(){
 				var _this = this;
 				_this.id = id;
+				var temp = {};						    
 				console.log(_this.id);
 				$.ajax({
 	                url: _this.goodUrl + '?id=' + _this.id,
@@ -90,13 +92,16 @@
 						    _this.goodPrice = data.data.shop_price;
 						    _this.imgArr = data.data.image;
 						    _this.keyArr = data.data.ext;
-						    _this.content = data.data.content;
+						    _this.content = data.data.content;						    
 						    console.log(_this.imgArr);
 						    console.log(_this.keyArr);
 	                	}	                 	
 	                }
 	           })	            
-	                       	           
+	           temp.goods_id = _this.id;
+			   temp.goods_num =  _this.goods_num;
+			   _this.goodData.push(temp);
+			   console.log(_this.goodData)           
 			},	
             methods: {
             	tjCar: function(){
@@ -120,6 +125,26 @@
             		}
             		         		            		
             	},
+//          	//直接购买
+//          	buyShop: function(){
+//          		var _this = this;
+//          		if(islogin == 1){
+//          			$.ajax({
+//		                url: '/order/confirm',
+//		                type: 'POST',
+//		                dataType: 'json',
+//		                data: {goods_num: _this.goods_num, goods_id: _this.id},
+//		                success: function(data) {
+//			                	if(data.status == 0){
+//			                		console.log('添加成功');
+//			                		
+//			                	}	                 	
+//			                }
+//			           }) 
+//          		}else{
+//          			window.location = '/site/login';
+//          		}
+//          	},
             	carQx: function(){
             		this.carShow = false;
             		this.popupShow = false;
