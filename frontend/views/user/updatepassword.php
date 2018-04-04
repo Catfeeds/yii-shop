@@ -27,7 +27,7 @@
 									<strong class="stro1">{{ newMsg1 }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="password2" v-model='password2'  type="text" name="password" id="password" placeholder="请再次确认新密码" />
+									<input @blur="pass" v-model='password2'  type="text" name="password" id="password" placeholder="请再次确认新密码" />
 									<strong class="stro1">{{ newMsg2 }}</strong>
 								</div>
 								<button style="margin: 76px 0 322px;" type="button" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">保存修改</button>
@@ -73,7 +73,7 @@
 						}
 					},
 					//验证再次输入密码
-					password2:function(){
+					pass:function(){
 						if(this.password2 == ''){
 						    this.newMsg2 = '新密码不能为空！';	
 						    return false;
