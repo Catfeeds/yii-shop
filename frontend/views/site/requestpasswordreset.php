@@ -2,11 +2,24 @@
 use yii\helpers\Url;
 ?>
 <div class="container2" id="regist">
+	        <section class="laber_shopUser">
+            	<div class="shopUser auto clearfix">
+            		<div class="shopUser_main">
+            			<p>您好，15038384758</p>
+            			<ul>
+            				<li class="on"><a href="">密码管理</a></li>
+            				<li><a href="/cart/index">购物车</a></li>
+            				<li><a href="/address/index">收货地址</a></li>
+            				<li><a href="/order/list">我的订单</a></li>
+            			</ul>
+            		</div>
+            	</div>
+            </section>
 			<section class="laber_login">
 				<div class="login auto clearfix">
 					<div class="login_main">
 						<div class="login_center">
-							<h1>文榜用户注册</h1>
+							<h1>忘记密码</h1>
 							<form>
 								<div class="list">
 									<input @blur="checkphone" type="text" v-model="datainfo.mobile" id="mobile" placeholder="请输入您的手机号码" />
@@ -33,36 +46,19 @@ use yii\helpers\Url;
 									<input @blur="checkpas" type="password" v-model="pas" name="password" id="pass" placeholder="请再次输入您的登录密码" />
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
-								<a href="#" class="forget">忘记密码?</a>
-								<button type="button" @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">立即注册</button>
-								<p>若您已有账号，可点击这里<a href="#">登录</a></p>
-								<div class="qt">
-									<b class="b1"></b>
-									<p>其它方式登录</p>
-									<b class="b2"></b>
-								</div>
-								<div class="dsf">
-									<a href="<?=$qqUrl?>" class="a_fl">
-										<i class="i1"></i>
-										QQ登录
-									</a>
-                                    <a href="<?=$weixinUrl?>" class="a_fr">
-										<i class="i2"></i>
-										微信登录
-									</a>
-								</div>
+								<button type="button" style="margin: 76px 0 200px;" @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">立即注册</button>
 							</form>
 						</div>
 					</div>
 				</div>
 			</section>
-			<div class="contmain7">
+			<div>
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
 			</div>
 			<div v-show="carShow" id="carBg" class="carBg"></div>
 			<div v-show="popupShow" id="carPopup" class="carPopup">
 				<i></i>
-				<span>注册成功！</span>
+				<span>找回密码成功！</span>
 				<div class="linkShop">
 					<a @click="okBtn" href="javascript:;">确定</a>
 				</div>
