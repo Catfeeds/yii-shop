@@ -47,9 +47,9 @@ $this->beginPage() ?>
 						 <button id="loginCart" type="button" class="loginCart">购物车</button>
 						  <?php if(!Yii::$app->user->isGuest):?>
 						  	<?php if(Yii::$app->user->identity->mobile):?>
-						  		<a href="#"><?=Yii::$app->user->identity->mobile?></a>
+						  		<a href="<?=Url::to('/order/list')?>"><?=Yii::$app->user->identity->mobile?></a>
 						  	<?php else:?>
-						  		<a href="#"><?=Yii::$app->user->identity->nickname?></a>
+						  		<a href="<?=Url::to('/order/list')?>"><?=Yii::$app->user->identity->nickname?></a>
 						  	<?php endif;?>
 						  	<a href="<?=Url::to('/site/logout')?>">退出</a>
 						  <?php else:?>
@@ -62,14 +62,15 @@ $this->beginPage() ?>
 				<div class="header_main auto">
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
 					<nav class="nav_fr">
-						<li <?php if($this->params['controller']=='index'):?>class="on" <?php endif;?>><a href="/">首页</a></li>
-						<li <?php if($this->params['action']=='about'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/about')?>">关于文榜</a></li>
-						<li <?php if($this->params['action']=='source'):?>class="on" <?php endif;?>><a href="<?=Url::to('/site/source')?>">文榜茶源地</a></li>
-						<li <?php if($this->params['action']=='management'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/management')?>">经营模式</a></li>
-					    <li <?php if($this->params['action']=='old'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/old')?>">古茶树认养</a></li>
-						<li <?php if($this->params['action']=='member'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/member')?>">会员服务</a></li>
-						<li <?php if($this->params['action']=='news'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/news')?>">新闻中心</a></li>	
-						<li <?php if($this->params['action']=='list'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/goods/list')?>">在线商城</a></li>					
+						<?php $controller = $this->context->id; $action =$this->context->action->id?>
+						<li <?php if($controller=='index'):?>class="on" <?php endif;?>><a href="/">首页</a></li>
+						<li <?php if($action=='about'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/about')?>">关于文榜</a></li>
+						<li <?php if($action=='source'):?>class="on" <?php endif;?>><a href="<?=Url::to('/site/source')?>">文榜茶源地</a></li>
+						<li <?php if($action=='management'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/management')?>">经营模式</a></li>
+					    <li <?php if($action =='old'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/old')?>">古茶树认养</a></li>
+						<li <?php if($action=='member'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/member')?>">会员服务</a></li>
+						<li <?php if($action=='news'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/news')?>">新闻中心</a></li>	
+						<li <?php if($action=='list'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/goods/list')?>">在线商城</a></li>					
 					</nav>
 				</div>				
 			</div>
