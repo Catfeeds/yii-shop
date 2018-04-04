@@ -97,16 +97,12 @@
 	                	}	                 	
 	                }
 	           })	            
-	                     
-			},
-			$nextTick: function(){
-				var _this = this;
-				var temp = {};
+	            var temp = {};
        	    	temp.goods_id = _this.id;
 			    temp.goods_num =  _this.goods_num;
 			    _this.goodData.push(temp);
-			    console.log(_this.goodData);    	    	       	    	
-       	    },
+			    console.log(_this.goodData);        
+			},
             methods: {
             	tjCar: function(){
             		var _this = this;
