@@ -37,7 +37,7 @@
 									<input @blur="pass" v-model='password2'  type="text" name="password" id="password" placeholder="请再次确认新密码" />
 									<strong class="stro1">{{ newMsg2 }}</strong>
 								</div>
-								<button style="margin: 76px 0 322px;" type="button" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">保存修改</button>
+								<button @click="keep" style="margin: 76px 0 322px;" type="button" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">保存修改</button>
 							</form>
 						</div>
 					</div>
@@ -45,6 +45,13 @@
 			</section>
 			<div>
 				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
+			</div>
+			<div v-show="carShow" id="carBg" class="carBg"></div>
+			<div v-show="popupShow" id="carPopup" class="carPopup">
+				<span>密码修改成功</span>
+				<div class="linkShop">
+					<a @click="confirm" href="javascript:;">确定</a>
+				</div>
 			</div>
 		</div>
 		<!-- 主体内容 end  -->
@@ -58,6 +65,8 @@
 	    			isactive1: false,
 				    isactive2: true,
 				    noneCar: true,
+				    carShow: false,
+				    popupShow: false,
 	    			oldMsg:'',
 	    			newMsg1:'',
 	    			newMsg2:'',
@@ -105,8 +114,29 @@
 						}else{
 							this.newMsg2 = '';
 						}
+					},
+					keep: function(){
+						var _this = this;
+						_this.oldPassword();
+						_this.password1();
+						_this.pass();
+						$.ajax({
+			                url: '/user/updatepwd',
+			                type: 'POST',
+			                dataType: 'json',
+			                data: _this.updataPass,
+			                success: function(data) {
+			                	if(data.status == 0){
+			                		console.log('获取成功');
+			                		_this.carShow = true;
+			                		_this.popupShow = true;	
+			                	}          	
+			                }
+			            })
+					},
+					confirm: function(){
+						window.location = '/goods/list';
 					}
-					
 	    		}
 	    	})
 	    </script>
