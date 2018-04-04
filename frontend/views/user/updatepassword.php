@@ -122,7 +122,13 @@
 			                		console.log('获取成功');
 			                		_this.carShow = true;
 			                		_this.popupShow = true;	
-			                	}          	
+			                	}else if(data.status == 1){
+			                		console.log('修改失败');
+			                	}else if(data.status == 2){
+			                		console.log('登录过期');
+			                	}else{
+			                		console.log('数据错误');
+			                	}       	
 			                }
 			            })
 					},
