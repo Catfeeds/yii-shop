@@ -1,4 +1,4 @@
-		<div class="container2" id="logins">
+		<div class="container2" id="update">
 			<section class="laber_shopUser">
             	<div class="shopUser auto clearfix">
             		<div class="shopUser_main">
@@ -44,8 +44,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	    <script type="text/javascript" src="/js/axios.min.js" ></script>
 	    <script type="text/javascript">
-	    	var logins = new Vue({
-	    		el: '#logins',
+	    	new Vue({
+	    		el: '#update',
 	    		data: {
 	    			disabled2: true,
 	    			isactive1: false,
