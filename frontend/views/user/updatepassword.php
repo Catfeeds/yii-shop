@@ -19,11 +19,11 @@
 							<h1>修改密码</h1>
 							<form id="form">
 								<div class="list">
-									<input v-model='logindata.old_password' type="text" name="old_password" id="old_password" placeholder="请输入旧密码" />
+									<input v-model='updataPass.old_password' type="text" name="old_password" id="old_password" placeholder="请输入旧密码" />
 									<strong class="stro1">{{ oldMsg }}</strong>
 								</div>
 								<div class="list">
-									<input @blur="password1" v-model='logindata.password'  type="text" name="password" id="password" placeholder="请输入新密码" />
+									<input @blur="password1" v-model='updataPass.password'  type="text" name="password" id="password" placeholder="请输入新密码" />
 									<strong class="stro1">{{ newMsg1 }}</strong>
 								</div>
 								<div class="list">
@@ -54,7 +54,7 @@
 	    			newMsg1:'',
 	    			newMsg2:'',
 	    			password2: '',
-	    			logindata: {
+	    			updataPass: {
 	    				old_password: '',
 	    				password:''
 	    			}
@@ -62,10 +62,10 @@
 	    		methods: {
 	    		    //验证密码
 					password1:function(){
-						if(this.datainfo.password == ''){
+						if(this.updataPass.password == ''){
 							this.newMsg1 = '新密码不能为空！';
 							return false;
-						}else if(this.datainfo.password.length < 6 || this.datainfo.password.length > 12){
+						}else if(this.updataPass.password.length < 6 || this.updataPass.password.length > 12){
 							this.newMsg1 = '您输入6-12位密码';
 							return false;
 						}else {
@@ -77,7 +77,7 @@
 						if(this.password2 == ''){
 						    this.newMsg2 = '新密码不能为空！';	
 						    return false;
-						}else if(this.password2 != this.datainfo.password){
+						}else if(this.password2 != this.updataPass.password){
 							this.newMsg2 = '两次输入密码保持一致';
 							return false;
 						}else{
