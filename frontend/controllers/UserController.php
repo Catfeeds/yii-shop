@@ -61,7 +61,11 @@ class UserController extends BaseController
     */
     public function actionUpdatepassword()
     {	
-    	return $this->render('findpwd1');
+    	if(Yii::$app->user->isGuest)
+    	{
+    		return $this->render('/site/login');
+    	}
+    	return $this->render('updatepassword');
     }
     
     /**
