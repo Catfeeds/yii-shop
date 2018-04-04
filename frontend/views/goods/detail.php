@@ -77,8 +77,7 @@
 			},
 			created: function(){
 				var _this = this;
-				_this.id = id;
-				var temp = {};						    
+				_this.id = id;										    
 				console.log(_this.id);
 				$.ajax({
 	                url: _this.goodUrl + '?id=' + _this.id,
@@ -98,15 +97,16 @@
 	                	}	                 	
 	                }
 	           })	            
-	           temp.goods_id = _this.id;
-			   temp.goods_num =  _this.goods_num;
-			   _this.$nextTick( function(){
-                	_this.btnjj();
-                	_this.btnAdd();
-                });
-			   _this.goodData.push(temp);
-			   console.log(_this.goodData)           
-			},	
+	                     
+			},
+			$nextTick: function(){
+				var _this = this;
+				var temp = {};
+       	    	temp.goods_id = _this.id;
+			    temp.goods_num =  _this.goods_num;
+			    _this.goodData.push(temp);
+			    console.log(_this.goodData);    	    	       	    	
+       	    },
             methods: {
             	tjCar: function(){
             		var _this = this;
