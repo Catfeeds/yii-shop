@@ -15,13 +15,6 @@
 			<section class="laber_login">
 				<div class="login auto clearfix">
 					<div class="login_main">
-						<div v-show="noneCar" class="noneCar">
-            				<img src="/img/kong.png"/>
-            				<p>您还没有添加任何商品，快去逛逛吧</p>
-            				<div class="goshop">
-            					<a class="aShop" href="/goods/list">前往商城</a>
-            				</div>            				
-            			</div>
 						<div class="login_center">
 							<h1>修改密码</h1>
 							<form id="form">
@@ -64,7 +57,6 @@
 	    			disabled2: true,
 	    			isactive1: false,
 				    isactive2: true,
-				    noneCar: true,
 				    carShow: false,
 				    popupShow: false,
 	    			oldMsg:'',
