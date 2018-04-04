@@ -100,6 +100,10 @@
 	           })	            
 	           temp.goods_id = _this.id;
 			   temp.goods_num =  _this.goods_num;
+			   _this.$nextTick( function(){
+                	_this.btnjj();
+                	_this.btnAdd();
+                });
 			   _this.goodData.push(temp);
 			   console.log(_this.goodData)           
 			},	
@@ -171,15 +175,13 @@
             		console.log(this.num)
             	},
             	btnjj:function(){
-            		var _this = this;
-            		_this.goods_num--;
-            		if(_this.goods_num <= 0){
-            			_this.goods_num = 1;
+            		this.goods_num--;
+            		if(this.goods_num <= 0){
+            			this.goods_num = 1;
             		}
             	},
             	btnAdd:function(){
-            		var _this = this;
-            		_this.goods_num++;
+            		this.goods_num++;
             	}
             }
 		})
