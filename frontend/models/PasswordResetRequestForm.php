@@ -19,9 +19,9 @@ class PasswordResetRequestForm extends Model
     public function rules()
     {
         return [
-            ['email', 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
+            ['mobile', 'trim'],
+            ['mobile', 'required'],
+            ['mobile', 'string','max' => 11,'min'=>11,'message' =>''],
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],

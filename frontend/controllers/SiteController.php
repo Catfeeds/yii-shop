@@ -175,22 +175,9 @@ class SiteController extends BaseController
      *
      * @return mixed
      */
-    public function actionRequestPasswordReset()
+    public function actionRequestpasswordreset()
     {
-    	$model = new PasswordResetRequestForm();
-    	if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-    		if ($model->sendEmail()) {
-    			Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
-    
-    			return $this->goHome();
-    		} else {
-    			Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
-    		}
-    	}
-    
-    	return $this->render('requestPasswordResetToken', [
-    			'model' => $model,
-    			]);
+    	return $this->render('requestpasswordreset');
     }
     
     /**
@@ -246,7 +233,7 @@ class SiteController extends BaseController
     }
     
     /**
-     * 发送短信
+     * 发送短信(注册)api
      * */
     public function actionSendmsg()
     {
@@ -267,7 +254,37 @@ class SiteController extends BaseController
     			return ['status' =>1,'msg' =>'手机号被使用'];
     		}else
     		{	
+    			//TODO 发送短信
     			return ['status' =>0,'msg' =>'发送成功'];
+    		}
+    	}
+    }
+    
+    
+    /**
+     * 发送短信(忘记密码)api
+     * */
+    public function actionResetpasswordsendmsg()
+    {
+    	if(Yii::$app->request->isAjax)
+    	{
+    		$mobile = Yii::$app->request->post('mobile');
+    		$captcha = Yii::$app->request->post('captcha');
+    		if(!$captcha)
+    		{
+    			return ['status' =>1,'msg' =>'验证码不能为空'];
+    		}
+    		if(strtolower(Yii::$app->session->get('captcha')) != strtolower($captcha))
+    		{
+    			return ['status' =>1,'msg' =>'验证码不正确'];
+    		}
+    		if(User::findByMobile($mobile))
+    		{
+    			//TODO 发送短信
+    			return ['status' =>0,'msg' =>'发送成功'];
+    		}else
+    		{
+    			return ['status' =>1,'msg' =>'手机号未注册'];
     		}
     	}
     }
