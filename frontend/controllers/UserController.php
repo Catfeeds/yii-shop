@@ -25,19 +25,18 @@ class UserController extends BaseController
 {
 	
     /**
-     * 修改密码(用户中心)
+     * 修改密码(用户中心)与Updatepassword对应
      *
      * @return mixed
      */
     public function actionUpdatepwd()
     {	
-    	$this->layout = false;
-    	if(Yii::$app->user->isGuest)
-    	{	
-    		return $this->redirect(Url::to('/'));
-    	}
         if(Yii::$app->request->isPost)
         {
+	    	if(Yii::$app->user->isGuest)
+	    	{	
+	    		return ['status' =>2,'msg' =>'登录过期'];
+	    	}
         	$model = User::findOne(['id' => Yii::$app->getUser()->getIdentity()->getId()]);
         	$model->setScenario('self-update');
         	$model->load(['data' =>Yii::$app->request->post()],'data');
@@ -53,15 +52,15 @@ class UserController extends BaseController
         		}
         		return ['status' =>1,'msg' =>$msg];
         	}
-        }else{
-        	return $this->render('updatepwd');
         }
     }
     
     
-    public function actionFindpwd1()
+    /**
+    * @desc 修改密码页面
+    */
+    public function actionUpdatepassword()
     {	
-    	$this->layout = false;
     	return $this->render('findpwd1');
     }
     
