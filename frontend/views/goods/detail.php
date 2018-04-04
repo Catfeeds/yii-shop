@@ -125,9 +125,9 @@
             		}
             		         		            		
             	},
-//          	//直接购买
-//          	buyShop: function(){
-//          		var _this = this;
+            	//直接购买
+            	buyShop: function(){
+            		var _this = this;
 //          		if(islogin == 1){
 //          			$.ajax({
 //		                url: '/order/confirm',
@@ -144,7 +144,7 @@
 //          		}else{
 //          			window.location = '/site/login';
 //          		}
-//          	},
+            	},
             	carQx: function(){
             		this.carShow = false;
             		this.popupShow = false;
