@@ -290,10 +290,10 @@ class User extends ActiveRecord implements IdentityInterface
                 $this->addError('old_password', yii::t('app', '{attribute} is incorrect.', ['attribute' => yii::t('app', 'Old Password')]));
                 return false;
             }
-            if ($this->repassword != $this->password) {
+            /*if ($this->repassword != $this->password) {
                 $this->addError('repassword', yii::t('app', '{attribute} is incorrect.', ['attribute' => yii::t('app', 'Repeat Password')]));
                 return false;
-            }
+            }*/
         }
         return $this->save();
     }
