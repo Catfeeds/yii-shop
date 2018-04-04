@@ -96,14 +96,18 @@
 						    console.log(_this.keyArr);
 	                	}	                 	
 	                }
-	           })	            
-	            var temp = {};
-       	    	temp.goods_id = _this.id;
-			    temp.goods_num =  _this.goods_num;
-			    _this.goodData.push(temp);
-			    console.log(_this.goodData);        
+	            })
+	            _this.tempFun();	            	                    
 			},
             methods: {
+            	tempFun: function(){
+            		var _this = this;
+            		var temp = {};
+	       	    	temp.goods_id = _this.id;
+				    temp.goods_num =  _this.goods_num;
+				    _this.goodData.push(temp);
+				    console.log(_this.goodData);
+            	},
             	tjCar: function(){
             		var _this = this;
             		if(islogin == 1){
