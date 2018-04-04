@@ -147,15 +147,17 @@ class OrderService extends BaseService
     
     /**
     * @desc 生成数据后清空相应的购物车数据(一般不采用deleteAll)
+    * 直接购买可以省略这一步
     */
     private function removeCart($userId)
     {
     	foreach($this->data as $v)
     	{	
-    		$cartData = Cart::find()->select(['_id'])->where(['user_id' =>$userId,'goods_id' =>(string)$v['_id']])->asArray()->one();
-    		if($cartData)
+    		$cartModel = Cart::findOne(['user_id' =>$userId,'goods_id' =>(string)$v['_id']]);
+    		
+    		if($cartModel)
     		{
-    			Cart::findOne($cartData['_id'])->delete();
+    			$cartModel->delete();
     		}
     	}
     	return true;
