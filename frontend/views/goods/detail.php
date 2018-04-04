@@ -96,8 +96,7 @@
 						    console.log(_this.keyArr);
 	                	}	                 	
 	                }
-	            })
-	            _this.tempFun();	            	                    
+	            })	            	            	                    
 			},
             methods: {
             	tempFun: function(){
@@ -132,6 +131,7 @@
             	//直接购买
             	buyShop: function(){
             		var _this = this;
+            		_this.tempFun();
             		if(islogin == 1){
             			$.ajax({
 		                url: '/order/confirm',
