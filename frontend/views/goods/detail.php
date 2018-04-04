@@ -128,22 +128,22 @@
             	//直接购买
             	buyShop: function(){
             		var _this = this;
-//          		if(islogin == 1){
-//          			$.ajax({
-//		                url: '/order/confirm',
-//		                type: 'POST',
-//		                dataType: 'json',
-//		                data: {goods_num: _this.goods_num, goods_id: _this.id},
-//		                success: function(data) {
-//			                	if(data.status == 0){
-//			                		console.log('添加成功');
-//			                		
-//			                	}	                 	
-//			                }
-//			           }) 
-//          		}else{
-//          			window.location = '/site/login';
-//          		}
+            		if(islogin == 1){
+            			$.ajax({
+		                url: '/order/confirm',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: {goods: _this.goodData},
+		                success: function(data) {
+			                	if(data.status == 0){
+			                		console.log('添加成功');
+			                		window.location = '/order/index';
+			                	}	                 	
+			                }
+			           }) 
+            		}else{
+            			window.location = '/site/login';
+            		}
             	},
             	carQx: function(){
             		this.carShow = false;
