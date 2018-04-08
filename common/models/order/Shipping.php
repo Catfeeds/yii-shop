@@ -47,7 +47,7 @@ class Shipping extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'shipping_id' => '配送方式id',
+            'id' => '配送方式id',
             'shipping_code' => '配送方式编号',
             'name' => '配送名称',
         ];
