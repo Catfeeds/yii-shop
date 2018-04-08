@@ -170,6 +170,7 @@ use yii\helpers\Url;
 					if(!_this.sendMsgDisabled){
 	                  	var setTime = setInterval(function(){
 	                  		_this.time--;
+	                  		_this.disabled = true;
 	                  		if(_this.time <= 0){
 	                  			_this.time = 60;
 	                  			_this.sendMsgDisabled = false;
