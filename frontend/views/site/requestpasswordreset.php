@@ -161,7 +161,7 @@ use yii\helpers\Url;
 					  return false;
 					}else {
 					  _this.msgtx = '';
-					  _this.disabled == false;
+					  _this.disabled = !_this.disabled;
 					  if(!_this.sendMsgDisabled){
 		                  	var setTime = setInterval(function(){
 		                  		_this.time--;
