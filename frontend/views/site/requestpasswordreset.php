@@ -72,7 +72,7 @@ use yii\helpers\Url;
 			data: {
 				time: 60,  //初始化短信验证码倒计时时间
 				sendMsgDisabled: false,  //判断是否是发送验证码
-				disabled: true,    //验证码发送禁止点击 初始化
+				disabled: false,    //验证码发送禁止点击 初始化
 				disabled2: true,    //注册按钮禁止点击初始化
 				carShow: false,     
 	    		popupShow: false,
@@ -158,9 +158,9 @@ use yii\helpers\Url;
 					  _this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
-					  _this.msgtx = '';					  
+					  _this.msgtx = '';
+					  _this.disabled = false;
 					  if(!_this.sendMsgDisabled){
-					  	    _this.disabled = false;
 		                  	var setTime = setInterval(function(){
 		                  		_this.time--;
 		                  		if(_this.time <= 0){
