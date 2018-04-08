@@ -175,12 +175,13 @@ use yii\helpers\Url;
 	                  			_this.time = 60;
 	                  			_this.sendMsgDisabled = false;
 	                  			clearInterval(setTime);
+	                  			 _this.disabled = false;
 	                  		}
 	                  		console.log(_this.time)
 	                  	},1000)
 	                }                  
 		            _this.sendMsgDisabled = true;
-		            _this.disabled = false;
+		           
 				},
 				oBtn: function(){
 				    var _this = this;
