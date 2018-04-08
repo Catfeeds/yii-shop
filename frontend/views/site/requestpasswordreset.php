@@ -26,7 +26,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgTel }}</strong>
 								</div>
 								<div class="list">
-									<input v-model="captcha" class="txm" type="text" name="tx_password" id="tx_password" placeholder="请输入图形验证码" />
+									<input @blur="captchaBtn" v-model="captcha" class="txm" type="text" name="tx_password" id="tx_password" placeholder="请输入图形验证码" />
 									<img @click="btnTxm" class="img_txm" :src="txmImg" alt="图形码" />
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
@@ -113,7 +113,6 @@ use yii\helpers\Url;
 						return false;
 					}else {
 						this.msgTel = '';
-						this.disabled = false;
 						this.disabled2 = false;
 						this.isactive1 = true;
 						this.isactive2 = false;
@@ -150,30 +149,31 @@ use yii\helpers\Url;
 					}else {
 						this.msgdx = '';	
 					}
-				},							
-				//验证码倒计时
-				captchaTxt: function(){
-					var _this = this;
+				},
+				captchaBtn: function(){
 					if(_this.captcha.length != 4){
-					  _this.disabled = true;
 					  _this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
 					  _this.msgtx = '';
 					  _this.disabled = false;
-					  if(!_this.sendMsgDisabled){
-		                  	var setTime = setInterval(function(){
-		                  		_this.time--;
-		                  		if(_this.time <= 0){
-		                  			_this.time = 60;
-		                  			_this.sendMsgDisabled = false;
-		                  			clearInterval(setTime);
-		                  		}
-		                  		console.log(_this.time)
-		                  	},1000)
-		                }                  
-		                _this.sendMsgDisabled = true;
 					}
+				},							
+				//验证码倒计时
+				captchaTxt: function(){
+					var _this = this;
+					if(!_this.sendMsgDisabled){
+	                  	var setTime = setInterval(function(){
+	                  		_this.time--;
+	                  		if(_this.time <= 0){
+	                  			_this.time = 60;
+	                  			_this.sendMsgDisabled = false;
+	                  			clearInterval(setTime);
+	                  		}
+	                  		console.log(_this.time)
+	                  	},1000)
+	                }                  
+		            _this.sendMsgDisabled = true;
 				},
 				oBtn: function(){
 				    var _this = this;
