@@ -33,7 +33,7 @@ use yii\helpers\Url;
 									<input @blur="checkpas" type="password" v-model="pas" name="password" id="pass" placeholder="请再次输入您的登录密码" />
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
-								<a href="#" class="forget">忘记密码?</a>
+								<a href="/site/requestpasswordreset" class="forget">忘记密码?</a>
 								<button type="button" @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">立即注册</button>
 								<p>若您已有账号，可点击这里<a href="#">登录</a></p>
 								<div class="qt">
