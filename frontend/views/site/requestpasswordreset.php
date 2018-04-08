@@ -72,7 +72,7 @@ use yii\helpers\Url;
 			data: {
 				time: 60,  //初始化短信验证码倒计时时间
 				sendMsgDisabled: false,  //判断是否是发送验证码
-				disabled: false,    //验证码发送禁止点击 初始化
+				disabled: true,    //验证码发送禁止点击 初始化
 				disabled2: true,    //注册按钮禁止点击初始化
 				carShow: false,     
 	    		popupShow: false,
@@ -107,9 +107,11 @@ use yii\helpers\Url;
 					var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
 					if(this.datainfo.mobile == ''){
 						this.msgTel = "手机号不能为空";
+						this.disabled = true;
 						return false;
 					}else if(!telreg.test($('#mobile').val())){
 						this.msgTel = "请输入有效号码";
+						this.disabled = true;
 						return false;
 					}else {
 						this.msgTel = '';
