@@ -27,10 +27,10 @@ class ResetPasswordForm extends Model
      */
     public function __construct($mobile, $config = [])
     {
-        if (empty($token) || !is_string($token)) {
+        if (empty($mobile) || !is_string($mobile)) {
             throw new InvalidParamException('mobile cannot be blank.');
         }
-        $this->_user = User::findByPasswordResetToken($token);
+        $this->_user = User::findByPasswordResetToken($mobile);
         if (!$this->_user) {
             throw new InvalidParamException('Wrong mobile');
         }
