@@ -13,7 +13,7 @@ use yii\helpers\Url;
 									<strong class="stro1">{{ msgTel }}</strong>
 								</div>
 								<div class="list">
-									<input@blur="captchaBtn" v-model="captcha" class="txm" type="text" name="tx_password" id="tx_password" placeholder="请输入图形验证码" />
+									<input @blur="captchaBtn" v-model="captcha" class="txm" type="text" name="tx_password" id="tx_password" placeholder="请输入图形验证码" />
 									<img @click="btnTxm" class="img_txm" :src="txmImg" alt="图形码" />
 									<strong class="stro1">{{ msgtx }}</strong>
 								</div>
