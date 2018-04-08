@@ -183,27 +183,29 @@ class SiteController extends BaseController
     /**
      * Resets password.
      *
-     * @param string $token
      * @return mixed
      * @throws BadRequestHttpException
      */
-    public function actionResetPassword($token)
+    public function actionResetpassword()
     {
-    	try {
-    		$model = new ResetPasswordForm($token);
-    	} catch (InvalidParamException $e) {
-    		throw new BadRequestHttpException($e->getMessage());
+    	if(Yii::$app->request->isAjax)
+    	{	
+    		//TODO 做手机验证码验证
+    		$code = Yii::$app->request->post('code');
+	    	try {
+	    		$mobile = Yii::$app->request->post('mobile');
+	    		$model = new ResetPasswordForm($mobile);
+	    	} catch (InvalidParamException $e) {
+	    		return ['status' =>1,'msg' =>$e->getMessage()];
+	    	}
+	    
+	    	if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+	    		return ['status' =>0,'msg'=>'修改成功'];
+	    	}
+	    	
+	    	return ['status' =>1,'msg' =>'修改失败'];
     	}
-    
-    	if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-    		Yii::$app->session->setFlash('success', 'New password saved.');
-    
-    		return $this->goHome();
-    	}
-    
-    	return $this->render('resetPassword', [
-    			'model' => $model,
-    			]);
+    	
     }
     
     
