@@ -201,18 +201,18 @@ use yii\helpers\Url;
 					this.codes();
 					var _this = this;
 					$.ajax({
-		                url: '/site/signup',
+		                url: '/site/resetpassword',
 		                type: 'POST',
 		                dataType: 'json',
 		                data: {mobile: this.datainfo.mobile, password: this.datainfo.password, code: this.code},
 		                success: function(data) {
 		                	if(data.status == 0){
-		                		console.log('注册成功');
+		                		console.log('修改成功');
 		                		console.log(data);
 		                		_this.carShow = true;
 	    			    	    _this.popupShow = true;	
 		                	}else {
-		                		console.log('发送失败');
+		                		console.log('修改失败');
 		                        console.log(data);	
 		                	}	                    
 		                }
@@ -222,7 +222,7 @@ use yii\helpers\Url;
 					var _This = this;
 					_This.carShow = false;
 	    			_This.popupShow = false;
-	    			window.location.href = '/index';
+	    			window.location.href = '/goods/list';
 				}
 			}
 		})
