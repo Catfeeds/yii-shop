@@ -192,17 +192,28 @@ class SiteController extends BaseController
     	{	
     		//TODO 做手机验证码验证
     		$code = Yii::$app->request->post('code');
+	    	$mobile = Yii::$app->request->post('mobile');
+	    	$pasword = Yii::$app->request->post('password');
 	    	try {
-	    		$mobile = Yii::$app->request->post('mobile');
 	    		$model = new ResetPasswordForm($mobile);
 	    	} catch (InvalidParamException $e) {
 	    		return ['status' =>1,'msg' =>$e->getMessage()];
 	    	}
-	    
-	    	if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+	    	
+	    	$model->password = $pasword;
+	    	if(!$model->validate())
+	    	{	
+	    		$erros = $model->getErrors();
+	    		$msg = '';
+	    		foreach ($erros as $v)
+	    		{
+	    			$msg = $v;break;
+	    		}
+	    		return ['status' => 1,'msg' =>$msg];
+	    	}
+	    	if ($model->resetPassword()) {
 	    		return ['status' =>0,'msg'=>'修改成功'];
 	    	}
-	    	
 	    	return ['status' =>1,'msg' =>'修改失败'];
     	}
     	
