@@ -236,4 +236,25 @@ class OrderService extends BaseService
     	}
     	return false;
     }
+    
+    /**
+    * @desc 商家发货
+    * @param $id primary key
+    * @param $shippingId 配送方式id
+    * @param 发货订单号
+    */
+    public function send($id,$shippingId,$invoiceNo)
+    {
+    	$model = Order::findOne($id);
+    	if($model)
+    	{
+    		$model->shipping_id = $shippingId;
+    		$model->invoice_no = $invoiceNo;
+    		if($model->save())
+    		{
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 }

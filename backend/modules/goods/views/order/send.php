@@ -32,11 +32,11 @@ $this->title = "Articles";
                         ]
                     ]); ?>
                     <!--left start-->
-                    <div class="col-md-7 droppable sortable ui-droppable ui-sortable">
+                    <div class="col-md-12 droppable sortable ui-droppable ui-sortable">
                     	<div class="form-group">
                     		<label class="col-sm-2 control-label">配送方式</label>
                     		<div class="col-sm-10">
-                    			<select>
+                    			<select name="shipping_id">
                     				<?php foreach($data as $v):?>
                     				<option value="<?=$v['id']?>"><?=$v['name']?></option>
                     				<?php endforeach;?>
@@ -44,7 +44,15 @@ $this->title = "Articles";
                     		</div>
                     	</div>
                     </div>
-
+					<div class="col-md-12 droppable sortable ui-droppable ui-sortable">
+                    	<div class="form-group">
+                    		<label class="col-sm-2 control-label">快递单号</label>
+                    		<div class="col-sm-10">
+                    			<input type="text" name="invoice_no"/>
+                    		</div>
+                    	</div>
+                    </div>
+                    <?= $form->defaultButtons(['size' => 12]) ?>
                     <?php $form = ActiveForm::end() ?>
                 </div>
             </div>

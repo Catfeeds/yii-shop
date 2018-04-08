@@ -15,6 +15,8 @@ use backend\actions\UpdateAction;
 use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
 use common\service\order\ShippingService;
+use common\service\order\OrderService;
+
 use Yii;
 /**
  * FriendLink controller
@@ -47,11 +49,29 @@ class OrderController extends \yii\web\Controller
     /**
     * @desc 发货
     */
-    public function actionSend()
-    {
-    	$service = new ShippingService();
-    	$data = $service->getList();
-    	return $this->render('send',['data' => $data]);
+    public function actionSend($id)
+    {	
+    	if(yii::$app->getRequest()->getIsPost())
+    	{
+    		if (! $id) throw new BadRequestHttpException(yii::t('app', "Id doesn't exit"));
+    		$invoiceNo = Yii::$app->request->post('invoice_no');
+    		$shippingId = Yii::$app->request->post('shipping_id');
+    		$orderService = new OrderService();
+    		if($orderService->send($id, $shippingId, $invoiceNo))
+    		{
+    			Yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+    			return $this->redirect(['index']);
+    		}
+    		
+    		Yii::$app->getSession()->setFlash('error', yii::t('app', 'Error'));
+    		return $this->redirect(['index']);
+    		
+    	}else
+    	{
+	    	$service = new ShippingService();
+	    	$data = $service->getList();
+	    	return $this->render('send',['data' => $data]);
+    	}
     	
     }
 }
