@@ -107,11 +107,9 @@ use yii\helpers\Url;
 					var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
 					if(this.datainfo.mobile == ''){
 						this.msgTel = "手机号不能为空";
-						this.disabled = true;
 						return false;
 					}else if(!telreg.test($('#mobile').val())){
 						this.msgTel = "请输入有效号码";
-						this.disabled = true;
 						return false;
 					}else {
 						this.msgTel = '';
@@ -160,15 +158,14 @@ use yii\helpers\Url;
 					  _this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
-					    _this.msgtx = '';
-					    _this.disabled = false;
-					    if(!_this.sendMsgDisabled){
+					  _this.msgtx = '';
+					  _this.disabled = false;
+					  if(!_this.sendMsgDisabled){
 		                  	var setTime = setInterval(function(){
 		                  		_this.time--;
 		                  		if(_this.time <= 0){
 		                  			_this.time = 60;
-		                  		    _this.sendMsgDisabled = false;
-		                  			_this.disabled = true;
+		                  			_this.sendMsgDisabled = false;
 		                  			clearInterval(setTime);
 		                  		}
 		                  		console.log(_this.time)
@@ -180,7 +177,7 @@ use yii\helpers\Url;
 				oBtn: function(){
 				    var _this = this;
 				    _this.checkphone();
-				    _this.captchaTxt();			    
+				    _this.captchaTxt();				    
 					$.ajax({
 		                url: '/site/sendmsg',
 		                type: 'POST',
