@@ -46,7 +46,7 @@ use yii\helpers\Url;
 									<input @blur="checkpas" type="password" v-model="pas" name="password" id="pass" placeholder="请再次输入您的登录密码" />
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
-								<button type="button" style="margin: 76px 0 200px;" @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">立即注册</button>
+								<button type="button" style="margin: 76px 0 200px;" @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">确定</button>
 							</form>
 						</div>
 					</div>
@@ -72,7 +72,7 @@ use yii\helpers\Url;
 			data: {
 				time: 60,  //初始化短信验证码倒计时时间
 				sendMsgDisabled: false,  //判断是否是发送验证码
-				disabled: false,    //验证码发送禁止点击 初始化
+				disabled: true,    //验证码发送禁止点击 初始化
 				disabled2: true,    //注册按钮禁止点击初始化
 				carShow: false,     
 	    		popupShow: false,
@@ -201,18 +201,18 @@ use yii\helpers\Url;
 					this.codes();
 					var _this = this;
 					$.ajax({
-		                url: '/site/signup',
+		                url: '/site/resetpassword',
 		                type: 'POST',
 		                dataType: 'json',
 		                data: {mobile: this.datainfo.mobile, password: this.datainfo.password, code: this.code},
 		                success: function(data) {
 		                	if(data.status == 0){
-		                		console.log('注册成功');
+		                		console.log('修改成功');
 		                		console.log(data);
 		                		_this.carShow = true;
 	    			    	    _this.popupShow = true;	
 		                	}else {
-		                		console.log('发送失败');
+		                		console.log('修改失败');
 		                        console.log(data);	
 		                	}	                    
 		                }
@@ -222,7 +222,7 @@ use yii\helpers\Url;
 					var _This = this;
 					_This.carShow = false;
 	    			_This.popupShow = false;
-	    			window.location.href = '/index';
+	    			window.location.href = '/goods/list';
 				}
 			}
 		})
