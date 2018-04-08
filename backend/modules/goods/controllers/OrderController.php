@@ -49,7 +49,7 @@ class OrderController extends \yii\web\Controller
     */
     public function actionSend()
     {
-    	$service = ShippingService();
+    	$service = new ShippingService();
     	$data = $service->getList();
     	return $this->render('send',['data' => $data]);
     	
