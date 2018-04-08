@@ -10,6 +10,8 @@ namespace common\service\order;
 
 use Yii;
 use common\models\order\Shipping;
+use common\service\BaseService;
+
 class ShippingService extends BaseService
 {	
 	
