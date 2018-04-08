@@ -18,8 +18,15 @@ use yii\helpers\StringHelper;
 use backend\widgets\Bar;
 use backend\grid\CheckboxColumn;
 use backend\grid\ActionColumn;
+use yii\helpers\Url;
 
 $this->title = "Admin Log";
+$send = function ($url, $model) {
+	return Html::a('<i class="fa fa-truck"></i>发货' , Url::to(['/order/send', 'id' => $model->id]), [
+			'title' => '发货',
+			'class' => 'btn btn-white btn-sm'
+			]);
+};
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -65,7 +72,13 @@ $this->title = "Admin Log";
 							'value' =>function($model){
                 				return $model->orderStatus[$model->order_status];
                 			}
-						]
+						],
+						[
+							'class' => ActionColumn::className(),
+							'template' => '{send}',
+							'buttons' => ['send' => $send],
+							'width' => '190px'
+						],
                     ]
                 ]); ?>
             </div>
