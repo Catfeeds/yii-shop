@@ -180,6 +180,7 @@ use yii\helpers\Url;
 	                  	},1000)
 	                }                  
 		            _this.sendMsgDisabled = true;
+		            _this.disabled = false;
 				},
 				oBtn: function(){
 				    var _this = this;
