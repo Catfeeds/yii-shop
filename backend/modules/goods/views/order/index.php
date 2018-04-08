@@ -22,6 +22,7 @@ use yii\helpers\Url;
 
 $this->title = "Admin Log";
 $send = function ($url, $model) {
+	if($model->order_status != '2') return '';
 	return Html::a('<i class="fa fa-truck"></i>发货' , Url::to(['/order/send', 'id' => $model->id]), [
 			'title' => '发货',
 			'class' => 'btn btn-white btn-sm'
