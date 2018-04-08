@@ -181,7 +181,7 @@ use yii\helpers\Url;
 				    _this.checkphone();
 				    _this.captchaTxt();				    
 					$.ajax({
-		                url: '/site/sendmsg',
+		                url: '/site/resetpasswordsendmsg',
 		                type: 'POST',
 		                dataType: 'json',
 		                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
