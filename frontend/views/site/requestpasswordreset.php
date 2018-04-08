@@ -158,9 +158,9 @@ use yii\helpers\Url;
 					  _this.msgtx = '请填写正确的图形验证码';
 					  return false;
 					}else {
-					  _this.msgtx = '';
-					  _this.disabled = false;
+					  _this.msgtx = '';					  
 					  if(!_this.sendMsgDisabled){
+					  	    _this.disabled = false;
 		                  	var setTime = setInterval(function(){
 		                  		_this.time--;
 		                  		if(_this.time <= 0){
