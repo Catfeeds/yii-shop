@@ -14,6 +14,7 @@ use backend\actions\CreateAction;
 use backend\actions\UpdateAction;
 use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
+use common\service\order\ShippingService;
 use Yii;
 /**
  * FriendLink controller
@@ -41,5 +42,16 @@ class OrderController extends \yii\web\Controller
             ],
         ];
     }
-
+	
+    
+    /**
+    * @desc 发货
+    */
+    public function actionSend()
+    {
+    	$service = ShippingService();
+    	$data = $service->getList();
+    	return $this->render('send',['data' => $data]);
+    	
+    }
 }
