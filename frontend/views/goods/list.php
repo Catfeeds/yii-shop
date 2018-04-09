@@ -89,7 +89,7 @@ use yii\helpers\Url;
 			                if(data.status =='0')
 				            {
 				            	_this.aLis = data.data;
-				            	_this.cont = data.count;
+				            	_this.count = data.count;
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
 					            	_this.noneCar = false;
