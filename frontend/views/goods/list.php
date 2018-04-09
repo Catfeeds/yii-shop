@@ -90,6 +90,7 @@ use yii\helpers\Url;
 				            {
 				            	_this.aLis = data.data;
 				            	_this.count = data.count;
+				            	console.log(_this.count);
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
 					            	_this.noneCar = false;
@@ -114,7 +115,6 @@ use yii\helpers\Url;
 			created: function(){
 				var _this = this;
 				_this.data;
-				console.log(_this.count);
 				_this.allpage = Math.ceil(_this.count / _this.size);
 				console.log(_this.allpage);
 				if(_this.allpage >= _this.showItem){
