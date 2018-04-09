@@ -16,7 +16,7 @@ class SendSms {
 		// *** 需用户填写部分 ***
 	
 		// fixme 必填: 请参阅 https://ak-console.aliyun.com/ 取得您的AK信息
-		$smsConfig = Yii::$app->params['sms'];
+		$smsConfig = Yii::$app->params['aliyun_sms'];
 		$accessKeyId = $smsConfig['accessKeyId'];
 		$accessKeySecret = $smsConfig['accessKeySecret'];
 	
