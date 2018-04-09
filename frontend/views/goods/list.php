@@ -158,7 +158,7 @@ use yii\helpers\Url;
 					if(index == this.current) return;
 					this.current = index;
 					//这里可以发送ajax请求
-					this.data;
+					this.data();
 				}
 			}
 		})
