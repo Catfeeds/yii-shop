@@ -90,6 +90,13 @@ use yii\helpers\Url;
 				            {
 				            	_this.aLis = data.data;
 				            	_this.count = data.count;
+				            	_this.allpage = Math.ceil(_this.count / _this.size);
+								console.log(_this.allpage);
+								if(_this.allpage >= _this.showItem){
+									_this.showItem = 5;
+								}else{
+									_this.showItem = _this.allpage;
+								}
 				            	console.log(_this.count);
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
@@ -114,14 +121,7 @@ use yii\helpers\Url;
 			},
 			created: function(){
 				var _this = this;
-				_this.data;
-				_this.allpage = Math.ceil(_this.count / _this.size);
-				console.log(_this.allpage);
-				if(_this.allpage >= _this.showItem){
-					_this.showItem = 5;
-				}else{
-					_this.showItem = _this.allpage;
-				}
+				_this.data;				
 			},
 //			created: function(){
 //				var _this = this;										
