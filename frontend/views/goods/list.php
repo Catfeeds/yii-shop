@@ -49,12 +49,13 @@ use yii\helpers\Url;
 				pagShow: true,
 				current: 1,  //当前页
 				showItem: 5, // 显示条目
-				allpage:4, //总页数
+				allpage:1, //总页数
 				aLis: [],
 				id:'',
 				thisUrl:'',
 				noneCar: true,
-				goooList: true
+				goooList: true,
+				cont: 0
 			},
 			computed: {
 				pages: function() {
@@ -83,12 +84,12 @@ use yii\helpers\Url;
 		                url: '/goods/getlist?page=' + _this.current,
 		                type: 'GET',
 		                dataType: 'json',
-		                data: '',
+		                data: {size: _this.size},
 		                success: function(data) {	                 	
 			                if(data.status =='0')
 				            {
 				            	_this.aLis = data.data;
-				            	
+				            	_this.cont = data.count;
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
 					            	_this.noneCar = false;
@@ -123,7 +124,16 @@ use yii\helpers\Url;
 				}
 			},
 			created: function(){
-				this.data;
+				var _this = this;
+				_this.data;
+				console.log(_this.count);
+				_this.allpage = Math.ceil(_this.count / _this.size);
+				console.log(_this.allpage);
+				if(_this.allpage >= _this.showItem){
+					_this.showItem = 5;
+				}else{
+					_this.showItem = _this.allpage;
+				}
 			},
 //			created: function(){
 //				var _this = this;										
