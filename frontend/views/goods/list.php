@@ -83,7 +83,7 @@ use yii\helpers\Url;
 				var _this = this;
 				_this.dataInfo(1);
 				$.ajax({
-	                url: '/goods/getlist',
+	                url: '/goods/getlist?page=' + 1 ,
 	                type: 'GET',
 	                dataType: 'json',
 	                success: function(data) {	                 	
