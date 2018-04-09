@@ -181,7 +181,7 @@ class OrderService extends BaseService
     }
     
     
-    public function getOrderGoodsByOrerId($orderId)
+    public function getOrderGoodsByOrderId($orderId)
     {
     	$orderGoods = OrderGoods::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->all();
     	return $orderGoods ?: [];
