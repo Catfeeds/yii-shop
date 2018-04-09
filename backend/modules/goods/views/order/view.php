@@ -22,6 +22,7 @@ $this->title = "订单请情";
             <?= $this->render('/widgets/_ibox-title') ?>
             <div class="ibox-content">
 				<div id="w1" class="fixed-table-header" style="margin-right: 0px;">
+					<div class="ibox-title"><h5>订单商品</h5></div>
 					<table class="table table-hover">
 						<thead>
 							<tr><th>商品名称</th><th>数量</th><th>单价</th><th>退款情况</th></tr>	
@@ -32,6 +33,8 @@ $this->title = "订单请情";
 							<?php endforeach;?>
 						</tbody>
 					</table>
+					<div class="ibox-title"><h5>订单信息</h5></div>
+					
 					<table class="table table-hover" style="margin-top:50px;">
 						<thead>
 							<tr><th>订单号：</th><th>订单状态</th><th>下单会员</th></tr>	
@@ -40,6 +43,7 @@ $this->title = "订单请情";
 							<tr><th><?=$model->order_sn?></th><th><?=$model->orderStatus[$model->order_status]?></th><th><?=$model->getUserMobile()?></th></tr>	
 						</tbody>
 					</table>
+					<div class="ibox-title"><h5>订单收货人信息</h5></div>
 					<table class="table table-hover" style="margin-top:50px;">
 						<thead>
 							<tr><th>收货人</th><th>地址：</th><th>手机号码</th><th>订单留言</th><th>物流公司：</th><td>快递单号：</td></tr>	
