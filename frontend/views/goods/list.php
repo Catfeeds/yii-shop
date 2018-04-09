@@ -45,7 +45,7 @@ use yii\helpers\Url;
 		var goods = new Vue({
 			el: '#goods',
 			data: {
-				size: 1,
+				size: 2,
 				pagShow: true,
 				current: 1,  //当前页
 				showItem: 5, // 显示条目
@@ -102,8 +102,7 @@ use yii\helpers\Url;
 				        	alert('页面信息错误');
 				        }
 	                }
-	            })
-						
+	            })						
 			},
 			methods: {
 				goto: function(index) {
