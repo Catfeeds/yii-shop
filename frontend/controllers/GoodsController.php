@@ -38,8 +38,8 @@ class GoodsController extends BaseController
     {
     	if(Yii::$app->request->isAjax)
     	{
-    		$size = Yii::$app->request->post('size');
-    		$page = Yii::$app->request->post('page');
+    		$size = Yii::$app->request->get('size');
+    		$page = Yii::$app->request->get('page');
     		$data = GoodsService::getList($page, $size);
     		if($page ==1)
     		{
