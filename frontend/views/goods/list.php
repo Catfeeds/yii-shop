@@ -122,9 +122,9 @@ use yii\helpers\Url;
 //					return main;
 				}
 			},
-//			created: function(){
-//				
-//			},
+			created: function(){
+				this.data;
+			},
 //			created: function(){
 //				var _this = this;										
 //				$.ajax({
