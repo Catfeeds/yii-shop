@@ -82,7 +82,7 @@ use yii\helpers\Url;
 			created: function(){
 				var _this = this;
 				_this.dataInfo(1);
-				
+				_this.count();
 						
 			},
 			methods: {
@@ -93,6 +93,29 @@ use yii\helpers\Url;
 					//这里可以发送ajax请求
 					_this.dataInfo(_this.current);
 				},
+				count: function(){
+					$.ajax({
+		                url: '/goods/getlist',
+		                type: 'GET',
+		                dataType: 'json',
+		                success: function(data) {	                 	
+			                if(data.status =='0')
+				            {
+				            	_this.count = data.count;
+				            	_this.allpage = Math.ceil(_this.count / _this.size);
+								console.log(_this.allpage);
+								if(_this.allpage >= _this.showItem){
+									_this.showItem = 5;
+								}else{
+									_this.showItem = _this.allpage;
+								}
+				            	console.log(_this.count);				            		                 	
+					        }else{
+					        	alert('页面信息错误');
+					        }
+		                }
+		            })
+				}
 				dataInfo: function(cur){
 					var _this = this;
 					$.ajax({
@@ -104,7 +127,7 @@ use yii\helpers\Url;
 			                if(data.status =='0')
 				            {
 				            	_this.aLis = data.data;
-				            	goods.count = data.count;
+				            	_this.count = data.count;
 				            	_this.allpage = Math.ceil(_this.count / _this.size);
 								console.log(_this.allpage);
 								if(_this.allpage >= _this.showItem){
