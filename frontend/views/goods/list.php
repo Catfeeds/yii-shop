@@ -20,7 +20,7 @@ use yii\helpers\Url;
             				</li>
             			</ul>
             			<div v-show="pagShow" class="pagMain">
-							<div class="itemPage" v-show="current != 1" @click="current-- && goto(current)">
+							<div class="itemPage" v-show="current != 1" @click="current-- && goto(current--)">
 								<a href="#">上一页</a>
 							</div>
 							<div class="itemPage" v-for="index in pages" @click="goto(index)" :class="{'active':current == index}" :key="index">
