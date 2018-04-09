@@ -104,7 +104,7 @@ use yii\helpers\Url;
 			                if(data.status =='0')
 				            {
 				            	_this.aLis = data.data;
-				            	_this.count = data.count;
+				            	goods.count = data.count;
 				            	_this.allpage = Math.ceil(_this.count / _this.size);
 								console.log(_this.allpage);
 								if(_this.allpage >= _this.showItem){
