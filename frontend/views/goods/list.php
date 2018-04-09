@@ -45,7 +45,7 @@ use yii\helpers\Url;
 		var goods = new Vue({
 			el: '#goods',
 			data: {
-				size: 2,
+				size: 1,
 				pagShow: true,
 				current: 1,  //当前页
 				showItem: 5, // 显示条目
