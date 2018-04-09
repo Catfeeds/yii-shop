@@ -81,6 +81,7 @@ use yii\helpers\Url;
 			},
 			created: function(){
 				var _this = this;
+				_this.dataInfo(1);
 				_this.allpage = Math.ceil(_this.count / _this.size);
 				console.log(_this.allpage);
 				if(_this.allpage >= _this.showItem){
@@ -89,38 +90,8 @@ use yii\helpers\Url;
 					_this.showItem = _this.allpage;
 				}
             	console.log(_this.count);
-				_this.dataInfo(1);		
+						
 			},
-//			created: function(){
-//				var _this = this;										
-//				$.ajax({
-//	                url: '/goods/getlist',
-//	                type: 'POST',
-//	                dataType: 'json',
-//	                data: '',
-//	                success: function(data) {	                 	
-//		                if(data.status =='0')
-//			            {
-//			            	_this.aLis = data.data;
-//			            	
-//			            	if(_this.aLis.length != 0){
-//				            	_this.goooList = true;
-//				            	_this.noneCar = false;
-//				            }else{
-//				            	_this.goooList = false;
-//				            	_this.noneCar = true;
-//				            }
-//			                var list = data.data
-//		                 	for(var i in list){
-//								_this.id = list[i]._id.$oid;
-//								list[i].thisUrl = goodsUrl + '?id=' + _this.id;
-//							}	                 	
-//				        }else{
-//				        	alert('页面信息错误');
-//				        }
-//	                }
-//	            })	            
-//			},
 			methods: {
 				goto: function(index) {
 					var _this = this;
