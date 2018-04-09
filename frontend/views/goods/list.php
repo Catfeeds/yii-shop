@@ -92,10 +92,11 @@ use yii\helpers\Url;
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
 					            	_this.noneCar = false;
-					            	_this.pagShow = false;
+					            	_this.pagShow = true;
 					            }else{
 					            	_this.goooList = false;
 					            	_this.noneCar = true;
+					            	_this.pagShow = false;
 					            }
 				                var list = data.data
 			                 	for(var i in list){
