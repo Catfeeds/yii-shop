@@ -109,18 +109,6 @@ use yii\helpers\Url;
 					        }
 		                }
 		            })	
-//					var main = [];
-//					var length = (_this.current - 1) * _this.size;
-//					console.log(length)
-//					for(var i=length;i < length +  _this.size;i++){
-//						console.log(_this.list[i]);
-//						if(!_this.list[i]){
-//							console.log('没数据了');
-//						}else{
-//							main.push(_this.list[i]);
-//						}
-//					}
-//					return main;
 				}
 			},
 			created: function(){
@@ -170,7 +158,7 @@ use yii\helpers\Url;
 					if(index == this.current) return;
 					this.current = index;
 					//这里可以发送ajax请求
-					this.data;
+					
 				}
 			}
 		})
