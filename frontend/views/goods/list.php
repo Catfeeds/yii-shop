@@ -115,8 +115,9 @@ use yii\helpers\Url;
 //			},
 			methods: {
 				goto: function(index) {
-					if(index == this.current) return;
-					this.current = index;
+					var _this = this;
+					if(index == _this.current) return;
+					_this.current = index;
 					//这里可以发送ajax请求
 					_this.dataInfo(this.current);
 				},
