@@ -45,7 +45,7 @@ function viewLayer(url, obj)
         title: obj.attr('title'),
         maxmin: true,
         shadeClose: true, //点击遮罩关闭层
-        area : ['800px' , '520px'],
+        area : ['1200px' , '780px'],
         content: url
     });
 }
