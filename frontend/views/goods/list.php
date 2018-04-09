@@ -55,7 +55,7 @@ use yii\helpers\Url;
 				thisUrl:'',
 				noneCar: true,
 				goooList: true,
-				cont: 0
+				count: 0
 			},
 			computed: {
 				pages: function() {
