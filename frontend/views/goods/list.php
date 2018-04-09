@@ -82,14 +82,7 @@ use yii\helpers\Url;
 			created: function(){
 				var _this = this;
 				_this.dataInfo(1);
-				_this.allpage = Math.ceil(_this.count / _this.size);
-				console.log(_this.allpage);
-				if(_this.allpage >= _this.showItem){
-					_this.showItem = 5;
-				}else{
-					_this.showItem = _this.allpage;
-				}
-            	console.log(_this.count);
+				
 						
 			},
 			methods: {
@@ -98,7 +91,7 @@ use yii\helpers\Url;
 					if(index == _this.current) return;
 					_this.current = index;
 					//这里可以发送ajax请求
-					_this.dataInfo(this.current);
+					_this.dataInfo(_this.current);
 				},
 				dataInfo: function(cur){
 					var _this = this;
@@ -111,7 +104,15 @@ use yii\helpers\Url;
 			                if(data.status =='0')
 				            {
 				            	_this.aLis = data.data;
-				            	_this.count = data.count;				            	
+				            	_this.count = data.count;
+				            	_this.allpage = Math.ceil(_this.count / _this.size);
+								console.log(_this.allpage);
+								if(_this.allpage >= _this.showItem){
+									_this.showItem = 5;
+								}else{
+									_this.showItem = _this.allpage;
+								}
+				            	console.log(_this.count);				            	
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
 					            	_this.noneCar = false;
