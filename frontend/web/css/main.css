@@ -1096,3 +1096,25 @@
       font-size: 18px;
       color: #3e3a39;
       clear: both; }
+
+.pagMain {
+  width: 100%;
+  float: left;
+  text-align: center; }
+
+.pagMain .itemPage {
+  display: inline-block;
+  margin: 0 5px; }
+
+.pagMain .itemPage a {
+  padding: .5rem 1rem;
+  display: inline-block;
+  background: #fff;
+  color: #666; }
+
+.pagMain .itemPage a:hover {
+  background: #eee; }
+
+.pagMain .active a {
+  background: #d3b799;
+  color: #fff; }
