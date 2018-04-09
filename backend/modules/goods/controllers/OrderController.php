@@ -76,7 +76,7 @@ class OrderController extends \yii\web\Controller
     }
     
     
-    public function actionView_layer($id)
+    public function actionViewLayer($id)
     {
     	$service = new OrderService();
     	$data = $service->getOrderGoodsByOrderId($id);
