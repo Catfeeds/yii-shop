@@ -120,7 +120,7 @@ use yii\helpers\Url;
 				}
 			},
 			created: function(){
-				this.data;
+				
 			},
 //			created: function(){
 //				var _this = this;										
