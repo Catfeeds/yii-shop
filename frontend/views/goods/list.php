@@ -121,9 +121,9 @@ use yii\helpers\Url;
 //					return main;
 				}
 			},
-			created: function(){
-				
-			},
+//			created: function(){
+//				
+//			},
 //			created: function(){
 //				var _this = this;										
 //				$.ajax({
