@@ -118,6 +118,7 @@ use yii\helpers\Url;
 					if(index == this.current) return;
 					this.current = index;
 					//这里可以发送ajax请求
+					_this.dataInfo(this.current);
 				},
 				dataInfo: function(cur){
 					var _this = this;
