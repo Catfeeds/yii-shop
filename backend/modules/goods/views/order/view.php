@@ -14,7 +14,7 @@
 use backend\widgets\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = "订单请情";
+$this->title = "订单查看";
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -37,10 +37,10 @@ $this->title = "订单请情";
 					
 					<table class="table table-hover">
 						<thead>
-							<tr><th>订单号：</th><th>订单状态</th><th>下单会员</th></tr>	
+							<tr><th>订单号：</th><th>订单状态</th><th>下单会员</th><th>订单金额</th></tr>	
 						</thead>
 						<tbody>
-							<tr><th><?=$model->order_sn?></th><th><?=$model->orderStatus[$model->order_status]?></th><th><?=$model->getUserMobile()?></th></tr>	
+							<tr><th><?=$model->order_sn?></th><th><?=$model->orderStatus[$model->order_status]?></th><th><?=$model->getUserMobile()?></th><th><?=$model->order_amount?></th></tr>	
 						</tbody>
 					</table>
 					<div class="ibox-title" style="margin-top:50px;"><h5>订单收货人</h5></div>
