@@ -11,7 +11,7 @@ use yii\helpers\Url;
             				<p>暂时没有任何商品，商家正在紧急上货中...</p>           				
             			</div>
             			<ul v-show="goooList">
-            				<li v-for="lis in dataInfo(1)">
+            				<li v-for="lis in aLis">
             					<a :href="lis.thisUrl">
             						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
@@ -80,7 +80,6 @@ use yii\helpers\Url;
 				},
 				dataInfo: function(cur){
 					var _this = this;
-					var aLis;
 					$.ajax({
 		                url: '/goods/getlist?page=' + cur,
 		                type: 'GET',
@@ -89,24 +88,30 @@ use yii\helpers\Url;
 		                success: function(data) {	                 	
 			                if(data.status =='0')
 				            {
-				            	aLis = data.data;
-				            	_this.count = data.count;				            	
+				            	_this.aLis = data.data;
+				            	_this.count = data.count;
+				            	_this.allpage = Math.ceil(_this.count / _this.size);
+								console.log(_this.allpage);
+								if(_this.allpage >= _this.showItem){
+									_this.showItem = 5;
+								}else{
+									_this.showItem = _this.allpage;
+								}
 				            	console.log(_this.count);
-//				            	if(_this.aLis.length != 0){
-//					            	_this.goooList = true;
-//					            	_this.noneCar = false;
-//					            	_this.pagShow = true;
-//					            }else{
-//					            	_this.goooList = false;
-//					            	_this.noneCar = true;
-//					            	_this.pagShow = false;
-//					            }
-//				                var list = data.data
-//			                 	for(var i in list){
-//									_this.id = list[i]._id.$oid;
-//									list[i].thisUrl = goodsUrl + '?id=' + _this.id;
-//								}
-                                return  aLis              	
+				            	if(_this.aLis.length != 0){
+					            	_this.goooList = true;
+					            	_this.noneCar = false;
+					            	_this.pagShow = true;
+					            }else{
+					            	_this.goooList = false;
+					            	_this.noneCar = true;
+					            	_this.pagShow = false;
+					            }
+				                var list = data.data
+			                 	for(var i in list){
+									_this.id = list[i]._id.$oid;
+									list[i].thisUrl = goodsUrl + '?id=' + _this.id;
+								}	                 	
 					        }else{
 					        	alert('页面信息错误');
 					        }
@@ -116,13 +121,7 @@ use yii\helpers\Url;
 			},
 			created: function(){
 				var _this = this;
-				_this.allpage = Math.ceil(_this.count / _this.size);
-				console.log(_this.allpage);
-				if(_this.allpage >= _this.showItem){
-					_this.showItem = 5;
-				}else{
-					_this.showItem = _this.allpage;
-				}		
+				_this.dataInfo(1);		
 			},
 //			created: function(){
 //				var _this = this;										
