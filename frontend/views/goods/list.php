@@ -77,7 +77,43 @@ use yii\helpers\Url;
 						}
 					}
 					return pag
-				},
+				}				
+			},
+			created: function(){
+				var _this = this;
+				_this.dataInfo(_this.current);		
+			},
+//			created: function(){
+//				var _this = this;										
+//				$.ajax({
+//	                url: '/goods/getlist',
+//	                type: 'POST',
+//	                dataType: 'json',
+//	                data: '',
+//	                success: function(data) {	                 	
+//		                if(data.status =='0')
+//			            {
+//			            	_this.aLis = data.data;
+//			            	
+//			            	if(_this.aLis.length != 0){
+//				            	_this.goooList = true;
+//				            	_this.noneCar = false;
+//				            }else{
+//				            	_this.goooList = false;
+//				            	_this.noneCar = true;
+//				            }
+//			                var list = data.data
+//		                 	for(var i in list){
+//								_this.id = list[i]._id.$oid;
+//								list[i].thisUrl = goodsUrl + '?id=' + _this.id;
+//							}	                 	
+//				        }else{
+//				        	alert('页面信息错误');
+//				        }
+//	                }
+//	            })	            
+//			},
+			meathods: {
 				dataInfo: function(cur){
 					var _this = this;
 					$.ajax({
@@ -117,43 +153,7 @@ use yii\helpers\Url;
 					        }
 		                }
 		            })	
-				}
-			},
-			created: function(){
-				var _this = this;
-				_this.dataInfo(_this.current);		
-			},
-//			created: function(){
-//				var _this = this;										
-//				$.ajax({
-//	                url: '/goods/getlist',
-//	                type: 'POST',
-//	                dataType: 'json',
-//	                data: '',
-//	                success: function(data) {	                 	
-//		                if(data.status =='0')
-//			            {
-//			            	_this.aLis = data.data;
-//			            	
-//			            	if(_this.aLis.length != 0){
-//				            	_this.goooList = true;
-//				            	_this.noneCar = false;
-//				            }else{
-//				            	_this.goooList = false;
-//				            	_this.noneCar = true;
-//				            }
-//			                var list = data.data
-//		                 	for(var i in list){
-//								_this.id = list[i]._id.$oid;
-//								list[i].thisUrl = goodsUrl + '?id=' + _this.id;
-//							}	                 	
-//				        }else{
-//				        	alert('页面信息错误');
-//				        }
-//	                }
-//	            })	            
-//			},
-			meathods: {
+				},
 				goto: function(index) {
 					if(index == this.current) return;
 					this.current = index;
