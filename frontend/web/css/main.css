@@ -1100,7 +1100,8 @@
 .pagMain {
   width: 100%;
   float: left;
-  text-align: center; }
+  text-align: center;
+  margin-top: 100px; }
 
 .pagMain .itemPage {
   display: inline-block;
