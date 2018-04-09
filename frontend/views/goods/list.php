@@ -78,7 +78,7 @@ use yii\helpers\Url;
 					}
 					return pag
 				},
-				data: function(cur){
+				dataInfo: function(cur){
 					var _this = this;
 					$.ajax({
 		                url: '/goods/getlist?page=' + cur,
@@ -121,7 +121,7 @@ use yii\helpers\Url;
 			},
 			created: function(){
 				var _this = this;
-				_this.data(_this.current);				
+				_this.dataInfo(_this.current);		
 			},
 //			created: function(){
 //				var _this = this;										
