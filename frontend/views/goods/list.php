@@ -77,46 +77,6 @@ use yii\helpers\Url;
 						}
 					}
 					return pag
-				},
-				dataInfo: function(cur){
-					var _this = this;
-					$.ajax({
-		                url: '/goods/getlist?page=' + cur,
-		                type: 'GET',
-		                dataType: 'json',
-		                data: {size: _this.size},
-		                success: function(data) {	                 	
-			                if(data.status =='0')
-				            {
-				            	_this.aLis = data.data;
-				            	_this.count = data.count;
-				            	_this.allpage = Math.ceil(_this.count / _this.size);
-								console.log(_this.allpage);
-								if(_this.allpage >= _this.showItem){
-									_this.showItem = 5;
-								}else{
-									_this.showItem = _this.allpage;
-								}
-				            	console.log(_this.count);
-				            	if(_this.aLis.length != 0){
-					            	_this.goooList = true;
-					            	_this.noneCar = false;
-					            	_this.pagShow = true;
-					            }else{
-					            	_this.goooList = false;
-					            	_this.noneCar = true;
-					            	_this.pagShow = false;
-					            }
-				                var list = data.data
-			                 	for(var i in list){
-									_this.id = list[i]._id.$oid;
-									list[i].thisUrl = goodsUrl + '?id=' + _this.id;
-								}	                 	
-					        }else{
-					        	alert('页面信息错误');
-					        }
-		                }
-		            })	
 				}
 			},
 			created: function(){
@@ -158,6 +118,46 @@ use yii\helpers\Url;
 					if(index == this.current) return;
 					this.current = index;
 					//这里可以发送ajax请求
+				},
+				dataInfo: function(cur){
+					var _this = this;
+					$.ajax({
+		                url: '/goods/getlist?page=' + cur,
+		                type: 'GET',
+		                dataType: 'json',
+		                data: {size: _this.size},
+		                success: function(data) {	                 	
+			                if(data.status =='0')
+				            {
+				            	_this.aLis = data.data;
+				            	_this.count = data.count;
+				            	_this.allpage = Math.ceil(_this.count / _this.size);
+								console.log(_this.allpage);
+								if(_this.allpage >= _this.showItem){
+									_this.showItem = 5;
+								}else{
+									_this.showItem = _this.allpage;
+								}
+				            	console.log(_this.count);
+				            	if(_this.aLis.length != 0){
+					            	_this.goooList = true;
+					            	_this.noneCar = false;
+					            	_this.pagShow = true;
+					            }else{
+					            	_this.goooList = false;
+					            	_this.noneCar = true;
+					            	_this.pagShow = false;
+					            }
+				                var list = data.data
+			                 	for(var i in list){
+									_this.id = list[i]._id.$oid;
+									list[i].thisUrl = goodsUrl + '?id=' + _this.id;
+								}	                 	
+					        }else{
+					        	alert('页面信息错误');
+					        }
+		                }
+		            })	
 				}
 			}
 		})
