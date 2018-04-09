@@ -38,7 +38,7 @@ return [
     'weixin.notify' => 'http://tea.reallytalent.cn/pay/weixinnotify/',//微信支付回调
     'aliyun_sms' =>[//阿里短信
     	'accessKeyId' =>'LTAIUloKarS76KjI',
-    	'accessSecret' =>'D26FYz9pDKazgi4SBwDQtaxGQLwVGY',
+    	'accessKeySecret' =>'D26FYz9pDKazgi4SBwDQtaxGQLwVGY',
     	'SignName' =>'深圳文榜茶叶',
     	'TemplateCode' =>'SMS_130745225'
     ]
