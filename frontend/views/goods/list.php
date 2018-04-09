@@ -11,7 +11,7 @@ use yii\helpers\Url;
             				<p>暂时没有任何商品，商家正在紧急上货中...</p>           				
             			</div>
             			<ul v-show="goooList">
-            				<li v-for="lis in aLis">
+            				<li v-for="lis in dataInfo(1)">
             					<a :href="lis.thisUrl">
             						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
@@ -45,16 +45,17 @@ use yii\helpers\Url;
 		var goods = new Vue({
 			el: '#goods',
 			data: {
-				size: 4,
+				size: 1,
 				pagShow: true,
 				current: 1,  //当前页
 				showItem: 5, // 显示条目
-				allpage:4, //总页数
+				allpage:1, //总页数
 				aLis: [],
 				id:'',
 				thisUrl:'',
 				noneCar: true,
-				goooList: true
+				goooList: true,
+				count: 0
 			},
 			computed: {
 				pages: function() {
@@ -77,53 +78,51 @@ use yii\helpers\Url;
 					}
 					return pag
 				},
-				data: function(){
+				dataInfo: function(cur){
 					var _this = this;
+					var aLis;
 					$.ajax({
-		                url: '/goods/getlist?page=' + _this.current,
+		                url: '/goods/getlist?page=' + cur,
 		                type: 'GET',
 		                dataType: 'json',
-		                data: '',
+		                data: {size: _this.size},
 		                success: function(data) {	                 	
 			                if(data.status =='0')
 				            {
-				            	_this.aLis = data.data;
-				            	
-				            	if(_this.aLis.length != 0){
-					            	_this.goooList = true;
-					            	_this.noneCar = false;
-					            	_this.pagShow = true;
-					            }else{
-					            	_this.goooList = false;
-					            	_this.noneCar = true;
-					            	_this.pagShow = false;
-					            }
-				                var list = data.data
-			                 	for(var i in list){
-									_this.id = list[i]._id.$oid;
-									list[i].thisUrl = goodsUrl + '?id=' + _this.id;
-								}	                 	
+				            	aLis = data.data;
+				            	_this.count = data.count;				            	
+				            	console.log(_this.count);
+//				            	if(_this.aLis.length != 0){
+//					            	_this.goooList = true;
+//					            	_this.noneCar = false;
+//					            	_this.pagShow = true;
+//					            }else{
+//					            	_this.goooList = false;
+//					            	_this.noneCar = true;
+//					            	_this.pagShow = false;
+//					            }
+//				                var list = data.data
+//			                 	for(var i in list){
+//									_this.id = list[i]._id.$oid;
+//									list[i].thisUrl = goodsUrl + '?id=' + _this.id;
+//								}
+                                return  aLis              	
 					        }else{
 					        	alert('页面信息错误');
 					        }
 		                }
 		            })	
-//					var main = [];
-//					var length = (_this.current - 1) * _this.size;
-//					console.log(length)
-//					for(var i=length;i < length +  _this.size;i++){
-//						console.log(_this.list[i]);
-//						if(!_this.list[i]){
-//							console.log('没数据了');
-//						}else{
-//							main.push(_this.list[i]);
-//						}
-//					}
-//					return main;
 				}
 			},
 			created: function(){
-				this.data;
+				var _this = this;
+				_this.allpage = Math.ceil(_this.count / _this.size);
+				console.log(_this.allpage);
+				if(_this.allpage >= _this.showItem){
+					_this.showItem = 5;
+				}else{
+					_this.showItem = _this.allpage;
+				}		
 			},
 //			created: function(){
 //				var _this = this;										
@@ -160,7 +159,6 @@ use yii\helpers\Url;
 					if(index == this.current) return;
 					this.current = index;
 					//这里可以发送ajax请求
-					this.data;
 				}
 			}
 		})
