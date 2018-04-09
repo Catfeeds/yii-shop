@@ -18,6 +18,7 @@ use common\widgets\captcha\ValidateCode;
 use common\models\User;
 use common\service\auth\Qq;
 use common\service\auth\Weixin;
+use common\service\sms\SendSms;
 /**
  * Site controller
  */
@@ -300,6 +301,15 @@ class SiteController extends BaseController
     			return ['status' =>1,'msg' =>'手机号未注册'];
     		}
     	}
+    }
+    
+    
+    public function actionTest()
+    {
+    	$sms = new SendSms();
+    	$result = $sms->send('15914181186', '589742');
+    	var_dump($result);exit;
+    	
     }
 
 }
