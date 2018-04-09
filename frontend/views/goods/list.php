@@ -19,7 +19,7 @@ use yii\helpers\Url;
             					</a>
             				</li>
             			</ul>
-            			<div class="pagMain">
+            			<div v-show="pagShow" class="pagMain">
 							<div class="itemPage" v-show="current != 1" @click="current-- && goto(current)">
 								<a href="#">上一页</a>
 							</div>
@@ -46,6 +46,7 @@ use yii\helpers\Url;
 			el: '#goods',
 			data: {
 				size: 4,
+				pagShow: true,
 				current: 1,  //当前页
 				showItem: 5, // 显示条目
 				allpage:4, //总页数
@@ -91,6 +92,7 @@ use yii\helpers\Url;
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
 					            	_this.noneCar = false;
+					            	_this.pagShow = false;
 					            }else{
 					            	_this.goooList = false;
 					            	_this.noneCar = true;
