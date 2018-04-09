@@ -115,7 +115,7 @@ use yii\helpers\Url;
 					        }
 		                }
 		            })
-				}
+				},
 				dataInfo: function(cur){
 					var _this = this;
 					$.ajax({
