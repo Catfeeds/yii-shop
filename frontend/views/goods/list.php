@@ -78,10 +78,10 @@ use yii\helpers\Url;
 					}
 					return pag
 				},
-				data: function(){
+				data: function(cur){
 					var _this = this;
 					$.ajax({
-		                url: '/goods/getlist?page=' + _this.current,
+		                url: '/goods/getlist?page=' + cur,
 		                type: 'GET',
 		                dataType: 'json',
 		                data: {size: _this.size},
@@ -121,7 +121,7 @@ use yii\helpers\Url;
 			},
 			created: function(){
 				var _this = this;
-				_this.data;				
+				_this.data(_this.current);				
 			},
 //			created: function(){
 //				var _this = this;										
@@ -158,7 +158,6 @@ use yii\helpers\Url;
 					if(index == this.current) return;
 					this.current = index;
 					//这里可以发送ajax请求
-					this.data();
 				}
 			}
 		})
