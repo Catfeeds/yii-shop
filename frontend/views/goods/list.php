@@ -81,7 +81,7 @@ use yii\helpers\Url;
 			},
 			created: function(){
 				var _this = this;
-				_this.dataInfo(1);
+				_this.dataInfo(_this.current);
 				$.ajax({
 	                url: '/goods/getlist?page=' + 1 ,
 	                type: 'GET',
