@@ -77,21 +77,6 @@ use yii\helpers\Url;
 						}
 					}
 					return pag
-				}
-			},
-			created: function(){
-				var _this = this;
-				_this.dataInfo(1);
-				_this.count();
-						
-			},
-			methods: {
-				goto: function(index) {
-					var _this = this;
-					if(index == _this.current) return;
-					_this.current = index;
-					//这里可以发送ajax请求
-					_this.dataInfo(_this.current);
 				},
 				count: function(){
 					$.ajax({
@@ -115,7 +100,23 @@ use yii\helpers\Url;
 					        }
 		                }
 		            })
+				}
+			},
+			created: function(){
+				var _this = this;
+				_this.dataInfo(1);
+				_this.count;
+						
+			},
+			methods: {
+				goto: function(index) {
+					var _this = this;
+					if(index == _this.current) return;
+					_this.current = index;
+					//这里可以发送ajax请求
+					_this.dataInfo(_this.current);
 				},
+				
 				dataInfo: function(cur){
 					var _this = this;
 					$.ajax({
