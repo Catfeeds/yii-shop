@@ -174,9 +174,16 @@ class OrderService extends BaseService
     }
     
     
-    public function getOrderGoodsByOrderId($orderId)
+    public function getOrderGoodByOrderId($orderId)
     {
     	$orderGoods = OrderGoods::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->one();
+    	return $orderGoods ?: [];
+    }
+    
+    
+    public function getOrderGoodsByOrerId($orderId)
+    {
+    	$orderGoods = OrderGoods::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->all();
     	return $orderGoods ?: [];
     }
     
@@ -250,6 +257,7 @@ class OrderService extends BaseService
     	{
     		$model->shipping_id = $shippingId;
     		$model->invoice_no = $invoiceNo;
+    		$model->order_status = 3;
     		if($model->save())
     		{
     			return true;

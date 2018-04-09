@@ -76,7 +76,7 @@ $send = function ($url, $model) {
 						],
 						[
 							'class' => ActionColumn::className(),
-							'template' => '{send}',
+							'template' => '{send} {view-layer}',
 							'buttons' => ['send' => $send],
 							'width' => '190px'
 						],

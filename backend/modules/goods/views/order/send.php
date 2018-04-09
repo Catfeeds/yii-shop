@@ -12,12 +12,9 @@
  */
 
 use backend\widgets\ActiveForm;
-use common\models\Category;
-use common\libs\Constants;
 use yii\helpers\Html;
-use common\widgets\ueditor\Ueditor;
 
-$this->title = "Articles";
+$this->title = "订单发货";
 ?>
 <div class="row">
     <div class="col-sm-12">

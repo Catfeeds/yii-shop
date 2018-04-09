@@ -74,4 +74,13 @@ class OrderController extends \yii\web\Controller
     	}
     	
     }
+    
+    
+    public function actionView_layer($id)
+    {
+    	$service = new OrderService();
+    	$data = $service->getOrderGoodsByOrderId($id);
+    	$model = Order::findOne($id);
+    	return $this->render('view',['data' => $data,'model' =>$model]);
+    }
 }

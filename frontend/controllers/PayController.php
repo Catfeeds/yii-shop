@@ -56,7 +56,7 @@ class PayController extends BaseController
     	{
     		return $this->redirect('/');//已经支付
     	}
-    	$orderGoods = $orderService->getOrderGoodsByOrderId($order['id']);
+    	$orderGoods = $orderService->getOrderGoodByOrderId($order['id']);
     	/**
     	* 流程：
     	* 1、组装包含支付信息的url，生成二维码

@@ -48,6 +48,8 @@ use yii\data\ActiveDataProvider;
 class Order extends \yii\db\ActiveRecord
 {	
 	public $orderStatus = [1 =>'未付款',2 =>'待发货',3=>'待收货',4=>'订单关闭',5=>'交易成功'];
+	
+	public $pay = [1 =>'微信',2=>'支付宝'];
     /**
      * @inheritdoc
      */
