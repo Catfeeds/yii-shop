@@ -113,7 +113,7 @@ use yii\helpers\Url;
 //	                }
 //	            })	            
 //			},
-			meathods: {
+			methods: {
 				goto: function(index) {
 					if(index == this.current) return;
 					this.current = index;
