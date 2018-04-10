@@ -13,30 +13,37 @@
 
 use backend\widgets\ActiveForm;
 use common\models\Category;
+use  common\service\order\ShippingService;
 
 $this->title = "修改订单";
-$parent_id = yii::$app->getRequest()->get('parent_id', '');
-if ($parent_id != '') {
-    $model->parent_id = $parent_id;
-}
 ?>
 <div class="row">
     <div class="col-sm-12">
         <div class="ibox">
             <?= $this->render('/widgets/_ibox-title') ?>
             <div class="ibox-content">
-                <?php $form = ActiveForm::begin(); ?>
-                <?= $form->field($model, 'parent_id')
-                    ->label(yii::t('app', 'Parent Id'))
-                    ->dropDownList(Category::getCategoriesName()) ?>
+                <?php $form = ActiveForm::begin(); 	    	
+                	  $service = new ShippingService();
+                ?>
+                <?= $form->field($model, 'shipping_id')
+                    ->label('配送物流')
+                    ->dropDownList($service->getList()) ?>
                 <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
+                <?= $form->field($model, 'invoice_no')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'alias')->textInput(['maxlength' => 64]) ?>
+                <?= $form->field($model, 'order_amount')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'sort')->textInput(['maxlength' => 512]) ?>
+                <?= $form->field($model, 'consignee')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'remark')->textInput(['maxlength' => 64]) ?>
+                <?= $form->field($model, 'mobile')->textInput(['maxlength' => 64]) ?>
+                 <div class="hr-line-dashed"></div>
+                <?= $form->field($model, 'province')->textInput(['maxlength' => 64]) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->field($model, 'city')->textInput(['maxlength' => 64]) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->field($model, 'district')->textInput(['maxlength' => 64]) ?>
+                <div class="hr-line-dashed"></div>
+                <?= $form->field($model, 'address')->textInput(['maxlength' => 64]) ?>
                 <?= $form->defaultButtons() ?>
                 <?php ActiveForm::end(); ?>
             </div>
