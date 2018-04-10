@@ -3,7 +3,7 @@
 namespace backend\models\order;
 
 use Yii;
-use common\models\order\Order;
+use common\models\order\Order as CommonOrder;
 use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "{{%order}}".
@@ -45,7 +45,7 @@ use yii\data\ActiveDataProvider;
  *
  * @property OrderGoods[] $orderGoods
  */
-class Order extends Order
+class Order extends CommonOrder
 {	
 	
 
