@@ -57,7 +57,7 @@ class Order extends CommonOrder
         return [
             [['shop_id', 'user_id', 'order_status', 'shipping_id', 'pay_id', 'pay_time', 'remind_time', 'cancel_reson', 'close_time', 'is_show', 'platform_type', 'created_at', 'updated_at'], 'integer'],
             [['shipping_fee', 'goods_amount', 'cheap_price', 'order_amount', 'refund_amount'], 'number'],
-            [['trade_no','order_sn'],'string'],
+            [['trade_no','order_sn','create_start_at','create_end_at'],'string'],
         ];
     }
 
@@ -120,10 +120,9 @@ class Order extends CommonOrder
     		return $dataProvider;
     	}
     	$query->andFilterWhere(['order_sn' => $this->order_sn])
-    	->andFilterWhere(['trade_no' => $this->trade_no]);
-    	/*->andFilterWhere(['like', 'description', $this->description])
-    	->andFilterWhere(['like', 'admin_user.username', $this->user_username]);
-    	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = $update_start_at_unixtimestamp = $update_end_at_unixtimestamp = '';
+    	->andFilterWhere(['trade_no' => $this->trade_no])
+    	->andFilterWhere(['order_status' => $this->order_status]);
+    	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = '';
     	if ($this->create_start_at != '') {
     		$create_start_at_unixtimestamp = strtotime($this->create_start_at);
     	}
@@ -131,17 +130,17 @@ class Order extends CommonOrder
     		$create_end_at_unixtimestamp = strtotime($this->create_end_at);
     	}
     	if ($create_start_at_unixtimestamp != '' && $create_end_at_unixtimestamp == '') {
-    		$query->andFilterWhere(['>', 'admin_log.created_at', $create_start_at_unixtimestamp]);
+    		$query->andFilterWhere(['>', 'created_at', $create_start_at_unixtimestamp]);
     	} elseif ($create_start_at_unixtimestamp == '' && $create_end_at_unixtimestamp != '') {
-    		$query->andFilterWhere(['<', 'admin_log.created_at', $create_end_at_unixtimestamp]);
+    		$query->andFilterWhere(['<', 'created_at', $create_end_at_unixtimestamp]);
     	} else {
     		$query->andFilterWhere([
     				'between',
-    				'admin_log.created_at',
+    				'created_at',
     				$create_start_at_unixtimestamp,
     				$create_end_at_unixtimestamp
     				]);
-    	}*/
+    	}
     	return $dataProvider;
     }
 }

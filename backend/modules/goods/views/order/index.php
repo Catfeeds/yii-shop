@@ -68,6 +68,15 @@ $send = function ($url, $model) {
                        [
 							'attribute' => 'created_at',
 							'format' => ['date','php:Y-m-d'],
+							'filter' => Html::activeInput('text', $searchModel, 'create_start_at', [
+									'class' => 'form-control layer-date',
+									'placeholder' => '',
+									'onclick' => "laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'});"
+									]) . Html::activeInput('text', $searchModel, 'create_end_at', [
+											'class' => 'form-control layer-date',
+											'placeholder' => '',
+											'onclick' => "laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"
+											]),
 						],
 						[
 							'attribute' => 'order_status',
