@@ -76,7 +76,7 @@ $send = function ($url, $model) {
 											'class' => 'form-control layer-date',
 											'placeholder' => '',
 											'onclick' => "laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"
-											]),
+									]),
 						],
 						[
 							'attribute' => 'order_status',
