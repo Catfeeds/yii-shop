@@ -1102,6 +1102,130 @@
                clear: both;
             }
         }
+        .tracking{
+            width: 100%;
+            float: left;
+            h3{
+                width: 100%;
+                float: left;
+                font-size: 16px;
+                color: #3e3a39;
+            }
+            .receiptAddress {
+                float: left;
+                width: 100%;
+                font-size: 16px;
+                color: #666666;
+                dd {
+                    float: left;
+                }
+            }
+            .trackingMain {
+                width: 100%;
+                float: left;
+                margin-top: 60px;
+                li{
+                    float: left;
+                    width: 100%;
+                    height: 70px;
+                    .times {
+                        width: 50px;
+                        text-align: right;
+                        float: left;
+                        color: #999999;
+                        b{
+                            margin-bottom: 6px;
+                            display: inline-block;
+                            font-weight: normal;
+                            float: right;
+                            color: #999999;
+                            font-size: 12px;
+                        }
+                        em {
+                            clear: both;
+                            float: right;
+                            font-size: 12px;
+                        }
+                        .max {
+                            font-size: 16px;
+                        }
+                    }
+                    .quq {
+                        width: 18px;
+                        float: left;
+                        text-align: center;
+                        margin: 0 10px;
+                        height: 18px;
+                        display: flex;
+                        justify-content: center;
+                        i {
+                            border-radius: 50%;
+                            position: relative;                            
+                            background: #d3d3d3;
+                            flex-direction: row;
+                            
+                        }
+                        
+                        .size2{
+                            width: 18px;
+                            height: 18px;
+                        }
+                        .size1{
+                            width: 8px;
+                            height: 8px;
+                        }
+                        .frames1:after {
+                            position: absolute;
+                            content: '';
+                            top: 8px;
+                            width: 1px;
+                            height: 70px;
+                            background: #d3d3d3;
+                        }
+                        .frames2:after {
+                            position: absolute;
+                            content: '';
+                            top: 18px;
+                            width: 1px;
+                            height: 70px;
+                            background: #d3d3d3;
+                        }
+                    }
+                    
+                    p{
+                        float: left;
+                        font-size: 14px;
+                        color: #999999;
+                        b{
+                            margin-bottom: 6px;
+                            display: inline-block;
+                            font-weight: normal;
+                            float: left;
+                        }
+                        em {
+                            clear: both;
+                            float: left;
+                        }
+                    }
+                    
+                }
+                .color1 .times b {
+                    color: #d3b799;
+                }
+                .color1 .times em {
+                    color: #d3b799;
+                }
+                .color1 .quq i {
+                    background: #d3b799;
+                }
+                .color1 p {
+                    color: #d3b799;
+                }
+                .color1 p b {
+                     color: #d3b799;
+                }
+            }
+        }
     }
      .weChat_main {
         width: 100%;

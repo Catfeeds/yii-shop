@@ -919,6 +919,109 @@
         font-size: 18px;
         color: #3e3a39;
         clear: both; }
+    .laber_shop .shop_main .tracking {
+      width: 100%;
+      float: left; }
+      .laber_shop .shop_main .tracking h3 {
+        width: 100%;
+        float: left;
+        font-size: 16px;
+        color: #3e3a39; }
+      .laber_shop .shop_main .tracking .receiptAddress {
+        float: left;
+        width: 100%;
+        font-size: 16px;
+        color: #666666; }
+        .laber_shop .shop_main .tracking .receiptAddress dd {
+          float: left; }
+      .laber_shop .shop_main .tracking .trackingMain {
+        width: 100%;
+        float: left;
+        margin-top: 60px; }
+        .laber_shop .shop_main .tracking .trackingMain li {
+          float: left;
+          width: 100%;
+          height: 70px; }
+          .laber_shop .shop_main .tracking .trackingMain li .times {
+            width: 50px;
+            text-align: right;
+            float: left;
+            color: #999999; }
+            .laber_shop .shop_main .tracking .trackingMain li .times b {
+              margin-bottom: 6px;
+              display: inline-block;
+              font-weight: normal;
+              float: right;
+              color: #999999;
+              font-size: 12px; }
+            .laber_shop .shop_main .tracking .trackingMain li .times em {
+              clear: both;
+              float: right;
+              font-size: 12px; }
+            .laber_shop .shop_main .tracking .trackingMain li .times .max {
+              font-size: 16px; }
+          .laber_shop .shop_main .tracking .trackingMain li .quq {
+            width: 18px;
+            float: left;
+            text-align: center;
+            margin: 0 10px;
+            height: 18px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center; }
+            .laber_shop .shop_main .tracking .trackingMain li .quq i {
+              border-radius: 50%;
+              position: relative;
+              background: #d3d3d3;
+              -webkit-box-orient: horizontal;
+              -webkit-box-direction: normal;
+                  -ms-flex-direction: row;
+                      flex-direction: row; }
+            .laber_shop .shop_main .tracking .trackingMain li .quq .size2 {
+              width: 18px;
+              height: 18px; }
+            .laber_shop .shop_main .tracking .trackingMain li .quq .size1 {
+              width: 8px;
+              height: 8px; }
+            .laber_shop .shop_main .tracking .trackingMain li .quq .frames1:after {
+              position: absolute;
+              content: '';
+              top: 8px;
+              width: 1px;
+              height: 70px;
+              background: #d3d3d3; }
+            .laber_shop .shop_main .tracking .trackingMain li .quq .frames2:after {
+              position: absolute;
+              content: '';
+              top: 18px;
+              width: 1px;
+              height: 70px;
+              background: #d3d3d3; }
+          .laber_shop .shop_main .tracking .trackingMain li p {
+            float: left;
+            font-size: 14px;
+            color: #999999; }
+            .laber_shop .shop_main .tracking .trackingMain li p b {
+              margin-bottom: 6px;
+              display: inline-block;
+              font-weight: normal;
+              float: left; }
+            .laber_shop .shop_main .tracking .trackingMain li p em {
+              clear: both;
+              float: left; }
+        .laber_shop .shop_main .tracking .trackingMain .color1 .times b {
+          color: #d3b799; }
+        .laber_shop .shop_main .tracking .trackingMain .color1 .times em {
+          color: #d3b799; }
+        .laber_shop .shop_main .tracking .trackingMain .color1 .quq i {
+          background: #d3b799; }
+        .laber_shop .shop_main .tracking .trackingMain .color1 p {
+          color: #d3b799; }
+        .laber_shop .shop_main .tracking .trackingMain .color1 p b {
+          color: #d3b799; }
   .laber_shop .weChat_main {
     width: 100%;
     float: left;
