@@ -9,7 +9,7 @@
 namespace backend\modules\goods\controllers;
 
 use yii\data\ActiveDataProvider;
-use common\models\order\Order;
+use backend\models\order\Order;
 use backend\actions\CreateAction;
 use backend\actions\UpdateAction;
 use backend\actions\IndexAction;
