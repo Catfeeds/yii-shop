@@ -37,7 +37,7 @@ class ShippingService extends BaseService
     	{
     		$returnData[$v['id']] = $v['name'];
     	}
-    	return $returnData
+    	return $returnData;
     }
     
 }
