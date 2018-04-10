@@ -39,7 +39,8 @@ return [
     'aliyun_sms' =>[//阿里短信
     	'accessKeyId' =>'LTAIUloKarS76KjI',
     	'accessKeySecret' =>'D26FYz9pDKazgi4SBwDQtaxGQLwVGY',
-    	'SignName' =>'深圳文榜茶叶有限公司',
-    	'TemplateCode' =>'SMS_130745225'
+    	'SignName' =>'深圳文榜茶业有限公司',
+    	'Template_Register' =>'SMS_130745225',
+    	'Template_Resetpwd' =>'SMS_130995048'
     ]
 ];

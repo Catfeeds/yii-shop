@@ -154,7 +154,18 @@ class SiteController extends BaseController
      * @return mixed
      */
     public function actionSignup()
-    {
+    {	
+    	$code = Yii::$app->request->post('code');
+    	$mobile = Yii::$app->request->post('mobile');
+    	if(!$code || !$mobile)
+    	{
+    		return ['status' =>1,'msg'=>'参数错误'];
+    	}
+    	$redisCode = Yii::$app->redis->get('register'.$mobile);
+    	if(!$redisCode || ($redisCode!=$code))
+    	{
+    		return ['status' => 1,'msg' =>'验证码过期或者错误'];
+    	}
     	$model = new User();
     	$model->setScenario('create');
     	if (yii::$app->request->isAjax && $model->load(['data' =>Yii::$app->request->post()],'data')) {
@@ -195,6 +206,15 @@ class SiteController extends BaseController
     		$code = Yii::$app->request->post('code');
 	    	$mobile = Yii::$app->request->post('mobile');
 	    	$pasword = Yii::$app->request->post('password');
+	    	if(!$code || !$mobile || !$pasword)
+	    	{
+	    		return ['status' => 1,'msg' =>'参数异常'];
+	    	}
+	    	$redisCode = Yii::$app->redis->get('resetpwd'.$mobile);
+	    	if(!$redisCode || ($code != $redisCode))
+	    	{
+	    		return ['status' => 1,'msg' =>'验证码过期或者错误'];
+	    	}
 	    	try {
 	    		$model = new ResetPasswordForm($mobile);
 	    	} catch (InvalidParamException $e) {
@@ -268,7 +288,14 @@ class SiteController extends BaseController
     			return ['status' =>1,'msg' =>'手机号被使用'];
     		}else
     		{	
-    			//TODO 发送短信
+    			$code = rand(100000, 999999);
+    			$sms = new SendSms();
+    			$result = $sms->send($mobile, $code);
+    			if($result['Code'] !='OK')
+    			{
+    				return ['status' =>1,'msg' =>'发送失败'];
+    			}
+    			Yii::$app->redis->set('register'.$mobile,$code,90);
     			return ['status' =>0,'msg' =>'发送成功'];
     		}
     	}
@@ -288,13 +315,24 @@ class SiteController extends BaseController
     		{
     			return ['status' =>1,'msg' =>'验证码不能为空'];
     		}
+    		if(strlen($mobile) != 11)
+    		{
+    			return ['status' =>1,'msg' =>'手机格式不对'];
+    		}
     		if(strtolower(Yii::$app->session->get('captcha')) != strtolower($captcha))
     		{
     			return ['status' =>1,'msg' =>'验证码不正确'];
     		}
     		if(User::findByMobile($mobile))
     		{
-    			//TODO 发送短信
+    			$code = rand(100000, 999999);
+    			$sms = new SendSms();
+    			$result = $sms->send($mobile, $code,'Template_Resetpwd');
+    			if($result['Code'] !='OK')
+    			{
+    				return ['status' =>1,'msg' =>'发送失败'];
+    			}
+    			Yii::$app->redis->set('resetpwd'.$mobile,$code,90);
     			return ['status' =>0,'msg' =>'发送成功'];
     		}else
     		{
@@ -308,7 +346,7 @@ class SiteController extends BaseController
     {
     	$sms = new SendSms();
     	$result = $sms->send('15914181186', '589742');
-    	var_dump($result);exit;
+    	print_r($result);exit;
     	
     }
 
