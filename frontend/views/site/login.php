@@ -1,4 +1,5 @@
-		<div class="container2" id="logins">
+<?php use yii\helpers\Url;?>
+<div class="container2" id="logins">
 			<section class="laber_login">
 				<div class="login auto clearfix">
 					<div class="login_main">
@@ -13,19 +14,19 @@
 									<input @blur="password" v-model='logindata.password'  type="password" name="password" id="password" placeholder="请输入您的密码" />
 									<strong class="stro1">{{ logPassMsg }}</strong>
 								</div>
-								<a href="#" class="forget">忘记密码?</a>
+								<a href="<?=Url::to('/site/requestpasswordreset')?>" class="forget">忘记密码?</a>
 								<a @click="login" href="javascript:;" :style="{background:bgColor}" class="immediately">立即登录</a>
-								<p>若您没有账号，可点击这里<a href="#">注册</a></p>
+								<p>若您没有账号，可点击这里<a href="<?=Url::to('/site/signup')?>">注册</a></p>
 								<div class="qt">
 									<b class="b1"></b>
 									<p>其它方式登录</p>
 									<b class="b2"></b>
 								</div>
 								<div class="dsf">
-									<a href="<?=$qqUrl?>" class="a_fl">
+									<!--<a href="<?=$qqUrl?>" class="a_fl">
 										<i class="i1"></i>
 										QQ登录
-									</a>
+									</a>-->
                                     <a href="<?=$weixinUrl?>" class="a_fr">
 										<i class="i2"></i>
 										微信登录

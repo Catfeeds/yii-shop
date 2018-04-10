@@ -299,7 +299,7 @@ class SiteController extends BaseController
     			}
     			$redis =Yii::$app->redis;
     			$redis->set('register'.$mobile,$code);
-    			$redis->expire('register'.$mobile,90);
+    			$redis->expire('register'.$mobile,300);
     			return ['status' =>0,'msg' =>'发送成功'];
     		}
     	}
@@ -339,7 +339,7 @@ class SiteController extends BaseController
     			
     			$redis =Yii::$app->redis;
     			$redis->set('resetpwd'.$mobile,$code);
-    			$redis->expire('resetpwd'.$mobile,90);
+    			$redis->expire('resetpwd'.$mobile,300);
     			return ['status' =>0,'msg' =>'发送成功'];
     		}else
     		{
@@ -348,13 +348,5 @@ class SiteController extends BaseController
     	}
     }
     
-    
-    public function actionTest()
-    {
-    	$sms = new SendSms();
-    	$result = $sms->send('15914181186', '589742');
-    	print_r($result);exit;
-    	
-    }
 
 }
