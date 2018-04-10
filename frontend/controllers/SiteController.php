@@ -155,20 +155,22 @@ class SiteController extends BaseController
      */
     public function actionSignup()
     {	
-    	$code = Yii::$app->request->post('code');
-    	$mobile = Yii::$app->request->post('mobile');
-    	if(!$code || !$mobile)
-    	{
-    		return ['status' =>1,'msg'=>'参数错误'];
-    	}
-    	$redisCode = Yii::$app->redis->get('register'.$mobile);
-    	if(!$redisCode || ($redisCode!=$code))
-    	{
-    		return ['status' => 1,'msg' =>'验证码过期或者错误'];
-    	}
     	$model = new User();
     	$model->setScenario('create');
     	if (yii::$app->request->isAjax && $model->load(['data' =>Yii::$app->request->post()],'data')) {
+	    	
+    		$code = Yii::$app->request->post('code');
+	    	$mobile = Yii::$app->request->post('mobile');
+	    	if(!$code || !$mobile)
+	    	{
+	    		return ['status' =>1,'msg'=>'参数错误'];
+	    	}
+	    	$redisCode = Yii::$app->redis->get('register'.$mobile);
+	    	if(!$redisCode || ($redisCode!=$code))
+	    	{
+	    		return ['status' => 1,'msg' =>'验证码过期或者错误'];
+	    	}
+	    	
     		if ($model->validate()&& $model->save()) {
     			if (Yii::$app->getUser()->login($model)) {
     				return ['status' =>0,'msg' =>''];
