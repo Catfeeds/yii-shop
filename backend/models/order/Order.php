@@ -121,6 +121,11 @@ class Order extends CommonOrder
     	if (! $this->validate()) {
     		return $dataProvider;
     	}
+    	if($this->user_id)
+    	{
+    		$userModel = User::findOne(['mobile' =>$this->user_id]);
+    		$query->andFilterWhere(['user_id' => $userModel->id]);
+    	}
     	$query->andFilterWhere(['order_sn' => $this->order_sn])
     	->andFilterWhere(['trade_no' => $this->trade_no])
     	->andFilterWhere(['order_status' => $this->order_status]);
