@@ -297,7 +297,9 @@ class SiteController extends BaseController
     			{
     				return ['status' =>1,'msg' =>'发送失败'];
     			}
-    			Yii::$app->redis->set('register'.$mobile,$code,90);
+    			$redis =Yii::$app->redis;
+    			$redis->set('register'.$mobile,$code);
+    			$redis->expire('register'.$mobile,90);
     			return ['status' =>0,'msg' =>'发送成功'];
     		}
     	}
@@ -334,7 +336,10 @@ class SiteController extends BaseController
     			{
     				return ['status' =>1,'msg' =>'发送失败'];
     			}
-    			Yii::$app->redis->set('resetpwd'.$mobile,$code,90);
+    			
+    			$redis =Yii::$app->redis;
+    			$redis->set('resetpwd'.$mobile,$code);
+    			$redis->expire('resetpwd'.$mobile,90);
     			return ['status' =>0,'msg' =>'发送成功'];
     		}else
     		{
