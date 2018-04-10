@@ -39,7 +39,7 @@ return [
     'aliyun_sms' =>[//阿里短信
     	'accessKeyId' =>'LTAIUloKarS76KjI',
     	'accessKeySecret' =>'D26FYz9pDKazgi4SBwDQtaxGQLwVGY',
-    	'SignName' =>'文榜茶叶',
+    	'SignName' =>'深圳文榜茶叶有限公司',
     	'TemplateCode' =>'SMS_130745225'
     ]
 ];
