@@ -47,7 +47,9 @@ use yii\data\ActiveDataProvider;
  */
 class Order extends CommonOrder
 {	
+	public $create_start_at;
 	
+	public $create_end_at;
 
     /**
      * @inheritdoc
