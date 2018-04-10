@@ -25,10 +25,19 @@ class ShippingService extends BaseService
    
     public function getList()
     {
-    	return  Shipping::find()->select(['id','name'])->asArray()->all();
+    	return  Shipping::find()->select(['id','shipping_code','name'])->asArray()->all();
     	
     }
     
-    
+    public function getListArray()
+    {	
+    	$returnData = [];
+    	$data = Shipping::find()->select(['id','name'])->asArray()->all();
+    	foreach($data as $v)
+    	{
+    		$returnData[$v['id']] = $v['name'];
+    	}
+    	return $returnData
+    }
     
 }
