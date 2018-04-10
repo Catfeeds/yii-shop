@@ -40,6 +40,10 @@ $this->title = 'Users'
                         [
                             'attribute' => 'id',
                         ],
+                		[
+                			'attribute' => 'mobile',
+                			'label' =>'手机号'
+                		],
                         [
                             'attribute' => 'username',
                         ],
