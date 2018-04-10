@@ -127,6 +127,14 @@ class Constants
         ];
         return self::getItems($items, $key);
     }
+    
+    
+    public static function getOrderStatus()
+    {
+    	$items =  [1 =>'未付款',2 =>'待发货',3=>'待收货',4=>'订单关闭',5=>'交易成功'];
+    	return self::getItems($items);
+    }
+    
 
     private static function getItems($items, $key = null)
     {

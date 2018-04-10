@@ -19,6 +19,7 @@ use backend\widgets\Bar;
 use backend\grid\CheckboxColumn;
 use backend\grid\ActionColumn;
 use yii\helpers\Url;
+use common\libs\Constants;
 
 $this->title = "Admin Log";
 $send = function ($url, $model) {
@@ -72,7 +73,8 @@ $send = function ($url, $model) {
 							'attribute' => 'order_status',
 							'value' =>function($model){
                 				return $model->orderStatus[$model->order_status];
-                			}
+                			},
+                			'filter' =>Constants::getOrderStatus()
 						],
 						[
 							'class' => ActionColumn::className(),
