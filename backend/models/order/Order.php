@@ -57,6 +57,7 @@ class Order extends CommonOrder
         return [
             [['shop_id', 'user_id', 'order_status', 'shipping_id', 'pay_id', 'pay_time', 'remind_time', 'cancel_reson', 'close_time', 'is_show', 'platform_type', 'created_at', 'updated_at'], 'integer'],
             [['shipping_fee', 'goods_amount', 'cheap_price', 'order_amount', 'refund_amount'], 'number'],
+            [['trade_no','order_sn'],'string'],
             [['order_sn'], 'unique'],
         ];
     }
@@ -119,11 +120,11 @@ class Order extends CommonOrder
     	if (! $this->validate()) {
     		return $dataProvider;
     	}
-    	/*$query->andFilterWhere(['id' => $this->id])
+    	$query->andFilterWhere(['order_sn' => $this->order_sn])
     	->andFilterWhere(['like', 'route', $this->route])
     	->andFilterWhere(['like', 'description', $this->description])
     	->andFilterWhere(['like', 'admin_user.username', $this->user_username]);
-    	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = $update_start_at_unixtimestamp = $update_end_at_unixtimestamp = '';
+    	/*$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = $update_start_at_unixtimestamp = $update_end_at_unixtimestamp = '';
     	if ($this->create_start_at != '') {
     		$create_start_at_unixtimestamp = strtotime($this->create_start_at);
     	}
