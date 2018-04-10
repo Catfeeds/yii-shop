@@ -121,7 +121,7 @@ class Order extends CommonOrder
     		return $dataProvider;
     	}
     	$query->andFilterWhere(['order_sn' => $this->order_sn])
-    	->andFilterWhere(['trade_no' => $this->trade_no])
+    	->andFilterWhere(['trade_no' => $this->trade_no]);
     	/*->andFilterWhere(['like', 'description', $this->description])
     	->andFilterWhere(['like', 'admin_user.username', $this->user_username]);
     	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = $update_start_at_unixtimestamp = $update_end_at_unixtimestamp = '';
