@@ -27,7 +27,7 @@ $this->title = "修改订单";
                 ?>
                 <?= $form->field($model, 'shipping_id')
                     ->label('配送物流')
-                    ->dropDownList($service->getListArray()) ?>
+                    ->dropDownList(ShippingService::getListArray()) ?>
                 <div class="hr-line-dashed"></div>
                 <?= $form->field($model, 'invoice_no')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>
