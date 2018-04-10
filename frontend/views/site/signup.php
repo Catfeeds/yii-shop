@@ -196,7 +196,7 @@ use yii\helpers\Url;
 		                 	if(data.status == 0){
 		                        console.log('发送成功');	                                                
 		                    }else if(data.status == 1){
-		                    	this.msgTel = data.msg;
+		                    	_this.msgTel = data.msg;
 		                    }else{
 		                    	alert('发送错误');
 		                    }
@@ -220,7 +220,7 @@ use yii\helpers\Url;
 		                		_this.carShow = true;
 	    			    	    _this.popupShow = true;	
 		                	}else if(data.status == 1){
-		                		this.msgdx = data.msg;
+		                		_this.msgdx = data.msg;
 		                	}else{
 		                    	alert('注册失败');
 		                    }	                    
