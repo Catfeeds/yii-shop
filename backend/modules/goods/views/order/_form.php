@@ -22,9 +22,7 @@ $this->title = "修改订单";
         <div class="ibox">
             <?= $this->render('/widgets/_ibox-title') ?>
             <div class="ibox-content">
-                <?php $form = ActiveForm::begin(); 	    	
-                	  $service = new ShippingService();
-                ?>
+                <?php $form = ActiveForm::begin();?>
                 <?= $form->field($model, 'shipping_id')
                     ->label('配送物流')
                     ->dropDownList(ShippingService::getListArray()) ?>
