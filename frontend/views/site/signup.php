@@ -194,11 +194,11 @@ use yii\helpers\Url;
 		                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
 		                success: function(data) {
 		                 	if(data.status == 0){
-		                        console.log('发送成功');
-		                        console.log(data);		                                                
+		                        console.log('发送成功');	                                                
+		                    }else if(data.status == 1){
+		                    	this.msgTel = data.msg;
 		                    }else{
-		                    	console.log('发送失败');
-		                        console.log(data);	
+		                    	alert('发送错误');
 		                    }
 		                }
 		           })                  
@@ -217,13 +217,13 @@ use yii\helpers\Url;
 		                success: function(data) {
 		                	if(data.status == 0){
 		                		console.log('注册成功');
-		                		console.log(data);
 		                		_this.carShow = true;
 	    			    	    _this.popupShow = true;	
-		                	}else {
-		                		console.log('发送失败');
-		                        console.log(data);	
-		                	}	                    
+		                	}else if(data.status == 1){
+		                		this.msgdx = data.msg;
+		                	}else{
+		                    	alert('注册失败');
+		                    }	                    
 		                }
 		            })
 				},
