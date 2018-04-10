@@ -4,6 +4,7 @@ namespace backend\models\order;
 
 use Yii;
 use common\models\order\Order as CommonOrder;
+use common\models\User;
 use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "{{%order}}".
