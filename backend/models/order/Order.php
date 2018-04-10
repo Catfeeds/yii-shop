@@ -55,7 +55,6 @@ class Order extends CommonOrder
     public function rules()
     {
         return [
-            [['order_sn', 'user_id', 'order_amount', 'consignee', 'mobile', 'province', 'city', 'district',  'address', 'created_at', 'updated_at'], 'required'],
             [['shop_id', 'user_id', 'order_status', 'shipping_id', 'pay_id', 'pay_time', 'remind_time', 'cancel_reson', 'close_time', 'is_show', 'platform_type', 'created_at', 'updated_at'], 'integer'],
             [['shipping_fee', 'goods_amount', 'cheap_price', 'order_amount', 'refund_amount'], 'number'],
             [['order_sn'], 'unique'],
