@@ -98,7 +98,7 @@ class OrderController extends \yii\web\Controller
     	}
     	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address'])->asArray()->all();
     	Excel::export([
-    		'models' =>　$data,
+    		'models' =>$data,
     		'fileName' => '订单报表'.date('Ymd'),
     		'columns' =>[
     			[
