@@ -17,7 +17,6 @@ use backend\actions\DeleteAction;
 use common\service\order\ShippingService;
 use common\service\order\OrderService;
 use moonland\phpexcel\Excel;
-
 use Yii;
 /**
  * FriendLink controller
@@ -99,7 +98,7 @@ class OrderController extends \yii\web\Controller
     	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address'])->asArray()->all();
     	Excel::export([
     		'models' =>$data,
-    		'fileName' => '订单报表'.date('Ymd'),
+    		'fileName' => date('Ymd'),
     		'columns' =>[
     			[
 	    			'attribute' => 'order_sn',
