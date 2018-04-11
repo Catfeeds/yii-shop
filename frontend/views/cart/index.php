@@ -255,6 +255,11 @@
             	selectedProduct:function (item) { // 接收的参数
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
+		                var checkData = [];
+		                if(item.checked = true){
+		                	checkData.push(item);
+		                }
+		                console.log(checkData);
 		            }else{
 		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
