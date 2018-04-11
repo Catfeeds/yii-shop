@@ -274,11 +274,11 @@
 			                    
 			                }
 			            });
-//		        	}else if(_this.checkAllFlag == true){
-//		        		_this.checkAllFlag = false;
-//			            _this.message.forEach(function (item,index) { 
-//			                    item.checked = _this.checkAllFlag;
-//			            });
+		        	}else if(_this.checkAllFlag == true){
+		        		_this.checkAllFlag = false;
+			            _this.message.forEach(function (item,index) { 
+			                    item.checked = _this.checkAllFlag;
+			            });
 		        	}
 		           
 		            this.caleTotalPrice();
