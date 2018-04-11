@@ -16,6 +16,7 @@ return [
     'Update' => '编辑',
     'Delete' => '删除',
     'Create' => '创建',
+    'Export' =>'导出',
     'Save' => '保存',
     'Reset' => '重置',
     'Name' => '名称',
