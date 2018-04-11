@@ -279,7 +279,7 @@
 //			            _this.message.forEach(function (item,index) { 
 //			                    item.checked = _this.checkAllFlag;
 //			            });
-//		        	}
+		        	}
 		           
 		            this.caleTotalPrice();
 		        },
