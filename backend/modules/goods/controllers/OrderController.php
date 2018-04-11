@@ -86,7 +86,8 @@ class OrderController extends \yii\web\Controller
     
     
     public function actionExport()
-    {
+    {	
+    	ob_end_clean() ; //解决ob缓存导致导出乱码的问题
     	$searchModel = new Order();
     	$dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
     	$query = $dataProvider->query;
