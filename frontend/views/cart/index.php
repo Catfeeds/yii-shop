@@ -256,7 +256,7 @@
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
 		            }else{
-		                
+		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
 		                
 		            }
