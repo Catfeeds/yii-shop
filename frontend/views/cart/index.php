@@ -154,22 +154,7 @@
 	            })
 				          
 			},
-			$nextTick: function(){
-	            this.checkedData();
-			},
             methods: {
-            	checkedData: function(){
-            		var _this = this;
-            		var n = 0;
-					for(var i=0;i<_this.message.length;i++){
-						if(_this.message[i].checked = true){
-							n++;
-						}
-					}
-					if(n = _this.message.length){
-					   _this.checkAllFlag = true;
-					}
-            	},
             	carQx2: function(){
         			this.carShow = false;
     		        this.popupShow = false;
