@@ -115,7 +115,7 @@ class Bar extends Widget
         
         if (! isset($this->buttons['export'])) {
         	$this->buttons['export'] = function () {
-        		return Html::a('<i class="fa fa-plus"></i> ' . yii::t('app', 'Export'), Url::to(['export']), [
+        		return Html::a('<i class="fa fa-download"></i> ' . yii::t('app', 'Export'), Url::to(['export']), [
         				'title' => yii::t('app', 'Export'),
         				'data-pjax' => '0',
         				'class' => 'btn btn-white btn-sm',
