@@ -154,6 +154,9 @@
 	            })
 				          
 			},
+			$nextTick: function(){
+	            this.checkedData();
+			},
             methods: {
             	checkedData: function(){
             		var _this = this;
@@ -271,9 +274,7 @@
 		            }else{
 		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
-		                _this.$nextTick( function(){
-	                    	_this.checkedData();
-	                    });
+		               
 		            }
 		            this.caleTotalPrice();
 		        },
