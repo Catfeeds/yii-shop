@@ -267,14 +267,13 @@
             	selectedProduct:function (item) { // 接收的参数
             		var _this = this;
 		            if( typeof item.checked == 'undefined'){ 
-		                Vue.set(item,"checked",true);
-		                _this.$nextTick( function(){
-	                    	_this.checkedData();
-	                    });
+		                Vue.set(item,"checked",true);		                
 		            }else{
 		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
-		                
+		                _this.$nextTick( function(){
+	                    	_this.checkedData();
+	                    });
 		            }
 		            this.caleTotalPrice();
 		        },
