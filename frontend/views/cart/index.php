@@ -256,11 +256,9 @@
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
 		            }else{
-		               
-		                var selectData = this.message.filter(function(item){
-		                	return item.checked = true;
-		                })
-		                selectData.length === this.message.length? this.checkAllFlag = true : this.checkAllFlag = false;
+		                
+		                this.checkAllFlag = false ;
+		                
 		            }
 		            this.caleTotalPrice();
 		        },
