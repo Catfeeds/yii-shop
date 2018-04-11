@@ -4,7 +4,7 @@
             		<div class="shopUser_main">
             			<p>您好，15038384758</p>
             			<ul>
-            				<li><a href="">密码管理</a></li>
+            				<li><a href="/user/updatepassword">密码管理</a></li>
             				<li class="on"><a href="/cart/index">购物车</a></li>
             				<li><a href="/address/index">收货地址</a></li>
             				<li><a href="/order/list">我的订单</a></li>
