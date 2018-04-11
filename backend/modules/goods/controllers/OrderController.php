@@ -16,6 +16,7 @@ use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
 use common\service\order\ShippingService;
 use common\service\order\OrderService;
+use common\helpers\FuncHelper;
 
 use Yii;
 /**
@@ -82,5 +83,20 @@ class OrderController extends \yii\web\Controller
     	$data = $service->getOrderGoodsByOrderId($id);
     	$model = Order::findOne($id);
     	return $this->render('view',['data' => $data,'model' =>$model]);
+    }
+    
+    
+    public function actionExport()
+    {
+    	$searchModel = new Order();
+    	$dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
+    	$query = $dataProvider['query'];
+    	$count = $query->count();
+    	if($count>1000)
+    	{
+    		return ['code' => 1, 'message' => '导出的数据太于1000条，请筛选一些重试'];
+    	}
+    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address']);
+    	FuncHelper::exportexcel($data);
     }
 }
