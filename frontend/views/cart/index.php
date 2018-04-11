@@ -152,7 +152,15 @@
 	                	}          	
 	                }
 	            })
-					           
+				var n = 0;
+				for(var i=0;i<_this.message.length;i++{
+					if(_this.message[i].checked = true){
+						n++;
+					}
+				}
+				if(n == _this.message.length){
+				   _this.checkAllFlag = true;
+				}          
 			},
             methods: {
             	carQx2: function(){
@@ -255,6 +263,7 @@
             	selectedProduct:function (item) { // 接收的参数
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
+		                
 		            }else{
 		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
