@@ -255,9 +255,17 @@
             	selectedProduct:function (item) { // 接收的参数
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
-		            }else {
-		                item.checked = !item.checked;
+		            }else if(!item.checked){
+//		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
+		            }else{
+		            	var n = 0;
+		            	if(item.checked = true){
+		            		n++;	
+		            	}
+		            	if(n == this.message.length){
+		            		this.checkAllFlag = true;
+		            	}
 		            }
 		            this.caleTotalPrice();
 		        },
