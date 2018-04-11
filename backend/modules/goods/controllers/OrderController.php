@@ -16,7 +16,7 @@ use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
 use common\service\order\ShippingService;
 use common\service\order\OrderService;
-use common\helpers\FuncHelper;
+use moonland\phpexcel\Excel;
 
 use Yii;
 /**
@@ -96,7 +96,29 @@ class OrderController extends \yii\web\Controller
     	{
     		return ['code' => 1, 'message' => '导出的数据太于1000条，请筛选一些重试'];
     	}
-    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address'])->all();
-    	FuncHelper::exportexcel($data);
+    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address'])->asArray()->all();
+    	Excel::export([
+    		'models' =>　$data,
+    		'fileName' => '订单报表'.date('Ymd'),
+    		'columns' =>[
+    			[
+	    			'attribute' => 'order_sn',
+	    			'header' =>'订单号',
+	    			'format' =>'text',
+	    			'value' => function($model){
+	    				return  $model['order_sn'];
+	    			}
+    			],
+    			[
+    			'attribute' => 'order_sn',
+    					'header' =>'订单金额',
+    					'format' =>'text',
+    					'value' => function($model){
+    						return  $model['order_amount'];
+    					}
+    			],
+    		]
+    	]
+    	);
     }
 }
