@@ -166,7 +166,7 @@
 					if(n = _this.message.length){
 					   _this.checkAllFlag = true;
 					}
-            	}，
+            	},
             	carQx2: function(){
         			this.carShow = false;
     		        this.popupShow = false;
