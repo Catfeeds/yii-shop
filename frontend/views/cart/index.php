@@ -153,12 +153,12 @@
 	                }
 	            })
 				var n = 0;
-				for(var i=0;i<_this.message.length;i++{
+				for(var i=0;i<_this.message.length;i++){
 					if(_this.message[i].checked = true){
 						n++;
 					}
 				}
-				if(n == _this.message.length){
+				if(n = _this.message.length){
 				   _this.checkAllFlag = true;
 				}          
 			},
