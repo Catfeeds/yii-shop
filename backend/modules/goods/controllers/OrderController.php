@@ -90,7 +90,7 @@ class OrderController extends \yii\web\Controller
     {
     	$searchModel = new Order();
     	$dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
-    	$query = $dataProvider['query'];
+    	$query = $dataProvider->query;
     	$count = $query->count();
     	if($count>1000)
     	{
