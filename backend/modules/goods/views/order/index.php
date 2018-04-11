@@ -36,7 +36,7 @@ $send = function ($url, $model) {
             <?= $this->render('/widgets/_ibox-title') ?>
             <div class="ibox-content">
                 <?= Bar::widget([
-                    'template' => '{refresh} {update}'
+                    'template' => '{refresh} {export}'
                 ]) ?>
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,
