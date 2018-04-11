@@ -120,5 +120,6 @@ class OrderController extends \yii\web\Controller
     		]
     	]
     	);
+    	return ['code' => 0, 'message' => '导出成功'];
     }
 }
