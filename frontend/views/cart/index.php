@@ -256,8 +256,8 @@
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
 		                var checkData = [];
-		                if(item.checked = true){
-		                	checkData.push(item);
+		                if(this.checked = true){
+		                	checkData.push(this);
 		                }
 		                console.log(checkData);
 		            }else{
