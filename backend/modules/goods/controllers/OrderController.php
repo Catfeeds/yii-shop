@@ -96,7 +96,7 @@ class OrderController extends \yii\web\Controller
     	{
     		return ['code' => 1, 'message' => '导出的数据太于1000条，请筛选一些重试'];
     	}
-    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address']);
+    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address'])->all();
     	FuncHelper::exportexcel($data);
     }
 }
