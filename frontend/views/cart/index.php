@@ -152,17 +152,21 @@
 	                	}          	
 	                }
 	            })
-				var n = 0;
-				for(var i=0;i<_this.message.length;i++){
-					if(_this.message[i].checked = true){
-						n++;
-					}
-				}
-				if(n = _this.message.length){
-				   _this.checkAllFlag = true;
-				}          
+				          
 			},
             methods: {
+            	checkedData: function(){
+            		var _this = this;
+            		var n = 0;
+					for(var i=0;i<_this.message.length;i++){
+						if(_this.message[i].checked = true){
+							n++;
+						}
+					}
+					if(n = _this.message.length){
+					   _this.checkAllFlag = true;
+					}
+            	}，
             	carQx2: function(){
         			this.carShow = false;
     		        this.popupShow = false;
@@ -261,9 +265,12 @@
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数
+            		var _this = this;
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
-		                
+		                _this.$nextTick( function(){
+	                    	_this.checkedData();
+	                    });
 		            }else{
 		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
