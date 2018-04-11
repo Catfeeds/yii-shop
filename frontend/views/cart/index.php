@@ -4,7 +4,7 @@
             		<div class="shopUser_main">
             			<p>您好，15038384758</p>
             			<ul>
-            				<li><a href="">密码管理</a></li>
+            				<li><a href="/user/updatepassword">密码管理</a></li>
             				<li class="on"><a href="/cart/index">购物车</a></li>
             				<li><a href="/address/index">收货地址</a></li>
             				<li><a href="/order/list">我的订单</a></li>
@@ -152,7 +152,7 @@
 	                	}          	
 	                }
 	            })
-					           
+				          
 			},
             methods: {
             	carQx2: function(){
@@ -253,14 +253,13 @@
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数
+            		var _this = this;
 		            if( typeof item.checked == 'undefined'){ 
-		                Vue.set(item,"checked",true);
+		                Vue.set(item,"checked",true);		                
 		            }else{
+		                item.checked = !item.checked;
+		                this.checkAllFlag = false ;
 		               
-		                var selectData = this.message.filter(function(item){
-		                	return item.checked = true;
-		                })
-		                selectData.length === this.message.length? this.checkAllFlag = true : this.checkAllFlag = false;
 		            }
 		            this.caleTotalPrice();
 		        },

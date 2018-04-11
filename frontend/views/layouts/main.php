@@ -44,6 +44,7 @@ $this->beginPage() ?>
 				<div class="top_main auto">
 					
 					<div class="login">
+						<button id="loginOrder" type="button" class="loginCart">我的订单</button>
 						 <button id="loginCart" type="button" class="loginCart">购物车</button>
 						  <?php if(!Yii::$app->user->isGuest):?>
 						  	<?php if(Yii::$app->user->identity->mobile):?>
@@ -84,6 +85,13 @@ $this->beginPage() ?>
 	    	$('#loginCart').click(function(){
 	    		if(islogin == 1){
 	    			window.location = '/cart/index';
+	    		}else{
+	    			window.location = '/site/login';
+	    		}
+	    	})
+	    	$('#loginOrder').click(function(){
+	    		if(islogin == 1){
+	    			window.location = '/order/list';
 	    		}else{
 	    			window.location = '/site/login';
 	    		}
