@@ -138,5 +138,24 @@ class OrderController extends BaseController
     	}
     	return ['status' =>1,'msg' => '取消失败' ];
     }
-
+	
+    
+    
+    public function actionTrace()
+    {
+    	return $this->render('trace');
+    }
+    
+    
+    public function actionGettrace()
+    {
+    	$orderSn = trim(Yii::$app->request->get('id'));
+    	if(!$orderSn)
+    	{
+    		return ['status' =>0,'msg' =>'参数错误'];
+    	}
+    	$orderService = new OrderService();
+    	$order = $orderService->getOrderByOrdersn($orderSn);
+    	
+    }
 }
