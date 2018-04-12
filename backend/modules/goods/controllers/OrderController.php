@@ -16,7 +16,8 @@ use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
 use common\service\order\ShippingService;
 use common\service\order\OrderService;
-use moonland\phpexcel\Excel;
+use PHPExcel;
+use PHPExcel_Writer_Excel5;
 use Yii;
 /**
  * FriendLink controller
@@ -97,29 +98,33 @@ class OrderController extends \yii\web\Controller
     		return ['code' => 1, 'message' => '导出的数据太于1000条，请筛选一些重试'];
     	}
     	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address'])->asArray()->all();
-    	Excel::export([
-    		'models' =>$data,
-    		'fileName' => date('Ymd'),
-    		'columns' =>[
-    			[
-	    			'attribute' => 'order_sn',
-	    			'header' =>'订单号',
-	    			'format' =>'text',
-	    			'value' => function($model){
-	    				return  $model['order_sn'];
-	    			}
-    			],
-    			[
-    			'attribute' => 'order_sn',
-    					'header' =>'订单金额',
-    					'format' =>'text',
-    					'value' => function($model){
-    						return  $model['order_amount'];
-    					}
-    			],
-    		]
-    	]
-    	);
+    	$objPHPExcel = new \PHPExcel();
+    	
+    	//表头的信息
+    	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A1', "订单号")->setCellValue('B1', "交易订单号")
+    	->setCellValue('C1', "订单金额")->setCellValue('D1', "订单状态")->setCellValue('E1', "用户");
+    	
+    	$i=2;
+    	foreach ($data as $key => $value) {
+    		$objPHPExcel->getActiveSheet()                  //设置第一个内置表（一个xls文件里可以有多个表）为活动的
+    			->setCellValue( 'A'.$i, $value['order_sn'] )       //给表的单元格设置数据
+    			->setCellValue( 'B'.$i, $value['trade_no'] )      //数据格式可以为字符串
+    			->setCellValue( 'C'.$i, $value['order_amount'])            //数字型
+    			->setCellValue( 'D'.$i, $value['order_status'] )            //
+    			->setCellValue( 'E'.$i, $value['user_id'] )           //布尔型
+    			$i++;
+    	}
+    	
+    	
+    	$objActSheet =$objPHPExcel->getActiveSheet();
+    	
+    	$objWriter =\PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+    	$objWriter->save('myexchel.xlsx');
+    	header('Content-Type:application/vnd.ms-excel');
+    	header('Content-Disposition:attachment;filename="订单'.date('Ymd').'.xls"');
+    	header('Cache-Control:max-age=0');
+    	$objWriter =\PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+    	$objWriter->save('php://output');
     	return ['code' => 0, 'message' => '导出成功'];
     }
 }

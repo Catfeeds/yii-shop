@@ -19,6 +19,8 @@ use common\models\User;
 use common\service\auth\Qq;
 use common\service\auth\Weixin;
 use common\service\sms\SendSms;
+use PHPExcel;
+use PHPExcel_Writer_Excel5;
 /**
  * Site controller
  */
@@ -26,7 +28,38 @@ class SiteController extends BaseController
 {
     
     
-
+	public function actionTest()
+	{	
+		$objPHPExcel = new \PHPExcel();
+    	$objWriter = new \PHPExcel_Writer_Excel5($objPHPExcel);
+    	
+    	$objPHPExcel->setActiveSheetIndex(0)//表头的信息
+    		->setCellValue('A1', "编号")
+    		->setCellValue('B1', "所属上级")
+    		->setCellValue('C1', "路由名称")
+    		->setCellValue('D1', "菜单标题")
+    		->setCellValue('E1', "状态");
+    	$i=2;
+    	$objPHPExcel->getActiveSheet()             //     设置第一个内置表（一个xls文件里可以有多个表）为活动的
+    	->setCellValue( 'A'.$i, 'test' )       //给表的单元格设置数据
+    	->setCellValue( 'B'.$i, $value['pid'] )      //数据格式可以为字符串
+    	->setCellValue( 'C'.$i, $value['route'])            //数字型
+    	->setCellValue( 'D'.$i, $value['title'] )            //
+    	->setCellValue( 'E'.$i, $value['condition'] )           //布尔型
+    	->setCellValue( 'F'.$i, $value['status'] );
+    	
+    	$file_name = '院外预算会议评估';
+    	header("Pragma: public");
+    	header("Expires: 0");
+    	header("Cache-Control:must-revalidate, post-check=0, pre-check=0");
+    	header("Content-Type:application/force-download");
+    	header("Content-Type:application/vnd.ms-execl");
+    	header("Content-Type:application/octet-stream");
+    	header("Content-Type:application/download");;
+    	header('Content-Disposition:attachment;filename='.$file_name.'.xls');
+    	header("Content-Transfer-Encoding:binary");
+    	$objWriter->save('php://output');
+	}
     /**
      * Displays homepage.
      *
