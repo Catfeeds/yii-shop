@@ -134,7 +134,7 @@ class OrderController extends \yii\web\Controller
     		->setCellValue( 'H'.$i, $value['province'].$value['city'].$value['district'])
     		->setCellValue( 'I'.$i, $value['address'])
     		->setCellValue( 'J'.$i, $shipping[$value['shipping_id']])
-    		->cc( 'K'.$i, $value['invoice_no'],\PHPExcel_Cell_DataType::TYPE_STRING2);
+    		->setCellValueExplicit( 'K'.$i, $value['invoice_no'],\PHPExcel_Cell_DataType::TYPE_STRING2);
     		$i++;
     	}
     	
