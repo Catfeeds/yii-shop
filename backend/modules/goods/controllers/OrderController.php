@@ -21,6 +21,7 @@ use common\models\User;
 use yii\web\Response;
 use PHPExcel;
 use PHPExcel_Writer_Excel5;
+use PHPExcel_Cell_DataType;
 use Yii;
 /**
  * FriendLink controller
@@ -105,30 +106,38 @@ class OrderController extends \yii\web\Controller
     	$objPHPExcel = new \PHPExcel();
     	
     	//表头的信息
-    	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A1', "订单号")->setCellValue('B1', "交易订单号")
-    	->setCellValue('C1', "订单金额")->setCellValue('D1', "订单状态")->setCellValue('E1', "用户")->setCellValue('F1', "支付方式")
-    	->setCellValue('G1', "收货人")->setCellValue('H1', "收货人省市区")->setCellValue('I1', "收货人详细地址")->setCellValue('J1', "物流公司")->setCellValue('K1', "物流单号");
+    	$title = ['订单号','交易订单号','订单金额','订单状态','用户','支付方式','收货人','收货人省市区','收货人详细地址','物流公司','物流单号'];
+    	$k = 'A';
+    	foreach($title as $v)
+    	{
+    		$objPHPExcel->getActiveSheet()->getColumnDimension($k)->setWidth(15);
+    		$objPHPExcel->setActiveSheetIndex(0)->setCellValue($k.'1',$v);
+    		$k++;
+    	}
     	
     	$orderSatus = Constants::getOrderStatus();
     	$orderPay = Constants::getOrderPay();
     	$shippingService = new ShippingService();
     	$shipping = $shippingService->getListArray();
+    	
     	$i=2;
+    	$k = 'A';
     	foreach ($data as $key => $value) {
     		$userModel = User::findOne($value['user_id']);
     		$objPHPExcel->getActiveSheet()                  //设置第一个内置表（一个xls文件里可以有多个表）为活动的
-    			->setCellValue( 'A'.$i, $value['order_sn'] )       //给表的单元格设置数据
-    			->setCellValue( 'B'.$i, $value['trade_no'] )      //数据格式可以为字符串
-    			->setCellValue( 'C'.$i, $value['order_amount'])            //数字型
-    			->setCellValue( 'D'.$i, $order_status[$value['order_status']] )            //
-    			->setCellValue( 'E'.$i, $userModel->mobile)
-    			->setCellValue( 'F'.$i, $orderPay[$value['pay_id']])
-    		->setCellValue( 'G'.$i, $value['consignee'])           
-    		->setCellValue( 'H'.$i, $value['province'].$value['city'].$value['district'])
-    		->setCellValue( 'I'.$i, $value['address'])
-    		->setCellValue( 'J'.$i, $shipping[$value['shipping_id']])
-    		->setCellValue( 'K'.$i, $value['invoice_no']);
+    			->setCellValue( $k.$i, $value['order_sn'] )       //给表的单元格设置数据
+    			->setCellValue( $k.$i, $value['trade_no'] )      //数据格式可以为字符串
+    			->setCellValue( $k.$i, $value['order_amount'])            //数字型
+    			->setCellValue( $k.$i, $order_status[$value['order_status']] )            //
+    			->setCellValue( $k.$i, $userModel->mobile)
+    			->setCellValue( $k.$i, $orderPay[$value['pay_id']])
+    		->setCellValue( $k.$i, $value['consignee'])           
+    		->setCellValue( $k.$i, $value['province'].$value['city'].$value['district'])
+    		->setCellValue( $k.$i, $value['address'])
+    		->setCellValue( $k.$i, $shipping[$value['shipping_id']])
+    		->setCellValue( $k.$i, $value['invoice_no']);
     		$i++;
+    		$k++;
     	}
     	
     	
