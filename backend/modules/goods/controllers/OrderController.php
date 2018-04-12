@@ -90,7 +90,7 @@ class OrderController extends \yii\web\Controller
     public function actionExport()
     {	
     	Yii::$app->getResponse()->format = Response::FORMAT_JSON;
-    	ob_end_clean() ; //解决ob缓存导致导出乱码的问题
+    	
     	$searchModel = new Order();
     	$dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
     	$query = $dataProvider->query;
@@ -121,6 +121,7 @@ class OrderController extends \yii\web\Controller
     	$objActSheet =$objPHPExcel->getActiveSheet();
     	
     	$objWriter =\PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+    	ob_end_clean() ; //解决ob缓存导致导出乱码的问题
     	$objWriter->save('myexchel.xlsx');
     	header('Content-Type:application/vnd.ms-excel');
     	header('Content-Disposition:attachment;filename="订单'.date('Ymd').'.xls"');
