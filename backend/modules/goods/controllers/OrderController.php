@@ -110,7 +110,7 @@ class OrderController extends \yii\web\Controller
     	$k = 'A';
     	foreach($title as $v)
     	{
-    		$objPHPExcel->getActiveSheet()->getColumnDimension($k)->setWidth(20);
+    		$objPHPExcel->getActiveSheet()->getColumnDimension($k)->setWidth(30);
     		$objPHPExcel->setActiveSheetIndex(0)->setCellValue($k.'1',$v);
     		$k++;
     	}
