@@ -102,7 +102,7 @@ class OrderController extends \yii\web\Controller
     		Yii::$app->session->setFlash('error','导出的数据太于1000条，请筛选一些重试');
     		return $this->redirect(['index']);
     	}
-    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address','order_amount','order_status'])->asArray()->all();
+    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address','order_amount','order_status','user_id','shipping_id','province','city','district','pay_id'])->asArray()->all();
     	$objPHPExcel = new \PHPExcel();
     	
     	//表头的信息
@@ -128,7 +128,7 @@ class OrderController extends \yii\web\Controller
     			->setCellValue( 'A'.$i, $value['order_sn'] )       //给表的单元格设置数据
     			->setCellValue( 'B'.$i, $value['trade_no'] )      //数据格式可以为字符串
     			->setCellValue( 'C'.$i, $value['order_amount'])            //数字型
-    			->setCellValue( 'D'.$i, $order_status[$value['order_status']] )            //
+    			->setCellValue( 'D'.$i, $orderSatus[$value['order_status']] )            //
     			->setCellValue( 'E'.$i, $userModel->mobile)
     			->setCellValue( 'F'.$i, $orderPay[$value['pay_id']])
     		->setCellValue( 'G'.$i, $value['consignee'])           
