@@ -125,19 +125,18 @@ class OrderController extends \yii\web\Controller
     	foreach ($data as $key => $value) {
     		$userModel = User::findOne($value['user_id']);
     		$objPHPExcel->getActiveSheet()                  //设置第一个内置表（一个xls文件里可以有多个表）为活动的
-    			->setCellValue( $k.$i, $value['order_sn'] )       //给表的单元格设置数据
-    			->setCellValue( $k.$i, $value['trade_no'] )      //数据格式可以为字符串
-    			->setCellValue( $k.$i, $value['order_amount'])            //数字型
-    			->setCellValue( $k.$i, $order_status[$value['order_status']] )            //
-    			->setCellValue( $k.$i, $userModel->mobile)
-    			->setCellValue( $k.$i, $orderPay[$value['pay_id']])
-    		->setCellValue( $k.$i, $value['consignee'])           
-    		->setCellValue( $k.$i, $value['province'].$value['city'].$value['district'])
-    		->setCellValue( $k.$i, $value['address'])
-    		->setCellValue( $k.$i, $shipping[$value['shipping_id']])
-    		->setCellValue( $k.$i, $value['invoice_no']);
+    			->setCellValue( 'A'.$i, $value['order_sn'] )       //给表的单元格设置数据
+    			->setCellValue( 'B'.$i, $value['trade_no'] )      //数据格式可以为字符串
+    			->setCellValue( 'C'.$i, $value['order_amount'])            //数字型
+    			->setCellValue( 'D'.$i, $order_status[$value['order_status']] )            //
+    			->setCellValue( 'E'.$i, $userModel->mobile)
+    			->setCellValue( 'F'.$i, $orderPay[$value['pay_id']])
+    		->setCellValue( 'G'.$i, $value['consignee'])           
+    		->setCellValue( 'H'.$i, $value['province'].$value['city'].$value['district'])
+    		->setCellValue( 'I'.$i, $value['address'])
+    		->setCellValue( 'J'.$i, $shipping[$value['shipping_id']])
+    		->setCellValue( 'K'.$i, $value['invoice_no']);
     		$i++;
-    		$k++;
     	}
     	
     	
