@@ -121,12 +121,11 @@ class OrderController extends \yii\web\Controller
     	$shipping = $shippingService->getListArray();
     	
     	$i=2;
-    	$k = 'A';
     	foreach ($data as $key => $value) {
     		$userModel = User::findOne($value['user_id']);
     		$objPHPExcel->getActiveSheet()                  //设置第一个内置表（一个xls文件里可以有多个表）为活动的
     			->setCellValue( 'A'.$i, $value['order_sn'] )       //给表的单元格设置数据
-    			->setCellValue( 'B'.$i, $value['trade_no'] )      //数据格式可以为字符串
+    			->setCellValueExplicit( 'B'.$i, $value['trade_no'],\PHPExcel_Cell_DataType::TYPE_STRING2 )      //数据格式可以为字符串
     			->setCellValue( 'C'.$i, $value['order_amount'])            //数字型
     			->setCellValue( 'D'.$i, $orderSatus[$value['order_status']] )            //
     			->setCellValue( 'E'.$i, $userModel->mobile)
@@ -135,7 +134,7 @@ class OrderController extends \yii\web\Controller
     		->setCellValue( 'H'.$i, $value['province'].$value['city'].$value['district'])
     		->setCellValue( 'I'.$i, $value['address'])
     		->setCellValue( 'J'.$i, $shipping[$value['shipping_id']])
-    		->setCellValue( 'K'.$i, $value['invoice_no']);
+    		->cc( 'K'.$i, $value['invoice_no'],\PHPExcel_Cell_DataType::TYPE_STRING2);
     		$i++;
     	}
     	
