@@ -111,7 +111,7 @@ class OrderController extends \yii\web\Controller
     			->setCellValue( 'B'.$i, $value['trade_no'] )      //数据格式可以为字符串
     			->setCellValue( 'C'.$i, $value['order_amount'])            //数字型
     			->setCellValue( 'D'.$i, $value['order_status'] )            //
-    			->setCellValue( 'E'.$i, $value['user_id'] )           //布尔型
+    			->setCellValue( 'E'.$i, $value['user_id'] );           //布尔型
     			$i++;
     	}
     	
