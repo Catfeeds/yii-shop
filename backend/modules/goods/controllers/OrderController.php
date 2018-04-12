@@ -121,7 +121,8 @@ class OrderController extends \yii\web\Controller
     	$objActSheet =$objPHPExcel->getActiveSheet();
     	
     	$objWriter =\PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-    	ob_end_clean() ; //解决ob缓存导致导出乱码的问题
+    	//ob_end_clean() ; //解决ob缓存导致导出乱码的问题
+    	ob_clean();
     	$objWriter->save('myexchel.xlsx');
     	header('Content-Type:application/vnd.ms-excel');
     	header('Content-Disposition:attachment;filename="订单'.date('Ymd').'.xls"');
