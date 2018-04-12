@@ -91,7 +91,7 @@ class OrderController extends \yii\web\Controller
     
     public function actionExport()
     {	
-    	//ob_end_clean() ; //解决ob缓存导致导出乱码的问题
+    	ob_end_clean() ; //解决ob缓存导致导出乱码的问题
     	$searchModel = new Order();
     	$dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
     	$query = $dataProvider->query;
@@ -142,7 +142,6 @@ class OrderController extends \yii\web\Controller
     	header('Cache-Control:max-age=0');
     	$objWriter =\PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
     	$objWriter->save('php://output');
-    	Yii::$app->session->setFlash('success','导出成功');
     	return $this->redirect(['index']);
     }
 }
