@@ -118,8 +118,7 @@ class Bar extends Widget
         		return Html::a('<i class="fa fa-download"></i> ' . yii::t('app', 'Export'), Url::to(['export']), [
         				'title' => yii::t('app', 'Export'),
         				'data-pjax' => '0',
-        				'class' => 'btn btn-white btn-sm',
-        				'data-confirm' =>'确定要导出数据'
+        				'class' => 'btn btn-white btn-sm'
         				]);
         	};
         }

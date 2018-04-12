@@ -89,15 +89,15 @@ class OrderController extends \yii\web\Controller
     
     public function actionExport()
     {	
-    	Yii::$app->getResponse()->format = Response::FORMAT_JSON;
-    	
+    	ob_end_clean() ; //解决ob缓存导致导出乱码的问题
     	$searchModel = new Order();
     	$dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
     	$query = $dataProvider->query;
     	$count = $query->count();
     	if($count>1000)
-    	{
-    		return ['code' => 1, 'message' => '导出的数据太于1000条，请筛选一些重试'];
+    	{	
+    		Yii::$app->session->setFlash('error','导出的数据太于1000条，请筛选一些重试');
+    		return $this->redirect(['index']);
     	}
     	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address'])->asArray()->all();
     	$objPHPExcel = new \PHPExcel();
@@ -121,14 +121,14 @@ class OrderController extends \yii\web\Controller
     	$objActSheet =$objPHPExcel->getActiveSheet();
     	
     	$objWriter =\PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-    	//ob_end_clean() ; //解决ob缓存导致导出乱码的问题
-    	ob_clean();
+    	
     	$objWriter->save('myexchel.xlsx');
     	header('Content-Type:application/vnd.ms-excel');
     	header('Content-Disposition:attachment;filename="订单'.date('Ymd').'.xls"');
     	header('Cache-Control:max-age=0');
     	$objWriter =\PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
     	$objWriter->save('php://output');
-    	return ['code' => 0, 'message' => '导出成功'];
+    	Yii::$app->session->setFlash('success','导出成功');
+    	return $this->redirect(['index']);
     }
 }
