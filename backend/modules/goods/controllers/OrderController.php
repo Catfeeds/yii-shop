@@ -107,7 +107,7 @@ class OrderController extends \yii\web\Controller
     	//表头的信息
     	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A1', "订单号")->setCellValue('B1', "交易订单号")
     	->setCellValue('C1', "订单金额")->setCellValue('D1', "订单状态")->setCellValue('E1', "用户")->setCellValue('F1', "支付方式")
-    	->setCellValue('G1', "收货人")->setCellValue('H', "收货人省市区")->setCellValue('I1', "收货人详细地址")->setCellValue('J1', "物流公司")->setCellValue('K1', "物流单号");
+    	->setCellValue('G1', "收货人")->setCellValue('H1', "收货人省市区")->setCellValue('I1', "收货人详细地址")->setCellValue('J1', "物流公司")->setCellValue('K1', "物流单号");
     	
     	$orderSatus = Constants::getOrderStatus();
     	$orderPay = Constants::getOrderPay();
