@@ -16,7 +16,6 @@ use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
 use common\service\order\ShippingService;
 use common\service\order\OrderService;
-use common\service\order\ShippingService;
 use common\libs\Constants;
 use common\models\User;
 use yii\web\Response;
