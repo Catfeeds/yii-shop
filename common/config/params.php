@@ -14,10 +14,8 @@ return [
     	'url'  => '',// 服务器解析到/web/目录时，uploads目录
     	'path' => Yii::getAlias('@image/'), // 上传目录
     ],
-    'logistics' => [//物流
-    	'appid' => '1280787',
-    	'appkey'=>'17b64807-ceb2-457e-b797-02d15156ae84',
-    	'search' => 'http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx',
+    'kuaidi_100' => [//物流
+    	'key' => '09aba6b79e788f4f',
     ],
     'qiniu' => [//七牛云
     	'access_key' =>'TbfM4OnIUAwAy5jS1WqIvBMf-3r6OCVxO5NDM69k',

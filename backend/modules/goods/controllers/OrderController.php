@@ -16,6 +16,9 @@ use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
 use common\service\order\ShippingService;
 use common\service\order\OrderService;
+use common\service\order\ShippingService;
+use common\libs\Constants;
+use common\models\User;
 use yii\web\Response;
 use PHPExcel;
 use PHPExcel_Writer_Excel5;
@@ -89,7 +92,7 @@ class OrderController extends \yii\web\Controller
     
     public function actionExport()
     {	
-    	ob_end_clean() ; //解决ob缓存导致导出乱码的问题
+    	//ob_end_clean() ; //解决ob缓存导致导出乱码的问题
     	$searchModel = new Order();
     	$dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
     	$query = $dataProvider->query;
@@ -99,22 +102,34 @@ class OrderController extends \yii\web\Controller
     		Yii::$app->session->setFlash('error','导出的数据太于1000条，请筛选一些重试');
     		return $this->redirect(['index']);
     	}
-    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address'])->asArray()->all();
+    	$data = $query->select(['order_sn','trade_no','invoice_no','consignee','mobile','address','order_amount','order_status'])->asArray()->all();
     	$objPHPExcel = new \PHPExcel();
     	
     	//表头的信息
     	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A1', "订单号")->setCellValue('B1', "交易订单号")
-    	->setCellValue('C1', "订单金额")->setCellValue('D1', "订单状态")->setCellValue('E1', "用户");
+    	->setCellValue('C1', "订单金额")->setCellValue('D1', "订单状态")->setCellValue('E1', "用户")->setCellValue('F1', "支付方式")
+    	->setCellValue('G1', "收货人")->setCellValue('H', "收货人省市区")->setCellValue('I1', "收货人详细地址")->setCellValue('J1', "物流公司")->setCellValue('K1', "物流单号");
     	
+    	$orderSatus = Constants::getOrderStatus();
+    	$orderPay = Constants::getOrderPay();
+    	$shippingService = new ShippingService();
+    	$shipping = $shippingService->getListArray();
     	$i=2;
     	foreach ($data as $key => $value) {
+    		$userModel = User::findOne($value['user_id']);
     		$objPHPExcel->getActiveSheet()                  //设置第一个内置表（一个xls文件里可以有多个表）为活动的
     			->setCellValue( 'A'.$i, $value['order_sn'] )       //给表的单元格设置数据
     			->setCellValue( 'B'.$i, $value['trade_no'] )      //数据格式可以为字符串
     			->setCellValue( 'C'.$i, $value['order_amount'])            //数字型
-    			->setCellValue( 'D'.$i, $value['order_status'] )            //
-    			->setCellValue( 'E'.$i, $value['user_id'] );           //布尔型
-    			$i++;
+    			->setCellValue( 'D'.$i, $order_status[$value['order_status']] )            //
+    			->setCellValue( 'E'.$i, $userModel->mobile)
+    			->setCellValue( 'F'.$i, $orderPay[$value['pay_id']])
+    		->setCellValue( 'G'.$i, $value['consignee'])           
+    		->setCellValue( 'H'.$i, $value['province'].$value['city'].$value['district'])
+    		->setCellValue( 'I'.$i, $value['address'])
+    		->setCellValue( 'J'.$i, $shipping[$value['shipping_id']])
+    		->setCellValue( 'K'.$i, $value['invoice_no']);
+    		$i++;
     	}
     	
     	

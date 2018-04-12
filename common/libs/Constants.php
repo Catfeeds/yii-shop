@@ -135,6 +135,14 @@ class Constants
     	return self::getItems($items);
     }
     
+    
+    public static function getOrderPay()
+    {
+    	$items =  [1 =>'微信',2 =>'支付宝'];
+    	return self::getItems($items);
+    }
+    
+    
 
     private static function getItems($items, $key = null)
     {
