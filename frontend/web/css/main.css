@@ -309,6 +309,10 @@
           border: 1px solid #d3b799;
           margin-right: 14px;
           margin-top: 20px; }
+        .laber_details .details_main .details_top .details_fr a:hover {
+          background: #c7a784;
+          -webkit-transition: 1s;
+          transition: 1s; }
         .laber_details .details_main .details_top .details_fr .gm {
           background: #d3b799; }
         .laber_details .details_main .details_top .details_fr ul {
