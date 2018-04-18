@@ -107,16 +107,15 @@
           width: 100%;
           float: left;
           margin-top: 26px;
-          margin-bottom: 200px; }
+          margin-bottom: 200px;
+          text-align: center; }
           .laber_login .login_main .login_center form .dsf a {
             width: 70px;
-            text-align: center; }
+            text-align: center;
+            display: inline-block; }
           .laber_login .login_main .login_center form .dsf .a_fl {
             float: left;
             margin-left: 75px; }
-          .laber_login .login_main .login_center form .dsf .a_fr {
-            float: right;
-            margin-right: 75px; }
           .laber_login .login_main .login_center form .dsf i {
             width: 70px;
             height: 70px;

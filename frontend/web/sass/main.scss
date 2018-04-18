@@ -127,17 +127,15 @@
                     float: left;
                     margin-top: 26px;
                     margin-bottom: 200px;
+                    text-align: center;
                     a {
                         width: 70px;
                         text-align: center;
+                        display: inline-block;
                     }
                     .a_fl {
                         float: left;
                         margin-left: 75px;
-                    }
-                    .a_fr {
-                        float: right;
-                        margin-right: 75px;
                     }
                     i {
                         width: 70px;
