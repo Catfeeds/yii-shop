@@ -108,7 +108,7 @@ use yii\helpers\Url;
 				},
 				//验证手机号
 				checkphone:function(){
-					var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+					var telreg = /^((0\d{2,3}-\d{7,8})|(1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}))$/; 
 					if(this.datainfo.mobile == ''){
 						this.msgTel = "手机号不能为空";
 						return false;
