@@ -196,7 +196,7 @@ use yii\helpers\Url;
 		                 	if(data.status == 0){
 		                        console.log('发送成功');	                                                
 		                    }else if(data.status == 1){
-		                    	_this.msgTel = data.msg;
+		                    	_this.msgTx = data.msg;
 		                    }else{
 		                    	alert('发送错误');
 		                    }
