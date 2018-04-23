@@ -400,19 +400,7 @@
 			editAddres: function(item){
 				var _this = this;
 				var useId = item.id;		
-				$.ajax({
-		            url:'/address/getone',
-		            type: 'GET',
-		            dataType: 'json',
-		            data: {id:useId},
-		            success: function(data) {
-		                if(data.status == 0){
-		                   console.log('chengong');                  
-		                }else{
-		                	console.log('shibai')
-		                }              	
-		            }
-		        })
+				console.log(useId)
 			}
         })
 	</script>
