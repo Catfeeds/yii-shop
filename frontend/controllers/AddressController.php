@@ -52,8 +52,20 @@ class AddressController extends BaseController
     
     
 	public function actionUpdate()
-	{
-		
+	{	
+		$data = Yii::$app->request->post();
+		$id = $data['id'] +0;
+		if(!$id)
+		{
+			return ['status' => 1,'msg' =>'参数错误'];
+		}
+		$addressModel = UserAddress::findOne(['id' => $id,'user_id' => $this->userId]);
+		$addressModel->setAttributes($data,false);
+		if($addressModel->save())
+		{
+			return ['status' => 0,'msg' =>'修改成功'];
+		}
+		return ['status' => 1,'msg' =>'修改失败'];
 	}   
 	
 	
