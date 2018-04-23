@@ -187,11 +187,11 @@
                 //编辑地址
                 editData: {
                     consignee: '',   //姓名
-                    sex: '男',
+                    sex: '',
                     mobile: '',  //电话
-                    province: '选择省份', //省
-                    city: '选择市',  //市
-                    district: '选择区',  //县
+                    province: '', //省
+                    city: '',  //市
+                    district: '',  //县
                     address: '',//具体地址#
                     id: '' 
                 },
@@ -393,16 +393,18 @@
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log(data.data);
+			                    var datas = data.data;
 			                    _this.addressShow2 = true;
-			                    _this.carShow = false; 
-			                    _this.editData.consignee = data.consignee;
-			                    _this.editData.sex = data.gender;
-			                    _this.editData.mobile = data.mobile;
-			                    _this.editData.province = data.province;
-			                    _this.editData.city = data.city;
-			                    _this.editData.district = data.district;
-			                    _this.editData.address = data.address;
-			                    _this.editData.id = data.id;          
+			                    _this.carShow = true; 
+			                    _this.editData.consignee = datas.consignee;
+			                    console.log(data.consignee)
+			                    _this.editData.sex = datas.gender;
+			                    _this.editData.mobile = datas.mobile;
+			                    _this.editData.province = datas.province;
+			                    _this.editData.city = datas.city;
+			                    _this.editData.district = datas.district;
+			                    _this.editData.address = datas.address;
+			                    _this.editData.id = datas.id;          
 			                }else{
 			                	console.log('shibai')
 			                }              	
