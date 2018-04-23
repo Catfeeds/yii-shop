@@ -147,12 +147,10 @@
                 		dataType: 'json',
                 		data:{id:item.order_sn},
                 		success: function(data){
-                			if(data.status == 0){
+                			
        				             urlLogistics = data.url;
        				             console.log(urlLogistics)
-                			}else{
-                				alert('物流信息有误');
-                			}
+                			
                 		}
                 	});
                 	window.location.href = urlLogistics;
