@@ -105,7 +105,7 @@
 			</div>
 			
 			<!--编辑地址-->
-			<div v-show="addressShow2" id="addressPopup" class="addressPopup">
+			<div v-show="addressShow2" id="addressPopup2" class="addressPopup">
 				<i @click="carQx"></i>
 				<span>编辑地址</span>
 	            <ul class="address_cont">
@@ -394,6 +394,7 @@
 			                if(data.status == 0){
 			                    console.log(data.data);
 			                    _this.addressShow2 = true;
+			                    _this.carShow = false; 
 			                    _this.editData.consignee = data.consignee;
 			                    _this.editData.sex = data.gender;
 			                    _this.editData.mobile = data.mobile;
