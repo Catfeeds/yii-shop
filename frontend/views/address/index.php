@@ -112,11 +112,11 @@
 	            	<li>
 	            		<div class="lis lis1">
 	            			<h3>姓名：</h3>
-	            			<input type="text" name="name" id="name" v-model="editData.consignee" placeholder="请输入您的姓名" />
+	            			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
 	            		</div>
 	            		<div class="lis">
 	            			<h3 style="margin-left: 20px;">称谓：</h3>
-	            			<select v-model="editData.sex" name="title" style="margin-left: 20px;">
+	            			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
 	            				<option value="男">男</option>
 	            				<option value="女">女</option>
 	            			</select>
@@ -125,19 +125,19 @@
 	            	<li>
 	            		<div class="lis lis1">
 	            			<h3>联系方式：</h3>
-	            			<input @blur="mobile" type="text" name="tel" id="tel" v-model="editData.mobile" placeholder="请输入您的电话号码" />
+	            			<input @blur="mobile" type="text" name="tel" id="tel" v-model="takeDelivery.mobile" placeholder="请输入您的电话号码" />
 	            		</div>
 	            	</li>
 	            	<li>
 	            		<div class="lis">
 	            			<h3>送货地址：</h3>
-	            			<select class="lis1" name="title" v-model="editData.province">
+	            			<select class="lis1" name="title" v-model="takeDelivery.province">
 	            				<option v-for="option in arr" :value="option.name">{{ option.name }}</option>
 	            			</select>
-	            			<select style="margin-left: 20px;" class="lis1" name="title" v-model="editData.city">
+	            			<select style="margin-left: 20px;" class="lis1" name="title" v-model="takeDelivery.city">
 	            				<option v-for="option in cityArr" :value="option.name">{{ option.name }}</option>
 	            			</select>
-	            			<select style="margin-top: 20px;" class="lis1" name="title" v-model="editData.district">
+	            			<select style="margin-top: 20px;" class="lis1" name="title" v-model="takeDelivery.district">
 	            				<option v-for="option in districtArr" :value="option.name">{{ option.name }}</option>
 	            			</select>
 	            		</div>
@@ -145,7 +145,7 @@
 	            	<li>
 	            		<div class="lis lis2">
 	            			<h3>详细地址：（请填写具体路名和门牌号）</h3>
-	            			<input type="text" name="tel" id="tel" v-model="editData.address" placeholder="请填写详细地址"/>
+	            			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
 	            		</div>
 	            	</li>
 	            	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
@@ -184,17 +184,7 @@
                     address: '',//具体地址#
                     id: 0 
                 },
-                //编辑地址
-                editData: {
-                    consignee: '',   //姓名
-                    sex: '',
-                    mobile: '',  //电话
-                    province: '', //省
-                    city: '',  //市
-                    district: '',  //县
-                    address: '',//具体地址#
-                    id: '' 
-                },
+
                 addressData:[],
                 curAddress: '',  //保存要删除地址
                 id: '' //删除的地址ID
@@ -245,11 +235,13 @@
        	    	carBg: function(){
        	    		this.carShow = false;
        	    	    this.addressShow = false;
+       	    	    this.addressShow2 = false;
        	    	    this.popupShow = false;
        	    	},
        	    	carQx:function(){
        	    		this.carShow = false;
        	    	    this.addressShow = false;
+       	    	    this.addressShow2 = false;
        	    	    this.popupShow = false;
        	    	},
        	    	mobile: function(){
@@ -396,15 +388,15 @@
 			                    var datas = data.data;
 			                    _this.addressShow2 = true;
 			                    _this.carShow = true; 
-			                    _this.editData.consignee = datas.consignee;
+			                    _this.takeDelivery.consignee = datas.consignee;
 			                    console.log(data.consignee)
-			                    _this.editData.sex = datas.gender;
-			                    _this.editData.mobile = datas.mobile;
-			                    _this.editData.province = datas.province;
-			                    _this.editData.city = datas.city;
-			                    _this.editData.district = datas.district;
-			                    _this.editData.address = datas.address;
-			                    _this.editData.id = datas.id;          
+			                    _this.takeDelivery.sex = datas.gender;
+			                    _this.takeDelivery.mobile = datas.mobile;
+			                    _this.takeDelivery.province = datas.province;
+			                    _this.takeDelivery.city = datas.city;
+			                    _this.takeDelivery.district = datas.district;
+			                    _this.takeDelivery.address = datas.address;
+			                    _this.takeDelivery.id = datas.id;          
 			                }else{
 			                	console.log('shibai')
 			                }              	
