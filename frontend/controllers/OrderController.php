@@ -6,6 +6,8 @@ use Yii;
 use common\service\goods\GoodsService;
 use common\service\order\OrderService;
 use yii\helpers\Url;
+use common\service\order\LogisticsService;
+use common\service\order\ShippingService;
 class OrderController extends BaseController
 {	
 	
@@ -147,6 +149,11 @@ class OrderController extends BaseController
     }
     
     
+    /**
+    * @desc 查询物流
+    * @param
+    * @return
+    */
     public function actionGettrace()
     {
     	$orderSn = trim(Yii::$app->request->get('id'));
@@ -156,6 +163,12 @@ class OrderController extends BaseController
     	}
     	$orderService = new OrderService();
     	$order = $orderService->getOrderByOrdersn($orderSn);
-    	
+    	if(!$order['invoice_no'])
+    	{
+    		return ['status' =>0,'msg' =>'物流单号不存在'];
+    	}
+    	$shipping = ShippingService::getListArray();
+    	$result = LogisticsService::getInfo($shipping[$order['shipping_id']], $order['invoice_no']);
+    	var_dump($result);exit;
     }
 }
