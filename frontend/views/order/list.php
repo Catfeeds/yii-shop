@@ -90,7 +90,8 @@
          		statusNum: 0,
          		imgUrl: imgurl,
          		goodUrl: goodsUrl,
-         		id: ''
+         		id: '',
+         		newUrl: ''
          	},
          	created: function(){
          		let _this = this;
@@ -140,6 +141,7 @@
                 orders_gz: function(item){
                 	let _this = this;
                 	var urlLogistics = null;
+                	var wd = window.open();
                 	$.ajax({
                 		type:"GET",
                 		url:"/order/gettrace",
@@ -149,7 +151,7 @@
                 			if(data.status == 0){
        				             urlLogistics = data.url;
        				             console.log(urlLogistics)
-       				             window.open(urlLogistics);
+       				             wd.location.href = urlLogistics;
                 			}else{
                 				alert('物流信息有误');
                 			}
