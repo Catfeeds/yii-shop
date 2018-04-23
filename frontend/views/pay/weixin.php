@@ -65,17 +65,15 @@ use yii\helpers\Url;
 			            data: {order_sn: _this.orderId},
 			            success: function(data) {
 			                if(data.status == 0){
-			                    console.log('请求数据成功');
 			                    orderUrl = data.return_url;
 			                    _this.orderUrl = orderUrl;
-			                    console.log(_this.orderUrl);
 			                    if(data.pay_status != 1){
 			                    	_this.carShow = true;
         		                    _this.popupShow = true;	
         		                    clearInterval(function(){_this.refreshData()});		                    	
 			                    }
 			                }else{
-			                	console.log('请求数据出错');
+			                	alert('请求数据出错');
 			                }                 	
 			            }
 			        })
