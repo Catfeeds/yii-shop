@@ -51,7 +51,7 @@
 	            						<div class="btn_cz">
 	            							<button @click="orders_qx(list)" type="button" v-show="list.order_status == 1" class="orders_qx">取消订单</button>
 	            							<button @click="orders_zf(list)" type="button" v-show="list.order_status == 1" class="orders_zf">立即支付</button>
-	            							<button type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
+	            							<button @click="orders_gz(list)" type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
 	            							<button type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</button>
 	            						</div>
             						
@@ -108,9 +108,7 @@
                 		data:'',
                 		success: function(data){
                 			if(data.status == 0){
-                				console.log('数据获取成功');
                 				_this.ListData = data.data;            				
-                				console.log(_this.ListData);
                 				if(_this.ListData.length != 0){
                 					_this.shopOrders = true;
                 					_this.noneCar = false;
@@ -134,8 +132,10 @@
                 	_this.carShow = true;
          		    _this.popupShow = true;
                 	_this.id = item.order_sn;
-                	console.log(_this.id);
                 	
+                },
+                orders_gz: function(item){
+                	window.location.href = '/order/trace?id=' + item.order_sn;
                 },
                 //确定删除订单
                 carSc: function(){
@@ -147,14 +147,13 @@
                 		data: {id:_this.id},
                 		success: function(data){
                 			if(data.status == 0){
-                				console.log('取消成功');
                 				_this.carShow = false;
          		                _this.popupShow = false;
                 				_this.$nextTick( function(){
 			                    	_this.orderList();
 			                    });
                 			}else{
-                				console.log('取消失败');
+                				alert('取消失败');
                 			}
                 		}
                 	});

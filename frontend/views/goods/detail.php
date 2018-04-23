@@ -78,7 +78,6 @@
 			created: function(){
 				var _this = this;
 				_this.id = id;										    
-				console.log(_this.id);
 				$.ajax({
 	                url: _this.goodUrl + '?id=' + _this.id,
 	                type: 'POST',
@@ -86,14 +85,11 @@
 	                data: '',
 	                success: function(data) {
 	                	if(data.status == 0){
-	                		console.log('获取成功');
 	                		_this.goodName = data.data.name;
 						    _this.goodPrice = data.data.shop_price;
 						    _this.imgArr = data.data.image;
 						    _this.keyArr = data.data.ext;
 						    _this.content = data.data.content;						    
-						    console.log(_this.imgArr);
-						    console.log(_this.keyArr);
 	                	}	                 	
 	                }
 	            })	            	            	                    
@@ -105,7 +101,6 @@
 	       	    	temp.goods_id = _this.id;
 				    temp.goods_num =  _this.goods_num;
 				    _this.goodData.push(temp);
-				    console.log(_this.goodData);
             	},
             	tjCar: function(){
             		var _this = this;
@@ -117,7 +112,6 @@
 		                data: {goods_num: this.goods_num, goods_id: this.id},
 		                success: function(data) {
 			                	if(data.status == 0){
-			                		console.log('添加成功');
 			                		_this.carShow = true;
 	            		            _this.popupShow = true;
 			                	}	                 	
@@ -140,7 +134,6 @@
 		                data: {goods: _this.goodData},
 		                success: function(data) {
 			                	if(data.status == 0){
-			                		console.log('添加成功');
 			                		window.location = '/order/index';
 			                	}	                 	
 			                }
@@ -172,7 +165,6 @@
             			this.num = -1;
             		}
             		this.num++;
-            		console.log(this.num)
             	},
             	btnjj:function(){
             		this.goods_num--;

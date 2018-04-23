@@ -81,8 +81,7 @@ use yii\helpers\Url;
 			},
 			created: function(){
 				var _this = this;
-				_this.dataInfo(_this.current);
-					
+				_this.dataInfo(_this.current);					
 			},
 			methods: {
 				goto: function(index) {
