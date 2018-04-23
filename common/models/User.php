@@ -59,7 +59,6 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['mobile', 'password', 'repassword', 'password_hash'], 'string'],
-            ['password','string','min' => 8,'message' =>'密码最少8个字符','on' =>['create','update','self-update']],//message
             [['repassword'], 'compare', 'compareAttribute' => 'password'],
             [['avatar'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg, gif, webp'],
             [['status'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
