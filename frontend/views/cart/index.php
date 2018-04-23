@@ -133,9 +133,7 @@
 	                data: '',
 	                success: function(data) {
 	                	if(data.status == 0){
-	                		console.log('获取成功');
 	                		_this.message = data.data;
-	                		console.log(_this.message);
 	                		if(_this.message.length != ''){
 								_this.sp = true;
 							    _this.cartOrders = true;
@@ -185,7 +183,6 @@
 				    this.popupShow = true;
 				    this.curProduct = item;
 				    this.id = item.id.$oid;
-				    console.log(this.id);
             	},
             	carSc: function(){
             		// 通过indexof 来搜索当前选中的商品 找到索引 index
@@ -198,7 +195,6 @@
 	                    data: {id: _this.id},
 	                    success: function(data){
 	                    	if(data.status == 0){
-	                    		console.log('成功');
 		            // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
 					            _this.message.splice(index ,1);// 从当前索引开始删，删除一个元素
 					            _this.carShow = false;
@@ -226,10 +222,7 @@
                 			temp.goods_id = item.goods_id;
                 			temp.id = item.id.$oid;
                 			temp.goods_num = item.goods_num;
-                			_this.dataForm.push(temp);
-                			console.log(temp);
-                			console.log(_this.dataForm);
-		                  	 			
+                			_this.dataForm.push(temp);	                  	 			
                 		}else{
                 			return false;
                 		}
@@ -242,10 +235,9 @@
    	                    data: {goods:_this.dataForm},
    	                    success: function(data){
                               if(data.status == 0){
-                              	console.log('成功');
                               	window.location = '/order/index';
                               }else{
-                              	console.log('错误');
+                              	alert('错误');
                               }
    	                    }
               		});               
