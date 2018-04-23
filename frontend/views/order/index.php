@@ -397,6 +397,7 @@
 		        	_this.addressData.forEach(function(item,index){
 		        		if(_this.currenIndex == index){
 			        		_this.addressId = item.id;
+			        		console.log(_this.addressId)
 			        	}
 		        	})
 		        },
