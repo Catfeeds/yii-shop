@@ -265,4 +265,21 @@ class OrderService extends BaseService
     	}
     	return false;
     }
+    
+    /**
+    * @desc 确认收货
+    * @param
+    * @return
+    */
+    public function receive($orderSn,$userId)
+    {
+    	$orderModel = Order::findOne(['order_sn' => $orderSn,'user_id' =>$userId]);
+    	if($orderModel->order_status == '3')
+    	{
+    		$orderModel->order_status = 5;
+    		$orderModel->save();
+    		return true;
+    	}
+    	return false;
+    }
 }

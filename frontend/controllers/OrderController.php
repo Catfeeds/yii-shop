@@ -172,8 +172,29 @@ class OrderController extends BaseController
     	{
     		return ['status' =>1,'msg' =>'物流单号不存在'];
     	}
+    	if($order['user_id'] !=$this->userId)
+    	{
+    		return ['status' =>1,'msg' =>'参数异常'];
+    	}
     	$shipping = ShippingService::getCode();
     	$url = 'https://www.kuaidi100.com/chaxun?com='.$shipping[$order['shipping_id']].'&nu='.$order['invoice_no'];
     	return ['status' =>0,'url' => $url];
+    }
+    
+    
+    public function actionReceive()
+    {
+    	$orderSn = trim(Yii::$app->request->get('id'));
+    	if(!$orderSn)
+    	{
+    		return ['status' =>1,'msg' =>'参数错误'];
+    	}
+    	$orderService = new OrderService();
+    	$result = $orderService->receive($orderSn,$this->userId);
+    	if($result)
+    	{
+    		return ['status' =>0,'msg' =>'确认收货成功'];
+    	}
+    	return ['status' =>1,'msg' =>'确认收货失败'];
     }
 }
