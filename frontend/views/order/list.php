@@ -121,7 +121,7 @@
                 			}
                 		}
                 	});
-                },
+                },                
                 //立即支付
                 orders_zf: function(list){
                 	window.location = '/pay/index?id=' + list.order_sn;
@@ -134,8 +134,26 @@
                 	_this.id = item.order_sn;
                 	
                 },
+//              orders_gz: function(item){
+//              	window.location.href = '/order/trace?id=' + item.order_sn;
+//              },
+                //物流
                 orders_gz: function(item){
-                	window.location.href = '/order/trace?id=' + item.order_sn;
+                	let _this = this;
+                	let urlLogistics = null;
+                	$.ajax({
+                		type:"POST",
+                		url:"/order/gettrace",
+                		dataType: 'json',
+                		data:{id:item.order_sn},
+                		success: function(data){
+                			
+       				             urlLogistics = data.url;
+       				             console.log(urlLogistics)
+                			
+                		}
+                	});
+                	
                 },
                 //确定删除订单
                 carSc: function(){
