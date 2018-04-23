@@ -407,7 +407,7 @@
 		            data: {id:useId},
 		            success: function(data) {
 		                if(data.status == 0){
-		                   console.log(data);                  
+		                   console.log(data.data);                  
 		                }	                 	
 		            }
 		        })
