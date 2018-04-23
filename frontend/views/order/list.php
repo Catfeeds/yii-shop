@@ -52,7 +52,7 @@
 	            							<button @click="orders_zf(list)" type="button" v-show="list.order_status == 1" class="orders_zf">立即支付</button>
 	            							<button @click="orders_qr(list)" type="button" v-show="list.order_status == 3" class="orders_zf">确认收货</button>
 	            							<button @click="orders_gz(list)" type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
-	            							<span type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</span>
+	            							<span v-show="list.order_status == 5" class="orders_zf">交易完成</span>
 	            						</div>
             						
             					</li>
