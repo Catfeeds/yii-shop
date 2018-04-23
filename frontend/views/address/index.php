@@ -370,7 +370,25 @@
 				carQx2: function(){
         			this.carShow = false;
     		        this.popupShow = false;
-        		}
+        	    },
+        		//编辑
+				editAddres: function(item){
+					var _this = this;	
+					$.ajax({
+			            url:'/address/getone',
+			            type: 'GET',
+			            dataType: 'json',
+			            data: {id:item.id},
+			            success: function(data) {
+			                if(data.status == 0){
+			                   console.log('chengong');                  
+			                }else{
+			                	console.log('shibai')
+			                }              	
+			            }
+			        })
+				}
+        		
        	   },
        	    beforeMount: function () {
 				this.updateCity();
@@ -392,15 +410,6 @@
 				city: function () {
 					this.updateDistrict();
 				}
-			},
-			
-			
-			
-			//编辑
-			editAddres: function(item){
-				var _this = this;
-				var useId = item.id;		
-				console.log(item)
 			}
         })
 	</script>
