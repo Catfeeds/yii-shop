@@ -187,11 +187,11 @@
                 //编辑地址
                 editData: {
                     consignee: '',   //姓名
-                    sex: '男',
+                    sex: '',
                     mobile: '',  //电话
-                    province: '选择省份', //省
-                    city: '选择市',  //市
-                    district: '选择区',  //县
+                    province: '', //省
+                    city: '',  //市
+                    district: '',  //县
                     address: '',//具体地址#
                     id: '' 
                 },
