@@ -140,7 +140,7 @@
                 //物流
                 orders_gz: function(item){
                 	let _this = this;
-                	let urlLogistics = null;
+                	var urlLogistics;
                 	$.ajax({
                 		type:"GET",
                 		url:"/order/gettrace",
@@ -155,7 +155,7 @@
                 			}
                 		}
                 	});
-                	
+                	window.location.href = urlLogistics;
                 },
                 //确定删除订单
                 carSc: function(){
