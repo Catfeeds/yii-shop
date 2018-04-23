@@ -224,7 +224,7 @@
                 			temp.goods_num = item.goods_num;
                 			_this.dataForm.push(temp);	                  	 			
                 		}else{
-                			return false;
+                			return;
                 		}
                    })
 
