@@ -122,7 +122,7 @@
 			                		_this.popupShow = true;	
 			                	}else if(data.status == 1){
 			                		console.log('修改失败');
-			                		this.oldMsg = data.msg;
+			                		_this.oldMsg = data.msg;
 			                	}else if(data.status == 2){
 			                		console.log('登录过期');
 			                	}else{
