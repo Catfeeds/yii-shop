@@ -40,4 +40,15 @@ class ShippingService extends BaseService
     	return $returnData;
     }
     
+    
+    public static function getCode()
+    {
+    	$returnData = [];
+    	$data = Shipping::find()->select(['id','shipping_code'])->asArray()->all();
+    	foreach($data as $v)
+    	{
+    		$returnData[$v['id']] = $v['shipping_code'];
+    	}
+    	return $returnData;
+    }
 }

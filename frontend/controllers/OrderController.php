@@ -172,7 +172,7 @@ class OrderController extends BaseController
     	{
     		return ['status' =>1,'msg' =>'物流单号不存在'];
     	}
-    	$shipping = ShippingService::getListArray();
+    	$shipping = ShippingService::getCode();
     	$url = 'https://www.kuaidi100.com/chaxun?com='.$shipping[$order['shipping_id']].'&nu='.$order['invoice_no'];
     	return ['status' =>0,'url' => $url];
     }
