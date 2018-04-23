@@ -51,7 +51,7 @@
 	            						<div class="btn_cz">
 	            							<button @click="orders_qx(list)" type="button" v-show="list.order_status == 1" class="orders_qx">取消订单</button>
 	            							<button @click="orders_zf(list)" type="button" v-show="list.order_status == 1" class="orders_zf">立即支付</button>
-	            							<button :href="newUrl" @click="orders_gz(list)" type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
+	            							<button @click="orders_gz(list)" type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
 	            							<button type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</button>
 	            						</div>
             						
@@ -150,7 +150,7 @@
                 		data:{id:item.order_sn},
                 		success: function(data){
                 			if(data.status == 0){
-       				             _this.newUrl = data.url;
+       				             urlLogistics = data.url;
        				             console.log(urlLogistics)
        				             wd.location.href = urlLogistics;
                 			}else{
