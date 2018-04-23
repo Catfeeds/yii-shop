@@ -210,7 +210,8 @@
 	       	    		async:true,
 	       	    		success: function(data) {
 			                if(data.status == 0){		                   
-			                    _this.addressData = data.data;		                    
+			                    _this.addressData = data.data;
+			                    console.log(_this.addressData)		                    
 			                    if(_this.addressData.length != 0){
 									_this.sp = true;
 								    _this.cartOrders = true;
