@@ -398,12 +398,13 @@
 			
 			//编辑
 			editAddres: function(item){
-				var _this = this;				
+				var _this = this;
+				var useId = item.id;		
 				$.ajax({
 		            url:'/address/getone',
 		            type: 'GET',
 		            dataType: 'json',
-		            data: {id:item.user_id},
+		            data: {id:useId},
 		            success: function(data) {
 		                if(data.status == 0){
 		                   console.log(data);                  
