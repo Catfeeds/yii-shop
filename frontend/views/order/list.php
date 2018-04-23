@@ -155,7 +155,7 @@
                 			}
                 		}
                 	});
-                	
+                	window.location.href = urlLogistics;
                 },
                 //确定删除订单
                 carSc: function(){
