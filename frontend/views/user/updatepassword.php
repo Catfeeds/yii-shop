@@ -70,13 +70,13 @@
 	    		methods: {
 	    			oldPassword: function(){
 	    				if(this.updataPass.old_password == ''){
-							this.newMsg1 = '新密码不能为空！';
+							this.oldMsg = '新密码不能为空！';
 							return false;
 						}else if(this.updataPass.old_password.length < 6 || this.updataPass.old_password.length > 12){
-							this.newMsg1 = '您输入6-12位密码';
+							this.oldMsg = '您输入6-12位密码';
 							return false;
 						}else {
-							this.newMsg1 = '';
+							this.oldMsg = '';
 							this.disabled2 = false;
 							this.isactive1 = true;
 							this.isactive2 = false;
