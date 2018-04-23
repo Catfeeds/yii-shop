@@ -227,11 +227,11 @@
        	    },
        	    created: function(){
        	    	this.dressData();     	    	 
-       	    	this.caleTotalPrice();   	    	 		    	
+       	    	this.caleTotalPrice();
+       	    	this.infor(); 	    	 		    	
        	    },
        	    $nextTick: function(){
-       	    	this.disNone();
-       	    	this.infor();      	    	       	    	
+       	    	this.disNone();      	    	      	    	       	    	
        	    },
        	    methods: {
        	    	//获取数据
