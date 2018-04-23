@@ -165,7 +165,7 @@
        	    	carShow: false, 
        	    	popupShow:false,
        	    	addressShow: false, //弹窗
-       	    	addressShow2： false,
+       	    	addressShow2: false,
        	    	noneCar:true,
 				sp:true,
 				cartOrders:true,
