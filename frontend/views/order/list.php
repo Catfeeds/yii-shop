@@ -150,7 +150,7 @@
                 			if(data.status == 0){
        				             urlLogistics = data.url;
        				             console.log(urlLogistics)
-       				             window.location.href = urlLogistics;
+       				             window.apen(urlLogistics);
                 			}else{
                 				alert('物流信息有误');
                 			}
