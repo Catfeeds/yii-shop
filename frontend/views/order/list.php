@@ -51,8 +51,8 @@
 	            						<div class="btn_cz">
 	            							<button @click="orders_qx(list)" type="button" v-show="list.order_status == 1" class="orders_qx">取消订单</button>
 	            							<button @click="orders_zf(list)" type="button" v-show="list.order_status == 1" class="orders_zf">立即支付</button>
-	            							<a :href="newUrl" target='_blank' @click="orders_gz(list)"  v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
-	            							<button type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</a>
+	            							<button :href="newUrl" @click="orders_gz(list)" type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
+	            							<button type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</button>
 	            						</div>
             						
             					</li>
@@ -141,6 +141,8 @@
                 //物流
                 orders_gz: function(item){
                 	let _this = this;
+                	var urlLogistics = null;
+                	var wd = window.open();
                 	$.ajax({
                 		type:"GET",
                 		url:"/order/gettrace",
@@ -149,7 +151,8 @@
                 		success: function(data){
                 			if(data.status == 0){
        				             _this.newUrl = data.url;
-       				             console.log(_this.newUrl)
+       				             console.log(urlLogistics)
+       				             wd.location.href = urlLogistics;
                 			}else{
                 				alert('物流信息有误');
                 			}
