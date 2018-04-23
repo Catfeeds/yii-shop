@@ -112,11 +112,11 @@
 	            	<li>
 	            		<div class="lis lis1">
 	            			<h3>姓名：</h3>
-	            			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
+	            			<input type="text" name="name" id="name" v-model="editData.consignee" placeholder="请输入您的姓名" />
 	            		</div>
 	            		<div class="lis">
 	            			<h3 style="margin-left: 20px;">称谓：</h3>
-	            			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
+	            			<select v-model="editData.sex" name="title" style="margin-left: 20px;">
 	            				<option value="男">男</option>
 	            				<option value="女">女</option>
 	            			</select>
@@ -125,19 +125,19 @@
 	            	<li>
 	            		<div class="lis lis1">
 	            			<h3>联系方式：</h3>
-	            			<input @blur="mobile" type="text" name="tel" id="tel" v-model="takeDelivery.mobile" placeholder="请输入您的电话号码" />
+	            			<input @blur="mobile" type="text" name="tel" id="tel" v-model="editData.mobile" placeholder="请输入您的电话号码" />
 	            		</div>
 	            	</li>
 	            	<li>
 	            		<div class="lis">
 	            			<h3>送货地址：</h3>
-	            			<select class="lis1" name="title" v-model="takeDelivery.province">
+	            			<select class="lis1" name="title" v-model="editData.province">
 	            				<option v-for="option in arr" :value="option.name">{{ option.name }}</option>
 	            			</select>
-	            			<select style="margin-left: 20px;" class="lis1" name="title" v-model="takeDelivery.city">
+	            			<select style="margin-left: 20px;" class="lis1" name="title" v-model="editData.city">
 	            				<option v-for="option in cityArr" :value="option.name">{{ option.name }}</option>
 	            			</select>
-	            			<select style="margin-top: 20px;" class="lis1" name="title" v-model="takeDelivery.district">
+	            			<select style="margin-top: 20px;" class="lis1" name="title" v-model="editData.district">
 	            				<option v-for="option in districtArr" :value="option.name">{{ option.name }}</option>
 	            			</select>
 	            		</div>
@@ -145,7 +145,7 @@
 	            	<li>
 	            		<div class="lis lis2">
 	            			<h3>详细地址：（请填写具体路名和门牌号）</h3>
-	            			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
+	            			<input type="text" name="tel" id="tel" v-model="editData.address" placeholder="请填写详细地址"/>
 	            		</div>
 	            	</li>
 	            	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
@@ -183,6 +183,17 @@
                     district: '选择区',  //县
                     address: '',//具体地址#
                     id: 0 
+                },
+                //编辑地址
+                editData: {
+                    consignee: '',   //姓名
+                    sex: '男',
+                    mobile: '',  //电话
+                    province: '选择省份', //省
+                    city: '选择市',  //市
+                    district: '选择区',  //县
+                    address: '',//具体地址#
+                    id: '' 
                 },
                 addressData:[],
                 curAddress: '',  //保存要删除地址
@@ -381,7 +392,16 @@
 			            data: {id:item.id},
 			            success: function(data) {
 			                if(data.status == 0){
-			                   console.log(data.data);                
+			                    console.log(data.data);
+			                    _this.addressShow2 = true;
+			                    _this.editData.consignee = data.consignee;
+			                    _this.editData.sex = data.gender;
+			                    _this.editData.mobile = '';
+			                    _this.editData.province = '选择省份';
+			                    _this.editData.city = '选择市';
+			                    _this.editData.district = '选择区';
+			                    _this.editData.address = '';
+			                    _this.editData.id = 0;          
 			                }else{
 			                	console.log('shibai')
 			                }              	
