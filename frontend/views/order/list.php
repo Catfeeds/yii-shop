@@ -69,8 +69,8 @@
 				<i @click="carQx"></i>
 				<span>{{messageText}}</span>
 				<div class="linkShop">
-					<a v-if="show1" @click="carSc" href="javascript:;">确定</a>
-					<a v-else="show2" @click="orderTrue" href="javascript:;">确定</a>
+					<a v-if="show1" @click="carSc" id='0' href="javascript:;">确定</a>
+					<a v-else="show2" @click="orderTrue" id='1' href="javascript:;">确定</a>
 					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
 				</div>
 			</div>
