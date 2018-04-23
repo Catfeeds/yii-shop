@@ -70,7 +70,7 @@
 	    		methods: {
 	    			oldPassword: function(){
 	    				if(this.updataPass.old_password == ''){
-							this.oldMsg = '新密码不能为空！';
+							this.oldMsg = '旧密码不能为空！';
 							return false;
 						}else if(this.updataPass.old_password.length < 6 || this.updataPass.old_password.length > 12){
 							this.oldMsg = '您输入6-12位密码';
@@ -118,11 +118,11 @@
 			                data: {old_password: _this.updataPass.old_password, password: _this.updataPass.password},
 			                success: function(data) {
 			                	if(data.status == 0){
-			                		console.log('获取成功');
 			                		_this.carShow = true;
 			                		_this.popupShow = true;	
 			                	}else if(data.status == 1){
 			                		console.log('修改失败');
+			                		this.oldMsg = data.msg;
 			                	}else if(data.status == 2){
 			                		console.log('登录过期');
 			                	}else{
