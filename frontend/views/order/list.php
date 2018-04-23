@@ -140,7 +140,7 @@
                 //物流
                 orders_gz: function(item){
                 	let _this = this;
-                	var urlLogistics;
+                	var urlLogistics = null;
                 	$.ajax({
                 		type:"GET",
                 		url:"/order/gettrace",
