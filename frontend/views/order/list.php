@@ -150,12 +150,13 @@
                 			if(data.status == 0){
        				             urlLogistics = data.url;
        				             console.log(urlLogistics)
+       				             window.location.href = urlLogistics;
                 			}else{
                 				alert('物流信息有误');
                 			}
                 		}
                 	});
-                	window.location.href = urlLogistics;
+                	
                 },
                 //确定删除订单
                 carSc: function(){
