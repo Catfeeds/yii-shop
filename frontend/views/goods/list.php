@@ -81,28 +81,7 @@ use yii\helpers\Url;
 			},
 			created: function(){
 				var _this = this;
-				_this.dataInfo(_this.current);
-				$.ajax({
-	                url: '/goods/getlist?page=' + 1 ,
-	                type: 'GET',
-	                dataType: 'json',
-	                success: function(data) {	                 	
-		                if(data.status =='0')
-			            {
-			            	_this.count = data.count;
-			            	_this.allpage = Math.ceil(_this.count / _this.size);
-							console.log(_this.allpage);
-							if(_this.allpage >= _this.showItem){
-								_this.showItem = 5;
-							}else{
-								_this.showItem = _this.allpage;
-							}
-			            	console.log(_this.count);				            		                 	
-				        }else{
-				        	alert('页面信息错误');
-				        }
-	                }
-	            })						
+				_this.dataInfo(_this.current);					
 			},
 			methods: {
 				goto: function(index) {

@@ -163,10 +163,8 @@
 	       	    		url:"/address/getlist",
 	       	    		async:true,
 	       	    		success: function(data) {
-			                if(data.status == 0){
-			                    console.log('数据获取成功');		                   
+			                if(data.status == 0){		                   
 			                    _this.addressData = data.data;		                    
-			                    console.log(_this.addressData);
 			                    if(_this.addressData.length != 0){
 									_this.sp = true;
 								    _this.cartOrders = true;
@@ -222,7 +220,6 @@
 					}
 					if(this.cityArr && this.cityArr.length > 1 && this.cityArr[1].name) {
 						this.takeDelivery.city = this.cityArr[1].name;
-					    console.log(this.takeDelivery.city)
 					} else {
 						this.takeDelivery.city = this.cityArr[0].name;
 					}    
@@ -258,7 +255,6 @@
 				            data: this.takeDelivery,
 				            success: function(data) {
 				                if(data.status == 0){
-				                    console.log('提交成功');
 				                    let add = {
 				                    	consignee: _this.takeDelivery.consignee,   //姓名
 					                    sex: _this.takeDelivery.sex,
@@ -293,7 +289,6 @@
 				    this.popupShow = true;
 				    this.curAddress = addList;
 				    this.id = addList.id;
-				    console.log(this.id);
 				},
 				carSc: function(){
 					var _this = this;
@@ -305,7 +300,6 @@
 	                    data: {id: _this.id},
 	                    success: function(data){
 	                    	if(data.status == 0){
-	                    		console.log('成功');
 		            // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
 					            _this.addressData.splice(index ,1);// 从当前索引开始删，删除一个元素
 					            _this.carShow = false;
@@ -320,7 +314,7 @@
 								    _this.noneCar = true;
 								}
 	                    	}else{
-	                    		console.log('失败');
+	                    		alert('失败');
 	                    	}
 	                    }
             		});

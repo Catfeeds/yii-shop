@@ -175,7 +175,6 @@
 	<script type="text/javascript">
     	var goods = '<?=$goods?>';
     	var goods = JSON.parse(goods);
-    	console.log(goods);
 	</script>
 	<script type="text/javascript">
 		Vue.filter('formatMoney', function(val){
@@ -244,10 +243,8 @@
 	       	    		url:"/address/getlist",
 	       	    		async:true,
 	       	    		success: function(data) {
-			                if(data.status == 0){
-			                    console.log('数据获取成功');		                   
-			                    _this.addressData = data.data;		                    
-			                    console.log(_this.addressData);			                    
+			                if(data.status == 0){		                   
+			                    _this.addressData = data.data;		                    		                    
 			                    _this.disNone();
 								_this.infor();               
 			                }	                 	
@@ -314,7 +311,6 @@
 					}
 					if(this.cityArr && this.cityArr.length > 1 && this.cityArr[1].name) {
 						this.takeDelivery.city = this.cityArr[1].name;
-					    console.log(this.takeDelivery.city)
 					} else {
 						this.takeDelivery.city = this.cityArr[0].name;
 					}    
@@ -349,7 +345,6 @@
 				            data: this.takeDelivery,
 				            success: function(data) {
 				                if(data.status == 0){
-				                    console.log('提交成功');	
 				                    this.messgDz = "";
 								    this.messgs = false;
 								    _this.takeDelivery.id = data.id;
@@ -382,7 +377,6 @@
 				            data: this.takeDelivery,
 				            success: function(data) {
 				                if(data.status == 0){
-				                    console.log('提交成功');
 				                    this.messgDz = "";
 								    this.messgs = false;
 								    _this.takeDelivery.id = data.id;
@@ -404,7 +398,6 @@
 		        	_this.addressData.forEach(function(item,index){
 		        		if(_this.currenIndex == index){
 			        		_this.addressId = item.id;
-			        		console.log(_this.addressId);
 			        	}
 		        	})
 		        },
@@ -418,10 +411,7 @@
 			            data: {address_id: _this.addressId, message: _this.message},
 			            success: function(data) {
 			                if(data.status == 0){
-			                    console.log('提交成功');	
-			                    console.log({address_id: _this.addressId, message: _this.message});	
 			                    linkUrl = data.return_url;
-			                    console.log(linkUrl);
 			                    window.location = linkUrl;
 			                }	                 	
 			            }

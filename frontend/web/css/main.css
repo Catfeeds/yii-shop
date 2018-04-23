@@ -190,8 +190,8 @@
           float: left;
           overflow: hidden; }
           .laber_details .details_main .details_top .details_fl .data_img img {
-            width: auto;
-            height: 405px;
+            width: 100%;
+            height: auto;
             display: inline-block;
             float: left; }
         .laber_details .details_main .details_top .details_fl .view {
