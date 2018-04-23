@@ -283,11 +283,11 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if ($this->password != '') {
             if ($this->old_password == '') {
-                $this->addError('old_password', yii::t('yii', '{attribute} cannot be blank.', ['attribute' => yii::t('app', 'Old Password')]));
+                $this->addError('old_password', '原密码不能为空');
                 return false;
             }
             if (! $this->validatePassword($this->old_password)) {
-                $this->addError('old_password', yii::t('app', '{attribute} is incorrect.', ['attribute' => yii::t('app', 'Old Password')]));
+                $this->addError('old_password', yii::t('app', '原密码不正确'));
                 return false;
             }
             /*if ($this->repassword != $this->password) {

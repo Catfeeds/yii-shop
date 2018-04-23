@@ -18,7 +18,7 @@
 							<h1>修改密码</h1>
 							<form id="form">
 								<div class="list">
-									<input @blur="oldPassword" v-model='updataPass.old_password' type="text" name="old_password" id="old_password" placeholder="请输入旧密码" />
+									<input @blur="oldPassword" v-model='updataPass.old_password' type="password" name="old_password" id="old_password" placeholder="请输入旧密码" />
 									<strong class="stro1">{{ oldMsg }}</strong>
 								</div>
 								<div class="list">
