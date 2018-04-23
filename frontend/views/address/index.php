@@ -381,7 +381,7 @@
 			            data: {id:item.id},
 			            success: function(data) {
 			                if(data.status == 0){
-			                   console.log('chengong');                  
+			                   console.log('data.data');                
 			                }else{
 			                	console.log('shibai')
 			                }              	
