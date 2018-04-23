@@ -67,7 +67,7 @@
 			<div v-show="carShow" @click="carBg" id="carBg" class="carBg"></div>
 			<div v-show="popupShow" id="carPopup" class="carPopup">
 				<i @click="carQx"></i>
-				<span>确认删除此订单？</span>
+				<span>{{messageText}}</span>
 				<div class="linkShop">
 					<a v-if="show1" @click="carSc" href="javascript:;">确定</a>
 					<a v-else="show2" @click="orderTrue" href="javascript:;">确定</a>
@@ -93,6 +93,7 @@
          		statusNum: 0,
          		imgUrl: imgurl,
          		goodUrl: goodsUrl,
+         		messageText: '',
          		id: '',
          		newUrl: ''
          	},
@@ -134,6 +135,7 @@
                 	let _this = this;
                 	_this.carShow = true;
          		    _this.popupShow = true;
+         		    _this.messageText = '确定取消订单？'
          		    _this.show1 = true;
                 	_this.id = item.order_sn;
                 	
@@ -168,6 +170,7 @@
                 	let _this = this;             	
                 	_this.carShow = true;
 	                _this.popupShow = true;
+	                _this.messageText = '您要确认收货吗？'
 	                _this.show1 = false;
                 	_this.id = item.order_sn;
                 },
