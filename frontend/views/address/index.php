@@ -396,12 +396,12 @@
 			                    _this.addressShow2 = true;
 			                    _this.editData.consignee = data.consignee;
 			                    _this.editData.sex = data.gender;
-			                    _this.editData.mobile = '';
-			                    _this.editData.province = '选择省份';
-			                    _this.editData.city = '选择市';
-			                    _this.editData.district = '选择区';
-			                    _this.editData.address = '';
-			                    _this.editData.id = 0;          
+			                    _this.editData.mobile = data.mobile;
+			                    _this.editData.province = data.province;
+			                    _this.editData.city = data.city;
+			                    _this.editData.district = data.district;
+			                    _this.editData.address = data.address;
+			                    _this.editData.id = data.id;          
 			                }else{
 			                	console.log('shibai')
 			                }              	
