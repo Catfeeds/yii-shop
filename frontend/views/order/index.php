@@ -390,7 +390,11 @@
 				},
 				//单选地址
 				selectedProduct:function (index) { // 接收的参数
+					var _this = this;
 					this.currenIndex = index;
+					_this.$nextTick( function(){
+                    	_this.infor();
+                    });
 		        },
 		        infor: function(){
 		        	var _this = this;
