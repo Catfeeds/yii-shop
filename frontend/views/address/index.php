@@ -35,7 +35,7 @@
             					<td  style="padding-left:20px; width:262px;" class="td2">{{ addList.consignee }}</td>
             					<td style="width: 562px;" class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
             					<td style="width: 232px;" class="td4">{{ addList.mobile }}</td>
-            					<td class="td4"><p>编辑</p><p @click="addressSc(addList)">删除</p></td>
+            					<td class="td4"><p @click="editAddres">编辑</p><p @click="addressSc(addList)">删除</p></td>
             				</tr>
             			</table>
             			<div v-show="cartOrders" class="tj">

@@ -50,7 +50,7 @@
 	            						<div class="btn_cz">
 	            							<button @click="orders_qx(list)" type="button" v-show="list.order_status == 1" class="orders_qx">取消订单</button>
 	            							<button @click="orders_zf(list)" type="button" v-show="list.order_status == 1" class="orders_zf">立即支付</button>
-	            							<button type="button" v-show="list.order_status == 3" class="orders_zf">确认收货</button>
+	            							<button @click="orders_qr(list)" type="button" v-show="list.order_status == 3" class="orders_zf">确认收货</button>
 	            							<button @click="orders_gz(list)" type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
 	            							<button type="button" v-show="list.order_status == 5" class="orders_zf">交易完成</button>
 	            						</div>
@@ -69,7 +69,8 @@
 				<i @click="carQx"></i>
 				<span>确认删除此订单？</span>
 				<div class="linkShop">
-					<a @click="carSc" href="javascript:;">确定</a>
+					<a v-if="show1" @click="carSc" href="javascript:;">确定</a>
+					<a v-else="show2" @click="orderTrue" href="javascript:;">确定</a>
 					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
 				</div>
 			</div>
@@ -84,6 +85,7 @@
          	data: {
          		carShow: false,
          		popupShow: false,
+         		show1: true,
          		noneCar: true,
          		shopOrders: false,
          		ListData: [],
@@ -132,6 +134,7 @@
                 	let _this = this;
                 	_this.carShow = true;
          		    _this.popupShow = true;
+         		    _this.show1 = true;
                 	_this.id = item.order_sn;
                 	
                 },
@@ -159,6 +162,32 @@
                 		}
                 	});
                 	
+                },
+                //确认收货
+                orders_qr: function(item){
+                	let _this = this;
+                	$.ajax({
+                		type:"GET",
+                		url:"/order/gettrace",
+                		dataType: 'json',
+                		data:{id:item.order_sn},
+                		success: function(data){
+                			if(data.status == 0){
+       				            _this.carShow = true;
+         		                _this.popupShow = true;
+         		                _this.show1 = false;
+                			}else{
+                				alert('物流信息有误');
+                			}
+                		}
+                	});
+                },
+                orderTrue: function(){
+                	_this.carShow = false;
+         		    _this.popupShow = false;
+         		    _this.$nextTick( function(){
+                    	_this.orderList();
+                    });
                 },
                 //确定删除订单
                 carSc: function(){
