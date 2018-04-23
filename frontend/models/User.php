@@ -31,7 +31,7 @@ class User extends CommonUser
             [['username', 'password', 'repassword', 'password_hash','nickname','avatar'], 'string'],
             [['username', 'email'], 'unique'],
             ['email', 'email'],
-            ['password','string','min' => 8,'message' =>'密码最少8个字符'],
+            ['password','string','min' => 6,'message' =>'密码最少6个字符'],//message
             [['repassword'], 'compare', 'compareAttribute' => 'password'],
             [['status'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['username', 'email', 'password', 'repassword'], 'required', 'on' => ['create']],
