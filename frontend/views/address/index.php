@@ -35,7 +35,7 @@
             					<td  style="padding-left:20px; width:262px;" class="td2">{{ addList.consignee }}</td>
             					<td style="width: 562px;" class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
             					<td style="width: 232px;" class="td4">{{ addList.mobile }}</td>
-            					<td class="td4"><p>编辑</p><p @click="addressSc(addList)">删除</p></td>
+            					<td class="td4"><p @click="editAddres(addList)">编辑</p><p @click="addressSc(addList)">删除</p></td>
             				</tr>
             			</table>
             			<div v-show="cartOrders" class="tj">
@@ -56,53 +56,102 @@
 					<a @click="carQx2" href="javascript:;" class="al1">取消</a>
 				</div>
 			</div>
-		<div v-show="addressShow" id="addressPopup" class="addressPopup">
-			<i @click="carQx"></i>
-			<span>编辑新地址</span>
-            <ul class="address_cont">
-            	<li>
-            		<div class="lis lis1">
-            			<h3>姓名：</h3>
-            			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
-            		</div>
-            		<div class="lis">
-            			<h3 style="margin-left: 20px;">称谓：</h3>
-            			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
-            				<option value="男">男</option>
-            				<option value="女">女</option>
-            			</select>
-            		</div>
-            	</li>
-            	<li>
-            		<div class="lis lis1">
-            			<h3>联系方式：</h3>
-            			<input @blur="mobile" type="text" name="tel" id="tel" v-model="takeDelivery.mobile" placeholder="请输入您的电话号码" />
-            		</div>
-            	</li>
-            	<li>
-            		<div class="lis">
-            			<h3>送货地址：</h3>
-            			<select class="lis1" name="title" v-model="takeDelivery.province">
-            				<option v-for="option in arr" :value="option.name">{{ option.name }}</option>
-            			</select>
-            			<select style="margin-left: 20px;" class="lis1" name="title" v-model="takeDelivery.city">
-            				<option v-for="option in cityArr" :value="option.name">{{ option.name }}</option>
-            			</select>
-            			<select style="margin-top: 20px;" class="lis1" name="title" v-model="takeDelivery.district">
-            				<option v-for="option in districtArr" :value="option.name">{{ option.name }}</option>
-            			</select>
-            		</div>
-            	</li>
-            	<li>
-            		<div class="lis lis2">
-            			<h3>详细地址：（请填写具体路名和门牌号）</h3>
-            			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
-            		</div>
-            	</li>
-            	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
-            	<a @click="bcAdd2" href="javascript:;">保存地址</a>
-            </ul>
-		</div>			
+			<div v-show="addressShow" id="addressPopup" class="addressPopup">
+				<i @click="carQx"></i>
+				<span>编辑新地址</span>
+	            <ul class="address_cont">
+	            	<li>
+	            		<div class="lis lis1">
+	            			<h3>姓名：</h3>
+	            			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
+	            		</div>
+	            		<div class="lis">
+	            			<h3 style="margin-left: 20px;">称谓：</h3>
+	            			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
+	            				<option value="男">男</option>
+	            				<option value="女">女</option>
+	            			</select>
+	            		</div>
+	            	</li>
+	            	<li>
+	            		<div class="lis lis1">
+	            			<h3>联系方式：</h3>
+	            			<input @blur="mobile" type="text" name="tel" id="tel" v-model="takeDelivery.mobile" placeholder="请输入您的电话号码" />
+	            		</div>
+	            	</li>
+	            	<li>
+	            		<div class="lis">
+	            			<h3>送货地址：</h3>
+	            			<select class="lis1" name="title" v-model="takeDelivery.province">
+	            				<option v-for="option in arr" :value="option.name">{{ option.name }}</option>
+	            			</select>
+	            			<select style="margin-left: 20px;" class="lis1" name="title" v-model="takeDelivery.city">
+	            				<option v-for="option in cityArr" :value="option.name">{{ option.name }}</option>
+	            			</select>
+	            			<select style="margin-top: 20px;" class="lis1" name="title" v-model="takeDelivery.district">
+	            				<option v-for="option in districtArr" :value="option.name">{{ option.name }}</option>
+	            			</select>
+	            		</div>
+	            	</li>
+	            	<li>
+	            		<div class="lis lis2">
+	            			<h3>详细地址：（请填写具体路名和门牌号）</h3>
+	            			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
+	            		</div>
+	            	</li>
+	            	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
+	            	<a @click="bcAdd2" href="javascript:;">保存地址</a>
+	            </ul>
+			</div>
+			
+			<!--编辑地址-->
+			<div v-show="addressShow2" id="addressPopup" class="addressPopup">
+				<i @click="carQx"></i>
+				<span>编辑地址</span>
+	            <ul class="address_cont">
+	            	<li>
+	            		<div class="lis lis1">
+	            			<h3>姓名：</h3>
+	            			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
+	            		</div>
+	            		<div class="lis">
+	            			<h3 style="margin-left: 20px;">称谓：</h3>
+	            			<select v-model="takeDelivery.sex" name="title" style="margin-left: 20px;">
+	            				<option value="男">男</option>
+	            				<option value="女">女</option>
+	            			</select>
+	            		</div>
+	            	</li>
+	            	<li>
+	            		<div class="lis lis1">
+	            			<h3>联系方式：</h3>
+	            			<input @blur="mobile" type="text" name="tel" id="tel" v-model="takeDelivery.mobile" placeholder="请输入您的电话号码" />
+	            		</div>
+	            	</li>
+	            	<li>
+	            		<div class="lis">
+	            			<h3>送货地址：</h3>
+	            			<select class="lis1" name="title" v-model="takeDelivery.province">
+	            				<option v-for="option in arr" :value="option.name">{{ option.name }}</option>
+	            			</select>
+	            			<select style="margin-left: 20px;" class="lis1" name="title" v-model="takeDelivery.city">
+	            				<option v-for="option in cityArr" :value="option.name">{{ option.name }}</option>
+	            			</select>
+	            			<select style="margin-top: 20px;" class="lis1" name="title" v-model="takeDelivery.district">
+	            				<option v-for="option in districtArr" :value="option.name">{{ option.name }}</option>
+	            			</select>
+	            		</div>
+	            	</li>
+	            	<li>
+	            		<div class="lis lis2">
+	            			<h3>详细地址：（请填写具体路名和门牌号）</h3>
+	            			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
+	            		</div>
+	            	</li>
+	            	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
+	            	<a @click="bcAdd2" href="javascript:;">保存地址</a>
+	            </ul>
+			</div>				
 		</div>
 		
 		<!-- 主体内容 end  -->
@@ -116,6 +165,7 @@
        	    	carShow: false, 
        	    	popupShow:false,
        	    	addressShow: false, //弹窗
+       	    	addressShow2： false,
        	    	noneCar:true,
 				sp:true,
 				cartOrders:true,
@@ -341,6 +391,24 @@
 				city: function () {
 					this.updateDistrict();
 				}
+			},
+			
+			
+			
+			//编辑
+			editAddres: function(item){
+				var _this = this;				
+				$.ajax({
+		            url:'/address/getone',
+		            type: 'POST',
+		            dataType: 'json',
+		            data: {id:item.id},
+		            success: function(data) {
+		                if(data.status == 0){
+		                   console.log(data);                  
+		                }	                 	
+		            }
+		        })
 			}
         })
 	</script>
