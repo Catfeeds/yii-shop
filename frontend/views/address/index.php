@@ -407,8 +407,10 @@
 		            data: {id:useId},
 		            success: function(data) {
 		                if(data.status == 0){
-		                   console.log(data.data);                  
-		                }	                 	
+		                   console.log('chengong');                  
+		                }else{
+		                	console.log('shibai')
+		                }              	
 		            }
 		        })
 			}
