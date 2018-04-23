@@ -1,5 +1,6 @@
 <?php
 namespace  common\service\order;
+use Yii;
 class LogisticsService
 {	
 	/**
@@ -14,6 +15,7 @@ class LogisticsService
 		
 		$AppKey = Yii::$app->params['kuaidi_100'];
 		$url ='http://api.kuaidi100.com/api?id='.$AppKey.'&com='.$code.'&nu='.$invoiceNo.'&show=2&muti=1&order=asc';
+		var_dump($url);exit;
 		
 		$curl = curl_init();
 		curl_setopt ($curl, CURLOPT_URL, $url);

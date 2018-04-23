@@ -50,13 +50,13 @@
         		    	clas: 'wx',
         		    	name: '微信支付',
         		    	nameEg: 'Wechat Pay'
-        		    },
+        		    }/*,
         		    {
         		    	active: '2',
         		    	clas: 'zfb',
         		    	name: '支付宝',
         		    	nameEg: 'ALIPAY'
-        		    }
+        		    }*/
         		]
         	},
         	methods: {

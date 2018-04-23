@@ -219,7 +219,7 @@ class OrderService extends BaseService
     	{
     		$where['order_status'] = $orderStatus;
     	}
-    	$orderData = Order::find()->select(['order_status','order_sn','order_amount','consignee','id'])->where($where)->offset($offset)->limit($size)->asArray()->all();
+    	$orderData = Order::find()->select(['order_status','order_sn','order_amount','consignee','id'])->where($where)->orderBy('id desc')->offset($offset)->limit($size)->asArray()->all();
     	foreach($orderData as $k =>$v)
     	{	
     		$goodsList = OrderGoods::find()->select(['*'])->where(['order_id' =>$v['id']])->asArray()->all();

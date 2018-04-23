@@ -142,7 +142,12 @@ class OrderController extends BaseController
     }
 	
     
-    
+
+    /**
+     * @desc 查询物流页面
+     * @param
+     * @return
+     */
     public function actionTrace()
     {
     	return $this->render('trace');
@@ -159,16 +164,16 @@ class OrderController extends BaseController
     	$orderSn = trim(Yii::$app->request->get('id'));
     	if(!$orderSn)
     	{
-    		return ['status' =>0,'msg' =>'参数错误'];
+    		return ['status' =>1,'msg' =>'参数错误'];
     	}
     	$orderService = new OrderService();
     	$order = $orderService->getOrderByOrdersn($orderSn);
     	if(!$order['invoice_no'])
     	{
-    		return ['status' =>0,'msg' =>'物流单号不存在'];
+    		return ['status' =>1,'msg' =>'物流单号不存在'];
     	}
     	$shipping = ShippingService::getListArray();
-    	$result = LogisticsService::getInfo($shipping[$order['shipping_id']], $order['invoice_no']);
-    	var_dump($result);exit;
+    	$url = 'https://www.kuaidi100.com/chaxun?com='.$shipping[$order['shipping_id']].'&nu='.$order['invoice_no'];
+    	return ['status' =>0,'url' => $url];
     }
 }

@@ -14,8 +14,7 @@ return [
     	'url'  => '',// 服务器解析到/web/目录时，uploads目录
     	'path' => Yii::getAlias('@image/'), // 上传目录
     ],
-    'kuaidi_100' => ['09aba6b79e788f4f',//物流
-    ],
+    'kuaidi_100' => '09aba6b79e788f4f',//物流
     'qiniu' => [//七牛云
     	'access_key' =>'TbfM4OnIUAwAy5jS1WqIvBMf-3r6OCVxO5NDM69k',
     	'secret_key' => 'Sct5H7M3_G_ujjwYoOl5MCrFVBkrsWC5CGVUOHrn',
