@@ -142,7 +142,7 @@
                 	let _this = this;
                 	let urlLogistics = null;
                 	$.ajax({
-                		type:"POST",
+                		type:"GET",
                 		url:"/order/gettrace",
                 		dataType: 'json',
                 		data:{id:item.order_sn},
