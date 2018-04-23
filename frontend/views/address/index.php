@@ -400,7 +400,7 @@
 			editAddres: function(item){
 				var _this = this;
 				var useId = item.id;		
-				console.log(useId)
+				console.log(item)
 			}
         })
 	</script>
