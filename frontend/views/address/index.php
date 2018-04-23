@@ -400,7 +400,7 @@
 				var _this = this;				
 				$.ajax({
 		            url:'/address/getone',
-		            type: 'POST',
+		            type: 'GET',
 		            dataType: 'json',
 		            data: {id:item.id},
 		            success: function(data) {
