@@ -165,29 +165,31 @@
                 },
                 //确认收货
                 orders_qr: function(item){
+                	let _this = this;             	
+                	_this.carShow = true;
+	                _this.popupShow = true;
+	                _this.show1 = false;
+                	_this.id = item.order_sn;
+                },
+                orderTrue: function(){
                 	let _this = this;
                 	$.ajax({
                 		type:"GET",
-                		url:"/order/gettrace",
+                		url:"/order/receive",
                 		dataType: 'json',
-                		data:{id:item.order_sn},
+                		data:{id:_this.id},
                 		success: function(data){
                 			if(data.status == 0){
-       				            _this.carShow = true;
-         		                _this.popupShow = true;
-         		                _this.show1 = false;
+       				            _this.carShow = false;
+			         		    _this.popupShow = false;
+			         		    _this.$nextTick( function(){
+			                    	_this.orderList();
+			                    });
                 			}else{
-                				alert('物流信息有误');
+                				alert('确认收货失败');
                 			}
                 		}
-                	});
-                },
-                orderTrue: function(){
-                	_this.carShow = false;
-         		    _this.popupShow = false;
-         		    _this.$nextTick( function(){
-                    	_this.orderList();
-                    });
+                	});               	
                 },
                 //确定删除订单
                 carSc: function(){
