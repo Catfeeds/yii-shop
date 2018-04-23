@@ -5,7 +5,6 @@ use yii\helpers\Url;
             <section class="laber_shopUser">
             	<div class="shopUser auto clearfix">
             		<div class="shopUser_main">
-            			<p>您好，15038384758</p>
             			<ul>
             				<li><a href="/user/updatepassword">密码管理</a></li>
             				<li><a href="/cart/index">购物车</a></li>
