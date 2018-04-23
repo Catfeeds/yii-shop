@@ -396,6 +396,7 @@
 			                    _this.addressShow2 = true;
 			                    _this.carShow = false; 
 			                    _this.editData.consignee = data.consignee;
+			                    console.log(data.consignee)
 			                    _this.editData.sex = data.gender;
 			                    _this.editData.mobile = data.mobile;
 			                    _this.editData.province = data.province;
