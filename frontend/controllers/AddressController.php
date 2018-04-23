@@ -46,7 +46,7 @@ class AddressController extends BaseController
     	
     	$data = UserAddress::find()->select(['*'])->where(['user_id' =>$this->userId,'id' =>$id])->asArray()->one();
     	$data = $data ?:[];
-    	return json_encode(['status' =>0,'data' =>$data]);
+    	return ['status' =>0,'data' =>$data];
     }
     
     
