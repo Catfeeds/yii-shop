@@ -39,8 +39,14 @@ class AddressController extends BaseController
     public function actionGetone()
     {	
     	$id = (int)Yii::$app->request->get('id');
-    	$data = $UserAddress::findOne($id);
-    	return ['status' =>0,'data' =>$data];
+    	if(!$id)
+    	{
+    		return ['status' => 1,'msg' =>'参数错误'];
+    	}
+    	
+    	$data = UserAddress::find()->select(['*'])->where(['user_id' =>$this->userId,'id' =>$id])->asArray()->one();
+    	$data = $data ?:[];
+    	return json_encode(['status' =>0,'data' =>$data]);
     }
     
     

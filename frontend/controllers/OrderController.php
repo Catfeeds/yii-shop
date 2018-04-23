@@ -182,6 +182,11 @@ class OrderController extends BaseController
     }
     
     
+    /**
+    * @desc 确认收货
+    * @param
+    * @return
+    */
     public function actionReceive()
     {
     	$orderSn = trim(Yii::$app->request->get('id'));
