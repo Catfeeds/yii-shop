@@ -403,7 +403,7 @@
 		            url:'/address/getone',
 		            type: 'GET',
 		            dataType: 'json',
-		            data: {id:item.id},
+		            data: {id:item.user_id},
 		            success: function(data) {
 		                if(data.status == 0){
 		                   console.log(data);                  
