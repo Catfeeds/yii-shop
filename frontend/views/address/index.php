@@ -452,7 +452,7 @@
 			            url:'/address/update',
 			            type: 'GET',
 			            dataType: 'json',
-			            data: this.editData,
+			            data: _this.editData,
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('chenggong')      
