@@ -100,16 +100,7 @@ use yii\helpers\Url;
 		                type: 'GET',
 		                dataType: 'json',
 		                data: {size: _this.size},
-		                beforeSend: function () {
-						    var load = document.createElement('div');
-						    load.className = 'loader circle-round-fade small';
-						    var loadHtml;
-						    for(var i=0;i<8;i++){
-						    	loadHtml += '<span></span>';
-						    }
-						    load.appendChild(loadHtml);
-						    goodMain.appendChild(load);
-						},
+		               
 
 		                success: function(data) {	                 	
 			                if(data.status =='0')
