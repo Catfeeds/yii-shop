@@ -103,6 +103,10 @@ use yii\helpers\Url;
 		                	var goodMain = document.getElementById('goods');
 						    var load = document.createElement('div');
 						    load.className = 'loader circle-round-fade small';
+						    var loadHtml;
+						    for(var i=0;i<8;i++){
+						    	loadHtml += '<span></span>';
+						    }
 						    
 						},
 
