@@ -110,14 +110,14 @@ use yii\helpers\Url;
 						    for(var i=0;i<8;i++){
 						    	load.innerHTML += '<span></span>';
 						    }
-						    $('#loadMain').append(load);
+						    $('#loadMain').html(load);
 						    
 						},
 
 		                success: function(data) {	                 	
 			                if(data.status =='0')
 				            {
-				            	$('#loadMain').append('');
+				            	$('#loadMain').html('');
 				            	_this.aLis = data.data;			            	
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
