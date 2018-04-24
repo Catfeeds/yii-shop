@@ -72,8 +72,8 @@ class GoodsService extends BaseService
      * */
 	public static function getStore($goodsId)
 	{
-		$store = Store::findOne(['goods_id' => $goodsId])->asArray()->one();
-		return $store['store'];
+		$store = Store::findOne(['goods_id' => $goodsId]);
+		return $store->store;
 	}  
 	
 	/**
