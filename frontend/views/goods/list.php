@@ -94,11 +94,23 @@ use yii\helpers\Url;
 				
 				dataInfo: function(cur){
 					var _this = this;
+					var goodMain = document.getElementById('goods');
 					$.ajax({
 		                url: '/goods/getlist?page=' + cur,
 		                type: 'GET',
 		                dataType: 'json',
 		                data: {size: _this.size},
+		                beforeSend: function () {
+						    var load = document.createElement('div');
+						    load.className = 'loader circle-round-fade small';
+						    var loadHtml;
+						    for(var i=0;i<8;i++){
+						    	loadHtml += '<span></span>';
+						    }
+						    load.appendChild(loadHtml);
+						    goodMain.appendChild(load);
+						},
+
 		                success: function(data) {	                 	
 			                if(data.status =='0')
 				            {
