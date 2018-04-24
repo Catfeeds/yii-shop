@@ -474,7 +474,7 @@
 					    this.messgs = false;	
 						$.ajax({
 				            url:'/address/update',
-				            type: 'POST',
+				            type: 'POST', 
 				            dataType: 'json',
 				            data: _this.editData,
 				            success: function(data) {
