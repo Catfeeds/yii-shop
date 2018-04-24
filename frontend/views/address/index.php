@@ -125,7 +125,7 @@
 	            	<li>
 	            		<div class="lis lis1">
 	            			<h3>联系方式：</h3>
-	            			<input @blur="mobile" type="text" name="tel" id="tel" v-model="editData.mobile" placeholder="请输入您的电话号码" />
+	            			<input @blur="mobile2" type="text" name="tel" id="tel" v-model="editData.mobile" placeholder="请输入您的电话号码" />
 	            		</div>
 	            	</li>
 	            	<li>
@@ -269,7 +269,7 @@
 						this.messgs = false;
 					}
        	    	},
-       	    	mobile: function(){
+       	    	mobile2: function(){
        	    		var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
 					if(this.editData.mobile == ''){
 						this.messgDz = "手机号不能为空";
