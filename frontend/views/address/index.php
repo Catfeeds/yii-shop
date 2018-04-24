@@ -432,66 +432,66 @@
         	    },
         		//编辑
 				editAddres: function(item){
-					var _this = this;
-					if(this.editData.consignee == '' || this.editData.sex == '' || this.editData.address == ''){
-                		this.messgDz2 = "地址信息填写有误";
-				        this.messgs2 = true;
-				        return false;
-	                }else{
-	                	this.messgDz2 = "";
-					    this.messgs2 = false;	
-						$.ajax({
-				            url:'/address/getone',
-				            type: 'GET',
-				            dataType: 'json',
-				            data: {id:item.id},
-				            success: function(data) {
-				                if(data.status == 0){
-				                    console.log(data.data);
-				                    var datas = data.data;
-				                    _this.addressShow2 = true;
-				                    _this.carShow = true; 
-				                    _this.editData.consignee = datas.consignee;
-				                    if(datas.gender = 1){
-				                    	_this.editData.sex = '男';
-				                    }else {
-				                    	_this.editData.sex = '女';
-				                    }
-				                    _this.editData.mobile = datas.mobile;
-				                    _this.editData.province = datas.province;
-				                    _this.editData.city = datas.city;
-				                    _this.editData.district = datas.district;
-				                    _this.editData.address = datas.address;
-				                    _this.editData.id = datas.id;          
-				                }else{
-				                	console.log('shibai')
-				                }              	
-				            }
-				        })
-				    }    
-				},
-        		//保存
-        		bcAdd3: function(){
-        			var _this = this;	
+					var _this = this;	
 					$.ajax({
-			            url:'/address/update',
-			            type: 'POST',
+			            url:'/address/getone',
+			            type: 'GET',
 			            dataType: 'json',
-			            data: _this.editData,
+			            data: {id:item.id},
 			            success: function(data) {
 			                if(data.status == 0){
-			                    console.log('chenggong')
-			                    
-			                    _this.$nextTick( function(){
-			                    	_this.dressData();
-			                    });
-			                    _this.carShow = false;
-       	    	                _this.addressShow2 = false;	      
+			                    console.log(data.data);
+			                    var datas = data.data;
+			                    _this.addressShow2 = true;
+			                    _this.carShow = true; 
+			                    _this.editData.consignee = datas.consignee;
+			                    if(datas.gender = 1){
+			                    	_this.editData.sex = '男';
+			                    }else {
+			                    	_this.editData.sex = '女';
+			                    }
+			                    _this.editData.mobile = datas.mobile;
+			                    _this.editData.province = datas.province;
+			                    _this.editData.city = datas.city;
+			                    _this.editData.district = datas.district;
+			                    _this.editData.address = datas.address;
+			                    _this.editData.id = datas.id;          
 			                }else{
 			                	console.log('shibai')
 			                }              	
 			            }
 			        })
+				},
+        		//保存
+        		bcAdd3: function(){
+        			var _this = this;
+        			if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
+                		this.messgDz = "地址信息填写有误";
+				        this.messgs = true;
+				        return false;
+	                }else{
+	                	this.messgDz = "";
+					    this.messgs = false;	
+						$.ajax({
+				            url:'/address/update',
+				            type: 'POST',
+				            dataType: 'json',
+				            data: _this.editData,
+				            success: function(data) {
+				                if(data.status == 0){
+				                    console.log('chenggong')
+				                    
+				                    _this.$nextTick( function(){
+				                    	_this.dressData();
+				                    });
+				                    _this.carShow = false;
+	       	    	                _this.addressShow2 = false;	      
+				                }else{
+				                	console.log('shibai')
+				                }              	
+				            }
+				        })
+				    }
         		}
        	   },
        	    beforeMount: function () {
