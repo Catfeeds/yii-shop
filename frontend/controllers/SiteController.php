@@ -347,5 +347,10 @@ class SiteController extends BaseController
     	}
     }
     
-
+	
+    
+    public function actionMsg()
+    {
+    	return $this->render('msg');
+    }
 }
