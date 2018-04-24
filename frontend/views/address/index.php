@@ -459,7 +459,9 @@
 			                    
 			                    _this.$nextTick( function(){
 			                    	_this.dressData();
-			                    });      
+			                    });
+			                    _this.carShow = false;
+       	    	                _this.addressShow = false;	      
 			                }else{
 			                	console.log('shibai')
 			                }              	
