@@ -476,7 +476,7 @@
 			                    	_this.dressData();
 			                    });
 			                    _this.carShow = false;
-       	    	                _this.addressShow = false;	      
+       	    	                _this.addressShow2 = false;	      
 			                }else{
 			                	console.log('shibai')
 			                }              	
