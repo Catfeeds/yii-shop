@@ -235,7 +235,7 @@
    	                    success: function(data){
                               if(data.status == 0){
                               	console.log(_this.dataForm)
-                              	
+                              	window.location = '/order/index';
                               }else{
                               	alert('错误');
                               }
