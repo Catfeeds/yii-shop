@@ -450,23 +450,13 @@
         			var _this = this;	
 					$.ajax({
 			            url:'/address/update',
-			            type: 'GET',
+			            type: 'POST',
 			            dataType: 'json',
 			            data: _this.editData,
 			            success: function(data) {
 			                if(data.status == 0){
 			                    console.log('chenggong')
-			                    let add = {
-			                    	consignee: _this.editData.consignee,   //姓名
-				                    sex: _this.editData.sex,
-				                    mobile: _this.editData.mobile,  //电话
-				                    province: _this.editData.province, //省
-				                    city: _this.editData.city,  //市
-				                    district: _this.editData.district,  //县
-				                    address: _this.editData.address,//具体地址#
-				                    id: _this.editData.id
-			                    }
-			                    _this.addressData.push(add);
+			                    
 			                    _this.$nextTick( function(){
 			                    	_this.dressData();
 			                    });      
