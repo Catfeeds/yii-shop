@@ -6,6 +6,7 @@ use yii\helpers\Url;
             <section class="laber_goods">
             	<div class="goods auto clearfix">
             		<div class="goods_main" id="goods">
+            			<div class="loadingMain" id="loadMain"></div>
             			<div v-show="noneCar" class="noneCar">
             				<img src="/img/kong.png"/>
             				<p>暂时没有任何商品，商家正在紧急上货中...</p>           				
@@ -92,6 +93,15 @@ use yii\helpers\Url;
 					_this.dataInfo(_this.current);
 				},
 				
+				loading: function(){
+				    var load = document.createElement('div');
+				    load.className = 'loader circle-round-fade small';
+				    for(var i=0;i<8;i++){
+				    	load.innerHTML += '<span></span>';
+				    }
+				    $('#loadMain').append(load);
+				},
+				
 				dataInfo: function(cur){
 					var _this = this;					
 					$.ajax({
@@ -100,13 +110,7 @@ use yii\helpers\Url;
 		                dataType: 'json',
 		                data: {size: _this.size},
 		                beforeSend: function () {
-		                	var goodMain = document.getElementById('goods');
-						    var load = document.createElement('div');
-						    load.className = 'loader circle-round-fade small';
-						    for(var i=0;i<8;i++){
-						    	load.innerHTML += '<span></span>';
-						    }
-						    goodMain.appendChild(load);
+		                	
 						    
 						},
 
