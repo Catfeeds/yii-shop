@@ -471,7 +471,7 @@
 				},
 				city: function () {
 					this.updateDistrict();
-				}
+				},
 				province2: function () {
 					this.updateCity2();
 					this.updateDistrict2();
