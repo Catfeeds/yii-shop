@@ -33,6 +33,10 @@
             				</dl>
             				<ul>
             					<li v-for="(list, index) in ListData">
+            						<div class="orderNumber">
+            							<p>订单编号：{{ list.id }}</p>
+            						</div>
+            						<div class="oli">
             						<div class="list_i od1" :class="{'lisBorder': list.goods_list.length > 1}">
 	            						<a v-for="item in list.goods_list" class="order_list" :href="goodUrl + '?id=' + item.goods_id">
 	            							<img :src="imgUrl + item.goods_image">
@@ -54,7 +58,7 @@
 	            							<button @click="orders_gz(list)" type="button" v-show="list.order_status == 3" class="orders_zf">物流跟踪</button>
 	            							<em v-show="list.order_status == 5" class="orders_zf">交易完成</em>
 	            						</div>
-            						
+            						</div>
             					</li>
             				</ul>
             			</div>
