@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\service\goods\CartService;
+use common\service\goods\GoodsService;
 class CartController extends BaseController
 {
 	
@@ -24,6 +25,12 @@ class CartController extends BaseController
     	if($goodsNum<1 || !$goodsId)
     	{
     		return ['status' =>1,'msg' =>'参数错误'];
+    	}
+    	$store = GoodsService::getStore($goodsId);
+    	//检查库存
+    	if($store < $goodsNum)
+    	{
+    		return ['status' =>1,'msg' =>'库存不足'];
     	}
     	CartService::addLoginCart($goodsNum, $goodsId);	
         

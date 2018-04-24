@@ -23,14 +23,16 @@ class PayController extends BaseController
 	{
 		$orderSn  = trim(Yii::$app->request->get('id'),'');
 		if(!$orderSn)
-		{
-			return $this->redirect('/');
+		{	
+			Yii::$app->session->setFlash('msg','参数错误');
+			return $this->redirect('/site/msg');
 		}
 		$orderService = new OrderService();
 		$order = $orderService->getOrderByOrdersn($orderSn);
 		if(!$order)
-		{
-			return $this->redirect('/');
+		{	
+			Yii::$app->session->setFlash('msg','找不到相应的订单');
+			return $this->redirect('/site/msg');
 		}
 		return $this->render('index',['order' => $order]);
 	}
@@ -44,17 +46,20 @@ class PayController extends BaseController
     	$orderSn  = trim(Yii::$app->request->get('id'),'');
     	if(!$orderSn)
     	{
-    		return $this->redirect('/');
+    		Yii::$app->session->setFlash('msg','参数错误');
+			return $this->redirect('/site/msg');
     	}
     	$orderService = new OrderService();
     	$order = $orderService->getOrderByOrdersn($orderSn);
     	if(!$order)
     	{
-    		return $this->redirect('/');
+    		Yii::$app->session->setFlash('msg','找不到相应的订单');
+			return $this->redirect('/site/msg');
     	}
     	if($order['order_status'] !='1')
     	{
-    		return $this->redirect('/');//已经支付
+    		Yii::$app->session->setFlash('msg','订单已支付过了');
+			return $this->redirect('/site/msg');
     	}
     	$orderGoods = $orderService->getOrderGoodByOrderId($order['id']);
     	/**

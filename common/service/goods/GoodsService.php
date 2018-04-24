@@ -46,7 +46,7 @@ class GoodsService extends BaseService
     	$size = $size ?: 10;
     	$page = $page ?: 1;
     	$offset = ($page-1)*$size;
-     	$goods = Goods::find()->select(['name','short_name','cid','image','_id','shop_price'])->orderBy('updated_at desc')->limit($size)->offset($offset)->asArray()->all();
+     	$goods = Goods::find()->where(['status' =>1])->select(['name','short_name','cid','image','_id','shop_price'])->orderBy('updated_at desc')->limit($size)->offset($offset)->asArray()->all();
     	return $goods ?: [];
     }
     
@@ -66,14 +66,34 @@ class GoodsService extends BaseService
     	}
     	return $data ?: [];
     }
+    
     /**
      * 获取库存
      * */
 	public static function getStore($goodsId)
 	{
-		$store = Store::findOne(['goods_id' => $goodsId])->asArray()->one();
-		return $store['store'];
+		$store = Store::findOne(['goods_id' => $goodsId]);
+		return $store->store;
 	}  
+	
+	/**
+	* @desc 减少库存 
+	* @param
+	* @return
+	*/
+	public static function decre($goodsId,$goodsNum)
+	{
+		$storeModel = Store::findOne(['goods_id' => $goodsId]);
+		$store = $storeModel->store;
+		$storeModel->store = $store-$goodsNum;
+		try {
+			$storeModel->save();
+		}catch (\yii\db\Exception $e)
+		{
+			return false;
+		}
+		return true;
+	}
 
 	/**
 	 * 获取库存

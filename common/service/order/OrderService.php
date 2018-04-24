@@ -122,7 +122,7 @@ class OrderService extends BaseService
     }
     
     /**
-    * @desc  入库商品详情表
+    * @desc  入库商品详情表 减少库存
     * @param
     */
     private function createOrderGoods($orderId)
@@ -136,7 +136,7 @@ class OrderService extends BaseService
     		$model->goods_name = $value['name'];
     		$model->goods_image = $value['image'][0];
     		$model->goods_id = (string)$value['_id'];
-    		if(!$model->save())
+    		if(!$model->save() || !GoodsService::decre($model->goods_id, $model->goods_num))
     		{	
     			return false;
     		}
