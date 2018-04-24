@@ -117,7 +117,7 @@ use yii\helpers\Url;
 		                success: function(data) {	                 	
 			                if(data.status =='0')
 				            {
-//				            	$('#loadMain').html('');
+				            	$('#loadMain').html('');
 				            	_this.aLis = data.data;			            	
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
