@@ -22,16 +22,16 @@ return [
     ],
     'qq'=>[//qq登录
     	'appid' =>'101140351',
-    	'appkey' =>'3f8f54666cc0cc549ac98f28c33cf005',
-    	'callback' =>'http://yii-shop.xiwenkeji.com/user/auth',
+    	'appkey' =>'f080f76ad8cb5b88abdd0af09973a68f',
+    	'callback' =>'http://www.wenbangtea.com/user/auth',
     	'scope' =>''
      ],
     'weixin'=>[//微信登录
-        'appid' =>'wx4a027a66879fd224',
+        'appid' =>'wxfc78ab1472d039fd',
         'appsecret' =>'6a3facc08da612495421efb22f153735',
-        'callback' =>'http://tea.reallytalent.cn/user/weixin',
+        'callback' =>'http://www.wenbangtea.com/user/weixin',
     ],
-    'weixin.notify' => 'http://tea.reallytalent.cn/pay/weixinnotify/',//微信支付回调
+    'weixin.notify' => 'http://www.wenbangtea.com/pay/weixinnotify/',//微信支付回调
     'aliyun_sms' =>[//阿里短信
     	'accessKeyId' =>'LTAIUloKarS76KjI',
     	'accessKeySecret' =>'D26FYz9pDKazgi4SBwDQtaxGQLwVGY',
