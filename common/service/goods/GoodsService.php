@@ -66,6 +66,7 @@ class GoodsService extends BaseService
     	}
     	return $data ?: [];
     }
+    
     /**
      * 获取库存
      * */
@@ -74,6 +75,25 @@ class GoodsService extends BaseService
 		$store = Store::findOne(['goods_id' => $goodsId])->asArray()->one();
 		return $store['store'];
 	}  
+	
+	/**
+	* @desc 减少库存 
+	* @param
+	* @return
+	*/
+	public static function decre($goodsId,$goodsNum)
+	{
+		$storeModel = Store::findOne(['goods_id' => $goodsId]);
+		$store = $storeModel->store;
+		$storeModel->store = $store-$goodsNum;
+		try {
+			$storeModel->save();
+		}catch (\yii\db\Exception $e)
+		{
+			return false;
+		}
+		return true;
+	}
 
 	/**
 	 * 获取库存
