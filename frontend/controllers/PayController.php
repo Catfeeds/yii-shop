@@ -23,8 +23,9 @@ class PayController extends BaseController
 	{
 		$orderSn  = trim(Yii::$app->request->get('id'),'');
 		if(!$orderSn)
-		{
-			return $this->redirect('/');
+		{	
+			Yii::$app->session->setFlash('msg','参数错误');
+			return $this->redirect('/site/msg');
 		}
 		$orderService = new OrderService();
 		$order = $orderService->getOrderByOrdersn($orderSn);
