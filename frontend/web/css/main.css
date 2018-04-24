@@ -126,6 +126,11 @@
           .laber_login .login_main .login_center form .dsf .i2 {
             background: url(../img/wx.png) no-repeat; }
 
+.loadingMain {
+  width: 100%;
+  float: left;
+  text-align: center; }
+
 .laber_goods {
   width: 100%;
   min-width: 1200px; }
@@ -1241,15 +1246,11 @@
   background: #d3b799;
   color: #fff; }
 
-.loadingMain {
-  width: 100%;
-  float: left;
-  text-align: center; }
-
 .loader {
   position: relative;
   width: 5rem;
-  height: 5rem; }
+  height: 5rem;
+  display: inline-block; }
 
 .loader.small {
   -webkit-transform: scale(0.5);

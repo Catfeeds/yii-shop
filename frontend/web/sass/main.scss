@@ -154,6 +154,11 @@
         }
     }
 }
+.loadingMain {
+    width: 100%;
+    float: left;
+    text-align: center;
+}
 .laber_goods {
     width: 100%;
     min-width: 1200px;
@@ -1469,15 +1474,12 @@
 }
 
 //loading
-.loadingMain {
-    width: 100%;
-    float: left;
-    text-align: center;
-}
+
 .loader {
     position: relative;
     width: 5rem;
     height: 5rem;
+    display: inline-block;
 }
 
 .loader.small {
