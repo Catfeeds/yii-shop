@@ -222,24 +222,25 @@
                 			temp.goods_id = item.goods_id;
                 			temp.id = item.id.$oid;
                 			temp.goods_num = item.goods_num;
-                			_this.dataForm.push(temp);
-                			$.ajax({
-		              			type:"POST",
-		              			url:" /order/confirm",
-		              			dataType: 'json',
-		   	                    data: {goods:_this.dataForm},
-		   	                    success: function(data){
-		                              if(data.status == 0){
-		                              	window.location = '/order/index';
-		                              }else{
-		                              	alert('错误');
-		                              }
-		   	                    }
-		              		}); 	                  	 			
+                			_this.dataForm.push(temp);                				                  	 			
                 		}else{
                 			return;
                 		}
-                  })                                                          		
+                    })
+                    $.ajax({
+              			type:"POST",
+              			url:" /order/confirm",
+              			dataType: 'json',
+   	                    data: {goods:_this.dataForm},
+   	                    success: function(data){
+                              if(data.status == 0){
+                              	console.log()
+                              	window.location = '/order/index';
+                              }else{
+                              	alert('错误');
+                              }
+   	                    }
+              		});                                                          		
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数
