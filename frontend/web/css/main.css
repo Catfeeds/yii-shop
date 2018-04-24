@@ -1251,7 +1251,7 @@
   width: 5rem;
   height: 5rem;
   display: inline-block;
-  padding: 100px 0; }
+  margin: 100px 0; }
 
 .loader.small {
   -webkit-transform: scale(0.5);
