@@ -94,7 +94,8 @@ use yii\helpers\Url;
 				},
 				txmImg: '',
 				captcha: '',
-				code: ''
+				code: '',
+				isTrue:''
 			},
 			created: function(){
 				this.createdCode();
@@ -196,7 +197,7 @@ use yii\helpers\Url;
 		                 	if(data.status == 0){
 		                        console.log('发送成功');	                                                
 		                    }else if(data.status == 1){
-		                    	_this.msgTx = data.msg;
+		                    	_this.msgtx = data.msg;
 		                    }else{
 		                    	alert('发送错误');
 		                    }
