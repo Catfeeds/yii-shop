@@ -54,7 +54,7 @@ $ext = $model->ext;
 		                <?= $form->field($model, 'cost_price')->textInput(['maxlength' => 50]) ?>
 		                <?= $form->field($model, 'sort')->label('排序')->textInput(['maxlength' => 512,'value' =>1]) ?>
 		                <?= $form->field($model, 'bid')->dropDownList(FuncHelper::toStr(Brand::find()->select(['_id','name'])->asArray()->all())) ?>
-		                <?php if(!$model->status) $model->status=1;?>
+		                <?php if($model->status === null) $model->status=1;?>
 		                <?= $form->field($model, 'status')->radioList(['1'=>'上架',0=>'下架']) ?>
 		                <?= $form->field($model, 'image')->widget('\common\widgets\images\Images',['type' => 'images', 'saveDB'=>0],['class'=>'c-md-12'])?>
 						<?= $form->field($model, 'brief')->textarea(); ?>
