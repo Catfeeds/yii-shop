@@ -101,6 +101,8 @@ use yii\helpers\Url;
 		                data: {size: _this.size},
 		                beforeSend: function () {
 		                	var goodMain = document.getElementById('goods');
+						    var load = document.createElement('div');
+						    load.className = 'loader circle-round-fade small';
 						    
 						},
 
