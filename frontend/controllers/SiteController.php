@@ -351,7 +351,6 @@ class SiteController extends BaseController
     
     public function actionMsg()
     {	
-    	ob_clean();
     	return $this->render('msg');
     }
 }
