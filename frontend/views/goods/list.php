@@ -94,12 +94,7 @@ use yii\helpers\Url;
 				},
 				
 				loading: function(){
-				    var load = document.createElement('div');
-				    load.className = 'loader circle-round-fade small';
-				    for(var i=0;i<8;i++){
-				    	load.innerHTML += '<span></span>';
-				    }
-				    $('#loadMain').append(load);
+				    
 				},
 				
 				dataInfo: function(cur){
@@ -110,7 +105,12 @@ use yii\helpers\Url;
 		                dataType: 'json',
 		                data: {size: _this.size},
 		                beforeSend: function () {
-		                	
+		                	var load = document.createElement('div');
+						    load.className = 'loader circle-round-fade small';
+						    for(var i=0;i<8;i++){
+						    	load.innerHTML += '<span></span>';
+						    }
+						    $('#loadMain').append(load);
 						    
 						},
 
