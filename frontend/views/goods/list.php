@@ -105,7 +105,7 @@ use yii\helpers\Url;
 						    load.className = 'loader circle-round-fade small';
 						    var loadHtml;
 						    for(var i=0;i<8;i++){
-						    	loadHtml += '<span></span>';
+						    	loadHtml.innerHTML += '<span></span>';
 						    }
 						    load.appendChild(loadHtml);
 						    
