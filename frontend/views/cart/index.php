@@ -234,8 +234,8 @@
    	                    data: {goods:_this.dataForm},
    	                    success: function(data){
                               if(data.status == 0){
-                              	console.log()
-                              	window.location = '/order/index';
+                              	console.log(_this.dataForm)
+                              	
                               }else{
                               	alert('错误');
                               }
