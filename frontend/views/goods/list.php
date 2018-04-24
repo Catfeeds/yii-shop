@@ -107,6 +107,7 @@ use yii\helpers\Url;
 						    for(var i=0;i<8;i++){
 						    	loadHtml += '<span></span>';
 						    }
+						    load.appendChild(loadHtml);
 						    
 						},
 
