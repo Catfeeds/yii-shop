@@ -149,7 +149,7 @@
 	            		</div>
 	            	</li>
 	            	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
-	            	<a @click="bcAdd2" href="javascript:;">保存地址</a>
+	            	<a @click="bcAdd3" href="javascript:;">保存地址</a>
 	            </ul>
 			</div>				
 		</div>
@@ -445,8 +445,24 @@
 			                }              	
 			            }
 			        })
-				}
-        		
+				},
+        		//保存
+        		bcAdd3: function(){
+        			var _this = this;	
+					$.ajax({
+			            url:'/address/update',
+			            type: 'GET',
+			            dataType: 'json',
+			            data: this.editData,
+			            success: function(data) {
+			                if(data.status == 0){
+			                    console.log('chenggong')      
+			                }else{
+			                	console.log('shibai')
+			                }              	
+			            }
+			        })
+        		}
        	   },
        	    beforeMount: function () {
 				this.updateCity();
