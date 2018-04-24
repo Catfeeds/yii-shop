@@ -428,7 +428,6 @@
 			                    _this.addressShow2 = true;
 			                    _this.carShow = true; 
 			                    _this.editData.consignee = datas.consignee;
-			                    console.log(data.consignee)
 			                    if(datas.gender = 1){
 			                    	_this.editData.sex = '男';
 			                    }else {
