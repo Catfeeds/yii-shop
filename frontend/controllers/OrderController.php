@@ -48,7 +48,7 @@ class OrderController extends BaseController
 	
 	
     /**
-    * @desc 订单确认(临时保存用户选择的数据)
+    * @desc 购物车确认(临时保存用户选择的数据)
     */
     public function actionConfirm()
     {	
