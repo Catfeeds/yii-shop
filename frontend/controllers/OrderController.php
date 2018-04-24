@@ -25,7 +25,8 @@ class OrderController extends BaseController
 		$goods = Yii::$app->session->get($key);
 		if(!$goods)
 		{
-			return $this->redirect('/index/index');
+			Yii::$app->session->setFlash('msg','找到不相关的购物车数据');
+			return $this->redirect('/site/msg');
 		}
 		$data = GoodsService::getListByids($goods);
 		foreach($data as $k =>$value)
