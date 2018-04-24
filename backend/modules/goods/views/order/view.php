@@ -50,7 +50,7 @@ $this->title = "订单查看";
 							<tr><th>收货人</th><th>地址：</th><th>手机号码</th><th>订单留言</th><th>物流公司：</th><td>快递单号：</td></tr>	
 						</thead>
 						<tbody>
-							<tr><th><?=$model->consignee?></th><th><?php echo $model->province.'省'.$model->city.'市'.$model->district.'县'.$model->address?></th><th><?=$model->mobile?></th><th><?=$model->message?></th><th><?php $shiping = ShippingService::getListArray(); echo $shiping[$model->shipping_id]?></th><td><?=$model->invoice_no?></td></tr>	
+							<tr><th><?=$model->consignee?></th><th><?php echo $model->province.'省'.$model->city.'市'.$model->district.$model->address?></th><th><?=$model->mobile?></th><th><?=$model->message?></th><th><?php $shiping = ShippingService::getListArray(); echo $shiping[$model->shipping_id]?></th><td><?=$model->invoice_no?></td></tr>	
 						</tbody>
 					</table>
 				</div>
