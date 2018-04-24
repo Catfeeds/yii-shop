@@ -269,6 +269,21 @@
 						this.messgs = false;
 					}
        	    	},
+       	    	mobile: function(){
+       	    		var telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+					if(this.editData.mobile == ''){
+						this.messgDz = "手机号不能为空";
+						this.messgs = true;
+						return false;
+					}else if(!telreg.test($('#tel').val())){
+						this.messgDz = "请输入有效号码";
+						this.messgs = true;
+						return false;
+					}else {
+						this.messgDz = '';
+						this.messgs = false;
+					}
+       	    	},
        	    	//省市
                 updateCity: function () {
 					for (var i in this.arr) {
