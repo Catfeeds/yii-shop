@@ -34,7 +34,7 @@
             				<ul>
             					<li v-for="(list, index) in ListData">
             						<div class="orderNumber">
-            							<p>订单编号：{{ list.id }}</p>
+            							<p>订单编号：{{ list.order_sn }}</p>
             						</div>
             						<div class="oli">
             						<div class="list_i od1" :class="{'lisBorder': list.goods_list.length > 1}">
