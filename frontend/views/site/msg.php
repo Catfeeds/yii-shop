@@ -1,4 +1,4 @@
-<?php use Yii;use yii\helpers\Url;
+<?php use yii\helpers\Url;
 ?>
 <div class="container2">
             <section class="laber_shopUser">
