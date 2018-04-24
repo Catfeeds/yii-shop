@@ -429,7 +429,11 @@
 			                    _this.carShow = true; 
 			                    _this.editData.consignee = datas.consignee;
 			                    console.log(data.consignee)
-			                    _this.editData.sex = datas.gender;
+			                    if(datas.gender = 1){
+			                    	_this.editData.sex = '男';
+			                    }else {
+			                    	_this.editData.sex = '女';
+			                    }
 			                    _this.editData.mobile = datas.mobile;
 			                    _this.editData.province = datas.province;
 			                    _this.editData.city = datas.city;
