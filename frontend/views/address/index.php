@@ -125,7 +125,7 @@
 	            	<li>
 	            		<div class="lis lis1">
 	            			<h3>联系方式：</h3>
-	            			<input @blur="mobile2" type="text" name="tel2" id="tel" v-model="editData.mobile" placeholder="请输入您的电话号码" />
+	            			<input @blur="mobile2" type="text" name="tel2" id="tel2" v-model="editData.mobile" placeholder="请输入您的电话号码" />
 	            		</div>
 	            	</li>
 	            	<li>
