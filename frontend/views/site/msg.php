@@ -1,5 +1,4 @@
-<?php 
-use yii;
+<?php use Yii;
 use yii\helpers\Url;
 ?>
 <div class="container2">
