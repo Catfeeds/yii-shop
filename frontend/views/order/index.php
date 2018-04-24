@@ -85,12 +85,14 @@
             				</dl>
             				<ul>
             					<li v-for="goodLis in goodsData">
+            						<div class="oli">
             						<a class="d1" :href="goodUrl + '?id=' + goodLis._id.$oid">
             							<img :src="imgurl + goodLis.image[0]">
             							<b>{{ goodLis.name }}</b>
             						</a>
             						<p  class="d2">{{ parseInt(goodLis.goods_num) }}</p>
             						<p>{{ parseInt(goodLis.goods_num) * goodLis.shop_price | formatMoney}}</p>
+            						</div>
             					</li>
             				</ul>
             				<div class="bz">
