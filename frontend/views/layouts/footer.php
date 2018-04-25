@@ -3,12 +3,12 @@
 				    <div class="laber_footer auto">
 				    	<div class="footer">
 				    		<div class="foot_main">
-					    		<ul>
+					    		<!--<ul>
 					    			<li><a href="#">新闻中心</a></li>
 					    			<li><a href="#">文榜茶师</a></li>
 					    			<li><a href="#">会员服务</a></li>
 					    			<li><a href="https://m.kuaidi100.com/" target="_blank">快递查询</a></li>
-					    		</ul>
+					    		</ul>-->
 					    		<div class="footer_wx">
 					    			<p id="gfwx"><i></i>官方微信</p>
 					    			<em style="display: none;" class="ewm"><img src="/img/ewm.jpg"></em>
