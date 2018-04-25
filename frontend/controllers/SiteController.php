@@ -92,7 +92,7 @@ class SiteController extends BaseController
     		$value['summary'] = mb_substr($value['summary'], 0,75);
     		$articles[$k]= $value;
     	}
-		return json_encode(['status' =>0,'articles' =>$articles ]);  	
+		return ['status' =>0,'articles' =>$articles ];  	
     }
     
     public function actionDetail()
