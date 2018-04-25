@@ -757,7 +757,8 @@
           font-size: 16px;
           color: #999999;
           float: left;
-          line-height: 46px; }
+          line-height: 46px;
+          font-family: "微软雅黑"; }
       .laber_shop .shop_main .cart_orders .dd1 {
         width: 60px;
         text-align: center; }
@@ -811,17 +812,20 @@
               font-size: 16px;
               color: #3e3a39;
               font-weight: normal;
-              line-height: 140px; }
+              line-height: 140px;
+              font-family: "微软雅黑"; }
           .laber_shop .shop_main .cart_orders ul li p {
             float: left;
             line-height: 140px;
             font-size: 16px;
-            color: #3e3a39; }
+            color: #3e3a39;
+            font-family: "微软雅黑"; }
           .laber_shop .shop_main .cart_orders ul li label {
             line-height: 140px;
             font-size: 16px;
             color: #3e3a39;
-            float: left; }
+            float: left;
+            font-family: "微软雅黑"; }
           .laber_shop .shop_main .cart_orders ul li .data_number {
             float: left;
             height: 26px;
@@ -863,7 +867,10 @@
         float: right; }
         .laber_shop .shop_main .js .cart_zj p {
           float: left;
-          margin-right: 90px; }
+          margin-right: 90px;
+          color: #3e3a39;
+          font-family: "微软雅黑";
+          font-size: 16px; }
         .laber_shop .shop_main .js .cart_zj .cart_js {
           float: right;
           width: 180px;
@@ -872,7 +879,9 @@
           border-radius: 4px;
           text-align: center;
           line-height: 40px;
-          margin-right: 36px; }
+          margin-right: 36px;
+          font-family: "微软雅黑";
+          font-size: 18px; }
     .laber_shop .shop_main .money {
       float: right;
       margin-top: 84px; }
