@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<div class="details_center" v-html="content">
-						
+						<div class="loadingMain" id="loadMain"></div>
 					</div>
 				</div>
 			</div>
@@ -83,8 +83,18 @@
 	                type: 'POST',
 	                dataType: 'json',
 	                data: '',
+	                beforeSend: function () {
+	                	var load = document.createElement('div');
+					    load.className = 'loader circle-round-fade small';
+					    for(var i=0;i<8;i++){
+					    	load.innerHTML += '<span></span>';
+					    }
+					    $('#loadMain').html(load);
+					    
+					},
 	                success: function(data) {
 	                	if(data.status == 0){
+	                		$('#loadMain').html('');
 	                		_this.goodName = data.data.name;
 						    _this.goodPrice = data.data.shop_price;
 						    _this.imgArr = data.data.image;
