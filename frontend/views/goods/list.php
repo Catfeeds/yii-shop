@@ -93,10 +93,6 @@ use yii\helpers\Url;
 					_this.dataInfo(_this.current);
 				},
 				
-				loading: function(){
-				    
-				},
-				
 				dataInfo: function(cur){
 					var _this = this;					
 					$.ajax({

@@ -15,6 +15,7 @@
             <section class="laber_shop">
             	<div class="shop auto clearfix">
             		<div class="shop_main">
+            			<div class="loadingMain" id="loadMain"></div>
             			<div v-show="noneCar" class="noneCar">
             				<img src="/img/kong.png"/>
             				<p>您还没有添加任何商品，快去逛逛吧</p>
@@ -131,6 +132,15 @@
 	                type: 'GET',
 	                dataType: 'json',
 	                data: '',
+	                beforeSend: function () {
+	                	var load = document.createElement('div');
+					    load.className = 'loader circle-round-fade small';
+					    for(var i=0;i<8;i++){
+					    	load.innerHTML += '<span></span>';
+					    }
+					    $('#loadMain').html(load);
+					    
+					},
 	                success: function(data) {
 	                	if(data.status == 0){
 	                		_this.message = data.data;
