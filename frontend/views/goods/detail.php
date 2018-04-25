@@ -94,7 +94,7 @@
 					},
 	                success: function(data) {
 	                	if(data.status == 0){
-	                		$('#loadMain').html('');
+	                		
 	                		_this.goodName = data.data.name;
 						    _this.goodPrice = data.data.shop_price;
 						    _this.imgArr = data.data.image;
