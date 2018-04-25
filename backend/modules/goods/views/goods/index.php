@@ -66,7 +66,7 @@ $this->title = 'Users'
                         [
                             'attribute' => 'shop_price'
                         ],
-						[
+						/*[
 							'attribute' => 'created_at',
 							'format' => ['date','php:Y-m-d'],
 							'filter' => Html::activeInput('text', $searchModel, 'create_start_at', [
@@ -78,7 +78,7 @@ $this->title = 'Users'
 											'placeholder' => '',
 											'onclick' => "laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"
 									]),
-						],
+						],*/
                 		[
                 			'attribute' => 'updated_at',
                 			'format' => ['date','php:Y-m-d'],
