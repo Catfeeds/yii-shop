@@ -43,13 +43,13 @@ $this->title = 'Users'
                 		[
                 			'attribute' => 'name'
                 		],
-                		[
+                		/*[
                 			'attribute' =>'store',
                 			'label' =>'库存',
                 			'value' => function($model){
                 				return $model->getStore();
                 			}
-                		],
+                		],*/
                 		[
                 			'attribute' => 'image',
                 			'format' => [
