@@ -149,7 +149,7 @@
             	PromptOk: function(){
             		_this.carShow = false;
 	            	_this.popupShow2 = false;
-            	}
+            	},
             	//直接购买
             	buyShop: function(){
             		var _this = this;
