@@ -5,7 +5,6 @@ namespace backend\modules\goods\controllers;
 use yii;
 use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
-use backend\models\goods\mongodb\Goods;
 use common\models\goods\mongodb\Goods;
 use common\models\goods\mongodb\Attr;
 use common\models\goods\Store;
