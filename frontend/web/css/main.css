@@ -186,7 +186,8 @@
 
 .laber_details {
   width: 100%;
-  min-width: 1200px; }
+  min-width: 1200px;
+  margin-top: 30px; }
   .laber_details .details_main {
     width: 100%;
     float: left;
