@@ -1494,19 +1494,19 @@
 }
 /*circle-round*/
 
-.loader.circle-round span {
+.loader.circle-round small {
     opacity: .05;
     -webkit-animation: circle-round 1s ease infinite;
     animation: circle-round 1s ease infinite;
 }
 
-.loader.circle-round-fade span {
+.loader.circle-round-fade small {
     -webkit-animation: circle-round-fade 1s ease infinite;
     animation: circle-round-fade 1s ease infinite;
 }
 
-.loader.circle-round span,
-.loader.circle-round-fade span {
+.loader.circle-round small,
+.loader.circle-round-fade small {
     position: absolute;
     width: .8rem;
     height: .8rem;
@@ -1515,8 +1515,8 @@
     background: #a7a7a7;
 }
 
-.loader.circle-round span:nth-child(1),
-.loader.circle-round-fade span:nth-child(1) {
+.loader.circle-round small:nth-child(1),
+.loader.circle-round-fade small:nth-child(1) {
     top: 50%;
     left: 0;
     margin-top: -.4rem;
@@ -1524,16 +1524,16 @@
     animation-delay: -1.04s;
 }
 
-.loader.circle-round span:nth-child(2),
-.loader.circle-round-fade span:nth-child(2) {
+.loader.circle-round small:nth-child(2),
+.loader.circle-round-fade small:nth-child(2) {
     top: .7rem;
     left: .7rem;
     -webkit-animation-delay: -.91s;
     animation-delay: -.91s;
 }
 
-.loader.circle-round span:nth-child(3),
-.loader.circle-round-fade span:nth-child(3) {
+.loader.circle-round small:nth-child(3),
+.loader.circle-round-fade small:nth-child(3) {
     top: 0;
     left: 50%;
     margin-left: -.4rem;
@@ -1541,16 +1541,16 @@
     animation-delay: -.78s;
 }
 
-.loader.circle-round span:nth-child(4),
-.loader.circle-round-fade span:nth-child(4) {
+.loader.circle-round small:nth-child(4),
+.loader.circle-round-fade small:nth-child(4) {
     right: .7rem;
     top: .7rem;
     -webkit-animation-delay: -.65s;
     animation-delay: -.65s;
 }
 
-.loader.circle-round span:nth-child(5),
-.loader.circle-round-fade span:nth-child(5) {
+.loader.circle-round small:nth-child(5),
+.loader.circle-round-fade small:nth-child(5) {
     right: 0;
     top: 50%;
     margin-top: -.4rem;
@@ -1558,16 +1558,16 @@
     animation-delay: -.52s;
 }
 
-.loader.circle-round span:nth-child(6),
-.loader.circle-round-fade span:nth-child(6) {
+.loader.circle-round small:nth-child(6),
+.loader.circle-round-fade small:nth-child(6) {
     bottom: .7rem;
     right: .7rem;
     -webkit-animation-delay: -.39s;
     animation-delay: -.39s;
 }
 
-.loader.circle-round span:nth-child(7),
-.loader.circle-round-fade span:nth-child(7) {
+.loader.circle-round small:nth-child(7),
+.loader.circle-round-fade small:nth-child(7) {
     bottom: 0;
     left: 50%;
     margin-left: -.4rem;
@@ -1575,8 +1575,8 @@
     animation-delay: -.26s;
 }
 
-.loader.circle-round span:nth-child(8),
-.loader.circle-round-fade span:nth-child(8) {
+.loader.circle-round small:nth-child(8),
+.loader.circle-round-fade small:nth-child(8) {
     left: .7rem;
     bottom: .7rem;
     -webkit-animation-delay: -.13s;

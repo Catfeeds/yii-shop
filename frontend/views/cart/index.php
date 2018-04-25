@@ -136,7 +136,7 @@
 	                	var load = document.createElement('div');
 					    load.className = 'loader circle-round-fade small';
 					    for(var i=0;i<8;i++){
-					    	load.innerHTML += '<span></span>';
+					    	load.innerHTML += '<small></small>';
 					    }
 					    $('#loadMain').html(load);
 					    
