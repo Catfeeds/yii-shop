@@ -190,7 +190,7 @@ class Goods extends ActiveRecord
     		return 0;
     	}else
     	{
-    		GoodsService::getStore((string)$this->_id);
+    		return GoodsService::getStore((string)$this->_id);
     	}
     }
 }
