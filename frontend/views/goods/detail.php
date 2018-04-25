@@ -137,7 +137,7 @@
 			                	}else if(data.status == 1){
 			                		_this.carShow = true;
 	            		            _this.popupShow2 = true;
-	            		            _this.PromptMsg = '111111111111111';
+	            		            _this.PromptMsg = data.msg;
 			                	}	                 	
 			                }
 			           }) 
@@ -147,6 +147,7 @@
             		         		            		
             	},
             	PromptOk: function(){
+            		var _this = this;
             		_this.carShow = false;
 	            	_this.popupShow2 = false;
             	},
