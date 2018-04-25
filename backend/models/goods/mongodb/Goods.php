@@ -23,35 +23,7 @@ use common\models\goods\mongodb\Goods as CommonGoods;
 class Goods extends CommonGoods
 {	
 	
-    
-    public function attributes()
-    {
-    	return [
-	    	'_id',
-	    	'cid', //栏目id
-	    	'bid',//品牌id
-	    	'shop_id',//商家id
-	    	'shipping_id',//运费模板ID
-	    	'status',//状态 1-上架 0-下架 
-	    	'is_audit',//0-未审核  1-通过审核  2拒绝审核
-	    	'sort',//排序
-	    	'created_at',
-	    	'updated_at',
-	    	'comment_sum',//评论数量
-	    	'collect_sum',//收藏数量
-	    	'sales_sum',//销售数量
-	    	'name',//名字
-	    	'short_name',//短名称
-	    	'brief',//商品短介绍
-	    	'image',//相册
-	    	'shop_price',//销售价
-	    	'cost_price',//成本价格
-	    	'weight',//重量
-	    	'content',//详情
-	    	'ext',//扩展属性
-	    	'is_product'//是否生成product
-    	];
-    }
+   
 
     /**
      * @inheritdoc
@@ -66,56 +38,9 @@ class Goods extends CommonGoods
         ];
     }
 
-    public function attributeLabels()
-    {
-    	return [
-    	'name' =>'商品名字',
-    	'short_name' =>'商品简称',
-    	'brief'=>'商品简介',
-    	'shop_price' =>'销售价',
-    	'cost_price' =>'成本价',
-    	'weight' =>'商品重量',
-    	'content' =>'商品描述',
-    	'bid' =>'品牌',
-    	'status'=>'上下架状态',
-    	'is_audit'=>'审核状态',
-    	'sort' =>'排序',
-    	'image'=>'图片'
-    	];
-    }
+   
 
-    public function search($params)
-    {
-    	$query = self::find()->orderBy("id desc");
-    	$dataProvider = new ActiveDataProvider([
-    			'query' => $query,
-    			]);
-    	$this->load($params);
-    	if (! $this->validate()) {
-    		return $dataProvider;
-    	}
-    	$query ->andFilterWhere(['like', 'name', $this->name]);
-    	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = '';
-    	if ($this->create_start_at != '') {
-    		$create_start_at_unixtimestamp = strtotime($this->create_start_at);
-    	}
-    	if ($this->create_end_at != '') {
-    		$create_end_at_unixtimestamp = strtotime($this->create_end_at);
-    	}
-    	if ($create_start_at_unixtimestamp != '' && $create_end_at_unixtimestamp == '') {
-    		$query->andFilterWhere(['>', 'created_at', $create_start_at_unixtimestamp]);
-    	} elseif ($create_start_at_unixtimestamp == '' && $create_end_at_unixtimestamp != '') {
-    		$query->andFilterWhere(['<', 'created_at', $create_end_at_unixtimestamp]);
-    	} else {
-    		$query->andFilterWhere([
-    				'between',
-    				'created_at',
-    				$create_start_at_unixtimestamp,
-    				$create_end_at_unixtimestamp
-    				]);
-    	}
-    	return $dataProvider;
-    }
+    
     
     
     public function afterDelete()

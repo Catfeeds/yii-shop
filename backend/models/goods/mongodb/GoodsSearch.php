@@ -46,17 +46,19 @@ class GoodsSearch extends Goods
 				];
 	}
 
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'short_name'], 'string'],
-            [['cid',  'shop_id','shipping_id','status','is_audit','sort','created_at',], 'integer'],
+            [['name', 'short_name', 'brief','weight','content','bid'], 'string'],
+            [['shop_price','cost_price'],'double'],
+            [['cid',  'shop_id','shipping_id','status','is_audit','sort','created_at','updated_at','comment_sum','collect_sum','sales_sum','is_product'], 'integer'],
+            [['name','image','short_name','shop_price','content','bid','sort'], 'required'],
         ];
     }
-
 
 
     public function search($params)
