@@ -33,8 +33,9 @@
 							<strong>生产日期：<em>见包装盒喷码标识</em></strong>
 						</div>
 					</div>
+					 <div class="loadingMain" id="loadMain"></div>
 					<div class="details_center" v-html="content">
-						 <div class="loadingMain" id="loadMain"></div>
+						
 					</div>
 				</div>
 			</div>
