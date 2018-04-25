@@ -2,7 +2,7 @@
 
 
 namespace backend\models\goods\mongodb;
-use common\models\goods\mongodb\CommonGoods;
+use common\models\goods\mongodb\Goods as CommonGoods;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\data\ActiveDataProvider;
