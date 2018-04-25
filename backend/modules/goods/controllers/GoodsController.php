@@ -6,6 +6,8 @@ use yii;
 use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
 use common\models\goods\mongodb\Goods;
+use backend\models\goods\mongodb\GoodsSearch;
+
 use common\models\goods\mongodb\Attr;
 use common\models\goods\Store;
 use common\models\goods\Product;
@@ -18,7 +20,7 @@ class GoodsController extends \yii\web\Controller
             'index' => [
                 'class' => IndexAction::className(),
                 'data' => function(){
-                    $searchModel = new Goods();
+                    $searchModel = new GoodsSearch();
                     $dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
                     return [
                         'dataProvider' => $dataProvider,
