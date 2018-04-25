@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<div class="details_center" v-html="content">
-						<div class="loadingMain" id="loadMain"></div>
+						 <div class="loadingMain" id="loadMain"></div>
 					</div>
 				</div>
 			</div>
