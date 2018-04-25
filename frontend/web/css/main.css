@@ -14,7 +14,8 @@
         font-size: 24px;
         color: #3e3a39;
         margin-bottom: 10px;
-        font-family: "微软雅黑"; }
+        font-family: "微软雅黑";
+        font-weight: lighter; }
       .laber_login .login_main .login_center form {
         width: 360px;
         margin: 0 auto; }
