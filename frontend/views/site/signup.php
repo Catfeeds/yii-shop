@@ -42,10 +42,10 @@ use yii\helpers\Url;
 									<b class="b2"></b>
 								</div>
 								<div class="dsf">
-									<a href="<?=$qqUrl?>" class="a_fl">
+									<!--<a href="<?=$qqUrl?>" class="a_fl">
 										<i class="i1"></i>
 										QQ登录
-									</a>
+									</a>-->
                                     <a href="<?=$weixinUrl?>" class="a_fr">
 										<i class="i2"></i>
 										微信登录
