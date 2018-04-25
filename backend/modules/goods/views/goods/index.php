@@ -69,7 +69,15 @@ $this->title = 'Users'
 						[
 							'attribute' => 'created_at',
 							'format' => ['date','php:Y-m-d'],
-                			'label' =>'添加时间'
+							'filter' => Html::activeInput('text', $searchModel, 'create_start_at', [
+									'class' => 'form-control layer-date',
+									'placeholder' => '',
+									'onclick' => "laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'});"
+									]) . Html::activeInput('text', $searchModel, 'create_end_at', [
+											'class' => 'form-control layer-date',
+											'placeholder' => '',
+											'onclick' => "laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"
+									]),
 						],
                 		[
                 			'attribute' => 'updated_at',
