@@ -142,6 +142,7 @@
 					    
 					},
 	                success: function(data) {
+	                	$('#loadMain').html('');
 	                	if(data.status == 0){
 	                		_this.message = data.data;
 	                		if(_this.message.length != ''){
