@@ -235,4 +235,10 @@ class Article extends \yii\db\ActiveRecord
         }
     }
     
+    public static function getList($offset,$limit)
+    {
+    	return self::find()->select('created_at,summary,id,title,thumb')->where(['type' =>0])->orderBy('updated_at desc')->offset($offset)->limit($limit)->asArray()->all();
+    }
+    
+    
 }
