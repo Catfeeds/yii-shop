@@ -194,6 +194,7 @@
                         overflow: hidden;
                         white-space: nowrap;
                         text-overflow: ellipsis;
+                        font-family: '微软雅黑';
                     }
                     p {
                         float: left;
@@ -202,6 +203,7 @@
                         margin: 12px 0 22px;
                         color: #f1451a;
                         font-size: 20px;
+                        font-family: '微软雅黑';
                     }
                 }
             }
@@ -555,6 +557,7 @@
             float: left;
             margin-top: 46px;
             margin-bottom: 16px;
+            font-family: "微软雅黑";
         }
         table {
             width: 100%;
@@ -566,9 +569,11 @@
                 float: left;
                 th {
                     text-align: left;
+                    font-family:"微软雅黑"
                 }
                 td {
                     text-align: left;
+                    font-family: "微软雅黑";
                     p {
                         float: left;
                         cursor: pointer;
@@ -576,6 +581,7 @@
                         height: 18px;
                         font-size: 16px;
                         line-height: 18px;
+                        font-family: "微软雅黑";
                     }
                     p:last-child {
                         padding-left: 7px;
@@ -623,6 +629,7 @@
             height: 80px;
             background: #fff;
             border-top: none;
+            font-family: "微软雅黑";
             a {
                 width: 180px;
                 height: 40px;
@@ -735,6 +742,7 @@
                     float: left;
                     line-height: 46px;
                     margin-top: 0;
+                    font-family: "微软雅黑";
                 }
                 .d1 {
                     @include dls1();
@@ -802,6 +810,7 @@
                             color: #3e3a39;
                             font-weight: normal;
                             line-height: 140px;
+                            font-family: "微软雅黑";
                         }
                     }
                     .orderNumber {
@@ -815,6 +824,7 @@
                             line-height: 40px;
                             float: left;
                             padding-left: 24px;
+                            font-family: "微软雅黑";
                         }
                     }
                     .order_list {
@@ -828,6 +838,7 @@
                         line-height: 140px;
                         font-size: 16px;
                         color: #3e3a39;
+                        font-family: "微软雅黑";
                     }
                     .btn_cz {
                         float: left;
@@ -841,7 +852,8 @@
                             width: 100%;
                             float: left;
                             margin: 5px 0;
-                            cursor: pointer;                            
+                            cursor: pointer;  
+                            font-family: "微软雅黑";                          
                         }
                         button:hover {
                             color: #d3b799;
