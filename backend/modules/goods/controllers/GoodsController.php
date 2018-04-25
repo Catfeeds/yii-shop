@@ -20,7 +20,7 @@ class GoodsController extends \yii\web\Controller
             'index' => [
                 'class' => IndexAction::className(),
                 'data' => function(){
-                    $searchModel = new GoodsSearch();
+                    $searchModel = new Goods();
                     $dataProvider = $searchModel->search(yii::$app->getRequest()->getQueryParams());
                     return [
                         'dataProvider' => $dataProvider,
