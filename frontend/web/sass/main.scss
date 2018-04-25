@@ -628,8 +628,7 @@
             border: 1px solid #d3d3d3;
             height: 80px;
             background: #fff;
-            border-top: none;
-            font-family: "微软雅黑";
+            border-top: none;           
             a {
                 width: 180px;
                 height: 40px;
@@ -639,6 +638,9 @@
                 display: block;
                 border-radius: 5px;
                 margin: 20px 0 0 60px;
+                font-family: "微软雅黑";
+                font-size: 18px;
+                color: #3e3a39;
             }
         }
         h3 {
