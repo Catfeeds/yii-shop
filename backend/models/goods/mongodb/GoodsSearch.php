@@ -62,14 +62,14 @@ class GoodsSearch extends Goods
 
     public function search($params)
     {
-    	$query = self::find();
+    	$query = self::find()->orderBy("_id desc");
     	$dataProvider = new ActiveDataProvider([
     			'query' => $query,
     			]);
-    	$this->load($params);
-    	if (! $this->validate()) {
-    		return $dataProvider;
-    	}
+    	//$this->load($params);
+    	//if (! $this->validate()) {
+    	//	return $dataProvider;
+    	//}
     	$query ->andFilterWhere(['like', 'name', $this->name]);
     	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = '';
     	if ($this->create_start_at != '') {
