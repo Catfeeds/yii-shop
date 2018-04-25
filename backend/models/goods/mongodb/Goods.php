@@ -23,7 +23,23 @@ use common\models\goods\mongodb\Goods as CommonGoods;
 class Goods extends CommonGoods
 {	
 	
-   
+	public function attributeLabels()
+	{
+		return [
+		'name' =>'商品名字',
+		'short_name' =>'商品简称',
+		'brief'=>'商品简介',
+		'shop_price' =>'销售价',
+		'cost_price' =>'成本价',
+		'weight' =>'商品重量',
+		'content' =>'商品描述',
+		'bid' =>'品牌',
+		'status'=>'上下架状态',
+		'is_audit'=>'审核状态',
+		'sort' =>'排序',
+		'image'=>'图片'
+				];
+	}
 
     /**
      * @inheritdoc
