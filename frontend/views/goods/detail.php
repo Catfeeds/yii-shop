@@ -52,6 +52,12 @@
 				<a href="/cart/index" class="al1">前往购物车结算</a>
 			</div>
 		</div>
+		<div v-show="popupShow2" id="carPopup" class="carPopup">
+			<span>{{ PromptMsg }}</span>
+			<div class="linkShop">
+				<a @click="PromptOk" href="javascript:;">确定</a>
+			</div>
+		</div>
 	</div>
 	<!-- 主体内容 end  -->
 </body>
@@ -64,6 +70,9 @@
 			data: {
 				carShow:false,
 				popupShow:false,
+				//提示错误
+				popupShow2: false,
+				PromptMsg: '',
 				goodUrl: '/goods/getdetail',
 				goodName: '',
 				goodPrice: '',
@@ -125,6 +134,10 @@
 			                	if(data.status == 0){
 			                		_this.carShow = true;
 	            		            _this.popupShow = true;
+			                	}else if(data.status == 1){
+			                		_this.carShow = true;
+	            		            _this.popupShow2 = true;
+	            		            _this.PromptMsg = '111111111111111';
 			                	}	                 	
 			                }
 			           }) 
@@ -133,6 +146,10 @@
             		}
             		         		            		
             	},
+            	PromptOk: function(){
+            		_this.carShow = false;
+	            	_this.popupShow2 = false;
+            	}
             	//直接购买
             	buyShop: function(){
             		var _this = this;
