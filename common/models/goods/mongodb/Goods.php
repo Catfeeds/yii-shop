@@ -9,6 +9,7 @@ use yii\data\ActiveDataProvider;
 use yii\mongodb\ActiveRecord;
 use common\models\goods\Product;
 use common\models\goods\Store;
+use common\service\goods\GoodsService;
 
 /**
  *
@@ -179,5 +180,17 @@ class Goods extends ActiveRecord
     		$this->is_product = 0;
     	}
     	return parent::beforeSave($insert);
+    }
+    
+    
+    public function getStore()
+    {
+    	if($this->is_product == 1)
+    	{
+    		return 0;
+    	}else
+    	{
+    		GoodsService::getStore((string)$this->_id);
+    	}
     }
 }
