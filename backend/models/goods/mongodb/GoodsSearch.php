@@ -60,7 +60,7 @@ class GoodsSearch extends Goods
     }
 
 
-    public function search($params)
+   /* public function search($params)
     {
     	$query = self::find()->orderBy("_id desc");
     	$dataProvider = new ActiveDataProvider([
@@ -70,7 +70,7 @@ class GoodsSearch extends Goods
     	if (! $this->validate()) {
     		return $dataProvider;
     	}
-    	/*$query ->andFilterWhere(['like', 'name', $this->name]);
+    	$query ->andFilterWhere(['like', 'name', $this->name]);
     	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = '';
     	if ($this->create_start_at != '') {
     		$create_start_at_unixtimestamp = strtotime($this->create_start_at);
@@ -89,8 +89,23 @@ class GoodsSearch extends Goods
     				$create_start_at_unixtimestamp,
     				$create_end_at_unixtimestamp
     				]);
-    	}*/
+    	}
+    	
+    	return $dataProvider;
+    }*/
+	
+    public function search($params)
+    {
+    	$query = self::find();
+    	$dataProvider = new ActiveDataProvider([
+    			'query' => $query,
+    			'sort' => [
+    			'defaultOrder' => [
+    			'created_at' => SORT_DESC,
+    			'updated_at' => SORT_DESC,
+    			]
+    			]
+    			]);
     	return $dataProvider;
     }
-
 }
