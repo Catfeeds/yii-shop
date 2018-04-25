@@ -52,6 +52,8 @@
 				<a href="/cart/index" class="al1">前往购物车结算</a>
 			</div>
 		</div>
+		
+		<!--错误提示-->
 		<div v-show="popupShow2" id="carPopup" class="carPopup">
 			<span>{{ PromptMsg }}</span>
 			<div class="linkShop">
@@ -164,7 +166,11 @@
 		                success: function(data) {
 			                	if(data.status == 0){
 			                		window.location = '/order/index';
-			                	}	                 	
+			                	}else if(data.status == 1){
+			                		_this.carShow = true;
+	            		            _this.popupShow2 = true;
+	            		            _this.PromptMsg = data.msg;
+			                	}		                 	
 			                }
 			           }) 
             		}else{
