@@ -329,6 +329,7 @@ header .laber_header {
 	height: 128px;
 	background: #f7f8f8;
 	min-width: 1200px;
+	background: #fff;
 }
 
 header .laber_header .header_main {
