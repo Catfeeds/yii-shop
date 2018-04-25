@@ -22,20 +22,6 @@ use common\models\goods\Store;
 class GoodsSearch extends CommonGoods
 {	
 
-    public function search($params)
-    {
-    	$query = self::find();
-    	$dataProvider = new ActiveDataProvider([
-    			'query' => $query,
-    			'sort' => [
-    			'defaultOrder' => [
-    			'created_at' => SORT_DESC,
-    			'updated_at' => SORT_DESC,
-    			]
-    			]
-    			]);
-    	return $dataProvider;
-    }
     
   
 }
