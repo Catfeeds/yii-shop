@@ -59,6 +59,14 @@ class OrderController extends BaseController
 	    	{
 	    		return ['status' =>1,'msg' =>'参数提交错误'];
 	    	}
+	    	foreach($goods as $v)
+	    	{
+	    		$store = GoodsService::getStore($v['goods_id']);	
+	    		if($store < $v['goods_num'])
+	    		{
+	    			return ['status' => 1,'msg' =>'商品库存不足'];
+	    		}
+	    	}
 	    	$key = Yii::$app->params['goods.selectcart'];
 	    	Yii::$app->session->set($key,$goods);
 	    	return ['status' => 0,'msg' =>'ok'];
