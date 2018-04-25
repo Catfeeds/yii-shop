@@ -147,7 +147,9 @@
         margin-right: 10px; }
         .laber_goods .goods_main ul li a {
           width: 100%;
-          float: left; }
+          float: left;
+          background: #fff;
+          margin-bottom: 10px; }
           .laber_goods .goods_main ul li a img {
             width: 100%;
             height: auto;
