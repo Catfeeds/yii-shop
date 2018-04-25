@@ -119,11 +119,6 @@
 				shopUrl: '',
 				dataForm: []	
 			},
-//			filters:{ 
-//		        formatMoney:function (value) { // 默认接收一个参数
-//		            return value.toFixed(2); // 返回一个¥ 加上2位小数
-//		        }
-//		    },
 			created: function(){
 				var _this = this;
 				var goodId;
@@ -220,7 +215,7 @@
 								    _this.noneCar = true;
 								}
 	                    	}else{
-	                    		console.log('失败');
+	                    		alert('删除商品失败');
 	                    	}
 	                    }
             		});
@@ -245,7 +240,6 @@
    	                    data: {goods:_this.dataForm},
    	                    success: function(data){
                               if(data.status == 0){
-                              	console.log(_this.dataForm)
                               	window.location = '/order/index';
                               }else{
                               	alert('错误');

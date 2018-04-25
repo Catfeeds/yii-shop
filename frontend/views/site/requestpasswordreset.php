@@ -160,7 +160,6 @@ use yii\helpers\Url;
 	                  			clearInterval(setTime);
 	                  			_this.disabled = false;
 	                  		}
-	                  		console.log(_this.time)
 	                  	},1000)
 	                }                  
 		            _this.sendMsgDisabled = true;
@@ -176,11 +175,9 @@ use yii\helpers\Url;
 		                data: {mobile: _this.datainfo.mobile, captcha: _this.captcha},
 		                success: function(data) {
 		                 	if(data.status == 0){
-		                        console.log('发送成功');
-		                        console.log(data);		                                                
+		                        console.log('发送成功');	                                                
 		                    }else{
-		                    	console.log('发送失败');
-		                        console.log(data);	
+		                    	alert('发送失败');
 		                    }
 		                }
 		           })                  
@@ -199,12 +196,10 @@ use yii\helpers\Url;
 		                success: function(data) {
 		                	if(data.status == 0){
 		                		console.log('修改成功');
-		                		console.log(data);
 		                		_this.carShow = true;
 	    			    	    _this.popupShow = true;	
 		                	}else {
 		                		console.log('修改失败');
-		                        console.log(data);	
 		                	}	                    
 		                }
 		            })

@@ -112,7 +112,9 @@
 						    _this.imgArr = data.data.image;
 						    _this.keyArr = data.data.ext;
 						    _this.content = data.data.content;						    
-	                	}	                 	
+	                	}else {
+	                		alert('商品加载错误...');
+	                	}                 	
 	                }
 	            })	            	            	                    
 			},
@@ -140,7 +142,9 @@
 			                		_this.carShow = true;
 	            		            _this.popupShow2 = true;
 	            		            _this.PromptMsg = data.msg;
-			                	}	                 	
+			                	}else {
+			                		alert('加入购物车失败...')
+			                	}                 	
 			                }
 			           }) 
             		}else{

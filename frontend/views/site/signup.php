@@ -217,7 +217,6 @@ use yii\helpers\Url;
 		                data: {mobile: this.datainfo.mobile, password: this.datainfo.password, code: this.code},
 		                success: function(data) {
 		                	if(data.status == 0){
-		                		console.log('注册成功');
 		                		_this.carShow = true;
 	    			    	    _this.popupShow = true;	
 		                	}else if(data.status == 1){

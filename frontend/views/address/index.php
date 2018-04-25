@@ -223,8 +223,7 @@
 	       	    		async:true,
 	       	    		success: function(data) {
 			                if(data.status == 0){		                   
-			                    _this.addressData = data.data;
-			                    console.log(_this.addressData)		                    
+			                    _this.addressData = data.data;                
 			                    if(_this.addressData.length != 0){
 									_this.sp = true;
 								    _this.cartOrders = true;
@@ -420,7 +419,7 @@
 								    _this.noneCar = true;
 								}
 	                    	}else{
-	                    		alert('失败');
+	                    		alert('删除失败');
 	                    	}
 	                    }
             		});
@@ -440,7 +439,6 @@
 			            data: {id:item.id},
 			            success: function(data) {
 			                if(data.status == 0){
-			                    console.log(data.data);
 			                    var datas = data.data;
 			                    _this.addressShow2 = true;
 			                    _this.carShow = true; 
@@ -457,7 +455,7 @@
 			                    _this.editData.address = datas.address;
 			                    _this.editData.id = datas.id;          
 			                }else{
-			                	console.log('shibai')
+			                	alert('编辑失败');
 			                }              	
 			            }
 			        })
@@ -479,7 +477,6 @@
 				            data: _this.editData,
 				            success: function(data) {
 				                if(data.status == 0){
-				                    console.log('chenggong')
 				                    
 				                    _this.$nextTick( function(){
 				                    	_this.dressData();
@@ -487,7 +484,7 @@
 				                    _this.carShow = false;
 	       	    	                _this.addressShow2 = false;	      
 				                }else{
-				                	console.log('shibai')
+				                	alert('保存失败');
 				                }              	
 				            }
 				        })

@@ -160,7 +160,6 @@
                 		success: function(data){
                 			if(data.status == 0){
        				             urlLogistics = data.url;
-       				             console.log(urlLogistics)
        				             wd.location.href = urlLogistics;
                 			}else{
                 				alert('物流信息有误');
