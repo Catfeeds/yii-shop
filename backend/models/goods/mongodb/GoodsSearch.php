@@ -10,7 +10,6 @@ use yii\mongodb\ActiveRecord;
 use common\models\goods\Product;
 use common\models\goods\Store;
 use common\service\goods\GoodsService;
-use common\models\goods\mongodb\Goods as CommonGoods;
 /**
  *
  * @property string $id
