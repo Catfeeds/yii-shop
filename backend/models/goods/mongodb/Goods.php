@@ -23,10 +23,6 @@ use common\models\goods\mongodb\Goods as CommonGoods;
 class Goods extends CommonGoods
 {	
 	
-	public $create_start_at;
-	
-	public $create_end_at;
-	
     
     public function attributes()
     {
