@@ -66,11 +66,11 @@ class GoodsSearch extends Goods
     	$dataProvider = new ActiveDataProvider([
     			'query' => $query,
     			]);
-    	//$this->load($params);
-    	//if (! $this->validate()) {
-    	//	return $dataProvider;
-    	//}
-    	$query ->andFilterWhere(['like', 'name', $this->name]);
+    	$this->load($params);
+    	if (! $this->validate()) {
+    		return $dataProvider;
+    	}
+    	/*$query ->andFilterWhere(['like', 'name', $this->name]);
     	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = '';
     	if ($this->create_start_at != '') {
     		$create_start_at_unixtimestamp = strtotime($this->create_start_at);
@@ -89,7 +89,7 @@ class GoodsSearch extends Goods
     				$create_start_at_unixtimestamp,
     				$create_end_at_unixtimestamp
     				]);
-    	}
+    	}*/
     	return $dataProvider;
     }
 
