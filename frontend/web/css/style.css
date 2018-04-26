@@ -345,14 +345,10 @@ header .laber_header .header_main {
 
 
 .header_main>nav li {
-	margin: 0 26px;
-}
-
-.header_main>nav li {
 	float: left;
 }
 
-.header_main .nav_fl li:first-child {
+.header_main .nav_fl li:first-child a {
 	margin-left: 0;
 }
 
@@ -360,19 +356,45 @@ header .laber_header .header_main {
 	font-size: 14px;
 	color: #3e3a39;
 	font-family: "微软雅黑";
+	padding: 0 33px;
+    padding-top: 15px;
+    position: relative;
 }
 
 .header_main>nav .on a {
 	color: #d3b799;
+}
+.header_main>nav .on a:after {
+	content: '';
+	width: 50px;
+	height: 4px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -25px;
+	background: #d3b799;
 }
 
 .header_main>nav li a:hover {
 	color: #d3b799;
 	transform: all 1s;
 }
+.header_main>nav li a:hover:after{
+	content: '';
+	width: 50px;
+	height: 4px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -25px;
+	background: #d3b799;
+}
 
-.header_main .nav_fr li:last-child {
-	margin-right: 0;
+.header_main .nav_fr li:last-child a {
+	padding-right: 0;
+}
+.header_main .nav_fr li:last-child a:after {
+	margin-left: -11px;
 }
 
 .header_main .logo {
