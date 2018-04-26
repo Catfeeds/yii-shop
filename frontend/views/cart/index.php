@@ -117,7 +117,7 @@
 				id: '',
 				shopUrl: '',
 				dataForm: [],
-				disabled3:false	
+				disabled3:true	
 			},
 			created: function(){
 				var _this = this;
