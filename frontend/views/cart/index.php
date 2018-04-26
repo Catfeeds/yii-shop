@@ -118,8 +118,8 @@
 				shopUrl: '',
 				dataForm: [],
 				disabled3:true,
-				active3: false,
-				active4: true	
+				isActive3: false,
+				isActive4: true	
 			},
 			created: function(){
 				var _this = this;
@@ -255,8 +255,8 @@
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
 		                _this.disabled3 = false;
-		                _this.active4 = false;        
-		                _this.active3 = true;    
+		                _this.isActive4 = false;        
+		                _this.isActive3 = true;    
 		            }else{
 		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
@@ -273,13 +273,13 @@
 			                if(typeof item.checked == 'undefined'){ // 先判断 是否有这个 item.checked
 			                    Vue.set(item,"checked", _this.checkAllFlag);  // 没有 先注
 			                    _this.disabled3 = false;
-			                    _this.active4 = false;        
-		                        _this.active3 = true; 
+			                    _this.isActive4 = false;        
+		                        _this.isActive3 = true; 
 			                }else {
 			                    item.checked = _this.checkAllFlag;
 			                    _this.disabled3 = false;
-			                    _this.active4 = false;        
-		                        _this.active3 = true; 
+			                    _this.isActive4 = false;        
+		                        _this.isActive3 = true; 
 			                }
 			            });
 		        	}else if(_this.checkAllFlag == true){
