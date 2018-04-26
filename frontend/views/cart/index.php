@@ -58,7 +58,7 @@
             				<div class="js">
 	        					<div class="cart_zj">
 	        						<p>总计：{{ zjPrice | formatMoney }}元</p>
-	        						<a @click="cart_js" class="cart_js" href="javascript:;">立即结算</a>
+	        						<a :disabled="disabled3"  @click="cart_js" class="cart_js" href="javascript:;">立即结算</a>
 	        					</div>
 	        				</div>
             			</div>           			
@@ -116,7 +116,8 @@
 				zjPrice: 0,
 				id: '',
 				shopUrl: '',
-				dataForm: []	
+				dataForm: [],
+				disabled3:false	
 			},
 			created: function(){
 				var _this = this;
