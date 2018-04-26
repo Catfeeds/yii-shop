@@ -146,7 +146,7 @@ use yii\helpers\Url;
 				},
 				codes: function() {
 					if(this.code == ''){
-						this.msgdx = '请填写正确的短信验证码！';	
+						this.msgdx = '短信验证码错误';	
 					    return false;
 					}else {
 						this.msgdx = '';	
@@ -155,7 +155,7 @@ use yii\helpers\Url;
 				captchaBtn: function(){
 					var _this = this;
 					if(_this.captcha.length != 4){
-					  _this.msgtx = '请填写正确的图形验证码';
+					  _this.msgtx = '图形验证码错误';
 					  return false;
 					}else {
 					  _this.msgtx = '';
