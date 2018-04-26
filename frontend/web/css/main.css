@@ -1,21 +1,25 @@
 @charset "UTF-8";
 .laber_login {
   width: 100%;
-  min-width: 1200px; }
+  min-width: 1200px;
+  background: url(../img/login.jpg) no-repeat center center;
+  height: 927px; }
   .laber_login .login_main {
     width: 100%;
     float: left;
-    margin-top: 90px; }
+    margin-top: 30px; }
     .laber_login .login_main .login_center {
       width: 520px;
       margin: 0 auto;
-      text-align: center; }
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      overflow: hidden;
+      padding: 60px 50px 54px;
+      border-radius: 15px; }
       .laber_login .login_main .login_center h1 {
         font-size: 24px;
         color: #3e3a39;
-        margin-bottom: 10px;
-        font-family: "微软雅黑";
-        font-weight: lighter; }
+        margin-bottom: 10px; }
       .laber_login .login_main .login_center form {
         width: 360px;
         margin: 0 auto; }
@@ -74,10 +78,7 @@
           margin-top: 30px;
           margin-bottom: 14px;
           border-radius: 5px;
-          cursor: pointer;
-          font-family: "微软雅黑";
-          font-size: 18px;
-          color: #3e3a39; }
+          cursor: pointer; }
         .laber_login .login_main .login_center form .active1 {
           background: #d3b799; }
         .laber_login .login_main .login_center form .active2 {
@@ -91,7 +92,7 @@
           width: 100%;
           height: 14px;
           position: relative;
-          margin-top: 94px; }
+          margin-top: 64px; }
           .laber_login .login_main .login_center form .qt b {
             width: 122px;
             height: 1px;
@@ -113,7 +114,6 @@
           width: 100%;
           float: left;
           margin-top: 26px;
-          margin-bottom: 200px;
           text-align: center; }
           .laber_login .login_main .login_center form .dsf a {
             width: 70px;

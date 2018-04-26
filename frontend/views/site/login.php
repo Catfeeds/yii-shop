@@ -37,9 +37,6 @@
 					</div>
 				</div>
 			</section>
-			<div class="contmain7">
-				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
-			</div>
 			<div v-show="carShow" id="carBg" class="carBg"></div>
 			<div v-show="popupShow" id="carPopup" class="carPopup">
 				<i @click="carQx"></i>

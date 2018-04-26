@@ -5,7 +5,7 @@ use yii\helpers\Url;
 			<section class="laber_login">
 				<div class="login auto clearfix">
 					<div class="login_main">
-						<div class="login_center">
+						<div class="login_center" style="padding: 40px 50px;">
 							<h1>文榜用户注册</h1>
 							<form>
 								<div class="list">
@@ -56,9 +56,6 @@ use yii\helpers\Url;
 					</div>
 				</div>
 			</section>
-			<div class="contmain7">
-				<?php include dirname(__DIR__).'/layouts/footer.php'?> 
-			</div>
 			<div v-show="carShow" id="carBg" class="carBg"></div>
 			<div v-show="popupShow" id="carPopup" class="carPopup">
 				<i></i>
