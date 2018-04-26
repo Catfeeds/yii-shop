@@ -261,9 +261,9 @@ class SiteController extends BaseController
     
     public function actionCaptcha()
     {	
-    	ob_clean();
+    	ob_end_clean();
     	$captcha = new ValidateCode();
-    	$captcha->doimg();
+    	$captcha->outimg();
     	Yii::$app->session->set('captcha',$captcha->getCode());
     }
     
