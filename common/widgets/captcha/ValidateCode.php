@@ -65,7 +65,7 @@ class ValidateCode {
 			
 			$color = imagecolorallocate ( $this->img, rand ( 0, 128 ), rand ( 0, 128 ), rand ( 0, 128 ) );
 			
-			$fontsize = 20; // 字体大小
+			$fontsize = 80; // 字体大小
 			
 			$x = 3 + ($this->width / $this->num) * $i; // 水平位置
 			$y = rand ( 0, imagefontheight ( $fontsize ) - 3 );
