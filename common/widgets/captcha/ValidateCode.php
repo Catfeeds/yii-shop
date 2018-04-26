@@ -49,7 +49,7 @@ class ValidateCode {
 		// 创建资源
 		$this->img = imagecreatetruecolor ( $this->width, $this->height );
 		// 设置随机的背景颜色
-		$bgcolor = imagecolorallocate ( $this->img, rand ( 157, 255 ), rand ( 157, 255 ), rand ( 157, 255 ) );
+		$bgcolor = imagecolorallocate ( $this->img, rand ( 230, 255 ), rand ( 230, 255 ), rand ( 230, 255 ) );
 		// 设置背景填充
 		imagefill ( $this->img, 0, 0, $bgcolor );
 		// 画边框
