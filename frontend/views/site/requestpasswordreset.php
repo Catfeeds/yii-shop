@@ -33,7 +33,7 @@ use yii\helpers\Url;
 									<input @blur="checkpas" type="password" v-model="pas" name="password" id="pass" placeholder="请再次输入您的登录密码" />
 									<strong class="stro1">{{ msgpas }}</strong>
 								</div>
-								<button type="button" style="margin: 76px 0 200px;" @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">确定</button>
+								<button type="button" style="margin: 76px 0 100px;" @click="register" :disabled="disabled2" class="immediately" :class="{active1: isactive1, active2: isactive2}">确定</button>
 							</form>
 						</div>
 					</div>
