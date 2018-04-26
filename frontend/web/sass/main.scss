@@ -1056,13 +1056,18 @@
                     float: right;
                     width: 180px;
                     height: 40px;
-                    background: #d3b799;
                     border-radius: 4px;
                     text-align: center;
                     line-height: 40px;
                     margin-right: 36px;
                     font-family: "微软雅黑";
                     font-size: 18px;
+                }
+                .active3 {
+                    background: #d3b799;
+                }
+                .active4 {
+                    background: #bbbbbb;
                 }
             }
         }

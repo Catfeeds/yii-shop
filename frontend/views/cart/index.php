@@ -58,7 +58,7 @@
             				<div class="js">
 	        					<div class="cart_zj">
 	        						<p>总计：{{ zjPrice | formatMoney }}元</p>
-	        						<button :disabled="disabled3"  @click="cart_js" class="cart_js" type="button">立即结算</button>
+	        						<button :disabled="disabled3" :class="{active3:isActive3, active4:isActive4}"  @click="cart_js" class="cart_js" type="button">立即结算</button>
 	        					</div>
 	        				</div>
             			</div>           			
@@ -117,7 +117,9 @@
 				id: '',
 				shopUrl: '',
 				dataForm: [],
-				disabled3:true	
+				disabled3:true,
+				active3: false,
+				active4: true	
 			},
 			created: function(){
 				var _this = this;
@@ -252,7 +254,9 @@
             		var _this = this;
 		            if( typeof item.checked == 'undefined'){ 
 		                Vue.set(item,"checked",true);
-		                _this.disabled3 = false;	                
+		                _this.disabled3 = false;
+		                _this.active4 = false;        
+		                _this.active3 = true;    
 		            }else{
 		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
@@ -269,9 +273,13 @@
 			                if(typeof item.checked == 'undefined'){ // 先判断 是否有这个 item.checked
 			                    Vue.set(item,"checked", _this.checkAllFlag);  // 没有 先注
 			                    _this.disabled3 = false;
+			                    _this.active4 = false;        
+		                        _this.active3 = true; 
 			                }else {
 			                    item.checked = _this.checkAllFlag;
 			                    _this.disabled3 = false;
+			                    _this.active4 = false;        
+		                        _this.active3 = true; 
 			                }
 			            });
 		        	}else if(_this.checkAllFlag == true){
