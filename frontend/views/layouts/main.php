@@ -71,7 +71,7 @@ $this->beginPage() ?>
 					    <li <?php if($action =='old'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/old')?>">古茶树认养</a></li>
 						<li <?php if($action=='member'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/member')?>">会员服务</a></li>
 						<li <?php if($action=='news'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/news')?>">新闻中心</a></li>	
-						<li <?php if($action=='list'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/goods/list')?>">在线商城</a></li>					
+						<li <?php if($action=='list' || !Yii::$app->user->isGuest):?> class="on"<?php endif;?>> <a href="<?=Url::to('/goods/list')?>">在线商城</a></li>					
 					</nav>
 				</div>				
 			</div>
