@@ -58,7 +58,7 @@
             				<div class="js">
 	        					<div class="cart_zj">
 	        						<p>总计：{{ zjPrice | formatMoney }}元</p>
-	        						<a :disabled="disabled3"  @click="cart_js" class="cart_js" href="javascript:;">立即结算</a>
+	        						<button :disabled="disabled3"  @click="cart_js" class="cart_js" type="button">立即结算</button>
 	        					</div>
 	        				</div>
             			</div>           			
