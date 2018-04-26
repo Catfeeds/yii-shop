@@ -34,6 +34,10 @@ class Weixin{
 		$url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$this->appid.'&secret='.$this->secret.'&code='.$code.'&grant_type=authorization_code';
 		$response = FuncHelper::get($url);
 		$response = json_decode($response,true);
+		if(isset($response['errcode']))
+		{
+			return false;
+		}
 		$this->openid = $response['openid'];
 		$this->accessToken = $response['access_token'];
 		return true;
@@ -47,6 +51,10 @@ class Weixin{
 		$response = FuncHelper::get($url);
 		$response = json_decode($response,true);
 		$userinfo=[];
+		if(isset($response['errcode']))
+		{
+			return false;
+		}
 		if($response)
 		{
 			$userinfo['avatar'] = $response['headimgurl'];

@@ -28,7 +28,7 @@ return [
      ],
     'weixin'=>[//微信登录,微信开放平台只设置回调域名即可 
         'appid' =>'wxfc78ab1472d039fd',
-        'appsecret' =>'6a3facc08da612495421efb22f153735',
+        'appsecret' =>'f080f76ad8cb5b88abdd0af09973a68f',
         'callback' =>'http://www.wenbangtea.com/user/weixin',
     ],
     'weixin.notify' => 'http://www.wenbangtea.com/pay/weixinnotify/',//微信支付回调
