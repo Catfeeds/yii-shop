@@ -228,7 +228,8 @@
                 			temp.goods_id = item.goods_id;
                 			temp.id = item.id.$oid;
                 			temp.goods_num = item.goods_num;
-                			_this.dataForm.push(temp);                				                  	 			
+                			_this.dataForm.push(temp);
+                			_this.disabled3 = false;                				                  	 			
                 		}else{
                 			return;
                 		}
