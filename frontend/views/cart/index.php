@@ -228,8 +228,7 @@
                 			temp.goods_id = item.goods_id;
                 			temp.id = item.id.$oid;
                 			temp.goods_num = item.goods_num;
-                			_this.dataForm.push(temp);
-                			_this.disabled3 = false;                				                  	 			
+                			_this.dataForm.push(temp);               			              				                  	 			
                 		}else{
                 			return;
                 		}
@@ -252,7 +251,8 @@
             	selectedProduct:function (item) { // 接收的参数
             		var _this = this;
 		            if( typeof item.checked == 'undefined'){ 
-		                Vue.set(item,"checked",true);		                
+		                Vue.set(item,"checked",true);
+		                _this.disabled3 = false;	                
 		            }else{
 		                item.checked = !item.checked;
 		                this.checkAllFlag = false ;
@@ -268,9 +268,10 @@
 			            _this.message.forEach(function (item,index) { // 用forEach来遍历 message
 			                if(typeof item.checked == 'undefined'){ // 先判断 是否有这个 item.checked
 			                    Vue.set(item,"checked", _this.checkAllFlag);  // 没有 先注
+			                    _this.disabled3 = false;
 			                }else {
 			                    item.checked = _this.checkAllFlag;
-			                    
+			                    _this.disabled3 = false;
 			                }
 			            });
 		        	}else if(_this.checkAllFlag == true){
