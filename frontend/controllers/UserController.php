@@ -119,7 +119,8 @@ class UserController extends BaseController
     		}
     		return $this->redirect('/');
     	}else{
-    		return $this->redirect('/');
+    		Yii::$app->session->setFlash('msg','无法获取微信用户信息');
+    		return $this->redirect('/site/msg');
     	}
     }
 
