@@ -22,13 +22,13 @@ use yii\helpers\Url;
             			</ul>
             			<div v-show="pagShow" class="pagMain">
 							<div class="itemPage" v-show="current != 1" @click="current-- && goto(current--)">
-								<a href="#">上一页</a>
+								<a href="javascript:;">上一页</a>
 							</div>
 							<div class="itemPage" v-for="index in pages" @click="goto(index)" :class="{'active':current == index}" :key="index">
-								<a href="#">{{index}}</a>
+								<a href="javascript:;">{{index}}</a>
 							</div>
 							<div class="itemPage" v-show="allpage != current && allpage != 0 " @click="current++ && goto(current++)">
-								<a href="#">下一页</a>
+								<a href="javascript:;">下一页</a>
 							</div>
 						</ul>
             		</div>
