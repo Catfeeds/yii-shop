@@ -117,7 +117,6 @@ use yii\helpers\Url;
 				            	$('#loadMain').html('');
 				            	_this.aLis = data.data;
 				            	aSize = Math.ceil(data.count / _this.size);
-				            	console.log(aSize);
 				            	_this.allpage = aSize;	
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
