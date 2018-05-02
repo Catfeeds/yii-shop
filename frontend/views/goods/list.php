@@ -94,7 +94,8 @@ use yii\helpers\Url;
 				},
 				
 				dataInfo: function(cur){
-					var _this = this;					
+					var _this = this;
+					var aSize = null;				
 					$.ajax({
 		                url: '/goods/getlist?page=' + cur,
 		                type: 'GET',
@@ -114,7 +115,9 @@ use yii\helpers\Url;
 			                if(data.status =='0')
 				            {
 				            	$('#loadMain').html('');
-				            	_this.aLis = data.data;			            	
+				            	_this.aLis = data.data;
+				            	aSize = Math.ceil(data.count / _this.size);
+				            	_this.allpage = aSize;	
 				            	if(_this.aLis.length != 0){
 					            	_this.goooList = true;
 					            	_this.noneCar = false;
