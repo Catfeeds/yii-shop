@@ -40,7 +40,7 @@ $this->beginPage() ?>
 		    </script>
 		<![endif]-->
 		<header>
-			<div class="laber_top">
+			<!--<div class="laber_top">
 				<div class="top_main auto">
 					
 					<div class="login">
@@ -58,7 +58,7 @@ $this->beginPage() ?>
 						  <?php endif;?>
 					</div>
 				</div>
-			</div>
+			</div>-->
 			<div class="laber_header">
 				<div class="header_main auto">
 					<a class="logo" href="/"><img src="/img/logo.png"></a>
@@ -71,7 +71,7 @@ $this->beginPage() ?>
 					    <li <?php if($action =='old'):?>class="on"<?php endif;?>><a href="<?=Url::to('/site/old')?>">古茶树认养</a></li>
 						<li <?php if($action=='member'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/member')?>">会员服务</a></li>
 						<li <?php if($action=='news'):?> class="on"<?php endif;?>> <a href="<?=Url::to('/site/news')?>">新闻中心</a></li>	
-						<li <?php if(in_array($controller,['goods','address','user','cart','order'])):?> class="on"<?php endif;?>> <a href="<?=Url::to('/goods/list')?>">在线商城</a></li>					
+						<!--<li <?php if(in_array($controller,['goods','address','user','cart','order'])):?> class="on"<?php endif;?>> <a href="<?=Url::to('/goods/list')?>">在线商城</a></li>-->					
 					</nav>
 				</div>				
 			</div>
