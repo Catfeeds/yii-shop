@@ -23,7 +23,6 @@ function getData(offset,size){
 			console.log(data)
 			var sum = reponse.articles.length;
 			var result = '';
-			var oUrl = 
 			
 			//不够一页的数量
 			if(sum - offset < size){
@@ -31,7 +30,7 @@ function getData(offset,size){
 			}
 			
 			for(var i=offset;i<(offset + size);i++){
-				result += '<div class="item"><a class="link_pic" href=""><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].summary+'</a></div>'
+				result += '<div class="item"><a class="link_pic" href="'+data[i].url+'"><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].summary+'</a></div>'
 			}
 			$('#news_main').append(result);
 			if ( (offset + size) >= sum){
