@@ -11,7 +11,7 @@ namespace common\models;
 use Yii;
 use common\libs\Constants;
 use yii\behaviors\TimestampBehavior;
-
+use common\models\ArticleContent;
 /**
  * This is the model class for table "{{%article}}".
  *
@@ -230,9 +230,7 @@ class Article extends \yii\db\ActiveRecord
     public function afterFind()
     {
         parent::afterFind();
-        if ($this->thumb) {
-            $this->thumb = str_replace(yii::$app->params['site']['sign'], yii::$app->params['site']['url'], $this->thumb);
-        }
+    	$this->content = ArticleContent::findOne(['aid' => $this->id])['content'];
     }
     
     public static function getList($offset,$limit)
