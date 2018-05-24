@@ -31,7 +31,7 @@ function getData(offset,size){
 			}
 			
 			for(var i=offset;i<(offset + size);i++){
-				result += '<div class="item"><a class="link_pic" href="'+data[i].url+'"><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].summary+'</a></div>'
+				result += '<div class="item"><a class="link_pic" href=""><img src="'+data[i].thumb+'"></a><span>'+data[i].title+'</span><a class="link_p" href="">'+data[i].summary+'</a></div>'
 			}
 			$('#news_main').append(result);
 			if ( (offset + size) >= sum){
