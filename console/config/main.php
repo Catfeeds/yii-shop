@@ -29,7 +29,8 @@ return [
 	          'pid_file' => __DIR__ . '/../runtime/logs/server.pid',
 	          'log_file' => __DIR__ . '/../runtime/logs/swoole.log',
 	          'log_level' => 0,
-        ],
+         ],
+		]
     ],
     'components' => [
         'log' => [
