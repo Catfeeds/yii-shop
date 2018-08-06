@@ -18,7 +18,7 @@ return [
           ],
         'websocket' => [
           'class' => 'jianyan\websocket\console\WebSocketController',
-   		  'server' => 'jianyan\websocket\server\WebSocketServer', // 可替换为自己的业务类继承该类即可
+   		  'server' => 'frontend\websocket\WebSocketServer', // 可替换为自己的业务类继承该类即可
           'host' => '0.0.0.0',// 监听地址
           'type' => 'ws', // 默认为ws连接，可修改为wss
           'port' => 8080,// 监听端口
