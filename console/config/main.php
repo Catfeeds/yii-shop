@@ -21,7 +21,7 @@ return [
    		  'server' => 'jianyan\websocket\server\WebSocketServer', // 可替换为自己的业务类继承该类即可
           'host' => '0.0.0.0',// 监听地址
           'type' => 'ws', // 默认为ws连接，可修改为wss
-          'port' => 9501,// 监听端口
+          'port' => 8080,// 监听端口
           'config' => [// 标准的swoole配置项都可以再此加入
 	          'daemonize' => false,// 守护进程执行
 	          'task_worker_num' => 4,//task进程的数量
