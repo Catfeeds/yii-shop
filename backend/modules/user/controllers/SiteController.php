@@ -104,6 +104,6 @@ class SiteController extends \yii\web\Controller
     {
     	$verify = new Verify();
     	ob_clean();
-    	return $verify->entry();
+    	return $verify->entry(); exit;
     }
 }
