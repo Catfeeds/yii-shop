@@ -102,7 +102,7 @@ class SiteController extends \yii\web\Controller
     
     public function actionCaptcha()
     {
-    	$verify = new Verify();
+    	$verify = new Verify(['imageW' => 100,'imageH' => 34,'length' => 4]);
     	ob_end_clean();
     	$verify->entry();
     }
