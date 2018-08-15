@@ -15,7 +15,7 @@ use yii\base\UserException;
 use yii\db\Query;
 use yii\web\HttpException;
 use yii\captcha\CaptchaAction;
-
+use common\service\code\Verify;
 class SiteController extends \yii\web\Controller
 {
 
@@ -114,5 +114,12 @@ class SiteController extends \yii\web\Controller
 
         return $this->goHome();
     }
-
+	
+    
+    public function actionCaptcha()
+    {
+    	$verify = new Verify();
+    	ob_clean();
+    	return $verify->entry();
+    }
 }
