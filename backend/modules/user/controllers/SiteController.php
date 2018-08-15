@@ -19,23 +19,7 @@ use common\service\code\Verify;
 class SiteController extends \yii\web\Controller
 {
 
-    public function actions()
-    {
-        return [
-            'captcha' => [
-                'class' => CaptchaAction::className(),
-                //'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,//本行可能引起更换验证码失效，必须刷新浏览器
-                'backColor' => 0x66b3ff,//背景颜色
-                'maxLength' => 4,//最大显示个数
-                'minLength' => 4,//最少显示个数
-                'padding' => 6,//验证码字体大小，数值越小字体越大
-                'height' => 34,//高度
-                'width' => 100,//宽度
-                'foreColor' => 0xffffff,//字体颜色
-                'offset' => 13,//设置字符偏移量
-            ],
-        ];
-    }
+   
 
     public function actionLogin()
     {
