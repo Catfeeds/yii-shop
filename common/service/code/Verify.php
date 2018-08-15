@@ -1,7 +1,7 @@
 <?php
 namespace  common\service\code;
 use Yii;
-class Verify {
+class Verify  extends yii\base\BaseObject{
 	protected $config =	array(
 			'seKey'     =>  'YII',   // 验证码加密密钥
 			'codeSet'   =>  '2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY',             // 验证码字符集合
