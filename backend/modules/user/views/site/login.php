@@ -67,12 +67,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'password', ['template' => "<div style='position:relative'>{input}\n{error}\n{hint}</div>"])
                 ->passwordInput(['placeholder' => yii::t("app", "Password")]) ?>
 
-            <?= $form->field($model, 'captcha', ['template' => '<div style="position:relative">{input}{error}{hint}</div>'])->widget(Captcha::classname(), [
-                'template' => '{input}{image}',
-                'options' => [
-                    'style' => "width:300px;height:34px;position:relative;top:2px",
-                ]
-            ]) ?>
             
             <div class="form-group field-loginform-captcha">
 				<div style="position:relative">
