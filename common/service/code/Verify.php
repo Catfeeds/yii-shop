@@ -1,7 +1,7 @@
 <?php
 namespace  common\service\code;
 use Yii;
-class Verify  extends yii\base\BaseObject{
+class Verify {
 	protected $config =	array(
 			'seKey'     =>  'YII',   // 验证码加密密钥
 			'codeSet'   =>  '2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY',             // 验证码字符集合
@@ -93,11 +93,7 @@ class Verify  extends yii\base\BaseObject{
 		return false;
 	}
 	
-	public function getVerifyCode()
-	{
-		$key = $this->authcode($this->seKey);
-		return Yii::$app->session->get($key);
-	}
+
 
 	/**
 	 * 输出验证码并把验证码的值保存的session中
