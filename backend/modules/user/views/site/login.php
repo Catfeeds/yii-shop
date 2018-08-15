@@ -15,8 +15,6 @@ use backend\assets\AppAsset;
 use yii\helpers\Html;
 use backend\widgets\ActiveForm;
 use yii\helpers\Url;
-use feehi\components\Captcha;
-use common\service\code\Verify;
 AppAsset::register($this);
 $this->title = yii::t('app', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
@@ -75,6 +73,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     'style' => "width:300px;height:34px;position:relative;top:2px",
                 ]
             ]) ?>
+            
+            <div class="form-group field-loginform-captcha">
+				<div style="position:relative">
+					<input type="text" id="loginform-captcha" name="LoginForm[captcha]" style="width:300px;height:34px;position:relative;top:2px">
+					<img id="loginform-captcha-image" src="/index.php?r=user/site/captcha" alt="点我刷新" >
+					<div class="help-block m-b-none"></div>
+				</div>
+			</div>
             <?= Html::submitButton(yii::t("app", "Login"), [
                 'class' => 'btn btn-primary block full-width m-b',
                 'name' => 'login-button'
