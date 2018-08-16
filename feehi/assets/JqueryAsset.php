@@ -13,6 +13,6 @@ class JqueryAsset extends \yii\web\AssetBundle
     public $sourcePath = '@bower/jquery/dist';
 
     public $js = [
-        'jquery.js'
+        'jquery.js?v=3.2.1'
     ];
 }
