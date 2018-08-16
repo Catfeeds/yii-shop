@@ -49,7 +49,7 @@ class LoginForm extends Model
     	$verify = new Verify();
     	if(!$verify->check($this->captcha))
     	{
-    		$this->addError($attribute,'Verification code error');
+    		$this->addError($attribute,'验证码错误');
     	}
     }
     /**
@@ -64,7 +64,7 @@ class LoginForm extends Model
        if (! $this->hasErrors()) {
             $user = $this->getUser();
             if (! $user || ! $user->validatePassword($this->password)) {
-                $this->addError($attribute, yii::t('app', '验证码错误'));
+                $this->addError($attribute, yii::t('app', 'Incorrect username or password.'));
             }
         }
     }
