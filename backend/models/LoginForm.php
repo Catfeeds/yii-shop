@@ -10,7 +10,7 @@ namespace backend\models;
 
 use Yii;
 use yii\base\Model;
-
+use common\service\code\Verify;
 /**
  * Login form
  */
@@ -41,13 +41,22 @@ class LoginForm extends Model
             ['password', 'validatePassword'],
             [
                 'captcha',
-                'captcha',
-                'captchaAction' => 'user/site/captcha',
-                'message' => yii::t('app', 'Verification code error.')
+                'validateCaptcha',
+//                'captchaAction' => 'user/site/captcha',
+//             'message' => yii::t('app', 'Verification code error.')
             ],
         ];
     }
-
+	
+    
+    public function validateCaptcha($attribute,$params)
+    {
+    	$verify = new Verify();
+    	if(!$verify->check($this->captcha))
+    	{
+    		$this->addError($attribute,'Verification code error');
+    	}
+    }
     /**
      * Validates the password.
      * This method serves as the inline validation for password.
