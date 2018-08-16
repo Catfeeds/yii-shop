@@ -39,18 +39,13 @@ class LoginForm extends Model
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
-            [
-                'captcha',
-                'validateCaptcha',
-//                'captchaAction' => 'user/site/captcha',
-//             'message' => yii::t('app', 'Verification code error.')
-            ],
+            ['captcha','validateCaptcha'],
         ];
     }
 	
     
     public function validateCaptcha($attribute,$params)
-    {
+    {	
     	$verify = new Verify();
     	if(!$verify->check($this->captcha))
     	{
@@ -65,11 +60,11 @@ class LoginForm extends Model
      * @param array $params the additional name-value pairs given in the rule
      */
     public function validatePassword($attribute, $params)
-    {
-        if (! $this->hasErrors()) {
+    {	
+       if (! $this->hasErrors()) {
             $user = $this->getUser();
             if (! $user || ! $user->validatePassword($this->password)) {
-                $this->addError($attribute, yii::t('app', 'Incorrect username or password.'));
+                $this->addError($attribute, yii::t('app', '验证码错误'));
             }
         }
     }
