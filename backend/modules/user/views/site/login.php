@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="form-group field-loginform-captcha">
 				<div style="position:relative">
 					<input type="text" id="loginform-captcha" name="LoginForm[captcha]" style="width:300px;height:34px;position:relative;top:2px">
-					<img id="loginform-captcha-image" src="/index.php?r=user/site/captcha" alt="点我刷新" >
+					<img id="loginform-captcha-image" src="/index.php?r=user/site/captcha" alt="点我刷新"  >
 					<div class="help-block m-b-none"><?php if($model->hasErrors('captcha')){print_r($model->errors['captcha'][0]);}?></div>
 				</div>
 			</div>
@@ -96,6 +96,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
     <?php $this->endBody() ?>
+    <script>
+    $("#loginform-captcha-image").on('click',function(){var src = $(this).attr('src'); $(this).attr('src',src+'&'+Math.random())});
+    </script>
     </body>
     </html>
 <?php $this->endPage() ?>
