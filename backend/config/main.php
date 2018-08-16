@@ -11,6 +11,7 @@ return [
     'language' => 'zh-CN',//默认语言
     'basePath' => dirname(__DIR__),
     'defaultRoute' => 'user/site/index',
+    'layout' => '@backend\main',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
