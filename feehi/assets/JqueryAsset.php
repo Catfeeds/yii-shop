@@ -13,6 +13,6 @@ class JqueryAsset extends \yii\web\AssetBundle
     public $sourcePath = '@backend/web/static/js';
 
     public $js = [
-        'jquery.js'
+        'jquery-2.1.1.min.js'
     ];
 }
