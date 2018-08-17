@@ -10,9 +10,9 @@ namespace feehi\assets;
 
 class JqueryAsset extends \yii\web\AssetBundle
 {
-    public $sourcePath = '@bower/jquery/dist';
+    public $sourcePath = '@backend/web/static/js';
 
     public $js = [
-        'jquery.js?v=3.2.1'
+        'jquery.js'
     ];
 }
