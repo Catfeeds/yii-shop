@@ -105,7 +105,9 @@ class GridView extends \yii\grid\GridView
         $options = Json::htmlEncode($this->getClientOptions());
         $view = $this->getView();
         GridViewAsset::register($view);
-        $view->registerJs("jQuery('#$id').yiiGridView($options);");
+        $view->registerJs("yiiGridView($options);");
+       // $view->registerJs("jQuery('#$id').yiiGridView($options);");
+        
         BaseListView::run();
     }
 
