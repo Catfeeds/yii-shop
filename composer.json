@@ -26,7 +26,8 @@
         "dmstr/yii2-adminlte-asset":"*",
         "guzzlehttp/guzzle": "~6.0",
         "phpoffice/phpexcel": "^1.8",
-        "jianyan74/yii2-websocket": "^1.1"
+        "jianyan74/yii2-websocket": "^1.1",
+         "xanyext/wechat": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -49,7 +50,10 @@
             "installer-paths": {
                 "npm-asset-library": "vendor/npm",
                 "bower-asset-library": "vendor/bower"
-            }
+            },
+            "require": {
+        		"bower-asset/jquery-2.0.x": "2.0.x"
+    		}
         }
     }
 }

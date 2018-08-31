@@ -3,7 +3,7 @@ return [
     'adminEmail' => 'admin@example.com',
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,
-    'image' => ' http://p301ah80l.bkt.clouddn.com/',//图片域名七牛 http://p301ah80l.bkt.clouddn.com
+    'image' => 'http://p0ioi1ntv.bkt.clouddn.com',//图片域名七牛 http://p301ah80l.bkt.clouddn.com
     'goods.cart'=>'xiwenkeji',//value不能含有. cookie获取不到,不登录临时保存购物车
     'goods.selectcart' => 'selectcart',//临时保存选中购物车
     'site' => [

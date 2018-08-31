@@ -78,6 +78,7 @@ class User extends ActiveRecord implements IdentityInterface
             'create' => ['mobile','password', 'status'],
             'update' => ['username', 'email', 'password', 'avatar', 'status'],
             'self-update' => ['password', 'old_password', 'repassword'],
+            'union' =>['nickname','avatar'],
         ];
     }
 
@@ -125,13 +126,21 @@ class User extends ActiveRecord implements IdentityInterface
         return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
 
+    
     /**
-     * @inheritdoc
+     * Finds an identity by the given token.
+     * @param mixed $token the token to be looked for
+     * @param mixed $type the type of the token. The value of this parameter depends on the implementation.
+     * For example, [[\yii\filters\auth\HttpBearerAuth]] will set this parameter to be `yii\filters\auth\HttpBearerAuth`.
+     * @return IdentityInterface the identity object that matches the given token.
+     * Null should be returned if such an identity cannot be found
+     * or the identity is not in an active state (disabled, deleted, etc.)
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+    	return static::findOne(['access_token' => $token]);
     }
+    
 
     /**
      * Finds user by username
@@ -265,11 +274,31 @@ class User extends ActiveRecord implements IdentityInterface
     public function beforeSave($insert)
     {
         if ($insert) {
+        	$this->created_at = time();
             $this->generateAuthKey();
             $this->setPassword($this->password);
             $this->status = self::STATUS_ACTIVE;
+            $this->updated_at = 0;
         } else {
+        	$this->updated_at = time();
             if (isset($this->password) && $this->password != '') {
+                if ($this->getScenario() == 'self-update') {
+                    if ($this->old_password == '') {
+                        $this->addError('old_password', 'Old password cannot be blank.');
+                        return false;
+                    }
+                    if (! $this->validatePassword($this->old_password)) {
+                        $this->addError('old_password', 'Old password is incorrect.');
+                        return false;
+                    }
+                } else {
+                    if ($this->getScenario() == 'update') {
+                        if ($this->repassword == '') {
+                            $this->addError('repassword', 'repassword cannot be blank.');
+                            return false;
+                        }
+                    }
+                }
                 $this->setPassword($this->password);
             }
         }

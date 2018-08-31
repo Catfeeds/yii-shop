@@ -34,6 +34,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-app',
+	        'cookieValidationKey' => 'RpjHpoPkP88RwcCXBQsKL3z5XKASWg0m',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
