@@ -3,7 +3,7 @@
 namespace common\models\shop;
 
 use Yii;
-use yii\helpers\VarDumper;
+use yii\behaviors\TimestampBehavior;
 
 
 /**
@@ -47,6 +47,12 @@ class Product extends \yii\db\ActiveRecord
         return '{{%product}}';
     }
 	
+    public function behaviors()
+    {
+    	return [
+    	TimestampBehavior::className(),
+    	];
+    }
     
 
 	public static function getDb()
@@ -77,9 +83,9 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['goods_id', 'shop_price', 'created_at', 'updated_at','attr'], 'required'],
-            [['goods_id', 'store_id', 'updated_at', 'created_at'], 'integer'],
-            [['sttr'], 'string']
+            [['goods_id', 'shop_price', 'attr'], 'required'],
+            [['store_id', 'updated_at', 'created_at'], 'integer'],
+            [['attr','goods_id'], 'string']
         ];
     }
 

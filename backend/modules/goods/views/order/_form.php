@@ -23,24 +23,18 @@ $this->title = "修改订单";
             <?= $this->render('/widgets/_ibox-title') ?>
             <div class="ibox-content">
                 <?php $form = ActiveForm::begin();?>
-                <?= $form->field($model, 'shipping_id')
+                <?= $form->field($model, 'express')
                     ->label('配送物流')
                     ->dropDownList(ShippingService::getListArray()) ?>
                 <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'invoice_no')->textInput(['maxlength' => 64]) ?>
+                <?= $form->field($model, 'express_no')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'order_amount')->textInput(['maxlength' => 64]) ?>
+                <?= $form->field($model, 'total_price')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'consignee')->textInput(['maxlength' => 64]) ?>
+                <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>
                 <?= $form->field($model, 'mobile')->textInput(['maxlength' => 64]) ?>
                  <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'province')->textInput(['maxlength' => 64]) ?>
-                <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'city')->textInput(['maxlength' => 64]) ?>
-                <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'district')->textInput(['maxlength' => 64]) ?>
-                <div class="hr-line-dashed"></div>
                 <?= $form->field($model, 'address')->textInput(['maxlength' => 64]) ?>
                 <?= $form->defaultButtons() ?>
                 <?php ActiveForm::end(); ?>

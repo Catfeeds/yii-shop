@@ -14,8 +14,7 @@ use common\models\shop\Order;
 use common\models\shop\OrderDetail;
 use common\models\shop\Setting;
 use common\models\shop\User;
-use yii\helpers\VarDumper;
-
+use common\models\user\UserThird;
 /**
  * @property User $user
  * @property Order $order
@@ -29,6 +28,7 @@ class OrderPayDataForm extends Model
 
     private $wechat;
     private $order;
+    private $open_id;
 
     public function rules()
     {
@@ -54,10 +54,11 @@ class OrderPayDataForm extends Model
             ];
 
         $goods_names = '';
-        $goods_list = OrderDetail::find()->alias('od')->leftJoin(['g' => Goods::tableName()], 'g.id=od.goods_id')->where([
-            'od.order_id' => $this->order->id,
-            'od.is_delete' => 0,
-        ])->select('g.name')->asArray()->all();
+        $goods_ids = OrderDetail::find()->where([
+            'order_id' => $this->order->id,
+            'is_delete' => 0,
+        ])->select('goods_id')->asArray()->all();
+        $goods_list = Goods::find()->where(['_id' => array_column($goods_ids,'goods_id')])->select(['name'])->asArray()->all();
         foreach ($goods_list as $goods)
             $goods_names .= $goods['name'] . ';';
         $goods_names = mb_substr($goods_names, 0, 32, 'utf-8');
@@ -66,12 +67,14 @@ class OrderPayDataForm extends Model
             if (isset($res['code']) && $res['code'] == 1) {
                 return $res;
             }
-
+			
+            $third = UserThird::findOne(['type' =>2,'user_id' => $this->user->id]);
+            $this->open_id = $third->open_id;
             //记录prepay_id发送模板消息用到
             FormId::addFormId([
                 'store_id' => $this->store_id,
                 'user_id' => $this->user->id,
-                'wechat_open_id' => $this->user->wechat_open_id,
+                'wechat_open_id' => $this->open_id,
                 'form_id' => $res['prepay_id'],
                 'type' => 'prepay_id',
                 'order_no' => $this->order->order_no,
@@ -179,7 +182,7 @@ class OrderPayDataForm extends Model
             'total_fee' => $this->order->pay_price * 100,
             'notify_url' => \Yii::$app->request->hostInfo . \Yii::$app->request->baseUrl . '/pay-notify/index',
             'trade_type' => 'JSAPI',
-            'openid' => $this->user->wechat_open_id,
+            'openid' => $this->open_id,
         ]);
         if (!$res)
             return [

@@ -49,9 +49,8 @@ $ext = $model->ext;
                     <div class="col-md-7 droppable sortable ui-droppable ui-sortable" style="">
 		                <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 		                <?= $form->field($model, 'short_name')->textInput(['maxlength' => 50]) ?>
-		                <?= $form->field($model, 'weight')->textInput(['maxlength' => 50]) ?>
+		                <?= $form->field($model, 'virtual_sales')->textInput(['maxlength' => 50]) ?>
 		               	<?= $form->field($model, 'shop_price')->textInput(['maxlength' => 50]) ?>
-		                <?= $form->field($model, 'cost_price')->textInput(['maxlength' => 50]) ?>
 		                <?= $form->field($model, 'sort')->label('排序')->textInput(['maxlength' => 512,'value' =>1]) ?>
 		                <?= $form->field($model, 'bid')->dropDownList(FuncHelper::toStr(Brand::find()->select(['_id','name'])->asArray()->all())) ?>
 		                <?php if($model->status === null) $model->status=1;?>

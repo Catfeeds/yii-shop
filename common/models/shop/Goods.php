@@ -65,7 +65,6 @@ class Goods extends ActiveRecord
 		'shipping_id',//运费模板ID
 		'status',//状态 1-上架 0-下架
 		'is_delete',//0没有删除1已经删除
-		'is_audit',//0-未审核  1-通过审核  2拒绝审核
 		'sort',//排序
 		'created_at',
 		'updated_at',
@@ -83,6 +82,7 @@ class Goods extends ActiveRecord
 		'content',//详情
 		'ext',//扩展属性
 		'store',
+		'integral',//积分
 		'is_product'//是否生成product
 		];
 	}
@@ -94,12 +94,11 @@ class Goods extends ActiveRecord
     public function rules()
     {
         return [
-            [['store_id', 'name', 'detail', 'attr'], 'required'],
-            [['store_id', 'cat_id', 'status', 'addtime', 'is_delete', 'sort', 'virtual_sales', 'individual_share', 'freight', 'use_attr', 'share_type'], 'integer'],
-            [['price', 'original_price', 'share_commission_first', 'share_commission_second', 'share_commission_third', 'weight'], 'number'],
-            [['detail', 'attr', 'cover_pic', 'video_url', 'full_cut', 'integral'], 'string'],
-            [['name', 'unit'], 'string', 'max' => 255],
-            [['service'], 'string', 'max' => 2000],
+            [['store_id', 'name', 'content'], 'required'],
+            [['store_id', 'cat_id', 'status', 'created_at', 'is_delete', 'sort', 'virtual_sales', 'individual_share'], 'integer'],
+            [['shop_price', 'cost_price'], 'number'],
+            [['content','integral'], 'string'],
+            [['name',], 'string', 'max' => 255],
         ];
     }
 
@@ -162,44 +161,7 @@ class Goods extends ActiveRecord
         }
     }
 
-    public function getGoodsPicList()
-    {
-        return $this->hasMany(GoodsPic::className(), ['goods_id' => 'id'])->where(['is_delete' => 0]);
-    }
-
-    public function getGoodsPic($index = 0)
-    {
-        $list = $this->goodsPicList;
-        if (!$list)
-            return null;
-        return isset($list[$index]) ? $list[$index] : null;
-    }
-
-    public static function getGoodsPicStatic($goods_id, $index = 0)
-    {
-        $goods = Goods::findOne($goods_id);
-        if (!$goods)
-            return null;
-        return $goods->getGoodsPic($index);
-    }
-
-    public function getGoodsCover()
-    {
-        if ($this->cover_pic)
-            return $this->cover_pic;
-        $pic = $this->getGoodsPic(0);
-        if ($pic)
-            return $pic->pic_url;
-        return null;
-    }
-
-    public function getGoodsCoverStatic($goods_id)
-    {
-        $goods = Goods::findOne($goods_id);
-        if ($goods)
-            return $goods->getGoodsCover();
-        return null;
-    }
+  
 
     public function getCat()
     {
@@ -433,17 +395,6 @@ class Goods extends ActiveRecord
             }
 
 
-//            if (empty($full_cut['pieces']) && empty($full_cut['forehead'])){
-//                $resGoodsList[] = $val;
-//                continue;
-//            }
-//            var_dump($val['num'] < ($full_cut['pieces']?:0));
-//            var_dump($val['price'] < ($full_cut['forehead']?:0));
-//            var_dump($val['price']);
-//            var_dump($full_cut);
-//            if ($val['num'] < ($full_cut['pieces']?:0) && $val['price'] < ($full_cut['forehead']?:0)){
-//                $resGoodsList[] = $val;
-//            }
         }
         return $resGoodsList;
     }

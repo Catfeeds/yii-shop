@@ -25,6 +25,14 @@ class District extends Model
     {
         return '{{%district}}';
     }
+    
+    /**
+     * @return \yii\db\Connection the database connection used by this AR class.
+     */
+    public static function getDb()
+    {
+    	return Yii::$app->get('shop');
+    }
 
     /**
      * @inheritdoc

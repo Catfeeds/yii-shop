@@ -49,10 +49,10 @@ $send = function ($url, $model) {
                             'attribute' => 'id',
                         ],
                         [
-                            'attribute' => 'order_sn',
+                            'attribute' => 'order_no',
                         ],
                 		[
-                			'attribute' =>'order_amount'
+                			'attribute' =>'total_price'
                 		],
                 		
                         [

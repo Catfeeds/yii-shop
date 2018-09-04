@@ -9,7 +9,6 @@
 namespace common\service\order;
 
 use Yii;
-use common\models\goods\mongodb\Goods;
 use common\models\goods\Category;
 use common\service\BaseService;
 use common\models\goods\Store;
@@ -17,7 +16,9 @@ use common\models\goods\Product;
 use common\models\order\UserAddress;
 use common\service\goods\GoodsService;
 use common\models\order\Order;
-use common\models\order\OrderGoods;
+use common\models\shop\Goods;
+
+use common\models\shop\OrderDetail;
 use common\models\goods\mongodb\Cart;
 class OrderService extends BaseService
 {	
@@ -60,7 +61,7 @@ class OrderService extends BaseService
     	$orderModel->setAttributes($orderData,false);
     	if($orderModel->save())
     	{
-	    	if($this->createOrderGoods($orderModel->id))
+	    	if($this->createOrderDetail($orderModel->id))
 	    	{
 	    		$transaction->commit();
 	    		$this->orderSn = $orderSn;
@@ -125,11 +126,11 @@ class OrderService extends BaseService
     * @desc  入库商品详情表 减少库存
     * @param
     */
-    private function createOrderGoods($orderId)
+    private function createOrderDetail($orderId)
     {
     	foreach ($this->data as $value)
     	{	
-	    	$model = new OrderGoods();
+	    	$model = new OrderDetail();
     		$model->order_id = $orderId;
     		$model->goods_num = $value['goods_num'];
     		$model->shop_price = $value['shop_price'];
@@ -173,18 +174,27 @@ class OrderService extends BaseService
     	return $order ?: [];
     }
     
-    
-    public function getOrderGoodByOrderId($orderId)
+    public function getOrderGoodsByOrderId($orderId)
     {
-    	$orderGoods = OrderGoods::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->one();
-    	return $orderGoods ?: [];
+    	$orderGoods = OrderDetail::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->all();
+    	$orderGoods ?: [];
+    	if($orderGoods)
+    	{
+    		foreach($orderGoods as $k => $v)
+    		{
+    			$goods = Goods::findOne($v['goods_id']);
+    			$v['name'] = $goods['name'];
+    			$orderGoods[$k] = $v;
+    		}
+    	}
+    	return $orderGoods;
     }
     
     
-    public function getOrderGoodsByOrderId($orderId)
+    public function getOrderDetailByOrderId($orderId)
     {
-    	$orderGoods = OrderGoods::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->all();
-    	return $orderGoods ?: [];
+    	$OrderDetail = OrderDetail::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->all();
+    	return $OrderDetail ?: [];
     }
     
     /**
@@ -222,7 +232,7 @@ class OrderService extends BaseService
     	$orderData = Order::find()->select(['order_status','order_sn','order_amount','consignee','id'])->where($where)->orderBy('id desc')->offset($offset)->limit($size)->asArray()->all();
     	foreach($orderData as $k =>$v)
     	{	
-    		$goodsList = OrderGoods::find()->select(['*'])->where(['order_id' =>$v['id']])->asArray()->all();
+    		$goodsList = OrderDetail::find()->select(['*'])->where(['order_id' =>$v['id']])->asArray()->all();
     		$v['goods_list'] = $goodsList;
     		$orderData[$k] = $v;
     	}

@@ -28,6 +28,6 @@ class AttrAsset extends \yii\web\AssetBundle
     ];
 
     public $depends = [
-        'feehi\assets\JqueryAsset',
+        'yii\web\JqueryAsset',
     ];
 }

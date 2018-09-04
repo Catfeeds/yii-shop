@@ -3,14 +3,14 @@
 namespace backend\models\order;
 
 use Yii;
-use common\models\order\Order as CommonOrder;
+use common\models\shop\Order as ShopOrder;
 use common\models\User;
 use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "{{%order}}".
  *
  * @property string $id
- * @property string $order_sn
+ * @property string $order_no
  * @property string $shop_id
  * @property string $shop_name
  * @property string $user_id
@@ -46,21 +46,27 @@ use yii\data\ActiveDataProvider;
  *
  * @property OrderGoods[] $orderGoods
  */
-class Order extends CommonOrder
+class Order extends ShopOrder
 {	
+	public $orderStatus = [1 =>'未付款',2 =>'待发货',3=>'待收货',4=>'订单关闭',5=>'交易成功'];
+	
+	public $pay = [1 =>'微信',2=>'支付宝'];
+	
 	public $create_start_at;
 	
 	public $create_end_at;
 
-    /**
+     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['shop_id', 'user_id', 'order_status', 'shipping_id', 'pay_id', 'pay_time', 'remind_time', 'cancel_reson', 'close_time', 'is_show', 'platform_type', 'created_at', 'updated_at'], 'integer'],
-            [['shipping_fee', 'goods_amount', 'cheap_price', 'refund_amount'], 'number'],
-            [['trade_no','order_sn','create_start_at','create_end_at'],'string'],
+            [['store_id', 'user_id', 'pay_type', 'pay_time', 'send_time', 'confirm_time', 'is_comment',  'created_at', 'is_delete', 'is_price', 'parent_id', 'is_offline', 'clerk_id', 'shop_id', 'user_coupon_id', 'give_integral', 'parent_id_1', 'parent_id_2', 'is_sale'], 'integer'],
+            [['total_price', 'pay_price', 'express_price', 'first_price', 'second_price', 'third_price', 'coupon_sub_price', 'before_update_price', 'discount'], 'number'],
+            [['content', 'offline_qrcode', 'integral', 'words','trade_no'], 'string'],
+            [['order_no', 'name', 'mobile', 'express', 'express_no', 'version'], 'string', 'max' => 255],
+            [['address', 'remark'], 'string', 'max' => 1000],
         ];
     }
 
@@ -71,42 +77,55 @@ class Order extends CommonOrder
     {
         return [
             'id' => 'ID',
-            'order_sn' => '订单号',
-            'shop_id' => '商铺id，订单所属商家',
-            'shop_name' => '商家名称',
+            'store_id' => 'Store ID',
             'user_id' => '用户',
-            'order_status' => '订单状态',
-            'message' => '用户留言',
-            'shipping_id' => '发货方式，具体查看配置文件',
-            'shipping_name' => '配送方式名称，取值shipping',
-            'pay_id' => '支付方式1:微信',
-            'pay_account' => '支付的账号',
-            'trade_no' => '交易号',
-            'shipping_fee' => '订单运费',
-            'invoice_no' => '发货单号',
-            'goods_amount' => '订单中商品金额',
-            'cheap_price' => '优惠价格',
-            'order_amount' => '订单金额',
-            'refund_amount' => ' 退款金额，其中微信退款以分为单位',
-            'pay_time' => '付款时间',
-            'remind_time' => '买家提醒发货时间，只有已付款待发货状态下，才可提醒',
-            'cancel_reson' => '取消订单原因 1：我不想买了 2：信息填写错误 3：卖家缺货 4：其他',
-            'close_time' => '订单关闭时间',
-            'is_show' => '是否显示订单，仅对用户订单列表有效 1:显示 0:不显示',
+            'order_no' => '订单号',
+            'total_price' => '订单总费用(包含运费）',
+            'pay_price' => '实际支付总费用(含运费）',
+            'express_price' => '运费',
+            'name' => '收货人姓名',
+            'mobile' => '收货人手机',
+            'address' => '收货地址',
             'remark' => '订单备注',
-            'platform_type' => '订单来源平台1:Andriod 2:ios 3:触屏版',
-            'consignee' => '收货人',
-            'mobile' => '收货人联系电话',
-            'province' => '收货地址：省份',
-            'city' => '收货地址：市',
-            'district' => '收货地址：县区',
-            'postcode' => '邮政编码，非必填',
-            'address' => '收货地址：详细地址',
-            'created_at' => '下单时间',
-            'updated_at' => '修改时间',
+            'is_pay' => '支付状态：0=未支付，1=已支付',
+            'pay_type' => '支付方式：1=微信支付',
+            'pay_time' => '支付时间',
+            'is_send' => '发货状态：0=未发货，1=已发货',
+            'send_time' => '发货时间',
+            'express' => '物流公司',
+            'express_no' => '快递单号',
+            'is_confirm' => '确认收货状态：0=未确认，1=已确认收货',
+            'confirm_time' => '确认收货时间',
+            'is_comment' => '是否已评价：0=未评价，1=已评价',
+            'apply_delete' => '是否申请取消订单：0=否，1=申请取消订单',
+            'addtime' => 'Addtime',
+            'is_delete' => 'Is Delete',
+            'is_price' => '是否发放佣金',
+            'parent_id' => '用户上级ID',
+            'first_price' => '一级佣金',
+            'second_price' => '二级佣金',
+            'third_price' => '三级佣金',
+            'coupon_sub_price' => '优惠券抵消金额',
+            'address_data' => '收货地址信息，json格式',
+            'content' => '备注',
+            'is_offline' => '是否到店自提 0--否 1--是',
+            'clerk_id' => '核销员user_id',
+            'is_cancel' => '是否取消',
+            'offline_qrcode' => '核销码',
+            'before_update_price' => '修改前的价格',
+            'shop_id' => '自提门店ID',
+            'discount' => '会员折扣',
+            'user_coupon_id' => '使用的优惠券ID',
+            'integral' => '积分使用',
+            'give_integral' => '是否发放积分',
+            'parent_id_1' => '用户上二级ID',
+            'parent_id_2' => '用户上三级ID',
+            'is_sale' => '是否超过售后时间',
+            'words' => '商家留言',
+            'version' => '版本',
+            'trade_no' => '交易号'
         ];
     }
-
     
     /**
      * @param $params
@@ -127,7 +146,7 @@ class Order extends CommonOrder
     		$userModel = User::findOne(['mobile' =>$this->user_id]);
     		$query->andFilterWhere(['user_id' => $userModel->id]);
     	}
-    	$query->andFilterWhere(['order_sn' => $this->order_sn])
+    	$query->andFilterWhere(['order_no' => $this->order_no])
     	->andFilterWhere(['trade_no' => $this->trade_no])
     	->andFilterWhere(['order_status' => $this->order_status]);
     	$create_start_at_unixtimestamp = $create_end_at_unixtimestamp = '';
@@ -150,5 +169,24 @@ class Order extends CommonOrder
     				]);
     	}
     	return $dataProvider;
+    }
+    
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserMobile()
+    {
+    	$userModel = User::findOne($this->user_id);
+    	return $userModel->mobile ? $$userModel->mobile :$userModel->nickname;
+    }
+    
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrderGoods()
+    {
+    	return $this->hasMany(OrderGoods::className(), ['order_id' => 'id']);
     }
 }

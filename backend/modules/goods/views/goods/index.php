@@ -61,7 +61,7 @@ $this->title = 'Users'
                				 }
                 		],
                         [
-                            'attribute' => 'cost_price'
+                            'attribute' => 'virtual_sales'
                         ],
                         [
                             'attribute' => 'shop_price'

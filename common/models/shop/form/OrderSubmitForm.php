@@ -361,12 +361,6 @@ class OrderSubmitForm extends Model
             $order->address = $address->province . $address->city . $address->district . $address->detail;
             $order->mobile = $address->mobile;
             $order->name = $address->name;
-            $order->address_data = json_encode([
-                'province' => $address->province,
-                'city' => $address->city,
-                'district' => $address->district,
-                'detail' => $address->detail,
-            ], JSON_UNESCAPED_UNICODE);
         } else {
             $order->name = $this->address_name;
             $order->mobile = $this->address_mobile;

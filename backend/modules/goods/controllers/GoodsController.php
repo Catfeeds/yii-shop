@@ -5,12 +5,11 @@ namespace backend\modules\goods\controllers;
 use yii;
 use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
-use common\models\goods\mongodb\Goods;
-use backend\models\goods\mongodb\GoodsSearch;
+use backend\models\shop\mongodb\Goods;
 
 use common\models\goods\mongodb\Attr;
 use common\models\goods\Store;
-use common\models\goods\Product;
+use common\models\shop\Product;
 class GoodsController extends \yii\web\Controller
 {
 
@@ -174,7 +173,7 @@ class GoodsController extends \yii\web\Controller
 			{	
 				foreach($product as $p )
 				{	
-					if($p['id'])
+					if(isset($p['id']) && $p['id'])
 					{
 						$productModel = Product::findOne($p['id']);
 						$productModel->setAttributes($p);

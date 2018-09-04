@@ -55,7 +55,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['goods_id', 'shop_price', 'code','attr'], 'string','max' => 255],
-            [['updated_at', 'created_at', 'status','store','shop_id'], 'integer'],
+            [['updated_at', 'created_at', 'status','store','store_id'], 'integer'],
             [['goods_id','store'], 'required'],
         ];
     }
