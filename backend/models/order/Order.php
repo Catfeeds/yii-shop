@@ -5,6 +5,7 @@ namespace backend\models\order;
 use Yii;
 use common\models\shop\Order as ShopOrder;
 use common\models\User;
+use common\models\shop\OrderDetail;
 use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "{{%order}}".
@@ -187,6 +188,6 @@ class Order extends ShopOrder
      */
     public function getOrderGoods()
     {
-    	return $this->hasMany(OrderGoods::className(), ['order_id' => 'id']);
+    	return $this->hasMany(OrderDetail::className(), ['order_id' => 'id']);
     }
 }

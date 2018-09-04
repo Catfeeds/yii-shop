@@ -102,64 +102,8 @@ class Goods extends ActiveRecord
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            '_id' => 'ID',
-            'store_id' => 'Store ID',
-            'name' => '商品名称',
-            'price' => '售价',
-            'original_price' => '原价（只做显示用）',
-            'detail' => '商品详情，图文',
-            'cat_id' => '商品类别',
-            'status' => '上架状态：0=下架，1=上架',
-            'addtime' => 'Addtime',
-            'is_delete' => 'Is Delete',
-            'attr' => '规格的库存及价格',
-            'service' => '商品服务选项',
-            'sort' => '排序  升序',
-            'virtual_sales' => '虚拟销量',
-            'cover_pic' => '商品缩略图',
-            'video_url' => '视频',
-            'unit' => '单位',
-            'individual_share' => '是否单独分销设置：0=否，1=是',
-            'share_commission_first' => '一级分销佣金比例',
-            'share_commission_second' => '二级分销佣金比例',
-            'share_commission_third' => '三级分销佣金比例',
-            'weight' => '重量',
-            'freight' => '运费模板ID',
-            'full_cut' => '满减',
-            'integral' => '积分设置',
-            'use_attr' => '是否使用规格：0=不使用，1=使用',
-            'share_type' => '佣金配比 0--百分比 1--固定金额',
-        ];
-    }
 
-    /**
-     * 修改商品
-     * @return array
-     */
-    public function saveGoods()
-    {
-        if ($this->validate()) {
-            if ($this->save()) {
-                return [
-                    'code' => 0,
-                    'msg' => '成功'
-                ];
-            } else {
-                return [
-                    'code' => 1,
-                    'msg' => '失败'
-                ];
-            }
-        } else {
-            return (new Model())->getModelError($this);
-        }
-    }
+  
 
   
 
