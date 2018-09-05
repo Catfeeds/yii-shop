@@ -41,7 +41,8 @@ use common\models\goods\Store;
  * @property integer $share_type
  */
 class Goods extends ActiveRecord
-{
+{	
+	public	$goodsStatus = [0=>'下架',1 =>'上架'];
     /**
      * @inheritdoc
      */
@@ -101,10 +102,10 @@ class Goods extends ActiveRecord
     public function rules()
     {
         return [
+            [['name','image','short_name','shop_price','content','bid','sort'], 'required'],
             [['name', 'short_name', 'brief','content','bid','virtual_sales'], 'string'],
             [['shop_price'],'double'],
             [['cid',  'store_id','status','sort','created_at','updated_at','comment_sum','collect_sum','sales_sum','is_product'], 'integer'],
-            [['name','image','short_name','shop_price','content','bid','sort'], 'required'],
         ];
     }
 
@@ -119,7 +120,7 @@ class Goods extends ActiveRecord
     	'weight' =>'商品重量',
     	'content' =>'商品描述',
     	'bid' =>'品牌',
-    	'status'=>'上下架状态',
+    	'status'=>'状态',
     	'sort' =>'排序',
     	'image'=>'图片'
     	];
@@ -191,12 +192,17 @@ class Goods extends ActiveRecord
     	$dataProvider = new ActiveDataProvider([
     			'query' => $query,
     			'sort' => [
-    			'defaultOrder' => [
-    			'created_at' => SORT_DESC,
-    			'updated_at' => SORT_DESC,
+	    			'defaultOrder' => [
+	    				'created_at' => SORT_DESC,
+	    				'updated_at' => SORT_DESC,
+	    			]
     			]
-    			]
-    			]);
+    	]);
+    	$this->load($params);
+    	if($this->name){
+	    	$query->andFilterWhere(['name' => ['$regex' => $this->name]]);
+    	}
+    	 
     	return $dataProvider;
     }
 

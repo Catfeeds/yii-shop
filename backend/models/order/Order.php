@@ -139,9 +139,9 @@ class Order extends ShopOrder
     			'query' => $query,
     			]);
     	$this->load($params);
-    	if (! $this->validate()) {
+    	/*if (! $this->validate()) {
     		return $dataProvider;
-    	}
+    	}*/
     	if($this->user_id)
     	{
     		$userModel = User::findOne(['mobile' =>$this->user_id]);

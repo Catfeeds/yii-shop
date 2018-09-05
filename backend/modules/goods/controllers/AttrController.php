@@ -9,8 +9,7 @@
 */
 namespace backend\modules\goods\controllers;
 use yii;
-use common\models\goods\Category;
-use common\models\goods\mongodb\Attr;
+use common\models\shop\Attr;
 class AttrController extends \yii\web\Controller
 {
 	

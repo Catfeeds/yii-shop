@@ -43,13 +43,18 @@ $this->title = 'Users'
                 		[
                 			'attribute' => 'name'
                 		],
-                		/*[
-                			'attribute' =>'store',
-                			'label' =>'库存',
+                		[
+                		'attribute' => 'virtual_sales'
+                				],
+                		[
+                		'attribute' => 'sort'
+                		],
+                		[
+                			'attribute' =>'status',
                 			'value' => function($model){
-                				return $model->getStore();
+                				return $model->goodsStatus[$model->status];
                 			}
-                		],*/
+                		],
                 		[
                 			'attribute' => 'image',
                 			'format' => [
