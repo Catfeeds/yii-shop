@@ -25,6 +25,11 @@ return [
         	'username' => 'root',
         	'password' => '1+1=10001$%',
         	'charset' => 'utf8mb4',
+        	'slaveConfig' => [
+        		'username' => '',
+        		'password' => '',
+        		'dsn' => 'mysql:host=192.168.0.2;dbname=hyii2'
+        	]
         ],
         'mongodbShop' => [
         	'class' => 'yii\mongodb\Connection',
