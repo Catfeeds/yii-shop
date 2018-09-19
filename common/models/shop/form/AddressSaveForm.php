@@ -22,12 +22,16 @@ class AddressSaveForm extends Model
     public $city_id;
     public $district_id;
     public $detail;
+    public $province;
+    public $city;
+    public $district;
 
     public function rules()
     {
         return [
             [['name', 'mobile', 'province_id', 'city_id', 'district_id', 'detail',], 'trim'],
-            [['name', 'mobile', 'province_id', 'city_id', 'district_id', 'detail',], 'required'],
+           //[['name', 'mobile', 'province_id', 'city_id', 'district_id', 'detail',], 'required'],
+           // [['name', 'mobile', 'province', 'city', 'district', 'detail',], 'required'],
             [['address_id',], 'integer'],
         ];
     }

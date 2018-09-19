@@ -60,7 +60,7 @@ class CartListForm extends Model
             }
             $new_item = (object)[
                 'cart_id' => (string)$item->_id,
-                'goods_id' => $goods->_id,
+                'goods_id' => (string)$goods->_id,
                 'product_id'=> $item->product_id,
                 'goods_name' => $goods->name,
                 'goods_pic' =>Yii::$app->params['image'].$goods->image[0],

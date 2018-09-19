@@ -30,6 +30,20 @@ class Cart extends ActiveRecord
     {
         return '{{%cart}}';
     }
+    
+    public function attributes()
+    {
+    	return [
+    	'_id',
+    	'store_id',
+    	'goods_id',
+    	'user_id',
+    	'num',
+    	'created_at',
+    	'attr',
+    	'product_id'
+    	];
+    }
 
     /**
      * @inheritdoc
@@ -37,24 +51,12 @@ class Cart extends ActiveRecord
     public function rules()
     {
         return [
-            [['store_id', 'user_id', 'goods_id', 'attr'], 'required'],
+            [['store_id', 'user_id', 'goods_id'], 'required'],
             [['store_id', 'user_id',  'num', 'created_at','product_id'], 'integer'],
             [['goods_id'], 'string'],
         ];
     }
 	
-    public function attributes()
-    {
-    	return ['_id',
-    	'store_id',
-    	'goods_id',
-    	'user_id',
-    	'num',
-    	'created_at',
-    	'attr',
-    	'product_id'];
-    	
-    }
     
     
     /**

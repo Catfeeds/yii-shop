@@ -63,21 +63,20 @@ class GoodsListForm extends Model
             $query->andWhere(['LIKE', 'name', $this->keyword]);*/
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize' => $this->limit, 'page' => $this->page - 1]);
-        $pic_query = GoodsPic::find()->where(['is_delete' => 0])->groupBy('goods_id');
         if ($this->sort == 0) {
             //综合，自定义排序+时间最新
-            $query->orderBy('g.sort ASC, g.addtime DESC');
+            $query->orderBy('sort ASC, created_at DESC');
         }
         if ($this->sort == 1) {
             //时间最新
-            $query->orderBy('g.addtime DESC');
+            $query->orderBy('created_at DESC');
         }
         if ($this->sort == 2) {
             //价格
             if ($this->sort_type == 0) {
-                $query->orderBy('g.price ASC');
+                $query->orderBy('shop_price ASC');
             } else {
-                $query->orderBy('g.price DESC');
+                $query->orderBy('shop_price DESC');
             }
         }
         if ($this->sort == 3) {

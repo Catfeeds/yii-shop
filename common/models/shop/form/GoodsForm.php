@@ -126,4 +126,64 @@ class GoodsForm extends Model
             'now_time' => time(),
         ];
     }
+    
+    
+    
+    public static function getOne($id)
+    {
+    	$data = Goods::find()->where(['_id' =>$id])->select(['name','short_name','cid','image','shop_price','_id','content','ext'])->asArray()->one();
+    	if($data['content'])
+    	{
+    		$data['content'] = htmlspecialchars_decode($data['content']);
+    	}
+    	return $data ?: [];
+    }
+    
+    /**
+     * 获取库存
+     * */
+    public static function getStore($goodsId)
+    {
+    	$store = Store::findOne(['goods_id' => $goodsId]);
+    	return $store->store;
+    }
+    
+    /**
+     * @desc 减少库存
+     * @param
+     * @return
+     */
+    public static function decre($goodsId,$goodsNum)
+    {
+    	$storeModel = Store::findOne(['goods_id' => $goodsId]);
+    	$store = $storeModel->store;
+    	$storeModel->store = $store-$goodsNum;
+    	try {
+    		$storeModel->save();
+    	}catch (\yii\db\Exception $e)
+    	{
+    		return false;
+    	}
+    	return true;
+    }
+    
+    /**
+     * 获取库存
+     * */
+    public static function getProductStore($productId)
+    {
+    	$product = Product::findOne($productId);
+    	return $product->store;
+    }
+    
+    /**
+     * @desc 根据id查询
+     */
+    public static function getListByids(array $data)
+    {
+    	$goodsIds = array_column($data,'goods_id');
+    	$data = Goods::find()->where(['in','_id',$goodsIds])->select(['image','_id','shop_price','name'])->asArray()->all();
+    	return $data ?: [];
+    }
+    
 }

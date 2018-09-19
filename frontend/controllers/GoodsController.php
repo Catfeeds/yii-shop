@@ -2,10 +2,12 @@
 
 namespace frontend\controllers;
 
-use common\models\goods\mongodb\Goods;
 use common\models\goods\mongodb\Attr;
 use common\service\goods\GoodsService;
 use Qiniu\json_decode;
+use common\models\shop\form\GoodsListForm;
+use common\models\shop\form\GoodsForm;
+
 use Yii;
 
 /**
@@ -37,16 +39,14 @@ class GoodsController extends BaseController
     public function actionGetlist()
     {
     	if(Yii::$app->request->isAjax)
-    	{
+    	{	
     		$size = Yii::$app->request->get('size');
     		$page = Yii::$app->request->get('page');
-    		$data = GoodsService::getList($page, $size);
-    		if($page ==1)
-    		{
-    			$count = GoodsService::getCount();
-    			return ['status' => 0,'data' =>$data,'count' => $count];
-    		}
-    		return ['status' => 0,'data' =>GoodsService::getList($page, $size)];
+    		$goodsListForm = new GoodsListForm();
+    		$goodsListForm->limit = $size;
+			$goodsListForm->page = $page;
+			$result = $goodsListForm->search();
+    		echo json_encode(['status' => 0,'data' =>$result['data']['list'],'count' => $result['data']['row_count']]);
     	}
     }
     
@@ -56,8 +56,10 @@ class GoodsController extends BaseController
     {	
     	$this->layout = false;
     	$id = (string)Yii::$app->request->get('id');
-    	$data = GoodsService::getOne($id);
-    	return ['data' =>$data,'status' =>0];
+    	$goodsForm = new GoodsForm();
+    	$goodsForm->id = $id;
+    	$result = $goodsForm->search();
+    	return ['data' =>$result['data'],'status' =>$result['code']];
     }
     
     

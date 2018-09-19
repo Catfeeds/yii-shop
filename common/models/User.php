@@ -339,6 +339,28 @@ class User extends ActiveRecord implements IdentityInterface
     }
 	
     
-   
+    /**
+     * @return int|string
+     * 获取订单数
+     */
+    public static function getCount($id)
+    {
+    	return Order::find()->where(['is_delete'=>0,'is_cancel'=>0,'user_id'=>$id])->count();
+    }
+    
+    /**
+     * @return int|string
+     * 获取优惠券数
+     */
+    public static function getCouponcount($id)
+    {
+    	return UserCoupon::find()->where(['is_delete'=>0,'user_id'=>$id])->count();
+    }
+    /**
+     * 获取卡券
+     */
+    public static function getCardCount($id){
+    	return UserCard::find()->where(['is_delete'=>0,'user_id'=>$id])->count();
+    }
 }
 

@@ -42,16 +42,16 @@
             							</em>
             						</div>            						
             						<a class="dd2" class="d1" :href="item.shopUrl">
-            							<img :src="imgurl + item.image">
-            							<b>{{item.name}}</b>
+            							<img :src="item.goods_pic">
+            							<b>{{item.goods_name}}</b>
             						</a>
-            						<p class="dd3">{{item.shop_price | formatMoney}}</p>
+            						<p class="dd3">{{item.price | formatMoney}}</p>
             						<div id="" class="data_number dd4">
 										<input @click="btnMinus(index)" class="" type="button" value="-" />
-										<input class="sl" type="text" v-model="item.goods_num" />
+										<input class="sl" type="text" v-model="item.num" />
 										<input @click="btnAdd(index)" type="button" value="+" />
 									</div>
-									<label for="price1" class="dd5">{{ item.goods_num * item.shop_price | formatMoney }}</label>
+									<label for="price1" class="dd5">{{ item.num * item.price | formatMoney }}</label>
 									<p @click="deletes(item)" class="delete">删除</p>
             					</li>
             				</ul>
@@ -114,7 +114,7 @@
 				curProduct: '', //保存删除的商品
 				message: [],
 				zjPrice: 0,
-				id: '',
+				cart_id: '',
 				shopUrl: '',
 				dataForm: [],
 				disabled3:true,
@@ -183,14 +183,14 @@
             	},            	
             	btnAdd: function(index) {
             		var _this = this;
-            		_this.message[index].goods_num++;
+            		_this.message[index].num++;
             		_this.caleTotalPrice();
             	},
             	deletes: function(item) {
             		this.carShow = true;
 				    this.popupShow = true;
 				    this.curProduct = item;
-				    this.id = item.id.$oid;
+				    this.cart_id = item.cart_id;
             	},
             	carSc: function(){
             		// 通过indexof 来搜索当前选中的商品 找到索引 index
@@ -200,7 +200,7 @@
             			type:"POST",
             			url:"/cart/remove",
             			dataType: 'json',
-	                    data: {id: _this.id},
+	                    data: {cart_id: _this.cart_id},
 	                    success: function(data){
 	                    	if(data.status == 0){
 		            // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
@@ -228,7 +228,7 @@
                 		if(item.checked){
                 			var temp = {};
                 			temp.goods_id = item.goods_id;
-                			temp.id = item.id.$oid;
+                			temp.id = item.id;
                 			temp.goods_num = item.goods_num;
                 			_this.dataForm.push(temp);               			              				                  	 			
                 		}else{
@@ -237,7 +237,7 @@
                     })
                     $.ajax({
               			type:"POST",
-              			url:" /order/confirm",
+              			url:" /order/submit-preview",
               			dataType: 'json',
    	                    data: {goods:_this.dataForm},
    	                    success: function(data){
@@ -297,7 +297,7 @@
 		            this.zjPrice = 0;
 		            this.message.forEach(function (item,index) {
 		               if(item.checked){
-		                   _this.zjPrice += item.shop_price * item.goods_num;
+		                   _this.zjPrice += item.price * item.num;
 		               }
 		            });
 		        }

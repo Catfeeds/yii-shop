@@ -33,7 +33,7 @@ use common\models\shop\form\TopicFavoriteForm;
 use common\models\shop\form\TopicFavoriteListForm;
 use common\models\shop\form\WechatDistrictForm;
 use common\models\shop\form\QrcodeForm;
-
+use common\models\shop\form\AddressListForm;
 class UserController extends Controller
 {
     public function behaviors()
@@ -99,20 +99,11 @@ class UserController extends Controller
 
     //收货地址列表
     public function actionAddressList()
-    {
-        $list = Address::find()->select(['id','name','mobile','province_id','province','city_id','city','district_id','district','detail','is_default'])->where([
-            'user_id' => \Yii::$app->user->id
-        ])->orderBy('is_default DESC,created_at DESC')->asArray()->all();
-        foreach ($list as $i => $item) {
-            $list[$i]['address'] = $item['province'] . $item['city'] . $item['district'] . $item['detail'];
-        }
-        $this->renderJson((object)[
-            'code' => 0,
-            'msg' => 'success',
-            'data' => [
-                'list' => $list,
-            ],
-        ]);
+    {	
+    	$addressListForm = new AddressListForm();
+    	$addressListForm->user_id = \Yii::$app->user->id;
+    	$result= $addressListForm->search();
+    	$this->renderJson($result);
     }
 
     //收货地址详情

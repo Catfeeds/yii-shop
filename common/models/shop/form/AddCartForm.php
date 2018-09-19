@@ -26,7 +26,7 @@ class AddCartForm extends Model
     public function rules()
     {
         return [
-            [['goods_id', 'attr', 'num'], 'required'],
+            [['goods_id', 'num'], 'required'],
             [['num','product_id'], 'integer'],
             [['num'], 'integer', 'min' => 1],
         ];
@@ -52,10 +52,12 @@ class AddCartForm extends Model
             ];
         }
 
-        $this->attr = json_decode($this->attr, true);
         $attr = [];
-        foreach ($this->attr as $item) {
-            $attr[$item['attr_group_name']] = $item['attr_name'];
+        $this->attr = json_decode($this->attr, true);
+        if(count($this->attr)>= 1){
+	        foreach ($this->attr as $item) {
+	            $attr[$item['attr_group_name']] = $item['attr_name'];
+	        }
         }
         $where = [
             'goods_id' => $this->goods_id,

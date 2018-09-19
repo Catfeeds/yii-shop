@@ -14,7 +14,7 @@ class CartDeleteForm extends Model
 {
     public $store_id;
     public $user_id;
-    public $cart_id_list;
+    public $cart_id_list; //array
 
     public function rules()
     {
@@ -26,11 +26,16 @@ class CartDeleteForm extends Model
     public function save()
     {
         if (!$this->validate())
+        {
             return $this->getModelError();
-        $this->cart_id_list = json_decode($this->cart_id_list, true);
+        }
+        if(!is_array($this->cart_id_list))
+        {
+	        $this->cart_id_list = json_decode($this->cart_id_list, true);
+        }
         foreach ($this->cart_id_list as $cart_id) {
             Cart::deleteAll([
-                'store_id' => $this->store_id,
+               // 'store_id' => $this->store_id,
                 'user_id' => $this->user_id,
                 '_id' => $cart_id,
             ]);

@@ -183,7 +183,7 @@
                     province: '选择省份', //省
                     city: '选择市',  //市
                     district: '选择区',  //县
-                    address: '',//具体地址#
+                    detail: '',//具体地址#
                     id: 0 
                 },
                 //编辑地址
@@ -194,7 +194,7 @@
                     province: '', //省
                     city: '',  //市
                     district: '',  //县
-                    address: '',//具体地址#
+                    detail: '',//具体地址#
                     id: '' 
                 },
                 addressData:[],
@@ -367,7 +367,7 @@
 					                    province: _this.takeDelivery.province, //省
 					                    city: _this.takeDelivery.city,  //市
 					                    district: _this.takeDelivery.district,  //县
-					                    address: _this.takeDelivery.address,//具体地址#
+					                    detail: _this.takeDelivery.detail,//具体地址#
 					                    id: 0
 				                    }
 				                    _this.addressData.push(add);
@@ -380,7 +380,7 @@
 				                    _this.takeDelivery.province = '选择省份';
 				                    _this.takeDelivery.city = '选择市';
 				                    _this.takeDelivery.district = '选择区';
-				                    _this.takeDelivery.address = '';
+				                    _this.takeDelivery.detail = '';
 				                    _this.takeDelivery.id = 0;
 				                    _this.carShow = false;
        	    	                    _this.addressShow = false;			                    

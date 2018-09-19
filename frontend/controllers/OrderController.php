@@ -6,8 +6,9 @@ use Yii;
 use common\service\goods\GoodsService;
 use common\service\order\OrderService;
 use yii\helpers\Url;
-use common\service\order\LogisticsService;
 use common\service\order\ShippingService;
+use common\models\shop\form\OrderSubmitPreviewForm;
+
 class OrderController extends BaseController
 {	
 	

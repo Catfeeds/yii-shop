@@ -5,11 +5,11 @@
 					<div class="details_top">
 						<div class="details_fl">
 							<div class="data_img">
-								<img :src="imgUrl + imgArr[num]" alt="柚子" />
+								<img :src="pic_list[num]" alt="柚子" />
 							</div>
 							<ul class="view">
-								<li @click="btnImg(index)" v-for="(img, index) in imgArr">
-									<img :src="imgUrl + img" alt="柚子" />
+								<li @click="btnImg(index)" v-for="(img, index) in pic_list">
+									<img :src="img" alt="柚子" />
 								</li>
 							</ul>
 							<div @click="preve" class="preve"></div>
@@ -79,7 +79,7 @@
 				goodName: '',
 				goodPrice: '',
 				num: 0,
-				imgArr:[],
+				pic_list:[],
 				id: '',
 				keyArr: [],
 				goods_num: 1,
@@ -108,8 +108,8 @@
 	                	if(data.status == 0){
 	                		$('#loadMain').html('');
 	                		_this.goodName = data.data.name;
-						    _this.goodPrice = data.data.shop_price;
-						    _this.imgArr = data.data.image;
+						    _this.goodPrice = data.data.price;
+						    _this.pic_list = data.data.pic_list;
 						    _this.keyArr = data.data.ext;
 						    _this.content = data.data.content;						    
 	                	}else {
@@ -190,17 +190,17 @@
             		this.popupShow = false;
             	},
             	btnImg:function(index){           		
-            		this.toImg = imgurl + this.imgArr[index];
+            		this.toImg = imgurl + this.pic_list[index];
             		this.num = index;         		
             	},
             	preve: function(){
             		if(this.num == 0){
-            			this.num = this.imgArr.length;
+            			this.num = this.pic_list.length;
             		}
             		this.num--;            		
             	},
             	next: function(){            		
-            		if(this.num == this.imgArr.length - 1){
+            		if(this.num == this.pic_list.length - 1){
             			this.num = -1;
             		}
             		this.num++;

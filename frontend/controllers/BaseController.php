@@ -26,7 +26,6 @@ class BaseController extends CommonController
         $view->params['keywords'] = $options[0]['value'];
         $view->params['description'] = $options[1]['value'];
         
-        $controller = $action->controller->id;
         if(Yii::$app->user->isGuest)
         {
         	$view->params['isLogin'] = '0';
@@ -57,6 +56,31 @@ class BaseController extends CommonController
 	 		}   		
     	}
     	return true;
+    }
+    
+    
+    /**
+     * 返回json格式数据，将执行 \Yii::$app->end() 操作
+     * @param array|string $data 返回的数据，数组或json字符串
+     * @return null
+     */
+    public function renderJson($data = [])
+    {
+    	if (is_array($data)) {
+    		if (!isset($data['code']))
+    			$data['code'] = 0;
+    		if (!isset($data['msg']))
+    			$data['msg'] = '';
+    		if (!isset($data['data']))
+    			$data['data'] = (object)null;
+    		$data = json_encode($data, JSON_UNESCAPED_UNICODE);
+    	}
+    	$data['status'] = $data['code'];
+    	\Yii::$app->response->format = Response::FORMAT_JSON;
+    	echo $data;
+    	exit();
+    	//\Yii::$app->end(0,true);
+    	//return null;
     }
 	
 }

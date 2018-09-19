@@ -1,9 +1,8 @@
 <?php
 namespace frontend\controllers;
-
+use common\models\shop\form\AddressSaveForm;
+use common\models\shop\form\AddressListForm;
 use Yii;
-use yii\web\Controller;
-use yii\helpers\Url;
 use common\models\order\UserAddress;
 /**
  * Site controller
@@ -71,9 +70,10 @@ class AddressController extends BaseController
 	
 	public function actionGetlist()
 	{
-		$addressModel = new UserAddress();
-		$data = $addressModel->getList($this->userId);
-		return ['status' => 0,'data' => $data];
+		$addressListForm = new AddressListForm();
+		$addressListForm->user_id = $this->userId;
+		$result= $addressListForm->search();
+		return ['status' => $result['code'],'data' => $result['data']['list']];
 	}
 
 	
@@ -82,19 +82,11 @@ class AddressController extends BaseController
      * */
     public function actionAdd()
     {	
-    	$data = Yii::$app->request->post();
-    	$gender = ['先生'=>1,'女士' =>2];
-    	$data['gender'] = $gender[$data['gender']] ?: 1;
-    	
-    	$data['user_id'] = $this->userId;
-    	$addressModel = new UserAddress();
-    	if($addressModel->add($data))
-    	{
-    		return ['status' => 0,'msg' =>'添加成功','id' => $addressModel->id];
-    	}else
-    	{
-    		return ['status' =>1,'msg' =>$addressModel->errorMsg];
-    	}
+    	$addressAddForm = new AddressSaveForm();
+    	$addressAddForm->attributes = Yii::$app->request->post();
+    	$addressAddForm->user_id = $this->userId;
+    	$result = $addressAddForm->save();
+    	return ['status' => $result['code'],'msg' => $result['msg']];
     }
     
     

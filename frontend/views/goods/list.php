@@ -14,7 +14,7 @@ use yii\helpers\Url;
             			<ul v-show="goooList">
             				<li v-for="lis in aLis">
             					<a :href="lis.thisUrl">
-            						<img v-bind:src="imgurl + lis.image[0]" alt="橘子"/>
+            						<img v-bind:src="lis.image[0]" alt="橘子"/>
             						<span>{{lis.name}}</span>
             						<p class="price">{{'￥' + lis.shop_price}}</p>
             					</a>
