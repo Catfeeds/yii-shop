@@ -174,8 +174,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-    	var goods = '<?=$goods?>';
-    	var goods = JSON.parse(goods);
+    	var cart_id_list = '<?=$cart_id_list?>';
 	</script>
 	<script type="text/javascript">
 		Vue.filter('formatMoney', function(val){
@@ -219,18 +218,13 @@
                     id :0
                 },
                 addressData: [],
-                goodsData: goods,
+                goodsData: [],
                 zjMoney: 0, //总价
                 yfMoney: 10,  //邮费                
                 addressId: '',  // 传给后端地址ID
                 currenIndex:0,  // 默认index
                 message: '',
                 goodUrl: goodsUrl
-       	    },
-       	    created: function(){
-       	    	this.dressData();     	    	 
-       	    	this.caleTotalPrice();
-       	    	this.infor(); 	    	 		    	
        	    },
        	    $nextTick: function(){
        	    	this.disNone();      	    	      	    	       	    	
@@ -422,8 +416,23 @@
 			                }	                 	
 			            }
 			        })
-		        }
+		        } ,
+		        getData : function(){
+	       	    	$.ajax({
+	       	    		type:"get",
+	       	    		url:"/order/submit-preview?cart_id_list="+cart_id_list,
+	       	    		async:true,
+	       	    		success: function(data) {
+			                if(data.status == 0){		                   
+			                   // _this.addressData = data.data;		                    		                    
+			                   // _this.disNone();
+								//_this.infor();               
+			                }	                 	
+			            }
+	       	    	});	
+	           	},
        	    },
+       	   
        	    beforeMount: function () {
 				this.updateCity();
 				this.updateDistrict();				
@@ -444,6 +453,12 @@
 				city: function () {
 					this.updateDistrict();
 				}
+			},
+			mounted :function(){
+				this.dressData();     	    	 
+       	    	this.caleTotalPrice();
+       	    	this.infor(); 	
+       	    	this.getData();
 			}
         })
 	</script>

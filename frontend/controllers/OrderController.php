@@ -17,34 +17,41 @@ class OrderController extends BaseController
 		return $this->render('list');
 	}
 	
-	/**
-	* @desc 确认订单页面(此方法数据没有完全分离)
-	*/
-	public function actionIndex()
+	public function actionPreview()
 	{	
-		$key = Yii::$app->params['goods.selectcart'];
-		$goods = Yii::$app->session->get($key);
-		if(!$goods)
-		{
-			Yii::$app->session->setFlash('msg','找到不相关的购物车数据');
-			return $this->redirect('/site/msg');
-		}
-		$data = GoodsService::getListByids($goods);
-		foreach($data as $k =>$value)
-		{
-			$id = (string)$value['_id'];
-			foreach($goods as $v)
-			{
-				if($id == $v['goods_id'])
-				{
-					$value['goods_num'] = $v['goods_num'];
-					break;
-				}
-			}
-			$data[$k] = $value;
-		}
-		return $this->render('index',['goods' =>json_encode($data)]);
+		$cart_id_list = Yii::$app->request->get('cart_id_list');
+		return $this->render('preview',['cart_id_list' =>$cart_id_list]);
 	}
+	
+	//订单提交前的预览页面
+	public function actionSubmitPreview()
+	{
+		$form = new OrderSubmitPreviewForm();
+		$form->cart_id_list = Yii::$app->request->get('cart_id_list');
+		$form->store_id = 1;
+		$form->user_id = $this->userId;
+		$result = $form->search();
+		return ['status' => $result['code'],'data' => $result['data']];
+	}
+	
+	
+	//订单提交
+	public function actionSubmit()
+	{
+		$form = new OrderSubmitForm();
+		$model = \Yii::$app->request->post();
+		if($model['offline'] == 0){
+			$form->scenario = "EXPRESS";
+		}else{
+			$form->scenario = "OFFLINE";
+		}
+		$form->attributes = $model;
+		$form->store_id = $this->store->id;
+		$form->user_id = \Yii::$app->user->id;
+		$form->version = $this->version;
+		$this->renderJson($form->save());
+	}
+	
 	
 	
 	

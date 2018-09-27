@@ -223,31 +223,18 @@
             		});
             	},
             	cart_js: function(){
-            		var _this = this;           		
+            		var _this = this;    
+            		_this.dataForm = []; 
             		_this.message.forEach(function (item,index){
                 		if(item.checked){
-                			var temp = {};
-                			temp.goods_id = item.goods_id;
-                			temp.id = item.id;
-                			temp.goods_num = item.goods_num;
-                			_this.dataForm.push(temp);               			              				                  	 			
+                			//temp.id = item.cart_id;
+                			//temp.num = item.num;
+                			_this.dataForm.push(item.cart_id);               			              				                  	 			
                 		}else{
                 			return;
                 		}
                     })
-                    $.ajax({
-              			type:"POST",
-              			url:" /order/submit-preview",
-              			dataType: 'json',
-   	                    data: {goods:_this.dataForm},
-   	                    success: function(data){
-                              if(data.status == 0){
-                              	window.location = '/order/index';
-                              }else{
-                              	alert('错误');
-                              }
-   	                    }
-              		});                                                          		
+                    window.location = '/order/preview?cart_id_list='+JSON.stringify(_this.dataForm);
             	},
             	//如何让Vue 监听一个不存在的变量 单选操作
             	selectedProduct:function (item) { // 接收的参数

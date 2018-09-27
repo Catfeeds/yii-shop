@@ -41,7 +41,8 @@ class OrderSubmitPreviewForm extends Model
     public function rules()
     {
         return [
-            [['cart_id_list', 'goods_info'], 'string'],
+			[['cart_id_list'],'required'],
+            [['goods_info'], 'string'],
             [['address_id',], 'integer'],
             [['longitude', 'latitude'], 'trim']
         ];
@@ -102,6 +103,7 @@ class OrderSubmitPreviewForm extends Model
             }
         }
         $res['data']['form']['list'] = $form_list;
+        $res['code'] = isset($res['code']) ? 0 :1;
         return $res;
     }
 
@@ -154,11 +156,11 @@ class OrderSubmitPreviewForm extends Model
      * @param string $cart_id_list eg. [12,32,7]
      */
     private function getDataByCartIdList($cart_id_list, $store)
-    {
+    {	
         $cart_list = Cart::find()->where([
-            'store_id' => $this->store_id,
+            //'store_id' => $this->store_id,
             'user_id' => $this->user_id,
-            '_id' => json_decode($cart_id_list, true),
+            '_id' => json_decode($cart_id_list,true),
         ])->all();
         $list = [];
         
@@ -188,8 +190,8 @@ class OrderSubmitPreviewForm extends Model
            /* if ($attr_num < $item->num)
                 continue;*/
             $new_item = (object)[
-                'cart_id' => $item->_id,
-                'goods_id' => $goods->_id,
+                'cart_id' => (string)$item->_id,
+                'goods_id' => (string)$goods->_id,
                 'product_id' => $item->product_id,
                 'goods_name' => $goods->name,
                 'goods_pic' =>Yii::$app->params['image'].$goods->image[0],
