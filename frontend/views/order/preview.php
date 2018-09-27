@@ -25,8 +25,8 @@
             				</tr>
             				<tr v-for="(addList, index) in addressData" class="tr2">
             					<td class="td1 tdct"><em @click="selectedProduct(index)" v-bind:class="{'check':index == currenIndex}" ><i></i></em></td>
-            					<td class="td2">{{ addList.consignee }}</td>
-            					<td class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.address }}</td>
+            					<td class="td2">{{ addList.name }}</td>
+            					<td class="td3">{{ addList.province }} {{ addList.city }} {{ addList.district }} {{ addList.detail }}</td>
             					<td class="td4">{{ addList.mobile }}</td>
             				</tr>
             			</table>
@@ -37,7 +37,7 @@
                         	<li>
                         		<div class="lis lis1">
                         			<h3>姓名：</h3>
-                        			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
+                        			<input type="text" name="name" id="name" v-model="takeDelivery.name" placeholder="请输入您的姓名" />
                         		</div>
                         		<div class="lis">
                         			<h3 style="margin-left: 20px;">称谓：</h3>
@@ -70,7 +70,7 @@
                         	<li>
                         		<div class="lis lis2">
                         			<h3>详细地址：（请填写具体路名和门牌号）</h3>
-                        			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
+                        			<input type="text" name="tel" id="tel" v-model="takeDelivery.detail" placeholder="请填写详细地址"/>
                         		</div>
                         	</li>
                         	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
@@ -86,12 +86,12 @@
             				<ul>
             					<li v-for="goodLis in goodsData">
             						<div class="oli">
-            						<a class="d1" :href="goodUrl + '?id=' + goodLis._id.$oid">
-            							<img :src="imgurl + goodLis.image[0]">
-            							<b>{{ goodLis.name }}</b>
+            						<a class="d1" :href="goodUrl + '?id=' + goodLis.goods_id">
+            							<img :src="goodLis.goods_pic">
+            							<b>{{ goodLis.goods_name }}</b>
             						</a>
-            						<p  class="d2">{{ parseInt(goodLis.goods_num) }}</p>
-            						<p>{{ parseInt(goodLis.goods_num) * goodLis.shop_price | formatMoney}}</p>
+            						<p  class="d2">{{ parseInt(goodLis.num) }}</p>
+            						<p>{{ parseInt(goodLis.num) * goodLis.price | formatMoney}}</p>
             						</div>
             					</li>
             				</ul>
@@ -102,15 +102,15 @@
             			<div class="money">
             				<dl>
             					<dt>商品总额</dt>
-            					<dd>￥{{ zjMoney | formatMoney }}</dd>
+            					<dd>￥{{ total_price}}</dd>
             				</dl>
-            				<!--<dl>
+            				<dl>
             					<dt>运费</dt>
-            					<dd>￥{{ yfMoney}}元</dd>
-            				</dl>-->
+            					<dd>￥{{ express_price}}元</dd>
+            				</dl>
             				<dl>
             					<dt class="fs1">支付金额</dt>
-            					<dd class="fs1">￥{{zjMoney | formatMoney}}元</dd>
+            					<dd class="fs1">￥{{total_price}}元</dd>
             				</dl>
             				<a @click="moneyZf" href="javascript:;" class="money-zf">立即支付</a>
             			</div>
@@ -128,7 +128,7 @@
                 	<li>
                 		<div class="lis lis1">
                 			<h3>姓名：</h3>
-                			<input type="text" name="name" id="name" v-model="takeDelivery.consignee" placeholder="请输入您的姓名" />
+                			<input type="text" name="name" id="name" v-model="takeDelivery.name" placeholder="请输入您的姓名" />
                 		</div>
                 		<div class="lis">
                 			<h3 style="margin-left: 20px;">称谓：</h3>
@@ -161,7 +161,7 @@
                 	<li>
                 		<div class="lis lis2">
                 			<h3>详细地址：（请填写具体路名和门牌号）</h3>
-                			<input type="text" name="tel" id="tel" v-model="takeDelivery.address" placeholder="请填写详细地址"/>
+                			<input type="text" name="tel" id="tel" v-model="takeDelivery.detail" placeholder="请填写详细地址"/>
                 		</div>
                 	</li>
                 	<P v-show="messgs" class="messgDz">{{ messgDz }}</P>
@@ -208,19 +208,19 @@
                 messgDz: '',
                 messgs: false,
                 takeDelivery: {
-                    consignee: '',   //姓名
+                    name: '',   //姓名
                     sex: '男',
                     mobile: '',  //电话
                     province: '选择省份', //省
                     city: '选择市',  //市
                     district: '选择区',  //县
-                    address: '', //具体地址
+                    detail: '', //具体地址
                     id :0
                 },
                 addressData: [],
                 goodsData: [],
-                zjMoney: 0, //总价
-                yfMoney: 10,  //邮费                
+                total_price: 0, //总价
+                express_price: 10,  //邮费                
                 addressId: '',  // 传给后端地址ID
                 currenIndex:0,  // 默认index
                 message: '',
@@ -246,15 +246,6 @@
 			            }
 	       	    	});	
        	    	},
-       	    	//总价
-       	    	caleTotalPrice:function () {
-		            var _this = this;
-		            var zjPrice = 0;
-		            _this.goodsData.forEach(function (item,index) {
-		                   zjPrice += parseInt(item.goods_num) * item.shop_price;
-		            });
-		            _this.zjMoney = zjPrice;
-		        },
 		        //判断是否有地址数据
        	    	disNone: function(){
        	    		if(this.addressData.length != 0){
@@ -328,7 +319,7 @@
 				//保存地址
 				bcAdd: function(){
 					var _this = this;
-					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
+					if(this.takeDelivery.name == '' || this.takeDelivery.sex == '' || this.takeDelivery.detail == ''){
                 		this.messgDz = "地址信息填写有误";
 				        this.messgs = true;
 				        return false;
@@ -359,7 +350,7 @@
 				//添加新地址保存
 				bcAdd2: function(){
 					var _this = this;
-					if(this.takeDelivery.consignee == '' || this.takeDelivery.sex == '' || this.takeDelivery.address == ''){
+					if(this.takeDelivery.name == '' || this.takeDelivery.sex == '' || this.takeDelivery.detail == ''){
                 		this.messgDz = "地址信息填写有误";
 				        this.messgs = true;
 				        return false;
@@ -405,10 +396,10 @@
 		        	var _this = this;
 		        	var linkUrl;
 		        	$.ajax({
-			            url:'/order/create',
+			            url:'/order/submit',
 			            type: 'POST',
 			            dataType: 'json',
-			            data: {address_id: _this.addressId, message: _this.message},
+			            data: {address_id: _this.addressId, message: _this.message,cart_id_list:cart_id_list},
 			            success: function(data) {
 			                if(data.status == 0){
 			                    linkUrl = data.return_url;
@@ -418,16 +409,17 @@
 			        })
 		        } ,
 		        getData : function(){
+			        var _this = this;
 	       	    	$.ajax({
 	       	    		type:"get",
 	       	    		url:"/order/submit-preview?cart_id_list="+cart_id_list,
 	       	    		async:true,
 	       	    		success: function(data) {
 			                if(data.status == 0){		                   
-			                   // _this.addressData = data.data;		                    		                    
-			                   // _this.disNone();
-								//_this.infor();               
-			                }	                 	
+								_this.goodsData = data.data.list; 
+								_this.total_price = data.data.total_price;
+								_this.express_price = data.data.express_price;            
+			                }	                	
 			            }
 	       	    	});	
 	           	},
@@ -456,7 +448,6 @@
 			},
 			mounted :function(){
 				this.dressData();     	    	 
-       	    	this.caleTotalPrice();
        	    	this.infor(); 	
        	    	this.getData();
 			}

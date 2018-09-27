@@ -8,8 +8,7 @@ use yii\web\BadRequestHttpException;
 use common\service\order\OrderService;
 use common\service\pay\weixin\NativePay;
 use common\service\pay\weixin\PayNotifyCallBack;
-
-use common\models\order\Order;
+use common\models\shop\Order;
 /**
  * Site controller
  */
@@ -21,14 +20,14 @@ class PayController extends BaseController
 	*/
 	public function actionIndex()
 	{
-		$orderSn  = trim(Yii::$app->request->get('id'),'');
-		if(!$orderSn)
+		$orderId  = trim(Yii::$app->request->get('id'),'');
+		if(!$orderId)
 		{	
 			Yii::$app->session->setFlash('msg','参数错误');
 			return $this->redirect('/site/msg');
 		}
-		$orderService = new OrderService();
-		$order = $orderService->getOrderByOrdersn($orderSn);
+		
+		$order = Order::findOne(['id' => $orderId,'user_id' => $this->userId]);
 		if(!$order)
 		{	
 			Yii::$app->session->setFlash('msg','找不到相应的订单');

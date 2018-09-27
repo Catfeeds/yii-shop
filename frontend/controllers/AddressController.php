@@ -83,9 +83,10 @@ class AddressController extends BaseController
     public function actionAdd()
     {	
     	$addressAddForm = new AddressSaveForm();
+    	$addressAddForm->setScenario('pc');
     	$addressAddForm->attributes = Yii::$app->request->post();
     	$addressAddForm->user_id = $this->userId;
-    	$result = $addressAddForm->save();
+    	$result = $addressAddForm->saveIgnore();
     	return ['status' => $result['code'],'msg' => $result['msg']];
     }
     

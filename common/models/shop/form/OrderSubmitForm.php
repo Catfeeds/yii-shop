@@ -22,7 +22,7 @@ use common\models\shop\OrderForm;
 use common\models\shop\PostageRules;
 use common\models\shop\PrinterSetting;
 use common\models\shop\Store;
-use common\models\shop\User;
+use common\models\User;
 use common\models\shop\UserCoupon;
 use app\modules\api\controllers\OrderController;
 use app\extensions\PinterOrder;
@@ -356,7 +356,7 @@ class OrderSubmitForm extends Model
         
         $order->express_price = $express_price;
         $order->discount = $discount;
-        $order->addtime = time();
+        $order->created_at = time();
         if ($this->offline == 0) {
             $order->address = $address->province . $address->city . $address->district . $address->detail;
             $order->mobile = $address->mobile;
@@ -396,7 +396,7 @@ class OrderSubmitForm extends Model
         }*/
         if ($order->save()) {
 
-            foreach ($form_list as $index => $value) {
+           /* foreach ($form_list as $index => $value) {
                 $order_form = new OrderForm();
                 $order_form->store_id = $this->store_id;
                 $order_form->order_id = $order->id;
@@ -404,7 +404,7 @@ class OrderSubmitForm extends Model
                 $order_form->value = $value['default'];
                 $order_form->is_delete = 0;
                 $order_form->save();
-            }
+            }*/
 
             // 减去当前用户账户积分
             if ($resIntegral['forehead_integral'] > 0) {

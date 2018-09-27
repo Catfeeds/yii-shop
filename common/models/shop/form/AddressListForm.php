@@ -34,6 +34,7 @@ class AddressListForm extends Model
         		'user_id' => \Yii::$app->user->id
         		])->orderBy('is_default DESC,created_at DESC')->asArray()->all();
         foreach ($list as $i => $item) {
+        	$list[$i]['id'] = (string)$item["_id"];
         	$list[$i]['address'] = $item['province'] . $item['city'] . $item['district'] . $item['detail'];
         }
         

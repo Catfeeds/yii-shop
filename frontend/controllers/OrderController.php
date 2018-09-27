@@ -6,9 +6,8 @@ use Yii;
 use common\service\goods\GoodsService;
 use common\service\order\OrderService;
 use yii\helpers\Url;
-use common\service\order\ShippingService;
 use common\models\shop\form\OrderSubmitPreviewForm;
-
+use common\models\shop\form\OrderSubmitForm;
 class OrderController extends BaseController
 {	
 	
@@ -40,46 +39,22 @@ class OrderController extends BaseController
 	{
 		$form = new OrderSubmitForm();
 		$model = \Yii::$app->request->post();
-		if($model['offline'] == 0){
-			$form->scenario = "EXPRESS";
-		}else{
-			$form->scenario = "OFFLINE";
-		}
+		$form->scenario = "EXPRESS";
+		$form->offline = 0;
 		$form->attributes = $model;
-		$form->store_id = $this->store->id;
-		$form->user_id = \Yii::$app->user->id;
-		$form->version = $this->version;
-		$this->renderJson($form->save());
+		$form->store_id = 1;
+		$form->user_id = $this->userId;
+		$result = $form->save();
+		
+		$returnUrl = Url::to(['/pay/index','id' =>$result['data']->order_id]);
+		
+		return ['status' => $result['code'],'msg' => $result['msg'],'return_url' => $returnUrl];
+		
 	}
 	
 	
 	
 	
-    /**
-    * @desc 购物车确认(临时保存用户选择的数据)
-    */
-    public function actionConfirm()
-    {	
-    	if(Yii::$app->request->isAjax)
-    	{	
-	    	$goods = Yii::$app->request->post('goods');
-	    	if(count($goods) <1)
-	    	{
-	    		return ['status' =>1,'msg' =>'参数提交错误'];
-	    	}
-	    	foreach($goods as $v)
-	    	{
-	    		$store = GoodsService::getStore($v['goods_id']);	
-	    		if($store < $v['goods_num'])
-	    		{
-	    			return ['status' => 1,'msg' =>'商品库存不足'];
-	    		}
-	    	}
-	    	$key = Yii::$app->params['goods.selectcart'];
-	    	Yii::$app->session->set($key,$goods);
-	    	return ['status' => 0,'msg' =>'ok'];
-    	}
-    }
 
     
     /**

@@ -22,6 +22,7 @@ class AddressSaveForm extends Model
     public $city_id;
     public $district_id;
     public $detail;
+    
     public $province;
     public $city;
     public $district;
@@ -29,10 +30,10 @@ class AddressSaveForm extends Model
     public function rules()
     {
         return [
-            [['name', 'mobile', 'province_id', 'city_id', 'district_id', 'detail',], 'trim'],
-           //[['name', 'mobile', 'province_id', 'city_id', 'district_id', 'detail',], 'required'],
-           // [['name', 'mobile', 'province', 'city', 'district', 'detail',], 'required'],
-            [['address_id',], 'integer'],
+            [['name', 'mobile', 'province_id', 'city_id', 'district_id', 'detail'], 'trim'],
+            [['name', 'mobile', 'province_id', 'city_id', 'district_id', 'detail',], 'required','on' =>'weixin'],
+            [['name', 'mobile', 'province', 'city', 'district', 'detail',], 'required','on' => 'pc'],
+            [['address_id','user_id'], 'integer'],
         ];
     }
 
@@ -108,5 +109,44 @@ class AddressSaveForm extends Model
             ];
         }
 
+    }
+    
+    
+    public function saveIgnore()
+    {
+    	if (!$this->validate())
+    		return $this->getModelError();
+    	$address = Address::findOne([
+    			'user_id' => $this->user_id,
+    			'id' => $this->address_id,
+    			]);
+    	if (!$address) {
+    		$address = new Address();
+    		$address->user_id = $this->user_id;
+    		$address->is_default = 0;
+    		$address->created_at = time();
+    	}
+    	$address->name = $this->name;
+    	$address->mobile = $this->mobile;
+    	$address->detail = $this->detail;
+    	
+    	$address->province = $this->province;
+    	
+    	$address->city = $this->city;
+    	$address->district = $this->district;
+    	
+    	if ($address->save()) {
+    		return [
+    		'code' => 0,
+    		'msg' => '保存成功',
+    		];
+    	} else {
+    		$errors = $address->getErrors();
+    		print_r($errors);exit;
+    		return [
+    		'code' => 1,
+    		'msg' => '操作失败，请稍后重试',
+    		];
+    	}
     }
 }

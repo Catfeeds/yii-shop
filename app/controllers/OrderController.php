@@ -62,7 +62,7 @@ class OrderController extends Controller
         $form->attributes = $model;
         $form->store_id = $this->store->id;
         $form->user_id = \Yii::$app->user->id;
-        $form->version = $this->version;
+        //$form->version = $this->version;
         $this->renderJson($form->save());
     }
 

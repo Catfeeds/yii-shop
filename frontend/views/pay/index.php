@@ -16,7 +16,7 @@
             		<div class="shop_main" style="margin-bottom: 192px;">
             			<span>选择付款方式</span>
                         <span style="margin-top: 28px;">支付方式：</span>
-                        <h3>实付：¥<?=$order['order_amount']?></h3>
+                        <h3>实付：¥<?=$order['total_price']?></h3>
             			<div class="shop_zf">
             				<li @click="payment(index)" v-for="(opt, index) in options" v-bind:class="{on1 : ont == index}">
             					<i :class="opt.clas"></i>
@@ -38,7 +38,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="/js/axios.min.js" ></script>
 	<script type="text/javascript">
-		var order_id = "<?=$order['order_sn']?>";
+		var order_id = "<?=$order['order_no']?>";
         var payment = new Vue({
         	el:'#payment',
         	data:{
