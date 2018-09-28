@@ -36,7 +36,7 @@ use Yii;
  * @property integer $integral
  * @property integer $integration
  */
-class Store extends Model
+class Store extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -44,6 +44,14 @@ class Store extends Model
     public static function tableName()
     {
         return '{{%store}}';
+    }
+    
+    /**
+     * @return \yii\db\Connection the database connection used by this AR class.
+     */
+    public static function getDb()
+    {
+    	return Yii::$app->get('shop');
     }
 
     /**

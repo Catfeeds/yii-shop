@@ -88,7 +88,7 @@ class DefaultController extends Controller
         if (!\Yii::$app->user->isGuest) {
             $form->user_id = \Yii::$app->user->id;
         }
-        $form->store_id = $this->store->id;
+        $form->store_id = $this->store_id;
         $this->renderJson($form->search());
     }
 

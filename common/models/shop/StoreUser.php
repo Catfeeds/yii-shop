@@ -35,6 +35,14 @@ class StoreUser extends ActiveRecord implements IdentityInterface
     {
         return '{{%store_user}}';
     }
+    
+    /**
+     * @return \yii\db\Connection the database connection used by this AR class.
+     */
+    public static function getDb()
+    {
+    	return Yii::$app->get('shop');
+    }
 
     /**
      * Finds user by username

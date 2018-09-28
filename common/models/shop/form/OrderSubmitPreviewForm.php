@@ -21,6 +21,7 @@ use common\models\shop\SeckillGoods;
 use common\models\shop\Option;
 use common\models\shop\PostageRules;
 use common\models\shop\Shop;
+use common\models\shop\GoodsStore;
 use common\models\shop\Store;
 use common\models\shop\User;
 use common\models\shop\UserCoupon;
@@ -209,7 +210,7 @@ class OrderSubmitPreviewForm extends Model
                     $new_item->price = $temp_price;
             }*/
 
-            $total_price += $new_item->price * $item->num;
+            $total_price += $new_item->price;
             $new_cart_id_list[] = (string)$item->_id;
             $list[] = $new_item;
             $goods_card = Goods::getGoodsCard($goods->_id);

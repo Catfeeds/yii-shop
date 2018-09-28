@@ -21,8 +21,10 @@ use common\models\shop\OrderDetail;
 use common\models\shop\OrderForm;
 use common\models\shop\PostageRules;
 use common\models\shop\PrinterSetting;
-use common\models\shop\Store;
 use common\models\User;
+use common\models\shop\Store;
+use common\models\shop\GoodsStore;
+
 use common\models\shop\UserCoupon;
 use app\modules\api\controllers\OrderController;
 use app\extensions\PinterOrder;
@@ -161,6 +163,9 @@ class OrderSubmitForm extends Model
                 	$p = Product::findOne($val->product_id);
                 	$goods->shop_price = $p->shop_price;
                 	$goods->store = $p->store;
+                }else{
+                	$storeModel = GoodsStore::findOne(['goods_id' => (string)$val->goods_id]);
+                	$goods->store = $storeModel->store;
                 }
                 if($goods->store < $val->num)
                 {

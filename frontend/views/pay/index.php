@@ -16,7 +16,7 @@
             		<div class="shop_main" style="margin-bottom: 192px;">
             			<span>选择付款方式</span>
                         <span style="margin-top: 28px;">支付方式：</span>
-                        <h3>实付：¥<?=$order['total_price']?></h3>
+                        <h3>实付：¥<?=$order['pay_price']?></h3>
             			<div class="shop_zf">
             				<li @click="payment(index)" v-for="(opt, index) in options" v-bind:class="{on1 : ont == index}">
             					<i :class="opt.clas"></i>
