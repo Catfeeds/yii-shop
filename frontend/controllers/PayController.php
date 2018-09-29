@@ -50,7 +50,7 @@ class PayController extends BaseController
     		Yii::$app->session->setFlash('msg','参数错误');
 			return $this->redirect('/site/msg');
     	}
-    	$order = Order::findOne(['order_no' => $orderId,'user_id' => $this->userId]);
+    	$order = Order::findOne(['order_no' => $orderNo,'user_id' => $this->userId]);
     	if(!$order)
     	{
     		Yii::$app->session->setFlash('msg','找不到相应的订单');
