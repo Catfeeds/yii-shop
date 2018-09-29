@@ -45,7 +45,7 @@ class PayController extends BaseController
     public function actionWeixin()
     {	
     	$orderNo  = trim(Yii::$app->request->get('id'),'');
-    	if(!$orderSn)
+    	if(!$orderNo)
     	{
     		Yii::$app->session->setFlash('msg','参数错误');
 			return $this->redirect('/site/msg');
