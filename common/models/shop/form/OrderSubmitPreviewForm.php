@@ -74,14 +74,7 @@ class OrderSubmitPreviewForm extends Model
         ])->where(['level' => \Yii::$app->user->identity->level, 'store_id' => $this->store_id])->asArray()->one();
         $res['data']['level'] = $level;
         $res['data']['send_type'] = $store->send_type;
-        // 获取 店铺积分使用规则
-        $res['data']['integral']['integration'] = $store->integration;
-        // 获取用户当前积分
-        $user = User::findOne(['id' => $this->user_id, 'type' => 1, 'is_delete' => 0]);
-        if ($user->integral < $res['data']['integral']['forehead_integral']) {
-            $res['data']['integral']['forehead_integral'] = $user->integral;
-            $res['data']['integral']['forehead'] = sprintf("%.2f", $user->integral / $store->integral);
-        }*/
+        }
         $res['data']['form']['is_form'] = Option::get('is_form',$this->store_id,'admin',0);
         $res['data']['form']['name'] = Option::get('form_name',$this->store_id,'admin','表单信息');
         $form_list = Form::find()->where([
@@ -102,8 +95,8 @@ class OrderSubmitPreviewForm extends Model
                 }
                 $form_list[$index]['default_list'] = $default_list;
             }
-        }
-        $res['data']['form']['list'] = $form_list;
+        }*/
+        $res['data']['form']['list'] = [];
         $res['code'] = isset($res['code']) ? 0 :1;
         return $res;
     }
