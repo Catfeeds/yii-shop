@@ -86,7 +86,7 @@ class PayController extends BaseController
     	$input->SetBody($orderGoods['goods_name']);
     	$input->SetAttach($orderGoods['goods_name']);
     	$input->SetGoods_tag($orderGoods['goods_name']);
-    	$input->SetOut_trade_no($orderSn);
+    	$input->SetOut_trade_no($orderNo);
     	
     	$payAmount = $order['pay_price'] * 100;
     	$input->SetTotal_fee($payAmount);
