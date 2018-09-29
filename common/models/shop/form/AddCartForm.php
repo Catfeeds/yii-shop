@@ -38,13 +38,7 @@ class AddCartForm extends Model
         {
             return $this->getModelError();
         }
-       /* $goods = Goods::findOne([
-            '_id' => $this->goods_id,
-            'store_id' => $this->store_id,
-            'is_delete' => 0,
-            'status' => 1,
-        ]);*/
-        $goods = Goods::findOne($this->goods_id);
+        $goods = Goods::findOne(['_id' => $this->goods_id,'status'=>1]);
         if (!$goods) {
             return [
                 'code' => 1,

@@ -66,7 +66,7 @@ class CartListForm extends Model
                 'goods_pic' =>Yii::$app->params['image'].$goods->image[0],
                 'num' => $item->num,
                 'attr_list' => $item->attr,
-                'price' => doubleval($goods->shop_price) * $item->num,
+                'price' => $goods->shop_price,
                 'max_num' => $goods->store,
                 'disabled' => ($item->num > $goods->store) ? true : false,
             ];
