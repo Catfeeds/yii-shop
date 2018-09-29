@@ -37,33 +37,9 @@ class OrderListForm extends Model
         if (!$this->validate())
             return $this->getModelError();
         $query = Order::find()->where([
-            'is_delete' => 0,
-            'store_id' => $this->store_id,
             'user_id' => $this->user_id,
-            'is_cancel'=>0
         ]);
-        if ($this->status == 0) {//待付款
-            $query->andWhere([
-                'is_pay' => 0,
-            ]);
-        }
-        if ($this->status == 1) {//待发货
-            $query->andWhere([
-                'is_pay' => 1,
-                'is_send' => 0,
-            ]);
-        }
-        if ($this->status == 2) {//待收货
-            $query->andWhere([
-                'is_send' => 1,
-                'is_confirm' => 0,
-            ]);
-        }
-        if ($this->status == 3) {//已完成
-            $query->andWhere([
-                'is_confirm' => 1,
-            ]);
-        }
+        
         if ($this->status == 4) {//售后订单
             return $this->getRefundList();
         }
@@ -83,7 +59,6 @@ class OrderListForm extends Model
                 $goods_list[] = (object)[
                     'goods_id' => $goods->id,
                     'goods_pic' => $goods_pic,
-//                    'goods_pic' => $goods->getGoodsPic(0)->pic_url,
                     'goods_name' => $goods->name,
                     'num' => $order_detail->num,
                     'price' => $order_detail->total_price,
