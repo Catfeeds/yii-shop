@@ -46,7 +46,7 @@ class OrderListForm extends Model
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'page' => $this->page - 1, 'pageSize' => $this->limit]);
         /* @var Order[] $list */
-        $list = $query->limit($pagination->limit)->offset($pagination->offset)->orderBy('addtime DESC')->all();
+        $list = $query->limit($pagination->limit)->offset($pagination->offset)->orderBy('created_at DESC')->all();
         $new_list = [];
         foreach ($list as $order) {
             $order_detail_list = OrderDetail::findAll(['order_id' => $order->id, 'is_delete' => 0]);
@@ -55,10 +55,9 @@ class OrderListForm extends Model
                 $goods = Goods::findOne($order_detail->goods_id);
                 if (!$goods)
                     continue;
-                $goods_pic = isset($order_detail->pic)?$order_detail->pic?:$goods->getGoodsPic(0)->pic_url:$goods->getGoodsPic(0)->pic_url;
                 $goods_list[] = (object)[
-                    'goods_id' => $goods->id,
-                    'goods_pic' => $goods_pic,
+                    'goods_id' => $goods->_id,
+                    'goods_pic' => $goods->image[0],
                     'goods_name' => $goods->name,
                     'num' => $order_detail->num,
                     'price' => $order_detail->total_price,
@@ -72,15 +71,12 @@ class OrderListForm extends Model
             $new_list[] = (object)[
                 'order_id' => $order->id,
                 'order_no' => $order->order_no,
-                'addtime' => date('Y-m-d H:i', $order->addtime),
+                'addtime' => date('Y-m-d H:i', $order->created_at),
                 'goods_list' => $goods_list,
                 'total_price' => $order->total_price,
                 'pay_price' => $order->pay_price,
-                'is_pay' => $order->is_pay,
-                'is_send' => $order->is_send,
-                'is_confirm' => $order->is_confirm,
+                'status' => $order->order_status,
                 'is_comment' => $order->is_comment,
-                'apply_delete' => $order->apply_delete,
                 'is_offline'=>$order->is_offline,
 //                'qrcode'=>$qrcode,
                 'offline_qrcode'=>$order->offline_qrcode,
