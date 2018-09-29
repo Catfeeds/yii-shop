@@ -8,6 +8,7 @@ use common\service\order\OrderService;
 use yii\helpers\Url;
 use common\models\shop\form\OrderSubmitPreviewForm;
 use common\models\shop\form\OrderSubmitForm;
+use common\models\shop\form\OrderListForm;
 class OrderController extends BaseController
 {	
 	
@@ -34,7 +35,8 @@ class OrderController extends BaseController
 	}
 	
 	
-	//订单提交
+	/*
+	 * 订单创建**/
 	public function actionSubmit()
 	{
 		$form = new OrderSubmitForm();
@@ -52,30 +54,7 @@ class OrderController extends BaseController
 		
 	}
 	
-	
-	
-	
 
-    
-    /**
-    * @desc 订单创建
-    */
-    public function actionCreate()
-    {
-    	$addressId = (int)Yii::$app->request->post('address_id');
-    	$message = (string)Yii::$app->request->post('message');
-    	if(!$addressId)
-    	{
-    		return ['status' =>1,'参数错误'];
-    	}
-    	$orderService = new OrderService();
-    	if(!$orderService->create($this->userId, $addressId, $message))
-    	{
-    		return ['status' => 1,'msg' =>$orderService->errorMsg];
-    	}
-    	$returnUrl = Url::to(['/pay/index','id' =>$orderService->orderSn]);
-    	return ['status' => 0,'msg' =>'','return_url' => $returnUrl];
-    }
     
     /**
     * @desc 查询订单状态 (api)
@@ -103,16 +82,12 @@ class OrderController extends BaseController
     */
     public function actionOrderlist()
     {	
-    	$orderService = new OrderService();	
-    	$size = Yii::$app->request->post('size');
-    	$page = Yii::$app->request->post('page');
-    	$order_status = Yii::$app->request->post('order_status');
-    	if(!$order_status)
-    	{
-    		$order_status = -1;
-    	}
-    	$data = $orderService->getList($this->userId,$page,$size,$order_status);
-    	return ['status' => 0,'data' => $data];
+    	$form = new OrderListForm();
+        $form->attributes = \Yii::$app->request->get();
+        $form->store_id = 1;
+        $form->user_id = $this->userId;
+        $result = $form->search();
+    	return ['status' => $result['code'],'data' => $result['data']['list']];
     }
     
     /**
