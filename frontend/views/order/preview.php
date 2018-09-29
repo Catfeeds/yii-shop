@@ -404,7 +404,9 @@
 			                if(data.status == 0){
 			                    linkUrl = data.return_url;
 			                    window.location = linkUrl;
-			                }	                 	
+			                }else{
+								alert(data.msg);
+				            }	                 	
 			            }
 			        })
 		        } ,
