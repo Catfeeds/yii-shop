@@ -88,8 +88,8 @@ class PayController extends BaseController
     	$input->SetGoods_tag($orderGoods['goods_name']);
     	$input->SetOut_trade_no($orderSn);
     	
-    	$orderAmount = $order['order_amount'] * 100;
-    	$input->SetTotal_fee($orderAmount);
+    	$payAmount = $order['pay_price'] * 100;
+    	$input->SetTotal_fee($payAmount);
     	
     	$url = Yii::$app->params['weixin.notify'];
     	$input->SetNotify_url($url);
