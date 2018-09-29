@@ -206,7 +206,8 @@ class OrderSubmitPreviewForm extends Model
             $total_price += $new_item->price;
             $new_cart_id_list[] = (string)$item->_id;
             $list[] = $new_item;
-            $goods_card = Goods::getGoodsCard($goods->_id);
+            //$goods_card = Goods::getGoodsCard($goods->_id);
+            $goods_card= [];
             $goods_card_list = array_merge($goods_card_list,$goods_card);
             $new_goods = [
                 'goods_id' => $goods->_id,
@@ -218,53 +219,6 @@ class OrderSubmitPreviewForm extends Model
             ];
 
             $goodsList[] = $new_goods;
-
-            // 积分
-            /*$integral = json_decode($goods->integral);
-            if ($integral) {
-                $give = $integral->give;
-                if (strpos($give, '%') !== false) {
-                    // 百分比
-                    $give = trim($give, '%');
-//                    $new_item->give = ($new_item->price * ($give/100)) * $store->integral;
-                    $new_item->give = (int)($new_item->price * ($give / 100));
-                } else {
-                    // 固定积分
-                    $new_item->give = (int)($give * $new_item->num);
-                }
-
-                $forehead = (int)$integral->forehead;
-                if (strpos($forehead, '%') !== false) {
-                    $forehead = trim($forehead, '%');
-                    if ($forehead >= 100){
-                        $forehead = 100;
-                    }
-                    if ($integral->more == '1') {
-                        $resIntegral['forehead_integral'] += (int)(($forehead / 100) * $new_item->price*$store->integral);
-                    } elseif ($integral->more != '1' && !in_array($goods->id, $goodsIds)) {
-                        $resIntegral['forehead_integral'] += (int)(($forehead / 100) * (empty($goods_attr_info['price']) ? $goods->price : $goods_attr_info['price'])*$store->integral);
-                    }
-                } else {
-                    if ($integral->more == '1') {
-                        if ($new_item->price > ($forehead*$new_item->num)){
-                            $resIntegral['forehead_integral'] += (int)(($forehead*$new_item->num)*$store->integral);
-                        }else{
-                            $resIntegral['forehead_integral'] += (int)($store->integral * $new_item->price);
-                        }
-                    } else {
-                        $goodsPrice = (empty($goods_attr_info['price']) ? $goods->price : $goods_attr_info['price']);
-                        if ($goodsPrice > $forehead){
-                            $resIntegral['forehead_integral'] += (int)($forehead*$store->integral);
-                        }else{
-                            $resIntegral['forehead_integral'] += (int)($store->integral * $goodsPrice);
-                        }
-                    }
-                }
-
-                // 记录下 商品id
-                $goodsIds[] = $goods->id;
-                $resIntegral['forehead'] = sprintf("%.2f",($resIntegral['forehead_integral'] / $store->integral));
-            }*/
         }
         if (count($list) == 0) {
             return [
@@ -284,8 +238,8 @@ class OrderSubmitPreviewForm extends Model
         }
         $express_price = 0;
         if ($address) {
-           // $resGoodsList = (new Goods)->cutFull($goodsList);
-           // $express_price = PostageRules::getExpressPriceMore($this->store_id, $address['province_id'], $resGoodsList);
+           	//$resGoodsList = (new Goods)->cutFull($goodsList);
+           	//$express_price = PostageRules::getExpressPriceMore($this->store_id, $address['province_id'], $resGoodsList);
 			$address['id'] = (string)$address['_id'];
         }
 	
