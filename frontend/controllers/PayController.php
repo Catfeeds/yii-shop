@@ -9,6 +9,8 @@ use common\service\order\OrderService;
 use common\service\pay\weixin\NativePay;
 use common\service\pay\weixin\PayNotifyCallBack;
 use common\models\shop\Order;
+use common\models\shop\OrderDetail;
+
 /**
  * Site controller
  */
@@ -42,14 +44,13 @@ class PayController extends BaseController
     */
     public function actionWeixin()
     {	
-    	$orderSn  = trim(Yii::$app->request->get('id'),'');
+    	$orderNo  = trim(Yii::$app->request->get('id'),'');
     	if(!$orderSn)
     	{
     		Yii::$app->session->setFlash('msg','参数错误');
 			return $this->redirect('/site/msg');
     	}
-    	$orderService = new OrderService();
-    	$order = $orderService->getOrderByOrdersn($orderSn);
+    	$order = Order::findOne(['order_no' => $orderId,'user_id' => $this->userId]);
     	if(!$order)
     	{
     		Yii::$app->session->setFlash('msg','找不到相应的订单');
@@ -60,7 +61,8 @@ class PayController extends BaseController
     		Yii::$app->session->setFlash('msg','订单已支付过了');
 			return $this->redirect('/site/msg');
     	}
-    	$orderGoods = $orderService->getOrderGoodByOrderId($order['id']);
+    	$detailModel = new OrderDetail();
+    	$orderGoods = $detailModel->getList($order['id']);
     	/**
     	* 流程：
     	* 1、组装包含支付信息的url，生成二维码

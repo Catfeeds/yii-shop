@@ -67,4 +67,21 @@ class OrderDetail extends Model
             'integral' => '获取积分',
         ];
     }
+    
+    
+    public function getList($orderId)
+    {
+    	$orderGoods = self::find()->select(['*'])->where(['order_id' =>$orderId])->asArray()->all();
+    	$orderGoods ?: [];
+    	if($orderGoods)
+    	{
+    		foreach($orderGoods as $k => $v)
+    		{
+    			$goods = Goods::findOne($v['goods_id']);
+    			$v['name'] = $goods['name'];
+    			$orderGoods[$k] = $v;
+    		}
+    	}
+    	return $orderGoods;
+    }
 }
