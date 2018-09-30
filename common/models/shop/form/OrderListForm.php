@@ -74,7 +74,7 @@ class OrderListForm extends Model
                 'goods_list' => $goods_list,
                 'total_price' => $order->total_price,
                 'pay_price' => $order->pay_price,
-                'name' => $order->name;
+                'name' => $order->name,
                 'order_status' => $order->order_status,
                 'is_comment' => $order->is_comment,
                 'is_offline'=>$order->is_offline,
