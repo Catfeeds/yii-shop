@@ -56,8 +56,8 @@ class OrderListForm extends Model
                 if (!$goods)
                     continue;
                 $goods_list[] = (object)[
-                    'goods_id' => $goods->_id,
-                    'goods_pic' => $goods->image[0],
+                    'goods_id' => (string)$goods->_id,
+                    'goods_pic' => Yii::$app->params['image'].$goods->image[0],
                     'goods_name' => $goods->name,
                     'num' => $order_detail->num,
                     'price' => $order_detail->total_price,
@@ -78,7 +78,7 @@ class OrderListForm extends Model
                 'status' => $order->order_status,
                 'is_comment' => $order->is_comment,
                 'is_offline'=>$order->is_offline,
-//                'qrcode'=>$qrcode,
+                //'qrcode'=>$qrcode,
                 'offline_qrcode'=>$order->offline_qrcode,
                 'express'=>$order->express,
             ];
