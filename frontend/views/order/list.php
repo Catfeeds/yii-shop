@@ -34,18 +34,18 @@
             				<ul>
             					<li v-for="(list, index) in ListData">
             						<div class="orderNumber">
-            							<p>订单编号：{{ list.order_sn }}</p>
+            							<p>订单编号：{{ list.order_no }}</p>
             						</div>
             						<div class="oli">
             						<div class="list_i od1" :class="{'lisBorder': list.goods_list.length > 1}">
 	            						<a v-for="item in list.goods_list" class="order_list" :href="goodUrl + '?id=' + item.goods_id">
-	            							<img :src="imgUrl + item.goods_image">
+	            							<img :src="item.goods_pic">
 	            							<b>{{ item.goods_name }}</b>
-	            							<p class="od2">{{ item.goods_num }}</p>
+	            							<p class="od2">{{ item.num }}</p>
 	            						</a>
 	            					</div>
-	            						<p class="od3">{{ list.consignee }}</p>
-	            						<p class="od4">{{ list.order_amount }}</p>
+	            						<p class="od3">{{ list.name }}</p>
+	            						<p class="od4">{{ list.pay_price }}</p>
 	            						<p v-show="list.order_status == 1" class="od5">未付款</p>
 	            						<p v-show="list.order_status == 2" class="od5">待发货</p>
 	            						<p v-show="list.order_status == 3" class="od5">待收货</p>
