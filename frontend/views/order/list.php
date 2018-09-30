@@ -141,7 +141,7 @@
          		    _this.popupShow = true;
          		    _this.messageText = '确定取消订单？'
          		    _this.show1 = true;
-                	_this.id = item.order_sn;
+                	_this.id = item.order_no;
                 	
                 },
 //              orders_gz: function(item){
