@@ -3,12 +3,12 @@
 namespace frontend\controllers;
 
 use Yii;
-use common\service\goods\GoodsService;
 use common\service\order\OrderService;
 use yii\helpers\Url;
 use common\models\shop\form\OrderSubmitPreviewForm;
 use common\models\shop\form\OrderSubmitForm;
 use common\models\shop\form\OrderListForm;
+use common\models\shop\form\OrderRevokeForm;
 class OrderController extends BaseController
 {	
 	
@@ -106,6 +106,15 @@ class OrderController extends BaseController
     		return ['status' =>0,'msg' => '取消成功' ];
     	}
     	return ['status' =>1,'msg' => '取消失败' ];
+    }
+    
+    //订单取消
+    public function actionRevoke()
+    {
+    	$form = new OrderRevokeForm();
+    	$form->attributes = \Yii::$app->request->get();
+    	$form->user_id = $this->userId;
+    	$this->renderJson($form->save());
     }
 	
     

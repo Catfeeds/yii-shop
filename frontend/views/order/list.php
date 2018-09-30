@@ -202,9 +202,9 @@
                 	let _this = this;
                 	$.ajax({
                 		type:"GET",
-                		url:"/order/cancel",
+                		url:"/order/revoke",
                 		dataType: 'json',
-                		data: {id:_this.id},
+                		data: {order_no:_this.id},
                 		success: function(data){
                 			if(data.status == 0){
                 				_this.carShow = false;
