@@ -78,46 +78,6 @@ class OrderSubmitForm extends Model
             return $this->getModelError();
         $t = \Yii::$app->db->beginTransaction();
         $express_price = 0;
-        $form = json_decode($this->form, true);
-        $form_list = $form['list'];
-        if ($form['is_form'] == 1) {
-            foreach ($form_list as $index => $value) {
-                if ($value['required'] == 1) {
-                    if (in_array($value['type'], ['radio', 'checkbox'])) {
-                        $is_true = false;
-                        foreach ($value['default_list'] as $k => $v) {
-                            if ($v['is_selected'] == 1) {
-                                $is_true = true;
-                            }
-                        }
-                        if (!$is_true) {
-                            return [
-                                'code' => 1,
-                                'msg' => '请填写' . $form['name'] . '，加“*”为必填项',
-                                'name' => $value['name']
-                            ];
-                        }
-                    } else {
-                        if (!$value['default'] && $value['default'] != 0) {
-                            return [
-                                'code' => 1,
-                                'msg' => '请填写' . $form['name'] . '，加“*”为必填项',
-                                'name' => $value['name']
-                            ];
-                        }
-                    }
-                }
-                if (in_array($value['type'], ['radio', 'checkbox'])) {
-                    $d = [];
-                    foreach ($value['default_list'] as $k => $v) {
-                        if ($v['is_selected'] == 1) {
-                            $d[] = $v['name'];
-                        }
-                    }
-                    $form_list[$index]['default'] = implode(',', $d);
-                }
-            }
-        }
         if ($this->offline == 0) {
             $address = Address::findOne([
                 '_id' => $this->address_id,
@@ -130,7 +90,7 @@ class OrderSubmitForm extends Model
                 ];
             }
 
-//            $express_price = PostageRules::getExpressPrice($this->store_id, $address->province_id);
+		//$express_price = PostageRules::getExpressPrice($this->store_id, $address->province_id);
         } else {
             if (!preg_match_all("/1\d{10}/", $this->address_mobile, $arr)) {
                 return [
@@ -182,64 +142,11 @@ class OrderSubmitForm extends Model
                 $total_price += ($new_goods['price'])*$val->num;
                 $goodsList[] = $new_goods;
 
-                // 积分
-               /* $integral = json_decode($goods->integral);
-                if ($integral) {
-                    // 获取商品规格信息
-                    $attr_id_list = [];
-                    foreach ($val->attr_list as $item) {
-                        array_push($attr_id_list, $item['attr_id']);
-                    }
-                    $goods_attr_info = $goods->getAttrInfo($attr_id_list);
-
-                    $give = $integral->give;
-                    if (strpos($give, '%') !== false) {
-                        // 百分比
-                        $give = trim($give, '%');
-                        $goods_list[$k]->give = (int)($val->price * ($give / 100));
-                    } else {
-                        // 固定积分
-                        $goods_list[$k]->give = (int)($give * $val->num);
-                    }
-                    if ($this->use_integral == '1') {
-                        $forehead = (int)$integral->forehead;
-                        if (strpos($forehead, '%') !== false) {
-                            $forehead = trim($forehead, '%');
-                            if ($forehead >= 100) {
-                                $forehead = 100;
-                            }
-                            if ($integral->more == '1') {
-                                $resIntegral['forehead_integral'] += (int)(($forehead / 100) * $val->price * $store->integral);
-                            } elseif ($integral->more != '1' && !in_array($goods->id, $goodsIds)) {
-                                $resIntegral['forehead_integral'] += (int)(($forehead / 100) * (empty($goods_attr_info['price']) ? $goods->price : $goods_attr_info['price']) * $store->integral);
-                            }
-                        } else {
-                            if ($integral->more == '1') {
-                                if ($val->price > ($forehead * $val->num)) {
-                                    $resIntegral['forehead_integral'] += (int)(($forehead * $val->num) * $store->integral);
-                                } else {
-                                    $resIntegral['forehead_integral'] += (int)($store->integral * $val->price);
-                                }
-                            } else {
-                                $goodsPrice = (empty($goods_attr_info['price']) ? $goods->price : $goods_attr_info['price']);
-                                if ($goodsPrice > $forehead) {
-                                    $resIntegral['forehead_integral'] += (int)($forehead * $store->integral);
-                                } else {
-                                    $resIntegral['forehead_integral'] += (int)($store->integral * $goodsPrice);
-                                }
-                            }
-                        }
-                        // 记录下 商品id
-                        $goodsIds[] = $goods->id;
-                        $resIntegral['forehead'] = sprintf("%.2f", ($resIntegral['forehead_integral'] / $store->integral));
-                    }
-                }*/
             }
             if ($this->offline == 0) {
                 //$resGoodsList = (new Goods)->cutFull($goodsList);
                // $express_price = PostageRules::getExpressPriceMore($this->store_id, $address->province_id, $resGoodsList);
             }
-           // Cart::deleteAll(['_id' => $this->cart_id_list,'user_id' => $this->user_id]);
 
         } elseif ($this->goods_info) {
             $data = $this->getGoodsListByGoodsInfo($this->goods_info);
@@ -257,54 +164,6 @@ class OrderSubmitForm extends Model
                     'status' => 1,
                 ]);
 
-                // 积分
-                /*$integral = json_decode($goods->integral);
-                if ($integral) {
-                    // 获取商品规格信息
-                    $attr_id_list = [];
-                    foreach ($val->attr_list as $item) {
-                        array_push($attr_id_list, $item['attr_id']);
-                    }
-                    $goods_attr_info = $goods->getAttrInfo($attr_id_list);
-
-                    $give = $integral->give;
-                    if (strpos($give, '%') !== false) {
-                        // 百分比
-                        $give = trim($give, '%');
-                        $goods_list[$k]->give = (int)($val->price * ($give / 100));
-                    } else {
-                        // 固定积分
-                        $goods_list[$k]->give = (int)($give * $val->num);
-                    }
-                    if ($this->use_integral == '1') {
-                        $forehead = (int)$integral->forehead;
-                        if (strpos($forehead, '%') !== false) {
-                            $forehead = trim($forehead, '%');
-                            if ($forehead >= 100) {
-                                $forehead = 100;
-                            }
-                            if ($integral->more == '1') {
-                                $resIntegral['forehead_integral'] = (int)(($forehead / 100) * $val->price * $store->integral);
-                            } else {
-                                $resIntegral['forehead_integral'] = (int)(($forehead / 100) * (empty($goods_attr_info['price']) ? $goods->price : $goods_attr_info['price']) * $store->integral);
-                            }
-                        } else {
-                            if ($integral->more == '1') {
-                                $resIntegral['forehead_integral'] = (int)($store->integral * $val->price);
-                                if ($val->price > ($forehead * $val->num)) {
-                                    $resIntegral['forehead_integral'] = (int)(($forehead * $val->num) * $store->integral);
-                                }
-                            } else {
-                                $goodsPrice = (empty($goods_attr_info['price']) ? $goods->price : $goods_attr_info['price']);
-                                $resIntegral['forehead_integral'] = (int)($store->integral * $goodsPrice);
-                                if ($goodsPrice > $forehead) {
-                                    $resIntegral['forehead_integral'] = (int)($store->integral * $forehead);
-                                }
-                            }
-                        }
-                        $resIntegral['forehead'] = sprintf("%.2f", ($resIntegral['forehead_integral'] / $store->integral));
-                    }
-                }*/
                 if ($this->offline == 0) {
                     if ($goods['full_cut']) {
                         $full_cut = json_decode($goods['full_cut'], true);
@@ -331,19 +190,10 @@ class OrderSubmitForm extends Model
 
 
         $total_price_1 = $total_price + $express_price;
-       // $level = Level::find()->where(['store_id' => $this->store_id, 'level' => \Yii::$app->user->identity->level])->asArray()->one();
-       // if ($level) {
-       //     $discount = $level['discount'];
-       // } else {
-            $discount = 10;
-       // }
+        $discount = 10;
 
         // 获取用户当前积分
         $user = User::findOne(['id' => $this->user_id]);
-        /*if ($user->integral < $resIntegral['forehead_integral']) {
-            $resIntegral['forehead_integral'] = $user->integral;
-            $resIntegral['forehead'] = sprintf("%.2f", $user->integral / $store->integral);
-        }*/
 
         // 减去 积分折扣金额
         //$total_price_3 = $total_price - $resIntegral['forehead'];
@@ -356,7 +206,6 @@ class OrderSubmitForm extends Model
         $order->user_id = $this->user_id;
         $order->order_no = $this->getOrderNo();
         $order->total_price = $total_price_1;
-        //$order->pay_price = $total_price_2 < 0.01 ? 0.01 : $total_price_2;
         $order->pay_price = $total_price_1;
         
         $order->express_price = $express_price;
@@ -400,22 +249,6 @@ class OrderSubmitForm extends Model
             }
         }*/
         if ($order->save()) {
-
-           /* foreach ($form_list as $index => $value) {
-                $order_form = new OrderForm();
-                $order_form->store_id = $this->store_id;
-                $order_form->order_id = $order->id;
-                $order_form->key = $value['name'];
-                $order_form->value = $value['default'];
-                $order_form->is_delete = 0;
-                $order_form->save();
-            }*/
-
-            // 减去当前用户账户积分
-            if ($resIntegral['forehead_integral'] > 0) {
-                $user->integral -= $resIntegral['forehead_integral'];
-                $user->save();
-            }
             foreach ($goods_list as $goods) {
             	$g = Goods::findOne($goods->goods_id);
                 $order_detail = new OrderDetail();
@@ -428,7 +261,6 @@ class OrderSubmitForm extends Model
                 $order_detail->is_delete = 0;
                 $order_detail->attr = json_encode($goods->attr);
                 $order_detail->pic = Yii::$app->params['image'].$g->image[0];
-               // $order_detail->integral = $goods->give;
                 $order_detail->integral = 0;
                 
                /* $_goods = Goods::findOne($goods->goods_id);
@@ -451,10 +283,8 @@ class OrderSubmitForm extends Model
                 }
             }
 
-            // 打印设置
-//            $printer_order = new PinterOrder($this->store_id, $order->id);
-//            $res = $printer_order->print_order();
-
+            Cart::deleteAll(['_id' => json_decode($this->cart_id_list,true),'user_id' => $this->user_id]);
+            
             $t->commit();
             return [
                 'code' => 0,
@@ -484,7 +314,6 @@ class OrderSubmitForm extends Model
             'user_id' => $this->user_id,
             '_id' => json_decode($cart_id_list, true),
         ])->all();
-		//Cart::deleteAll(['_id' => json_decode($cart_id_list, true),'user_id' => $this->user_id]);
         return ['list' => $cart_list,
         ];
     }
